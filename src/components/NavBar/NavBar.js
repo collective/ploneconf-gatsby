@@ -20,12 +20,12 @@ const NavBar = ({ active }) => (
     render={data => (
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-brand">
-            Gatsby Starter Plone
-          </Link>
           <ol className="navbar-menu">
             <li className="navbar-item">
               <Link to="/">Home</Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/submit-proposal">Submit a talk</Link>
             </li>
             {data.ploneNavigation.items
               .filter(item => item._path !== '/')

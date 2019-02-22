@@ -9,3 +9,5 @@ yarn-error.log
 
 # Editor configs
 .vscode
+
+.env.*
