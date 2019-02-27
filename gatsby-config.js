@@ -1,6 +1,4 @@
-require('dotenv').config({
-  path: '.secrets',
-});
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -12,7 +10,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-plone',
       options: {
-        baseUrl: 'http://localhost:8081/Plone2',
+        baseUrl: process.env.GATSBY_API_URL,
         logLevel: 'DEBUG',
       },
     },
