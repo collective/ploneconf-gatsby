@@ -1,9 +1,8 @@
 import React from 'react';
 import Form from 'react-jsonschema-form';
-import Layout from '../components/Layout';
-import CaptchaField from '../components/CaptchaField';
+import CaptchaField from '../CaptchaField';
 
-class SubmitProposal extends React.Component {
+class TalkSubmission extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -133,7 +132,7 @@ class SubmitProposal extends React.Component {
     }
 
     return (
-      <Layout>
+      <div className="talk-submission-form">
         <div className="status-message">{message}</div>
         <Form
           key={key}
@@ -147,9 +146,9 @@ class SubmitProposal extends React.Component {
           }}
           validate={this.validate}
         />
-      </Layout>
+      </div>
     );
   }
 }
 
-export default SubmitProposal;
+export default TalkSubmission;

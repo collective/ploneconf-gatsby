@@ -9,7 +9,7 @@ const Person = ({ data }) => {
   return (
     <article key={_id}>
       <h1>{title}</h1>
-      {image.childImageSharp ? (
+      {image && image.childImageSharp ? (
         <Img resolutions={image.childImageSharp.fixed} />
       ) : null}
       {bio ? (

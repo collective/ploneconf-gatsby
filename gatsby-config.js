@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-plone',
       options: {
-        baseUrl: 'http://localhost:8081/Plone',
+        baseUrl: 'http://localhost:8081/Plone2',
         logLevel: 'DEBUG',
       },
     },

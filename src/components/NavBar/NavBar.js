@@ -24,9 +24,6 @@ const NavBar = ({ active }) => (
             <li className="navbar-item">
               <Link to="/">Home</Link>
             </li>
-            <li className="navbar-item">
-              <Link to="/submit-proposal">Submit a talk</Link>
-            </li>
             {data.ploneNavigation.items
               .filter(item => item._path !== '/')
               .map(item => (

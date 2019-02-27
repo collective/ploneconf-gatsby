@@ -2,18 +2,27 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Document from '../components/Document';
+import CallForSpeakers from '../components/CallForSpeakers';
 import Person from '../components/Person';
 import Folder from '../components/Folder';
 import Layout from '../components/Layout';
 
 const componentFor = data => {
   const nodes = query => (query ? query['edges'] : []).map(edge => edge.node);
-
   if (data) {
     if (data['ploneDocument']) {
+      const { ploneDocument } = data;
+      if (ploneDocument._id === 'call-for-speakers') {
+        return (
+          <CallForSpeakers
+            data={ploneDocument}
+            images={nodes(data['allPloneImage'])}
+          />
+        );
+      }
       return (
         <Document
-          data={data['ploneDocument']}
+          data={ploneDocument}
           images={nodes(data['allPloneImage'])}
           files={nodes(data['allPloneFile'])}
         />

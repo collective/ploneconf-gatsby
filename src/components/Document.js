@@ -21,6 +21,7 @@ export default Document;
 export const query = graphql`
   fragment Document on PloneDocument {
     id
+    _id
     title
     description
     text {
