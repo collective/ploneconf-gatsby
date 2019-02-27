@@ -3,16 +3,19 @@
   "description": "Ploneconf Gatsby site",
   "version": "0.1.0",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "gatsby": "^2.1.17",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.19",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.22",
     "gatsby-source-filesystem": "^2.0.22",
     "gatsby-source-plone": "^0.1.0",
     "gatsby-transformer-sharp": "^2.1.14",
+    "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-google-recaptcha": "^1.0.5",
@@ -37,7 +40,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "@redturtle/eslint-config": "^2.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "prettier": "^1.16.4",
+    "stylelint": "^9.10.1",
+    "stylelint-config-prettier": "^5.0.0",
+    "stylelint-config-recommended": "^2.1.0"
   },
   "repository": {
     "type": "git",

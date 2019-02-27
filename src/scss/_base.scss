@@ -1,0 +1,26 @@
+// Theme variables
+@import '../scss/variables';
+
+// Bootstrap 4 variables and mixins
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/reboot';
+
+@mixin antialias() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%container {
+    @include make-container;
+    @include make-container-max-widths;
+}
+
+%row {
+    @include make-row;
+}
+
+%sr-only {
+    @include sr-only;
+}

@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "@redturtle/eslint-config",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": ["jsx-a11y", "react"],
+  "globals": {
+    "graphql": false
+  },
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "trailingComma": "all"
+      }
+    ]
+  }
+}
+

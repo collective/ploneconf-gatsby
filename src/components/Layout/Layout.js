@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+import '../../scss/_base.scss';
+
 import Header from '../Header';
-import './Layout.css';
 import Breadcrumbs from '../Breadcrumbs';
 import NavBar from '../NavBar';
 
