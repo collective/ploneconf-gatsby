@@ -43,8 +43,33 @@
 
     .footer-flex-helper {
         display: flex;
-        // flex-wrap: wrap;
+        flex-wrap: wrap;
         align-items: center;
+
+        .footer-flex-helper {
+            flex-wrap: nowrap;
+
+            &.logo-about-wrapper {
+                @media (max-width: 480px) {
+                    flex-wrap: wrap;
+                }
+            }
+
+            &.about-plone-wrapper {
+                @media (max-width: 768px) {
+                    display: block;
+
+                    svg {
+                        height: 2.5rem;
+                    }
+
+                    .about-plone {
+                        padding-left: 0;
+                        padding-top: 1rem;
+                    }
+                }
+            }
+        }
 
         .flex-item {
             width: 50%;
@@ -53,13 +78,20 @@
                 width: auto;
                 flex: 1;
 
-                + .flex-item {
-                    width: auto;
+                @media (min-width: 992px) {
+                    + .flex-item {
+                        width: auto;
+                    }
                 }
             }
 
-            breakpoint-max(sm) {
+            @media (max-width: 991px) {
                 width: 100%;
+                margin-bottom: 3rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
             }
         }
     }
@@ -116,7 +148,13 @@
     }
 
     .about-conf {
-        padding-left: 2rem;
+        @media (min-width: 481px) {
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            padding-top: 2rem;
+        }
     }
 
     .about-plone {
@@ -154,11 +192,10 @@
         display: flex;
         align-items: center;
 
-        label {
+        .label {
             font-weight: 600;
             text-transform: uppercase;
             margin-right: 0.5rem;
-            margin-bottom: 0;
             font-size: 12px;
         }
     }

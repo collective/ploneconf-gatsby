@@ -34,11 +34,11 @@ const Footer = () => (
             </div>
             <p>via Nino Bixio, 4 - 44122 Ferrara (ITALY)</p>
             <div className="contact-wrapper">
-              <label>Tel.</label>
+              <span className="label">Tel.</span>
               <span>(+39) 0532 1915958</span>
             </div>
             <div className="contact-wrapper">
-              <label>Email</label>
+              <span className="label">Email</span>
               <a href="mailto:PC19Staff@redturtle.it">PC19Staff@redturtle.it</a>
             </div>
           </div>
