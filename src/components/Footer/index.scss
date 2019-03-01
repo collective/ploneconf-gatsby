@@ -1,0 +1,165 @@
+// @import '../../../node_modules/bootstrap/scss/mixins';
+// @import '../../../node_modules/bootstrap/scss/variables';
+// @import '../../scss/variables';
+@import '../../scss/base';
+
+#footer-wrapper {
+    border-top: 13px solid $light-blue;
+    color: #fff;
+
+    .container {
+        @include make-container;
+        @include make-container-max-widths;
+    }
+
+    .footer-content {
+        background: $dark-color;
+
+        .footer-content-wrapper {
+            align-items: flex-start;
+            padding: 2.5rem 0;
+        }
+    }
+
+    .footer-plone-actions {
+        background: $footer-actions-bg;
+        padding: 1.5rem 0;
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
+            li {
+                + li {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    .footer-flex-helper {
+        display: flex;
+        // flex-wrap: wrap;
+        align-items: center;
+
+        .flex-item {
+            width: 50%;
+
+            &.flex-item-grow {
+                width: auto;
+                flex: 1;
+
+                + .flex-item {
+                    width: auto;
+                }
+            }
+
+            breakpoint-max(sm) {
+                width: 100%;
+            }
+        }
+    }
+
+    .logo-about-wrapper {
+        svg {
+            height: 10rem;
+            width: auto;
+        }
+    }
+
+    .about-plone-wrapper {
+        svg {
+            height: 3.5rem;
+            width: auto;
+        }
+    }
+
+    h2 {
+        font-size: 15px;
+        color: $light-blue;
+        text-transform: uppercase;
+        line-height: 20px;
+        font-weight: 300;
+    }
+
+    span {
+        display: block;
+    }
+
+    p,
+    span {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 300;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    br {
+        font-size: 0.5rem;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: darken(#fff, 15%);
+        }
+    }
+
+    .about-conf {
+        padding-left: 2rem;
+    }
+
+    .about-plone {
+        padding-left: 1rem;
+        color: $footer-gray;
+
+        span {
+            line-height: 22px;
+            font-size: 14px;
+        }
+    }
+
+    .coc-link {
+        font-size: 16px;
+        line-height: 26px;
+        text-transform: uppercase;
+    }
+
+    .rt-info {
+        p {
+            line-height: 22px;
+        }
+    }
+
+    .rt-logo {
+        margin: 1rem 0;
+
+        svg {
+            height: 1.5rem;
+            width: auto;
+        }
+    }
+
+    .contact-wrapper {
+        display: flex;
+        align-items: center;
+
+        label {
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+    }
+}

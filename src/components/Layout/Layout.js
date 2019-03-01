@@ -8,6 +8,7 @@ import '../../scss/_base.scss';
 import Header from '../Header';
 import Breadcrumbs from '../Breadcrumbs';
 import NavBar from '../NavBar';
+import Footer from '../Footer';
 
 const Layout = ({ breadcrumbs, children, data }) => (
   <StaticQuery
@@ -53,6 +54,7 @@ const Layout = ({ breadcrumbs, children, data }) => (
           >
             {children}
           </div>
+          <Footer />
         </>
       );
     }}
