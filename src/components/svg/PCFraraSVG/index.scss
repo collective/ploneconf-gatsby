@@ -7,4 +7,10 @@ svg#frara {
         right: -25vw;
         width: 150vw;
     }
+
+    @media (min-width: 1440px) {
+        max-width: 1400px;
+        display: block;
+        margin: auto;
+    }
 }
