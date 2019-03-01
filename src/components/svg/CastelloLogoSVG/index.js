@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CastelloSVG = () => (
+const CastelloLogoSVG = () => (
   <svg viewBox="0 0 606 496" version="1.1">
     <g
       id="grafica"
@@ -13,7 +13,7 @@ const CastelloSVG = () => (
         <g id="Group-2" transform="translate(-112.000000, 1058.000000)">
           <g
             id="castello"
-            style="mix-blend-mode: multiply;"
+            style={{ mixBlendMode: 'multiply' }}
             transform="translate(1160.000000, 30.000000)"
           >
             <path
@@ -353,4 +353,4 @@ const CastelloSVG = () => (
   </svg>
 );
 
-export default CastelloSVG;
+export default CastelloLogoSVG;

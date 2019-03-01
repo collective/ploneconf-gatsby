@@ -199,4 +199,11 @@
             font-size: 12px;
         }
     }
+
+    h2,
+    span,
+    p {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
