@@ -1,0 +1,10 @@
+svg#frara {
+    width: 100vw;
+
+    @media (max-width: 768px) {
+        position: relative;
+        left: -25vw;
+        right: -25vw;
+        width: 150vw;
+    }
+}

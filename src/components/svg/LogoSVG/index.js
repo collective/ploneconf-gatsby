@@ -2,8 +2,6 @@ import React from 'react';
 
 const LogoSVG = () => (
   <svg viewBox="0 0 199 205">
-    <title>Logo_PloneConf_2019-01</title>
-    <desc>Created with Sketch.</desc>
     <g
       id="Symbols"
       stroke="none"

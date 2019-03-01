@@ -2,8 +2,6 @@ import React from 'react';
 
 const PloneSVG = () => (
   <svg viewBox="0 0 127 33" version="1.1">
-    <title>plone-logo</title>
-    <desc>Created with Sketch.</desc>
     <g
       id="Symbols"
       stroke="none"

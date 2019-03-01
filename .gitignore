@@ -9,5 +9,6 @@ yarn-error.log
 
 # Editor configs
 .vscode
+*.swp
 
 .env*

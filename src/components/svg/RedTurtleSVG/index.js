@@ -2,8 +2,6 @@ import React from 'react';
 
 const RedTurtleSVG = () => (
   <svg viewBox="0 0 209 24" version="1.1">
-    <title>redturtle</title>
-    <desc>Created with Sketch.</desc>
     <g
       id="Symbols"
       stroke="none"

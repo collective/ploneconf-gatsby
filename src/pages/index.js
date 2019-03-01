@@ -2,12 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import Folder from '../components/Folder';
+import AboutTheEvent from '../components/AboutTheEvent';
+import PCFraraSVG from '../components/svg/PCFraraSVG';
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <hr style={{ background: '#e8eef2' }} />
-    <Folder data={data.ploneSite} title="Contents" />
+    <PCFraraSVG />
+    <AboutTheEvent />
   </Layout>
 );
 
