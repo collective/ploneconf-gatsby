@@ -1,0 +1,41 @@
+.hp-numbers {
+    padding: 1rem 0 2rem;
+
+    .flex-helper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 991px) {
+            flex-wrap: wrap;
+
+            .hp-numbers-item {
+                width: 50%;
+                max-width: 100%;
+                padding-bottom: 2rem;
+
+                &:nth-of-type(even) {
+                    padding-left: 2rem;
+                }
+
+                &:nth-of-type(odd) {
+                    padding-right: 2rem;
+                }
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hp-numbers-item {
+                width: 100%;
+                padding-bottom: 1.5rem;
+
+                &:nth-of-type(even),
+                &:nth-of-type(odd) {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}

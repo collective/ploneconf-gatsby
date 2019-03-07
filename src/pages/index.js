@@ -3,12 +3,15 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import AboutTheEvent from '../components/AboutTheEvent';
+import HPNumbers from '../components/HPNumbers';
+
 import PCFraraSVG from '../components/svg/PCFraraSVG';
 
 const IndexPage = ({ data }) => (
   <Layout>
     <PCFraraSVG />
     <AboutTheEvent />
+    <HPNumbers />
   </Layout>
 );
 
