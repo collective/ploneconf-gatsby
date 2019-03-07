@@ -40,10 +40,10 @@ const Layout = ({ breadcrumbs, children, data }) => (
               { name: 'keywords', content: 'gatsby, plone' },
             ]}
           />
-          <NavBar active={active} />
-          <Header siteData={data.site.siteMetadata} />
+          {/* <NavBar active={active} /> */}
+          {/* <Header siteData={data.site.siteMetadata} /> */}
           {breadcrumbs && <Breadcrumbs data={breadcrumbs} />}
-          <div>{children}</div>
+          <div id="content">{children}</div>
           <Footer />
         </>
       );

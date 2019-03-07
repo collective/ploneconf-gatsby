@@ -28,3 +28,8 @@
 body {
     font-family: $font-family-sans-serif;
 }
+
+#content {
+    max-width: 100vw;
+    overflow: hidden;
+}

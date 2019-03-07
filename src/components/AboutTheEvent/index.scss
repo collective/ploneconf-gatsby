@@ -1,9 +1,74 @@
 @import '../../scss/variables';
 
+$shape-height: 2vw;
+
 #about-the-event {
+    margin-bottom: calc(1rem + #{$shape-height});
+
     .dark-shape {
         background: #333;
         color: #fff;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-bottom: $shape-height solid #333;
+            border-left: 100vw solid transparent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: $shape-height solid #333;
+            border-left: 100vw solid transparent;
+        }
+    }
+
+    .blue-shape {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 1.6 * $shape-height solid $light-blue;
+            border-left: 60vw solid transparent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: $shape-height solid $light-blue;
+            border-right: 100vw solid transparent;
+            z-index: -1;
+        }
+
+        @media (max-width: 991px) {
+            &::before {
+                border-bottom: 2.5 * $shape-height solid $light-blue;
+                border-left: 100vw solid transparent;
+            }
+
+            &::after {
+                border-top: 1.5 * $shape-height solid $light-blue;
+            }
+        }
     }
 
     .section-label {
@@ -11,28 +76,179 @@
         text-transform: uppercase;
     }
 
-    .text-about {
-        h2 {
-            font-size: 49px;
-            line-height: 60px;
-            font-weight: 300;
-            font-family: $font-family-roboto;
-            margin: 0.5rem 0 2rem;
+    .text-wrapper {
+        .flex-helper {
+            display: flex;
+            align-items: center;
 
-            .text {
-                display: inline-block;
+            .text-about,
+            .text-info-wrapper {
+                padding: 1rem 0;
+            }
+
+            .text-about {
+                width: 50%;
+
+                h2 {
+                    font-size: 42px;
+                    line-height: 50px;
+                    font-weight: 300;
+                    font-family: $font-family-roboto;
+                    margin: 0.5rem 0 2rem;
+
+                    .text {
+                        display: inline-block;
+                        padding-bottom: 1rem;
+                        border-bottom: 2px solid $light-blue;
+                    }
+
+                    .title-blue {
+                        color: $light-blue;
+                        font-weight: 600;
+                    }
+
+                    p {
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                }
+            }
+
+            .text-info-wrapper {
+                width: 50%;
+                padding-left: 4rem;
+                position: relative;
+
+                .svg-wrapper {
+                    position: absolute;
+                    bottom: -$shape-height / 2;
+                    right: 0;
+                    height: calc(100% + #{$shape-height});
+                    max-width: 100%;
+                    z-index: 1;
+
+                    svg {
+                        height: 100%;
+                    }
+                }
+
+                .text-info {
+                    text-align: right;
+                    position: relative;
+                    z-index: 2;
+
+                    p {
+                        margin: 0;
+                        font-family: $font-family-roboto;
+                    }
+
+                    .italy-label {
+                        color: $light-blue;
+                        font-size: 28px;
+                        line-height: 33px;
+                    }
+
+                    .ferrara {
+                        font-size: 112px;
+                        font-weight: 600;
+                        line-height: 0.7;
+                        margin-bottom: 1rem;
+                    }
+
+                    .dates {
+                        font-weight: 600;
+
+                        .month {
+                            font-size: 35px;
+                            line-height: 40px;
+                            margin-right: 1rem;
+                            text-transform: uppercase;
+                        }
+
+                        .days {
+                            font-size: 67px;
+                            line-height: 80px;
+                        }
+                    }
+
+                    .get-tickets {
+                        display: inline-block;
+                        position: relative;
+                        font-family: $font-family-roboto;
+                        font-size: 22px;
+                        line-height: 29px;
+                        color: $cta-yellow;
+                        border: 2px solid $cta-yellow;
+                        padding: 0.5rem 1rem;
+                        border-radius: 3px;
+                        margin-top: 1rem;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease;
+                        z-index: 0;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 0;
+                            z-index: -1;
+                            background: $cta-yellow;
+                            transition: all 0.3s ease;
+                        }
+
+                        &:hover,
+                        &:focus {
+                            color: #000;
+                            text-decoration: none;
+
+                            &::before {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                flex-wrap: wrap;
+                padding-top: 1rem;
                 padding-bottom: 1rem;
-                border-bottom: 2px solid $light-blue;
-            }
 
-            .title-blue {
-                color: $light-blue;
-                font-weight: 600;
-            }
+                .text-about,
+                .text-info-wrapper {
+                    width: 100%;
+                }
 
-            p {
-                font-size: 20px;
-                line-height: 30px;
+                .text-info-wrapper {
+                    padding-left: 0;
+
+                    .text-info {
+                        .ferrara {
+                            font-size: 80px;
+                        }
+
+                        .italy-label {
+                            font-size: 23px;
+                        }
+
+                        .dates {
+                            margin-top: 1rem;
+
+                            .month {
+                                font-size: 30px;
+                                display: block;
+                                margin-right: 0;
+                            }
+
+                            .days {
+                                font-size: 60px;
+                                display: block;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
