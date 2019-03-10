@@ -6,12 +6,14 @@ import AboutTheEvent from '../components/AboutTheEvent';
 import HPNumbers from '../components/HPNumbers';
 
 import PCFraraSVG from '../components/svg/PCFraraSVG';
+import CTASponsor from '../components/CTASponsor';
 
 const IndexPage = ({ data }) => (
   <Layout>
     <PCFraraSVG />
     <AboutTheEvent />
     <HPNumbers />
+    <CTASponsor />
   </Layout>
 );
 
