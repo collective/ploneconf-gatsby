@@ -1,0 +1,67 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.cta-sponsor {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    @include media-breakpoint-up(lg) {
+        max-width: 1095px + $grid-gutter-width;
+    }
+    .black-box {
+        background-color: $dark-color;
+        transform: rotate(-4deg);
+        position: absolute;
+        top: 0;
+        left: 5px;
+        right: 5px;
+        bottom: 0;
+    }
+    .yellow-box {
+        background-color: $cta-yellow;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        padding: 45px 15px;
+        font-size: 24px;
+
+        svg {
+            position: absolute;
+
+            &.first {
+                left: -87px;
+                top: -85px;
+            }
+            &.second {
+                right: -93px;
+                bottom: -78px;
+            }
+        }
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+        a {
+            color: $body-color;
+            padding: 4px 25px;
+            border: 4px solid currentColor;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 10px;
+
+            &:hover,
+            &:focus {
+                background-color: $body-color;
+                border-color: $body-color;
+                color: $cta-yellow;
+                text-decoration: none;
+                @include antialias;
+            }
+        }
+    }
+}

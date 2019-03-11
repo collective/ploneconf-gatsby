@@ -5,12 +5,8 @@
 @import '../../node_modules/bootstrap/scss/reboot';
 
 // Theme variables
-@import '../scss/variables';
-
-@mixin antialias() {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@import 'variables';
+@import 'mixins';
 
 .container {
     @include make-container;
