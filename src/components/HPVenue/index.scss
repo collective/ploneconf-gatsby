@@ -1,0 +1,67 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.hp-venue {
+    margin: 1rem auto;
+    position: relative;
+
+    @media (min-width: 768px) {
+        max-width: 90vw;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 1024px;
+    }
+
+    .hp-image-wrapper {
+        position: relative;
+
+        > svg {
+            position: absolute;
+            left: -40px;
+            bottom: -15px;
+            right: -40px;
+            width: calc(100% + 80px);
+        }
+    }
+
+    .text-wrapper {
+        padding: 1rem 3rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        @include antialias;
+
+        .ferrara {
+            font-family: $font-family-roboto;
+
+            .label {
+                color: $light-blue;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                line-height: 1.2rem;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 4rem;
+                font-weight: 600;
+                line-height: 1;
+                margin-bottom: 0;
+            }
+
+            .italy {
+                font-size: 1.5rem;
+                margin: 0;
+                line-height: 1;
+                text-align: right;
+            }
+        }
+    }
+}

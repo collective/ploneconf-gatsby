@@ -1,0 +1,74 @@
+@import '../../scss/variables';
+
+.venue-info {
+    font-family: $font-family-roboto;
+
+    .content-wrapper {
+        position: relative;
+        color: #222;
+        max-width: 320px;
+        padding: 2rem;
+        background: rgba(#ffd23d, 0.74);
+
+        .light-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(#fff, 0.74);
+            transform: rotate(6deg);
+        }
+
+        > h3,
+        > p,
+        .apollo-info,
+        .more-details {
+            position: relative;
+        }
+
+        > p {
+            font-size: 0.8rem;
+        }
+
+        .apollo-info {
+            display: flex;
+
+            svg {
+                color: #008abe;
+            }
+
+            .apollo-info-text {
+                padding-left: 1rem;
+
+                .apollo {
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                    margin: 0;
+                }
+
+                .address {
+                    font-size: 0.75rem;
+                    margin: 0;
+                }
+            }
+        }
+
+        .more-details {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: flex-end;
+
+            svg {
+                width: 4rem;
+            }
+
+            p {
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin: 0;
+            }
+        }
+    }
+}
