@@ -56,14 +56,33 @@
             display: inline-block;
             font-weight: 700;
             margin-top: 10px;
+            position: relative;
+            z-index: 0;
+            transition: all 0.2s ease;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 0;
+                z-index: -1;
+                background: $body-color;
+                transition: all 0.3s ease;
+            }
 
             &:hover,
             &:focus {
-                background-color: $body-color;
+                // background-color: $body-color;
                 border-color: $body-color;
                 color: $cta-yellow;
                 text-decoration: none;
                 @include antialias;
+
+                &::before {
+                    width: 100%;
+                }
             }
         }
     }
