@@ -1,7 +1,12 @@
 import React from 'react';
 
 const VenueBgSVG = () => (
-  <svg version="1.1" viewBox="0 0 1730 887" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    version="1.1"
+    viewBox="0 0 1730 887"
+    xmlns="http://www.w3.org/2000/svg"
+    id="venue-bg"
+  >
     <g
       id="grafica"
       fill="none"

@@ -2,8 +2,10 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { shape, object } from 'prop-types';
 
-import VenueBgSVG from '../svg/VenueBgSVG';
 import HPVenueInfo from '../HPVenueInfo';
+import VenueBgSVG from '../svg/VenueBgSVG';
+import HeronLeft from '../svg/HeronLeft';
+import HeronRight from '../svg/HeronRight';
 
 import './index.scss';
 
@@ -13,6 +15,8 @@ const HPVenue = ({ img }) => (
       <div className="hp-image-wrapper">
         <VenueBgSVG />
         <Img fluid={img.fluid} alt="Conf venue in Ferrara" />
+        <HeronLeft />
+        <HeronRight />
       </div>
       <div className="text-wrapper">
         <div className="ferrara">

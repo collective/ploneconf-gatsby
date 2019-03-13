@@ -18,13 +18,43 @@
         position: relative;
         grid-column: 1 / -1;
         grid-row: 1;
+        padding-top: 2rem;
 
-        > svg {
-            position: absolute;
-            left: -40px;
-            bottom: -15px;
-            right: -40px;
-            width: calc(100% + 80px);
+        svg {
+            &#venue-bg {
+                position: absolute;
+                left: -40px;
+                bottom: -15px;
+                right: -40px;
+                width: calc(100% + 80px);
+            }
+
+            &.heron-left,
+            &.heron-right {
+                position: absolute;
+                top: 0;
+                width: 10rem;
+
+                @media (max-width: 991px) {
+                    top: -10vw;
+                }
+
+                @media (max-width: 768px) {
+                    width: 6rem;
+                }
+
+                @media (max-width: 450px) {
+                    top: -20vw;
+                }
+            }
+
+            &.heron-left {
+                left: 10%;
+            }
+
+            &.heron-right {
+                right: 10%;
+            }
         }
     }
 
