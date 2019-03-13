@@ -3,7 +3,8 @@
 
 .hp-venue {
     margin: 1rem auto;
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     @media (min-width: 768px) {
         max-width: 90vw;
@@ -15,6 +16,8 @@
 
     .hp-image-wrapper {
         position: relative;
+        grid-column: 1 / -1;
+        grid-row: 1;
 
         > svg {
             position: absolute;
@@ -27,14 +30,12 @@
 
     .text-wrapper {
         padding: 1rem 3rem;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
         color: #fff;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        position: relative;
+        align-self: flex-end;
+        justify-self: flex-start;
+        grid-column: 1;
+        grid-row: 1;
         @include antialias;
 
         .ferrara {
@@ -62,6 +63,23 @@
                 line-height: 1;
                 text-align: right;
             }
+        }
+    }
+
+    .venue-info {
+        @media (min-width: 769px) {
+            grid-row: 1;
+            grid-column: 2;
+            align-self: flex-end;
+            justify-self: flex-end;
+            padding: 0 3rem 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            grid-row: 2;
+            grid-column: 1 / -1;
+            background: #222;
+            position: relative;
         }
     }
 }

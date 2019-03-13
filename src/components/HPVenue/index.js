@@ -21,8 +21,8 @@ const HPVenue = ({ img }) => (
           <p className="italy">Italy</p>
         </div>
       </div>
+      <HPVenueInfo />
     </div>
-    <HPVenueInfo />
   </React.Fragment>
 );
 

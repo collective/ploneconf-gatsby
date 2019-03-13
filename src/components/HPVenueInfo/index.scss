@@ -70,5 +70,10 @@
                 margin: 0;
             }
         }
+
+        @media (max-width: 768px) {
+            max-width: 85vw;
+            margin: 3rem auto;
+        }
     }
 }
