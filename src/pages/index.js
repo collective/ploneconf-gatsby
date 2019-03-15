@@ -9,6 +9,7 @@ import AboutTheEvent from '../components/AboutTheEvent';
 import HPNumbers from '../components/HPNumbers';
 import CTASponsor from '../components/CTASponsor';
 import HPVenue from '../components/HPVenue';
+import Header from '../components/Header';
 
 const IndexPage = ({ data }) => (
   <Layout>

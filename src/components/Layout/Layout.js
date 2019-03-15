@@ -41,7 +41,7 @@ const Layout = ({ breadcrumbs, children, data }) => (
             ]}
           />
           {/* <NavBar active={active} /> */}
-          {/* <Header siteData={data.site.siteMetadata} /> */}
+          <Header siteData={data.site.siteMetadata} navActive={active} />
           {breadcrumbs && <Breadcrumbs data={breadcrumbs} />}
           <div id="content">{children}</div>
           <Footer />

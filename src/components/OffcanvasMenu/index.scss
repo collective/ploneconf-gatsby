@@ -1,0 +1,107 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+header#header-navigation {
+    .collapse-menu {
+        .bm-burger-button {
+            display: inline-flex;
+            position: relative;
+            padding: 1rem;
+
+            &:hover,
+            &:focus {
+                button {
+                    box-shadow: 0 0 5px #ccc;
+                }
+            }
+
+            &:focus {
+                button {
+                    border: 1px solid currentColor;
+                }
+            }
+        }
+
+        .bm-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        svg {
+            width: 1.5rem !important;
+            height: 1.5rem;
+        }
+
+        .bm-overlay,
+        .bm-menu-wrap {
+            top: 0;
+            right: 0;
+        }
+
+        .bm-menu {
+            padding: 4rem 0;
+            background: $header-blue;
+        }
+
+        .bm-item-list {
+            text-align: left;
+
+            .navs-wrapper {
+                &:focus {
+                    outline: none;
+                }
+
+                a {
+                    padding: 0.75rem 2rem;
+                    color: #fff;
+                    position: relative;
+                    display: block;
+                    text-transform: uppercase;
+                    font-family: $font-family-roboto;
+                    font-weight: 600;
+                    @include antialias;
+
+                    &:not(:last-of-type) {
+                        &::after {
+                            content: '';
+                            width: calc(100% - 4rem);
+                            position: absolute;
+                            bottom: 0;
+                            left: 2rem;
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+                            display: block;
+                        }
+                    }
+                }
+
+                .get-tickets-wrapper {
+                    padding: 0.75rem 2rem;
+                    text-align: center;
+
+                    a.get-tickets {
+                        background: $cta-yellow;
+                        color: #000;
+                        border-radius: 3px;
+                        text-align: center;
+
+                        &:hover,
+                        &:focus {
+                            box-shadow: 0 0 1rem #ccc;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bm-cross-button {
+            top: 1rem !important;
+            right: 1rem !important;
+            width: 2rem !important;
+            height: 2rem !important;
+
+            svg {
+                color: #fff;
+            }
+        }
+    }
+}
