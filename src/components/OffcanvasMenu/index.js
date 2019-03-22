@@ -24,7 +24,7 @@ const OffcanvasMenu = () => (
     >
       <div className="navs-wrapper">
         <a href="#">Call for speakers</a>
-        <a href="#">Sponsors</a>
+        <a href="/sponsors">Sponsors</a>
         <a href="#">Contacts</a>
         <div className="get-tickets-wrapper">
           <a href="#" className="get-tickets">

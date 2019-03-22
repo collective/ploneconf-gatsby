@@ -1,16 +1,8 @@
-// @import '../../../node_modules/bootstrap/scss/mixins';
-// @import '../../../node_modules/bootstrap/scss/variables';
-// @import '../../scss/variables';
-@import '../../scss/base';
+@import '../../scss/variables';
 
 #footer-wrapper {
     border-top: 13px solid $light-blue;
     color: #fff;
-
-    .container {
-        @include make-container;
-        @include make-container-max-widths;
-    }
 
     .footer-content {
         background: $dark-color;
@@ -118,10 +110,6 @@
         font-weight: 300;
     }
 
-    span {
-        display: block;
-    }
-
     p,
     span {
         font-size: 16px;
@@ -189,9 +177,6 @@
     }
 
     .contact-wrapper {
-        display: flex;
-        align-items: center;
-
         .label {
             font-weight: 600;
             text-transform: uppercase;

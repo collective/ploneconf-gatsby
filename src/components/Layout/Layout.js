@@ -4,10 +4,11 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import '../../scss/_base.scss';
+import './index.scss';
 
 import Header from '../Header';
 import Breadcrumbs from '../Breadcrumbs';
-import NavBar from '../NavBar';
+// import NavBar from '../NavBar';
 import Footer from '../Footer';
 
 const Layout = ({ breadcrumbs, children, isHome }) => (

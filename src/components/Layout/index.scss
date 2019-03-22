@@ -1,0 +1,20 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+.container {
+    @include make-container;
+    @include make-container-max-widths;
+}
+
+.row {
+    @include make-row;
+}
+
+.sr-only {
+    @include sr-only;
+}
+
+body {
+    font-family: $font-family-sans-serif;
+}

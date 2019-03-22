@@ -9,11 +9,15 @@ import AboutTheEvent from '../components/AboutTheEvent';
 import HPNumbers from '../components/HPNumbers';
 import CTASponsor from '../components/CTASponsor';
 import HPVenue from '../components/HPVenue';
-import Header from '../components/Header';
 
 const IndexPage = ({ data }) => (
   <Layout isHome>
-    <PCFraraSVG />
+    <div
+      className="ploneconf-svg-wrapper"
+      style={{ overflow: 'hidden', maxWidth: '100vw' }}
+    >
+      <PCFraraSVG />
+    </div>
     <AboutTheEvent />
     <HPNumbers />
     <CTASponsor />
