@@ -58,8 +58,16 @@ header#header-navigation {
 
         svg {
             color: $light-blue;
-            max-height: 5rem;
-            width: auto;
+            height: 5rem;
+            max-width: 5rem;
+
+            .st1 {
+                fill: currentColor;
+            }
+
+            .st2 {
+                fill: #fff;
+            }
         }
 
         .logo-text-wrapper {
