@@ -50,6 +50,7 @@ header#header-navigation {
     .logo-wrapper {
         display: flex;
         align-items: center;
+        color: inherit;
 
         svg {
             color: $light-blue;

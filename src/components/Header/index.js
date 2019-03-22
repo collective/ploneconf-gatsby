@@ -51,13 +51,13 @@ class Header extends Component {
       <header id="header-navigation" className={`${cssClass}`}>
         {isHome && <div className="border-top" />}
         <div className="container flex-helper">
-          <div className="logo-wrapper">
+          <a className="logo-wrapper" href="/">
             <LogoJoySVG />
             <div className="logo-text-wrapper">
               <p className="ploneconf">Plone Conference</p>
               <p className="year">2019</p>
             </div>
-          </div>
+          </a>
           <div className="nav-wrapper">
             <a href="#">Call for speakers</a>
             <Link to="/sponsors">Sponsors</Link>
