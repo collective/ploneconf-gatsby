@@ -10,7 +10,7 @@ import Breadcrumbs from '../Breadcrumbs';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
 
-const Layout = ({ breadcrumbs, children, data }) => (
+const Layout = ({ breadcrumbs, children, isHome }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -41,7 +41,11 @@ const Layout = ({ breadcrumbs, children, data }) => (
             ]}
           />
           {/* <NavBar active={active} /> */}
-          <Header siteData={data.site.siteMetadata} navActive={active} />
+          <Header
+            siteData={data.site.siteMetadata}
+            navActive={active}
+            isHome={isHome}
+          />
           {breadcrumbs && <Breadcrumbs data={breadcrumbs} />}
           <div id="content">{children}</div>
           <Footer />

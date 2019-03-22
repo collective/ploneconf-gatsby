@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { bool, string } from 'prop-types';
+import Link from 'gatsby-link';
 
 import LogoJoySVG from '../svg/LogoJoySVG';
 import OffcanvasMenu from '../OffcanvasMenu';
@@ -7,6 +9,11 @@ import './index.scss';
 
 // const Header = ({ siteData, navActive }) => (
 class Header extends Component {
+  static propTypes = {
+    navActive: string,
+    isHome: bool,
+  };
+
   state = {
     sticky: false,
   };
@@ -35,8 +42,8 @@ class Header extends Component {
     const headerStatusClass = this.state.sticky ? 'sticky' : '';
 
     // this.props.navActive === '/'
-    const isHome = true;
-    const headerLocationClass = isHome ? ' is-home' : '';
+    const { isHome } = this.props;
+    const headerLocationClass = isHome ? ' is-home' : ' is-not-home';
 
     const cssClass = `${headerStatusClass}${headerLocationClass}`.trim();
 
@@ -53,7 +60,7 @@ class Header extends Component {
           </div>
           <div className="nav-wrapper">
             <a href="#">Call for speakers</a>
-            <a href="#">Sponsors</a>
+            <Link to="/sponsors">Sponsors</Link>
             <a href="#">Contacts</a>
             <a href="#" className="get-tickets">
               Get tickets!

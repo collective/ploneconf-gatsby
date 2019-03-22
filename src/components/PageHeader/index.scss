@@ -8,6 +8,11 @@
     text-align: center;
     padding-bottom: 70px;
 
+    .header-content {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .bg-image {
         overflow: hidden;
         position: absolute;

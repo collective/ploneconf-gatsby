@@ -12,7 +12,7 @@ import HPVenue from '../components/HPVenue';
 import Header from '../components/Header';
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Layout isHome>
     <PCFraraSVG />
     <AboutTheEvent />
     <HPNumbers />
