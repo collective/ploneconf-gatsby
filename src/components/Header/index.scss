@@ -52,8 +52,7 @@ header#header-navigation {
         align-items: center;
         color: inherit;
 
-        &:hover,
-        &:focus {
+        &:hover {
             text-decoration: none;
         }
 
@@ -191,6 +190,7 @@ header#header-navigation {
 
             .logo-wrapper {
                 opacity: 0;
+                cursor: default;
                 transition: all 0.2s ease;
 
                 svg {
