@@ -52,6 +52,11 @@ header#header-navigation {
         align-items: center;
         color: inherit;
 
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+
         svg {
             color: $light-blue;
             max-height: 5rem;
