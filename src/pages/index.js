@@ -12,12 +12,7 @@ import HPVenue from '../components/HPVenue';
 
 const IndexPage = ({ data }) => (
   <Layout isHome>
-    <div
-      className="ploneconf-svg-wrapper"
-      style={{ overflow: 'hidden', maxWidth: '100vw' }}
-    >
-      <PCFraraSVG />
-    </div>
+    <PCFraraSVG />
     <AboutTheEvent />
     <HPNumbers />
     <CTASponsor />

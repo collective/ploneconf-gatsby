@@ -48,7 +48,9 @@ const Layout = ({ breadcrumbs, children, isHome }) => (
             isHome={isHome}
           />
           {breadcrumbs && <Breadcrumbs data={breadcrumbs} />}
-          <div id="content">{children}</div>
+          <div id="content" className={isHome ? 'is-home' : ''}>
+            {children}
+          </div>
           <Footer />
         </>
       );
