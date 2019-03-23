@@ -7,11 +7,10 @@ import '../../scss/_base.scss';
 import './index.scss';
 
 import Header from '../Header';
-import Breadcrumbs from '../Breadcrumbs';
 // import NavBar from '../NavBar';
 import Footer from '../Footer';
 
-const Layout = ({ breadcrumbs, children, isHome }) => (
+const Layout = ({ children, isHome }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -47,7 +46,6 @@ const Layout = ({ breadcrumbs, children, isHome }) => (
             navActive={active}
             isHome={isHome}
           />
-          {breadcrumbs && <Breadcrumbs data={breadcrumbs} />}
           <div id="content" className={isHome ? 'is-home' : ''}>
             {children}
           </div>
@@ -60,6 +58,7 @@ const Layout = ({ breadcrumbs, children, isHome }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  isHome: PropTypes.bool,
 };
 
 export default Layout;

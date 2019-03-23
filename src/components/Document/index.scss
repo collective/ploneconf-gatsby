@@ -1,0 +1,103 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.document-content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    h2 {
+        margin: 1.5rem 0;
+        font-family: $font-family-roboto;
+        font-weight: 300;
+        font-size: 2.5rem;
+        @include antialias;
+
+        strong {
+            font-weight: 600;
+        }
+    }
+
+    p.p1 {
+        font-family: $font-family-sans-serif;
+        @include antialias;
+    }
+
+    p.p1.callout {
+        font-family: $font-family-roboto;
+        font-weight: 600;
+
+        span {
+            background: $cta-yellow;
+            padding: {
+                top: 5px;
+                right: 15px;
+                bottom: 5px;
+                left: 10px;
+            }
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+
+    hr {
+        $hr-vital-space: 800px;
+        $hr-skewed: -4deg;
+
+        position: relative;
+        height: 1rem;
+        margin: 4rem 0;
+        border: 0;
+
+        @mixin draw-sexy-hr($hr-width: $hr-vital-space, $hr-skew: $hr-skewed) {
+            &::before {
+                transform: rotate($hr-skew) skewX($hr-skew);
+                border-right: #{$hr-width * 2 / 3} solid $dark-color;
+                left: calc(50% - #{$hr-width * 2 / 3} / 2 - 1rem);
+                max-width: $hr-width * 2 / 3;
+            }
+
+            &::after {
+                max-width: $hr-width;
+                border-right: $hr-width solid $cta-yellow;
+                left: calc(50% - #{$hr-width} / 2);
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            @include antialias;
+        }
+
+        &::before {
+            top: 3px;
+            width: 100%;
+            border-top: 1rem solid $dark-color;
+            border-bottom: 0.5rem solid transparent;
+            border-left: 3rem solid transparent;
+        }
+
+        &::after {
+            top: 0;
+            width: 100%;
+            height: 1rem;
+            border-bottom: 0.75rem solid $cta-yellow;
+            border-top: 0.75rem solid transparent;
+        }
+
+        @include draw-sexy-hr($hr-vital-space, $hr-skewed);
+
+        @media (max-width: 991px) {
+            $hr-vital-space: 600px;
+            $hr-skewed: -6deg;
+            @include draw-sexy-hr($hr-vital-space, $hr-skewed);
+        }
+
+        @media (max-width: 768px) {
+            $hr-vital-space: 300px;
+            $hr-skewed: -10deg;
+            @include draw-sexy-hr($hr-vital-space, $hr-skewed);
+        }
+    }
+}

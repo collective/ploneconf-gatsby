@@ -45,9 +45,7 @@ const componentFor = data => {
   }
 };
 
-const DefaultLayout = ({ data }) => (
-  <Layout breadcrumbs={data.ploneBreadcrumbs}>{componentFor(data)}</Layout>
-);
+const DefaultLayout = ({ data }) => <Layout>{componentFor(data)}</Layout>;
 
 export default DefaultLayout;
 
