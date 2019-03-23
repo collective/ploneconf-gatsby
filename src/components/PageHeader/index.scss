@@ -24,6 +24,10 @@
         bottom: 0;
         z-index: -1;
 
+        .gatsby-image-wrapper {
+            height: 100%;
+        }
+
         &:after {
             content: '';
             position: absolute;

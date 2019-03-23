@@ -65,6 +65,7 @@ header#header-navigation {
                 fill: currentColor;
             }
 
+            .st0,
             .st2 {
                 fill: #fff;
             }
@@ -103,7 +104,7 @@ header#header-navigation {
 
         @media (max-width: 991px) {
             svg {
-                max-height: 2.5rem;
+                max-height: 4rem;
             }
         }
 
