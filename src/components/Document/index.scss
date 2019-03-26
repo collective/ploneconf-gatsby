@@ -2,11 +2,14 @@
 @import '../../scss/mixins';
 
 .document-content {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: url('../../images/document-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 
     h2 {
-        margin: 1.5rem 0;
+        margin-bottom: 1.5rem;
         font-family: $font-family-roboto;
         font-weight: 300;
         font-size: 2.5rem;

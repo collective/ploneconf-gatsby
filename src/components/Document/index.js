@@ -12,11 +12,17 @@ const Document = ({ data, images = [], files = [] }) => (
       img={data.image.childImageSharp}
       description={data.description}
     />
-    <article key={data._id} className="document-content container">
-      {/* <h1>{data.title}</h1> */}
-      {data.text ? (
-        <RichText serialized={data.text.react} images={images} files={files} />
-      ) : null}
+    <article key={data._id} className="document-content">
+      <div className="container">
+        {/* <h1>{data.title}</h1> */}
+        {data.text ? (
+          <RichText
+            serialized={data.text.react}
+            images={images}
+            files={files}
+          />
+        ) : null}
+      </div>
     </article>
   </React.Fragment>
 );
