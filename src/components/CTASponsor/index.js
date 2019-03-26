@@ -1,5 +1,6 @@
 import React from 'react';
 import PloneCircleSVG from '../svg/PloneCircleSVG';
+import { Link } from 'gatsby';
 
 import './index.scss';
 
@@ -12,7 +13,7 @@ const CTASponsor = () => (
       <h2>Call for sponsors is open!</h2>
       <p className="cta-subtitle">Be part of the Plone Conference 2019</p>
       <p>
-        <a href="#">Become a sponsor</a>
+        <Link to="/sponsors">Become a sponsor</Link>
       </p>
     </div>
   </div>

@@ -130,15 +130,45 @@ header#header-navigation {
                 margin-left: 1rem;
             }
 
+            span {
+                border-bottom: 2px solid transparent;
+                padding-bottom: 0.25rem;
+            }
+
             &.get-tickets {
                 background: $cta-yellow;
                 color: #000;
                 border-radius: 3px;
                 margin-left: 2rem;
+                transition: all 0.3s ease;
 
                 &:hover,
                 &:focus {
                     box-shadow: 0 0 1rem #ccc;
+                }
+            }
+
+            &.active {
+                color: $cta-yellow;
+
+                span {
+                    border-bottom-color: currentColor;
+                }
+
+                &:hover,
+                &:focus {
+                    color: darken($cta-yellow, 15%);
+                }
+            }
+
+            &:not(.get-tickets) {
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+
+                    span {
+                        border-bottom-color: currentColor;
+                    }
                 }
             }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'gatsby';
 
 import './index.scss';
 
@@ -23,13 +24,13 @@ const OffcanvasMenu = () => (
       right
     >
       <div className="navs-wrapper">
-        <a href="#">Call for speakers</a>
-        <a href="/sponsors">Sponsors</a>
-        <a href="#">Contacts</a>
+        <Link to="/speakers">Call for speakers</Link>
+        <Link to="/sponsors">Sponsors</Link>
+        <Link to="/contacts">Contacts</Link>
         <div className="get-tickets-wrapper">
-          <a href="#" className="get-tickets">
+          <Link to="/tickets" className="get-tickets">
             Get tickets!
-          </a>
+          </Link>
         </div>
       </div>
     </Menu>

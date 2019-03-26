@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { bool, string } from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import LogoJoySVG from '../svg/LogoJoySVG';
 import OffcanvasMenu from '../OffcanvasMenu';
 
 import './index.scss';
 
-// const Header = ({ siteData, navActive }) => (
 class Header extends Component {
   static propTypes = {
     navActive: string,
@@ -41,7 +40,6 @@ class Header extends Component {
   render() {
     const headerStatusClass = this.state.sticky ? 'sticky' : '';
 
-    // this.props.navActive === '/'
     const { isHome } = this.props;
     const headerLocationClass = isHome ? ' is-home' : ' is-not-home';
 
@@ -51,20 +49,30 @@ class Header extends Component {
       <header id="header-navigation" className={`${cssClass}`}>
         {isHome && <div className="border-top" />}
         <div className="container flex-helper">
-          <a className="logo-wrapper" href="/">
+          <Link className="logo-wrapper" to="/">
             <LogoJoySVG />
             <div className="logo-text-wrapper">
               <p className="ploneconf">Plone Conference</p>
               <p className="year">2019</p>
             </div>
-          </a>
+          </Link>
           <div className="nav-wrapper">
-            <a href="#">Call for speakers</a>
-            <Link to="/sponsors">Sponsors</Link>
-            <a href="#">Contacts</a>
-            <a href="#" className="get-tickets">
-              Get tickets!
-            </a>
+            <Link to="/speakers" activeClassName="active">
+              <span>Call for speakers</span>
+            </Link>
+            <Link to="/sponsors" activeClassName="active">
+              <span>Sponsors</span>
+            </Link>
+            <Link to="/contacts" activeClassName="active">
+              <span>Contacts</span>
+            </Link>
+            <Link
+              to="/tickets"
+              className="get-tickets"
+              activeClassName="active"
+            >
+              <span>Get tickets!</span>
+            </Link>
           </div>
           <OffcanvasMenu />
         </div>

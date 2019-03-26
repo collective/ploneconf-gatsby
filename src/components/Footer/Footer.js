@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import LogoSVG from '../svg/LogoSVG';
 import PloneSVG from '../svg/PloneSVG';
@@ -20,9 +21,9 @@ const Footer = () => (
                 <p>
                   Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                 </p>
-                <a href="#" className="coc-link">
+                <Link to="/code-of-conduct" className="coc-link">
                   Code of Conduct
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -62,13 +63,13 @@ const Footer = () => (
           <div className="flex-item">
             <ul>
               <li>
-                <a href="#">privacy policy</a>
+                <Link to="/privacy-policy">privacy policy</Link>
               </li>
               <li>
-                <a href="#">cookie</a>
+                <Link to="/cookie-policy">cookie</Link>
               </li>
               <li>
-                <a href="#">credits</a>
+                <Link to="/credits">credits</Link>
               </li>
             </ul>
           </div>
