@@ -33,13 +33,18 @@ const Layout = ({ children, isHome }) => (
         : null;
       return (
         <>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              { name: 'description', content: 'Gatsby Starter Plone' },
-              { name: 'keywords', content: 'gatsby, plone' },
-            ]}
-          />
+          <Helmet>
+            <title>{data.site.siteMetadata.title}</title>
+            <meta name="description" content="Plone Conference 2019 website" />
+            <meta
+              name="keywords"
+              content="plone, gatsby, restapi, ploneconf, 2019, conf, redturtle"
+            />
+            <link
+              href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:300,400,600,700|Roboto:300,400,700"
+              rel="stylesheet"
+            />
+          </Helmet>
           {/* <NavBar active={active} /> */}
           <Header
             siteData={data.site.siteMetadata}
