@@ -11,7 +11,19 @@ const Document = ({ data, images = [], files = [] }) => (
     {data.image && data.image.childImageSharp && (
       <PageHeader
         img={data.image.childImageSharp}
-        description={data.description}
+        text={
+          data.text ? (
+            <RichText
+              serialized={data.text.react}
+              images={images}
+              files={files}
+            />
+          ) : data.description ? (
+            data.description
+          ) : (
+            ''
+          )
+        }
       />
     )}
     <article key={data._id} className="document-content">

@@ -40,14 +40,14 @@ const ResolveLink = files => data => {
 };
 
 const RichText = ({ serialized, images, files }) => (
-  <div>
+  <React.Fragment>
     {deserialize(serialized, {
       components: {
         Link: ResolveLink(files),
         Img: ResolveImage(images),
       },
     })}
-  </div>
+  </React.Fragment>
 );
 
 export default RichText;
