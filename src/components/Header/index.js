@@ -11,6 +11,7 @@ class Header extends Component {
   static propTypes = {
     navActive: string,
     isHome: bool,
+    is404: bool,
   };
 
   state = {
@@ -40,8 +41,12 @@ class Header extends Component {
   render() {
     const headerStatusClass = this.state.sticky ? 'sticky' : '';
 
-    const { isHome } = this.props;
-    const headerLocationClass = isHome ? ' is-home' : ' is-not-home';
+    const { isHome, is404 } = this.props;
+    const headerLocationClass = isHome
+      ? ' is-home'
+      : is404
+      ? ' is-404'
+      : ' is-not-home';
 
     const cssClass = `${headerStatusClass}${headerLocationClass}`.trim();
 

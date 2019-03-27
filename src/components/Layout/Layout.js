@@ -10,7 +10,7 @@ import Header from '../Header';
 // import NavBar from '../NavBar';
 import Footer from '../Footer';
 
-const Layout = ({ children, isHome }) => (
+const Layout = ({ children, isHome, is404 }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -50,8 +50,12 @@ const Layout = ({ children, isHome }) => (
             siteData={data.site.siteMetadata}
             navActive={active}
             isHome={isHome}
+            is404={is404}
           />
-          <div id="content" className={isHome ? 'is-home' : ''}>
+          <div
+            id="content"
+            className={isHome ? 'is-home' : is404 ? 'is-404' : ''}
+          >
             {children}
           </div>
           <Footer />
@@ -64,6 +68,7 @@ const Layout = ({ children, isHome }) => (
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   isHome: PropTypes.bool,
+  is404: PropTypes.bool,
 };
 
 export default Layout;

@@ -254,10 +254,36 @@ header#header-navigation {
             left: -2rem;
             width: 100%;
         }
+    }
 
+    &.is-home,
+    &.is-404 {
         .nav-wrapper {
             a {
                 color: #000;
+            }
+        }
+    }
+
+    &.is-404 {
+        &:not(.sticky) {
+            a.logo-wrapper {
+                color: #333;
+
+                svg {
+                    color: #333;
+
+                    .st0,
+                    .st2 {
+                        fill: #666;
+                    }
+                }
+
+                .logo-text-wrapper {
+                    p.year {
+                        color: #666;
+                    }
+                }
             }
         }
     }
