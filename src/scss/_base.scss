@@ -1,9 +1,9 @@
+@import 'variables';
+
 // Bootstrap 4 variables and mixins
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/reboot';
 
-// Theme variables
-@import 'variables';
 @import 'mixins';
