@@ -41,7 +41,8 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
     "@redturtle/eslint-config": "^2.0.0",
@@ -52,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
     "postcss-flexbugs-fixes": "^4.1.0",
     "prettier": "^1.16.4",
     "stylelint": "^9.10.1",
