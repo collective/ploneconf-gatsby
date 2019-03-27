@@ -7,9 +7,11 @@ import './index.scss';
 const PageHeader = ({ img, description }) => (
   <header className="page-header">
     <div className="header-content">
-      <div className="bg-image">
-        <Img fluid={img.fluid} role="presentation" />
-      </div>
+      {img && (
+        <div className="bg-image">
+          <Img fluid={img.fluid} role="presentation" />
+        </div>
+      )}
       <h1>
         Become a <span>sponsor!</span>
       </h1>

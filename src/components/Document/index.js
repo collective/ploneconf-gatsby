@@ -8,10 +8,12 @@ import './index.scss';
 
 const Document = ({ data, images = [], files = [] }) => (
   <React.Fragment>
-    <PageHeader
-      img={data.image.childImageSharp}
-      description={data.description}
-    />
+    {data.image && data.image.childImageSharp && (
+      <PageHeader
+        img={data.image.childImageSharp}
+        description={data.description}
+      />
+    )}
     <article key={data._id} className="document-content">
       <div className="container">
         {/* <h1>{data.title}</h1> */}
