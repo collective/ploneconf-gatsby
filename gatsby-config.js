@@ -5,7 +5,7 @@ module.exports = {
     title: 'Ploneconf 2019',
     subTitle: '21 - 27 October, Ferrara',
   },
-  pathPrefix: '/',
+  pathPrefix: '/ploneconf-gatsby',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
