@@ -36,9 +36,9 @@ const AboutTheEvent = () => (
                   <span className="month">October</span>
                   <span className="days">21-27</span>
                 </p>
-                <Link to="/tickets" className="get-tickets">
+                {/* <Link to="/tickets" className="get-tickets">
                   Get tickets!
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

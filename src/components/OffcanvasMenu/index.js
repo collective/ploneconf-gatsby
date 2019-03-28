@@ -24,14 +24,14 @@ const OffcanvasMenu = () => (
       right
     >
       <div className="navs-wrapper">
-        <Link to="/speakers">Call for speakers</Link>
+        {/* <Link to="/speakers">Call for speakers</Link> */}
         <Link to="/sponsors">Sponsors</Link>
-        <Link to="/contacts">Contacts</Link>
-        <div className="get-tickets-wrapper">
+        {/* <Link to="/contacts">Contacts</Link> */}
+        {/* <div className="get-tickets-wrapper">
           <Link to="/tickets" className="get-tickets">
             Get tickets!
           </Link>
-        </div>
+        </div> */}
       </div>
     </Menu>
   </div>
