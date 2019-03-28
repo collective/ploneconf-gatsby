@@ -1,10 +1,10 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { shape, object, string } from 'prop-types';
+import { shape, object, string, element, oneOfType } from 'prop-types';
 
 import './index.scss';
 
-const PageHeader = ({ img, description }) => (
+const PageHeader = ({ img, text }) => (
   <header className="page-header">
     <div className="header-content">
       {img && (
@@ -12,7 +12,7 @@ const PageHeader = ({ img, description }) => (
           <Img fluid={img.fluid} role="presentation" />
         </div>
       )}
-      <h1>
+      {/* <h1>
         Become a <span>sponsor!</span>
       </h1>
       <p className="subtitle">
@@ -20,15 +20,11 @@ const PageHeader = ({ img, description }) => (
       </p>
       <p className="payoff">
         {description}
-        {/* We are already there, and you?
-        <br />
-        We have prepared everything for the best, but we want to surprise you
-        even more! Become a sponsor, &quot;What we do in life echoes in
-        eternity&quot; in the Plone world. Do not lose the opportunity... */}
       </p>
       <div className="submit-button">
         <button onClick={() => {}}>Submit your request for sponsorship</button>
-      </div>
+      </div> */}
+      {text}
     </div>
   </header>
 );
@@ -37,7 +33,7 @@ PageHeader.propTypes = {
   img: shape({
     fluid: object,
   }),
-  description: string,
+  text: oneOfType(string, element),
 };
 
 export default PageHeader;

@@ -4,7 +4,19 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+require('dotenv').config();
 const path = require('path');
+const parseHTMLToReact = require('gatsby-source-plone/utils').parseHTMLtoReact;
+
+exports.onCreateNode = ({ node }) => {
+  if (node.hero_text) {
+    node.hero_text.react = parseHTMLToReact(
+      node.hero_text.data,
+      process.env.baseUrl,
+      node._path
+    );
+  }
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;

@@ -11,7 +11,22 @@ const Document = ({ data, images = [], files = [] }) => (
     {data.image && data.image.childImageSharp && (
       <PageHeader
         img={data.image.childImageSharp}
-        description={data.description}
+        text={
+          data.hero_text ? (
+            <RichText
+              serialized={data.hero_text.react}
+              images={images}
+              files={files}
+            />
+          ) : data.title ? (
+            <React.Fragment>
+              <h1>{data.title}</h1>
+              {data.description && <p>{data.description}</p>}
+            </React.Fragment>
+          ) : (
+            ''
+          )
+        }
       />
     )}
     <article key={data._id} className="document-content">
@@ -38,6 +53,9 @@ export const query = graphql`
     title
     description
     text {
+      react
+    }
+    hero_text {
       react
     }
     image {
