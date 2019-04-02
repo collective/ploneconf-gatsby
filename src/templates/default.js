@@ -67,5 +67,12 @@ export const query = graphql`
     plonePerson(_path: { eq: $path }) {
       ...Person
     }
+    allPloneImage(filter: { _backlinks: { eq: $path } }) {
+      edges {
+        node {
+          ...Image
+        }
+      }
+    }
   }
 `;

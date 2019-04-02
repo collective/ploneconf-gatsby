@@ -43,6 +43,42 @@
         }
     }
 
+    p.p1.download-details {
+        text-align: center;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    a[title='Become a sponsor!'] {
+        background: $light-blue;
+        padding: 10px 15px;
+        display: inline-block;
+        color: #fff;
+        border-radius: 3px;
+
+        &:hover,
+        &:focus {
+            background: darken($light-blue, 10%);
+        }
+    }
+
+    .gatsby-image-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        text-align: center;
+        overflow: visible;
+
+        picture {
+            img {
+                width: 800px !important;
+                max-width: 100%;
+                position: static !important;
+            }
+        }
+    }
+
     hr {
         $hr-vital-space: 800px;
         $hr-skewed: -4deg;

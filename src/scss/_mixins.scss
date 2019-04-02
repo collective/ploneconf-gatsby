@@ -11,6 +11,7 @@
     @include antialias();
     font-weight: 700;
     font-size: 1.5625rem;
+    display: inline-block;
     border: 0;
 
     &:hover,

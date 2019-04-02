@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { shape, object, string, element, oneOfType } from 'prop-types';
+import { shape, object, string, element, oneOfType, any } from 'prop-types';
 
 import './index.scss';
 
@@ -33,7 +33,8 @@ PageHeader.propTypes = {
   img: shape({
     fluid: object,
   }),
-  text: oneOfType(string, element),
+  text: any,
+  // text: oneOfType(string, element),
 };
 
 export default PageHeader;
