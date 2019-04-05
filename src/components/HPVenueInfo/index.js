@@ -12,14 +12,13 @@ const HPVenueInfo = () => (
       <div className="light-box" />
       <h3>Venue and info</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere
-        consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula
-        ut id elit.
+        The venue is located in the heart of city center of Ferrara, in an
+        historical movie theatre.
       </p>
       <div className="apollo-info">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
         <div className="apollo-info-text">
-          <p className="apollo">Cinema Apollo</p>
+          <p className="apollo">Apollo Cinepark</p>
           <p className="address">Piazza Carbone, 35 &mdash; 44121 Ferrara</p>
         </div>
       </div>
