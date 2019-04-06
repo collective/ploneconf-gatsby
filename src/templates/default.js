@@ -74,5 +74,12 @@ export const query = graphql`
         }
       }
     }
+    allPloneFile(filter: { _backlinks: { eq: $path } }) {
+      edges {
+        node {
+          ...File
+        }
+      }
+    }
   }
 `;
