@@ -19,10 +19,9 @@ const AboutTheEvent = () => (
                 </span>
               </h2>
               <p>
-                Donec id elit non mi porta gravida at eget metus. Curabitur
-                blandit tempus porttitor. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Fusce dapibus, tellus ac cursus
-                commodo, tortor mauris condimentum nibh, ut
+                Be a part of the discussion surrounding the latest trends and
+                success stories of Digital Experience Innovation about Plone,
+                Python, Pyramid and the most celebrated frontend frameworks.
               </p>
             </div>
             <div className="text-info-wrapper">

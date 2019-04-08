@@ -14,17 +14,6 @@ const Footer = () => (
           <div className="flex-item flex-item-grow">
             <div className="footer-flex-helper logo-about-wrapper">
               <LogoSVG />
-              <div className="about-conf">
-                <h2>About the conference</h2>
-                <span>The Plone Conference 2019 is hosted by...</span>
-                <p>Maecenas faucibus mollis interdum.</p>
-                <p>
-                  Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                </p>
-                <Link to="/code-of-conduct" className="coc-link">
-                  Code of Conduct
-                </Link>
-              </div>
             </div>
           </div>
           <div className="flex-item rt-info">
