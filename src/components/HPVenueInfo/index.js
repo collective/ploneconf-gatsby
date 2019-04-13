@@ -12,8 +12,8 @@ const HPVenueInfo = () => (
       <div className="light-box" />
       <h3>Venue and info</h3>
       <p>
-        Three halls in an historical Cinema theater in the heart of city center
-        of Ferrara. Have a walk on the red carpet!
+        Three halls in an historical Cinema theater in the heart of the city
+        center of Ferrara. Have a walk on the red carpet!
       </p>
       <div className="apollo-info">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
