@@ -68,6 +68,9 @@ class Header extends Component {
             <Link to="/sponsors" activeClassName="active">
               <span>Sponsors</span>
             </Link>
+            <Link to="/code-of-conduct" activeClassName="active">
+              <span>Code of Conduct</span>
+            </Link>
             {/* <Link to="/contacts" activeClassName="active">
               <span>Contacts</span>
             </Link> */}
