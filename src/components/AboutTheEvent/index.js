@@ -21,7 +21,8 @@ const AboutTheEvent = () => (
               <p>
                 Be a part of the discussion surrounding the latest trends and
                 success stories of Digital Experience Innovation about Plone,
-                Python, Pyramid and the most celebrated frontend frameworks.
+                Python, Pyramid, Guillotina, Volto and the most celebrated
+                frontend frameworks.
               </p>
             </div>
             <div className="text-info-wrapper">
