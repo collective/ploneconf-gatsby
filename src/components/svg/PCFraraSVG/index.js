@@ -3440,7 +3440,7 @@ const PCFraraSVG = () => (
             fontSize="26"
           >
             <tspan x="776.128" y="450">
-              OCT, 21-27
+              OCT 21-27
             </tspan>
           </text>
           <text

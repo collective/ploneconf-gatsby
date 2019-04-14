@@ -29,7 +29,7 @@ const Footer = () => (
             </div>
             <div className="contact-wrapper">
               <span className="label">Email</span>
-              <a href="mailto:PC19Staff@redturtle.it">PC19Staff@redturtle.it</a>
+              <a href="mailto:conf@plone.org">conf@plone.org</a>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => (
               <PloneSVG />
               <div className="about-plone">
                 <span>
-                  The Plone Open Source CMS/WCM is 2000-2017 by the Plone
+                  The Plone Open Source CMS/WCM is 2000-2019 by the Plone
                   Foundation and friends. Distrubuted under the GNU GPL licence.
                 </span>
               </div>

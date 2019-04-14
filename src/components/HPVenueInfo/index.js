@@ -10,10 +10,10 @@ const HPVenueInfo = () => (
   <div className="venue-info">
     <div className="content-wrapper">
       <div className="light-box" />
-      <h3>Venue and info</h3>
+      <h3>Venue</h3>
       <p>
-        Three halls in an historical Cinema theater in the heart of the city
-        center of Ferrara. Have a walk on the red carpet!
+        Three halls in a historic cinema in the heart of the city center of
+        Ferrara. Come walk on the red carpet!
       </p>
       <div className="apollo-info">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
