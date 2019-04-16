@@ -4,7 +4,6 @@ import { string, shape } from 'prop-types';
 import Img from 'gatsby-image';
 
 const Person = ({ data }) => {
-  console.log(data);
   const { _id, title, bio, github, twitter, image } = data;
   return (
     <article key={_id}>
