@@ -126,6 +126,7 @@ $shape-height: 2vw;
                     height: calc(100% + #{$shape-height});
                     max-width: 100%;
                     z-index: 1;
+                    text-align: right;
 
                     svg {
                         height: 100%;
