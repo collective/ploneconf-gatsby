@@ -51,6 +51,7 @@ header#header-navigation {
         display: flex;
         align-items: center;
         color: inherit;
+        z-index: 101;
 
         &:hover {
             text-decoration: none;
