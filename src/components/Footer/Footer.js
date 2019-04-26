@@ -18,10 +18,10 @@ const Footer = () => (
           </div>
           <div className="flex-item rt-info">
             <h2>The Organizer</h2>
-            <div className="rt-logo">
-              <span className="sr-only">RedTurtle</span>
+            <a className="rt-logo" href="https://www.redturtle.it/">
+              <span className="sr-only">Go to RedTurtle website</span>
               <RedTurtleSVG />
-            </div>
+            </a>
             <p>via Nino Bixio, 4 - 44122 Ferrara (ITALY)</p>
             <div className="contact-wrapper">
               <span className="label">Tel.</span>
