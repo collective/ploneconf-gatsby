@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import cx from 'classnames';
 
 import '../../scss/_base.scss';
 import './index.scss';
@@ -54,7 +55,10 @@ const Layout = ({ children, isHome, is404 }) => (
           />
           <div
             id="content"
-            className={isHome ? 'is-home' : is404 ? 'is-404' : ''}
+            className={cx({
+              'is-home': isHome,
+              'is-404': is404,
+            })}
           >
             {children}
           </div>
