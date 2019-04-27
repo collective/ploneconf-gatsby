@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import PCFraraSVG from '../components/svg/PCFraraSVG';
 import AboutTheEvent from '../components/AboutTheEvent';
 import HPNumbers from '../components/HPNumbers';
+import CTASpeakers from '../components/CTASpeakers';
 import CTASponsor from '../components/CTASponsor';
 import HPVenue from '../components/HPVenue';
 
@@ -15,6 +16,7 @@ const IndexPage = ({ data }) => (
     <PCFraraSVG />
     <AboutTheEvent />
     <HPNumbers />
+    <CTASpeakers img={data.ctaSpeakers.childImageSharp} />
     <CTASponsor />
     <HPVenue img={data.venue.childImageSharp} />
   </Layout>
@@ -42,6 +44,13 @@ export const query = graphql`
       ...Site
     }
     venue: file(relativePath: { eq: "venue_castle.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    ctaSpeakers: file(relativePath: { eq: "ploneconf-people.png" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp
