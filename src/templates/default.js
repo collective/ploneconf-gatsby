@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Document from '../components/Document';
@@ -17,6 +18,7 @@ const componentFor = data => {
           <CallForSpeakers
             data={ploneDocument}
             images={nodes(data['allPloneImage'])}
+            files={nodes(data['allPloneFile'])}
           />
         );
       }
@@ -46,6 +48,10 @@ const componentFor = data => {
 };
 
 const DefaultLayout = ({ data }) => <Layout>{componentFor(data)}</Layout>;
+
+DefaultLayout.propTypes = {
+  data: object.isRequired,
+};
 
 export default DefaultLayout;
 

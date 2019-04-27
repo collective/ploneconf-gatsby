@@ -1,20 +1,25 @@
 import React from 'react';
-import RichText from './RichText';
+import { array, object } from 'prop-types';
 import TalkSubmission from './TalkSubmission';
+import Document from './Document';
 
-const CallForSpeakers = ({ data, images = [] }) => (
-  <article key={data._id}>
-    <h1>{data.title}</h1>
-    {data.description ? (
-      <p>
-        <strong>{data.description}</strong>
-      </p>
-    ) : null}
-    {data.text ? (
-      <RichText serialized={data.text.react} images={images} />
-    ) : null}
+const CallForSpeakers = ({ data, images = [], files = [] }) => (
+  <React.Fragment>
+    <Document
+      {...{
+        data,
+        images,
+        files,
+      }}
+    />
     <TalkSubmission />
-  </article>
+  </React.Fragment>
 );
+
+CallForSpeakers.propTypes = {
+  data: object.isRequired,
+  images: array,
+  files: array,
+};
 
 export default CallForSpeakers;

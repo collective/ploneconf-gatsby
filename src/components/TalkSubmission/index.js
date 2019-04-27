@@ -46,7 +46,7 @@ class TalkSubmission extends React.Component {
               }
               return widgetsSchema;
             },
-            {}
+            {},
           );
           widgets.captcha = {
             'ui:widget': () => (
@@ -69,7 +69,7 @@ class TalkSubmission extends React.Component {
             isLoaded: true,
             error,
           });
-        }
+        },
       );
   }
 
@@ -132,7 +132,7 @@ class TalkSubmission extends React.Component {
     }
 
     return (
-      <div className="talk-submission-form">
+      <div className="talk-submission-form container">
         <div className="status-message">{message}</div>
         <Form
           key={key}
