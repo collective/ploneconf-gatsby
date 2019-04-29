@@ -146,6 +146,8 @@
 
             li {
                 position: relative;
+                display: flex;
+                flex-wrap: wrap;
 
                 &::before {
                     counter-increment: speakers;
@@ -177,7 +179,11 @@
                 }
 
                 + li {
-                    margin-top: 1.5rem;
+                    margin-top: 0.5rem;
+                }
+
+                h4 {
+                    margin: 0;
                 }
             }
         }
