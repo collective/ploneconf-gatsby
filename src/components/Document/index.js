@@ -1,13 +1,14 @@
 import React from 'react';
-import { array, object } from 'prop-types';
+import { array, object, string } from 'prop-types';
 import { graphql } from 'gatsby';
+import cx from 'classnames';
 
 import RichText from '../RichText';
 import PageHeader from '../PageHeader';
 
 import './index.scss';
 
-const Document = ({ data, images = [], files = [] }) => (
+const Document = ({ data, cssClass, images = [], files = [] }) => (
   <React.Fragment>
     {data.image && data.image.childImageSharp && (
       <PageHeader
@@ -30,7 +31,7 @@ const Document = ({ data, images = [], files = [] }) => (
         }
       />
     )}
-    <article key={data._id} className="document-content">
+    <article key={data._id} className={cx('document-content', cssClass)}>
       <div className="container">
         {/* <h1>{data.title}</h1> */}
         {data.text ? (
@@ -47,6 +48,7 @@ const Document = ({ data, images = [], files = [] }) => (
 
 Document.propTypes = {
   data: object.isRequired,
+  cssClass: string,
   images: array,
   files: array,
 };

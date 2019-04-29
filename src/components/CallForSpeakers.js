@@ -6,6 +6,7 @@ import Document from './Document';
 const CallForSpeakers = ({ data, images = [], files = [] }) => (
   <React.Fragment>
     <Document
+      cssClass="call-for-speakers"
       {...{
         data,
         images,

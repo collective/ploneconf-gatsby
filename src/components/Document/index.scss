@@ -16,9 +16,14 @@
         line-height: 3rem;
         @include antialias;
 
+        b,
         strong {
             font-weight: 600;
         }
+    }
+
+    h3 {
+        font-size: 2rem;
     }
 
     p {
@@ -129,6 +134,52 @@
             $hr-vital-space: 300px;
             $hr-skewed: -10deg;
             @include draw-sexy-hr($hr-vital-space, $hr-skewed);
+        }
+    }
+
+    &.call-for-speakers {
+        ol {
+            padding-left: 0;
+            list-style: none;
+            margin: 1.5rem 0;
+            counter-reset: speakers;
+
+            li {
+                position: relative;
+
+                &::before {
+                    counter-increment: speakers;
+                    content: counter(speakers);
+                    margin-right: 1rem;
+                    width: 2rem;
+                    height: 2rem;
+                    background: #000;
+                    display: inline-flex;
+                    color: #fff;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    z-index: 1;
+                    font-family: $font-family-roboto;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 2rem;
+                    height: 2rem;
+                    content: '';
+                    background: $cta-yellow;
+                    transform: rotate(15deg);
+                }
+
+                + li {
+                    margin-top: 1.5rem;
+                }
+            }
         }
     }
 }
