@@ -21,12 +21,12 @@
         }
     }
 
-    p.p1 {
+    p {
         font-family: $font-family-sans-serif;
         @include antialias;
     }
 
-    p.p1.callout {
+    p.callout {
         font-family: $font-family-roboto;
         font-weight: 600;
 
@@ -43,7 +43,7 @@
         }
     }
 
-    p.p1.download-details {
+    p.download-details {
         text-align: center;
 
         a {
@@ -51,17 +51,8 @@
         }
     }
 
-    a[title='Become a sponsor!'] {
-        background: $light-blue;
-        padding: 10px 15px;
-        display: inline-block;
-        color: #fff;
-        border-radius: 3px;
-
-        &:hover,
-        &:focus {
-            background: darken($light-blue, 10%);
-        }
+    div.submit-button a {
+        @extend %light-blue-button;
     }
 
     .gatsby-image-wrapper {
@@ -90,7 +81,7 @@
 
         @mixin draw-sexy-hr($hr-width: $hr-vital-space, $hr-skew: $hr-skewed) {
             &::before {
-                transform: rotate($hr-skew) skewX($hr-skew);
+                transform: rotate3d(0, 0, 1, $hr-skew) skewX($hr-skew);
                 border-right: #{$hr-width * 2 / 3} solid $dark-color;
                 left: calc(50% - #{$hr-width * 2 / 3} / 2 - 1rem);
                 max-width: $hr-width * 2 / 3;

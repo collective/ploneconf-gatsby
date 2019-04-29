@@ -1,4 +1,5 @@
 import React from 'react';
+import { array, object } from 'prop-types';
 import { graphql } from 'gatsby';
 
 import RichText from '../RichText';
@@ -43,6 +44,12 @@ const Document = ({ data, images = [], files = [] }) => (
     </article>
   </React.Fragment>
 );
+
+Document.propTypes = {
+  data: object.isRequired,
+  images: array,
+  files: array,
+};
 
 export default Document;
 

@@ -6,13 +6,13 @@ import { deserialize } from 'react-serialize';
 const ResolveImage = images => data => {
   let byPath = images.reduce(
     (map, image) => map.set(image._path, image),
-    new Map()
+    new Map(),
   );
   if (byPath.get(data.src)) {
     return (
       <Img
         Tag="span"
-        resolutions={byPath.get(data.src).image.childImageSharp.fixed}
+        resolutions={byPath.get(data.src).image.childImageSharp.fluid}
       />
     );
   } else {
@@ -23,7 +23,7 @@ const ResolveImage = images => data => {
 const ResolveLink = files => data => {
   let byPath = files.reduce(
     (map, file) => map.set(file._path, file),
-    new Map()
+    new Map(),
   );
   if (byPath.get(data.to)) {
     return (
@@ -59,8 +59,8 @@ export const query = graphql`
     image {
       publicURL
       childImageSharp {
-        fixed(width: 600) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 1110) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
