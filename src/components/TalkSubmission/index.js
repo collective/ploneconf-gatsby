@@ -2,6 +2,8 @@ import React from 'react';
 import Form from 'react-jsonschema-form';
 import CaptchaField from '../CaptchaField';
 
+import './styles.scss';
+
 class TalkSubmission extends React.Component {
   constructor(props) {
     super(props);
@@ -43,6 +45,10 @@ class TalkSubmission extends React.Component {
                 widgetsSchema[fieldId] = {
                   'ui:widget': widget,
                 };
+              } else if (field.type === 'array') {
+                widgetsSchema[fieldId] = {
+                  'ui:widget': 'checkboxes',
+                };
               }
               return widgetsSchema;
             },
@@ -53,12 +59,24 @@ class TalkSubmission extends React.Component {
               <CaptchaField onChange={this.handleCaptchaChange} />
             ),
           };
-          this.setState({
-            schema: schema,
-            uiSchema: {
+
+          const uiSchema = Object.keys(schema.properties).reduce(
+            (uiSchemaAcc, fieldId) => ({
+              ...uiSchemaAcc,
+              [fieldId]: {
+                ...widgets[fieldId],
+                classNames: `${fieldId}-group`,
+              },
+            }),
+            {
               ...widgets,
               'ui:order': schema.fieldsets[0].fields,
             },
+          );
+
+          this.setState({
+            schema,
+            uiSchema,
           });
         },
         // Note: it's important to handle errors here
@@ -132,7 +150,7 @@ class TalkSubmission extends React.Component {
     }
 
     return (
-      <div className="talk-submission-form container">
+      <div className="talk-submission-form">
         <div className="status-message">{message}</div>
         <Form
           key={key}
