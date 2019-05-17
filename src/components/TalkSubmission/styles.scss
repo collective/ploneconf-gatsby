@@ -1,22 +1,57 @@
 @import '../../scss/base';
+@import '../../scss/variables';
 
 .talk-submission-form {
+    padding: 2rem 0;
+
     .rjsf {
         @include make-container;
-        @include make-container-max-widths;
+        // @include make-container-max-widths();
+        max-width: 800px;
     }
-    @include media-breakpoint-up(md) {
-        #root {
-            @include make-row;
 
-            .form-group {
-                @include make-col-ready;
-            }
+    #root {
+        .form-group {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @include media-breakpoint-up(md) {
             .duration-group,
             .level-group,
             .twitter-group,
             .github-group {
-                @include make-col(6);
+                width: 50%;
+                display: inline-block;
+            }
+
+            .duration-group,
+            .twitter-group {
+                padding-right: 1rem;
+            }
+
+            .level-group,
+            .github-group {
+                padding-left: 1rem;
+            }
+        }
+
+        .field-description {
+            font-size: 85%;
+            color: #666;
+            margin-top: -0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .required {
+            padding-left: 0.5rem;
+            color: $header-blue;
+        }
+
+        .checkbox {
+            input[type='checkbox'] + span {
+                margin-left: 0.75rem;
+                font-weight: 300;
             }
         }
     }
