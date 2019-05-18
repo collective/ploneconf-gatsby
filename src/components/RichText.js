@@ -12,6 +12,7 @@ const ResolveImage = images => data => {
     return (
       <Img
         Tag="span"
+        className={data.className}
         resolutions={byPath.get(data.src).image.childImageSharp.fluid}
       />
     );
@@ -49,7 +50,6 @@ const RichText = ({ serialized, images, files }) => (
     })}
   </React.Fragment>
 );
-
 export default RichText;
 
 export const query = graphql`
