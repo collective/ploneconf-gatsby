@@ -15,7 +15,7 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
     />
     <div className="talk-submission-form container">
       <FormContainer
-        withCaptcha={false}
+        withCaptcha={true}
         schemaEndpoint="@talk-proposal"
         actionEndpoint="/@submit-proposal"
       />

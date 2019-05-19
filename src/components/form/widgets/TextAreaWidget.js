@@ -5,7 +5,7 @@ const TextAreaWidget = ({ value, id, handleUpdate }) => (
   <textarea
     rows="10"
     cols="80"
-    value={value}
+    value={value ? value : ''}
     name={id}
     id={id}
     onChange={e => handleUpdate({ id, value: e.target.value })}

@@ -3,13 +3,13 @@ import { bool, string } from 'prop-types';
 import FieldWrapper from '../FieldWrapper';
 // import CaptchaField from '../CaptchaField';
 
-// import './styles.scss';
+import './index.scss';
 
 class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errors: [],
+      errors: {},
       formData: {},
       key: Date.now(),
       submitted: false,
@@ -28,9 +28,10 @@ class FormContainer extends React.Component {
           if (withCaptcha) {
             // add captcha to schema
             schema.fieldsets[0].fields.push('captcha');
+            schema.required.push('captcha');
             schema.properties.captcha = {
               title: 'Captcha',
-              type: 'string',
+              type: 'captcha',
             };
           }
           let formData = {};
@@ -56,54 +57,91 @@ class FormContainer extends React.Component {
       );
   }
 
-  onSubmit = () => {
-    // fetch(`${process.env.GATSBY_API_URL}/@submit-proposal`, {
-    //   headers: new Headers({
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   }),
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then(res => {
-    //     if (res.ok && res.status === 204) {
-    //       this.setState({
-    //         formData: {},
-    //         key: Date.now(),
-    //         submitted: true,
-    //       });
-    //     } else {
-    //       return res.json();
-    //     }
-    //   })
-    //   .then(result => {
-    //     if (result) {
-    //       this.setState({
-    //         submitted: false,
-    //         error: result.message,
-    //       });
-    //     }
-    //   });
-  };
+  validateForm = () => {
+    // validate required fields
+    const { schema, formData } = this.state;
+    const { required } = schema;
 
-  updateFormValue = ({ id, value }) => {
-    this.setState({
-      ...this.state,
-      formData: { ...this.state.formData, [id]: value },
+    let errors = {};
+    required.forEach(id => {
+      if (!formData[id]) {
+        errors[id] = 'Required field.';
+      }
     });
-  };
-
-  validate = (formData, errors) => {
-    const { captchaValue, captchaExpired } = this.state;
-    if (!captchaValue || captchaExpired) {
-      errors.captcha.addError('Captcha required');
-    }
     return errors;
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    const { formData, schema } = this.state;
+
+    const errors = this.validateForm();
+    if (Object.keys(errors).length > 0 && errors.constructor === Object) {
+      this.setState({ ...this.state, errors });
+      return;
+    }
+    fetch(`${process.env.GATSBY_API_URL}/@submit-proposal`, {
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
+      .then(res => {
+        if (res.ok && res.status === 204) {
+          this.setState({
+            formData: {},
+            key: Date.now(),
+            submitted: true,
+          });
+        } else {
+          return res.json();
+        }
+      })
+      .then(result => {
+        if (result) {
+          this.setState({
+            submitted: false,
+            error: result.message,
+          });
+        }
+      });
+  };
+
+  resetForm = () => {
+    const { schema } = this.state;
+    let formData = {};
+    Object.keys(schema.properties).forEach(fieldId => {
+      if (schema.properties[fieldId].mode !== 'hidden') {
+        formData[fieldId] = null;
+      }
+    });
+    this.setState({ ...this.state, formData, errors: {} });
+  };
+
+  updateFormValue = ({ id, value }) => {
+    const { errors } = this.state;
+    if (id in errors) {
+      delete errors[id];
+    }
+    this.setState({
+      ...this.state,
+      formData: { ...this.state.formData, [id]: value },
+      errors,
+    });
+  };
+
+  // validate = (formData, errors) => {
+  //   const { captchaValue, captchaExpired } = this.state;
+  //   if (!captchaValue || captchaExpired) {
+  //     errors.captcha.addError('Captcha required');
+  //   }
+  //   return errors;
+  // };
+
   render() {
-    const { schema, formData } = this.state;
-    console.log(formData);
+    const { schema, formData, errors } = this.state;
     if (!schema) {
       return '';
     }
@@ -117,9 +155,16 @@ class FormContainer extends React.Component {
     // }
     const { fieldsets } = schema;
     return (
-      <div className="talk-submission-form">
+      <div className="form-wrapper">
         <div className="status-message">{message}</div>
-        <form>
+        {Object.keys(errors).length ? (
+          <div className="errors-wrapper">
+            Please correct errors before submit the form.
+          </div>
+        ) : (
+          ''
+        )}
+        <form onSubmit={this.onSubmit} method="POST">
           {fieldsets.map(fieldset => (
             <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
               {fieldset.fields.map(fieldId => (
@@ -129,11 +174,18 @@ class FormContainer extends React.Component {
                   value={formData[fieldId]}
                   properties={schema.properties[fieldId]}
                   isRequired={schema.required.includes(fieldId)}
+                  fieldError={errors[fieldId]}
                   handleUpdate={this.updateFormValue}
                 />
               ))}
             </div>
           ))}
+          <div className="form-buttons">
+            <button name="submit">Submit</button>
+            <button type="reset" name="cancel" onClick={this.resetForm}>
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );
