@@ -1,14 +1,16 @@
 import React from 'react';
+import { bool, string } from 'prop-types';
+import {FieldWrapper} from 
 // import CaptchaField from '../CaptchaField';
 
-import './styles.scss';
+// import './styles.scss';
 
 class FormContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       errors: [],
-      data: {},
+      formData: {},
       key: Date.now(),
       submitted: false,
     };
@@ -31,37 +33,15 @@ class FormContainer extends React.Component {
               type: 'string',
             };
           }
-
-          //   const widgets = Object.keys(schema.properties).reduce(
-          //     (widgetsSchema, fieldId) => {
-          //       const field = schema.properties[fieldId];
-          //       const widget = field.widget;
-          //       if (field.mode === 'hidden') {
-          //         widgetsSchema[fieldId] = {
-          //           'ui:widget': 'hidden',
-          //         };
-          //       } else if (widget) {
-          //         widgetsSchema[fieldId] = {
-          //           'ui:widget': widget,
-          //         };
-          //       }
-          //       return widgetsSchema;
-          //     },
-          //     {},
-          //   );
-          //   if (withCaptcha) {
-          //     widgets.captcha = {
-          //       'ui:widget': () => (
-          //         <CaptchaField onChange={this.handleCaptchaChange} />
-          //       ),
-          //     };
-          //   }
+          let formData = {};
+          Object.keys(schema.properties).forEach(fieldId => {
+            if (schema.properties[fieldId].mode !== 'hidden') {
+              formData[fieldId] = null;
+            }
+          });
           this.setState({
-            schema: schema,
-            // uiSchema: {
-            //   ...widgets,
-            //   'ui:order': schema.fieldsets[0].fields,
-            // },
+            schema,
+            formData,
           });
         },
         // Note: it's important to handle errors here
@@ -77,33 +57,33 @@ class FormContainer extends React.Component {
   }
 
   onSubmit = () => {
-    fetch(`${process.env.GATSBY_API_URL}/@submit-proposal`, {
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-      method: 'POST',
-      body: JSON.stringify(formData),
-    })
-      .then(res => {
-        if (res.ok && res.status === 204) {
-          this.setState({
-            formData: {},
-            key: Date.now(),
-            submitted: true,
-          });
-        } else {
-          return res.json();
-        }
-      })
-      .then(result => {
-        if (result) {
-          this.setState({
-            submitted: false,
-            error: result.message,
-          });
-        }
-      });
+    // fetch(`${process.env.GATSBY_API_URL}/@submit-proposal`, {
+    //   headers: new Headers({
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //   }),
+    //   method: 'POST',
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then(res => {
+    //     if (res.ok && res.status === 204) {
+    //       this.setState({
+    //         formData: {},
+    //         key: Date.now(),
+    //         submitted: true,
+    //       });
+    //     } else {
+    //       return res.json();
+    //     }
+    //   })
+    //   .then(result => {
+    //     if (result) {
+    //       this.setState({
+    //         submitted: false,
+    //         error: result.message,
+    //       });
+    //     }
+    //   });
   };
 
   onChange = form => {
@@ -119,35 +99,42 @@ class FormContainer extends React.Component {
   };
 
   render() {
-    const { schema, uiSchema, key, formData, submitted, error } = this.state;
+    const { schema, formData } = this.state;
     let message = '';
-    let statusMessage = '';
-    if (submitted) {
-      message = (
-        <div className="info">Thank you! Your proposal has been submitted.</div>
-      );
-    } else if (error) {
-      message = <div className="error">An error occurred: {error}</div>;
-    }
-
+    // if (submitted) {
+    //   message = (
+    //     <div className="info">Thank you! Your proposal has been submitted.</div>
+    //   );
+    // } else if (error) {
+    //   message = <div className="error">An error occurred: {error}</div>;
+    // }
+    const { fieldsets } = schema;
     return (
       <div className="talk-submission-form">
         <div className="status-message">{message}</div>
-        <Form
-          key={key}
-          schema={schema}
-          uiSchema={uiSchema}
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          formData={formData}
-          onError={e => {
-            console.log('errors: ', e);
-          }}
-          validate={this.validate}
-        />
+        <form>
+          {fieldsets.map(fieldset => {
+            <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
+              {fieldset.fields.map(fieldId => (
+                <FieldWrapper
+                  key={`field-${fieldId}`}
+                  value={formData.fieldId}
+                  properties={schema.properties.fieldId}
+                  isRequired={schema.required.includes(fieldId)}
+                />
+              ))}
+            </div>;
+          })}
+        </form>
       </div>
     );
   }
 }
+
+FormContainer.propTypes = {
+  withCaptcha: bool,
+  schemaEndpoint: string,
+  actionEndpoint: string,
+};
 
 export default FormContainer;
