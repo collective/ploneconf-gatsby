@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, string } from 'prop-types';
-import {FieldWrapper} from 
+import FieldWrapper from '../FieldWrapper';
 // import CaptchaField from '../CaptchaField';
 
 // import './styles.scss';
@@ -86,8 +86,11 @@ class FormContainer extends React.Component {
     //   });
   };
 
-  onChange = form => {
-    this.setState({ ...this.state, formData: form.formData });
+  updateFormValue = ({ id, value }) => {
+    this.setState({
+      ...this.state,
+      formData: { ...this.state.formData, [id]: value },
+    });
   };
 
   validate = (formData, errors) => {
@@ -100,6 +103,10 @@ class FormContainer extends React.Component {
 
   render() {
     const { schema, formData } = this.state;
+    console.log(formData);
+    if (!schema) {
+      return '';
+    }
     let message = '';
     // if (submitted) {
     //   message = (
@@ -113,18 +120,20 @@ class FormContainer extends React.Component {
       <div className="talk-submission-form">
         <div className="status-message">{message}</div>
         <form>
-          {fieldsets.map(fieldset => {
+          {fieldsets.map(fieldset => (
             <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
               {fieldset.fields.map(fieldId => (
                 <FieldWrapper
                   key={`field-${fieldId}`}
-                  value={formData.fieldId}
-                  properties={schema.properties.fieldId}
+                  id={fieldId}
+                  value={formData[fieldId]}
+                  properties={schema.properties[fieldId]}
                   isRequired={schema.required.includes(fieldId)}
+                  handleUpdate={this.updateFormValue}
                 />
               ))}
-            </div>;
-          })}
+            </div>
+          ))}
         </form>
       </div>
     );

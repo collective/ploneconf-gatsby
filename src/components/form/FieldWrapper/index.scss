@@ -1,0 +1,14 @@
+@import '../../../scss/variables';
+
+.field {
+    margin-bottom: 1em;
+
+    label {
+        display: block;
+    }
+
+    .description {
+        font-size: 90%;
+        color: #666;
+    }
+}
