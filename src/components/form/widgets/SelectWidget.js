@@ -13,7 +13,7 @@ const SelectWidget = ({ value, id, properties, handleUpdate }) => {
       isClearable={true}
       name={id}
       id={id}
-      value={valueOption[0]}
+      value={valueOption && valueOption.length ? valueOption[0] : null}
       options={options}
       onChange={selectedOption =>
         handleUpdate({ id, value: selectedOption.value })

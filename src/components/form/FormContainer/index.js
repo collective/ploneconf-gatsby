@@ -11,14 +11,13 @@ class FormContainer extends React.Component {
     this.state = {
       errors: {},
       formData: {},
-      key: Date.now(),
       submitted: false,
     };
   }
 
   componentDidMount() {
-    const { withCaptcha } = this.props;
-    fetch(`${process.env.GATSBY_API_URL}/@talk-proposal`, {
+    const { withCaptcha, schemaEndpoint } = this.props;
+    fetch(`${process.env.GATSBY_API_URL}/${schemaEndpoint}`, {
       headers: new Headers({ Accept: 'application/json' }),
     })
       .then(res => res.json())
@@ -73,14 +72,14 @@ class FormContainer extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { formData, schema } = this.state;
-
+    const { formData } = this.state;
+    const { actionEndpoint } = this.props;
     const errors = this.validateForm();
     if (Object.keys(errors).length > 0 && errors.constructor === Object) {
       this.setState({ ...this.state, errors });
       return;
     }
-    fetch(`${process.env.GATSBY_API_URL}/@submit-proposal`, {
+    fetch(`${process.env.GATSBY_API_URL}/${actionEndpoint}`, {
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -141,29 +140,28 @@ class FormContainer extends React.Component {
   // };
 
   render() {
-    const { schema, formData, errors } = this.state;
+    const { schema, formData, errors, submitted } = this.state;
     if (!schema) {
       return '';
     }
     let message = '';
-    // if (submitted) {
-    //   message = (
-    //     <div className="info">Thank you! Your proposal has been submitted.</div>
-    //   );
-    // } else if (error) {
-    //   message = <div className="error">An error occurred: {error}</div>;
-    // }
+    if (submitted) {
+      message = (
+        <div className="status-message info">
+          Thank you! Your proposal has been submitted.
+        </div>
+      );
+    } else if (Object.keys(errors).length) {
+      message = (
+        <div className="status-message error">
+          Please correct errors before submitting the form.
+        </div>
+      );
+    }
     const { fieldsets } = schema;
     return (
       <div className="form-wrapper">
-        <div className="status-message">{message}</div>
-        {Object.keys(errors).length ? (
-          <div className="errors-wrapper">
-            Please correct errors before submit the form.
-          </div>
-        ) : (
-          ''
-        )}
+        {message}
         <form onSubmit={this.onSubmit} method="POST">
           {fieldsets.map(fieldset => (
             <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>

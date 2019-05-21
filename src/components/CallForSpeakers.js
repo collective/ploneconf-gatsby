@@ -17,7 +17,7 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
       <FormContainer
         withCaptcha={true}
         schemaEndpoint="@talk-proposal"
-        actionEndpoint="/@submit-proposal"
+        actionEndpoint="@submit-proposal"
       />
     </div>
   </React.Fragment>
