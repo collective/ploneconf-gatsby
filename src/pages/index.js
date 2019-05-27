@@ -8,6 +8,7 @@ import PCFraraSVG from '../components/svg/PCFraraSVG';
 import AboutTheEvent from '../components/AboutTheEvent';
 import HPNumbers from '../components/HPNumbers';
 // import CTASpeakers from '../components/CTASpeakers';
+// import CTATickets from '../components/CTATickets';
 import CTASponsor from '../components/CTASponsor';
 import HPVenue from '../components/HPVenue';
 
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => (
     <AboutTheEvent />
     <HPNumbers />
     {/* <CTASpeakers img={data.ctaSpeakers.childImageSharp} /> */}
+    {/* <CTATickets /> */}
     <CTASponsor />
     <HPVenue img={data.venue.childImageSharp} />
   </Layout>
