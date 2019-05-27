@@ -1,0 +1,150 @@
+@import '../../scss/base';
+
+.cta-tickets {
+    text-align: center;
+    font-family: $font-family-roboto;
+
+    .row {
+        align-items: flex-end;
+    }
+    .title {
+        margin-bottom: 55px;
+        font-size: 3.125rem;
+        font-weight: 400;
+    }
+    .recommended span {
+        @include make-col-ready;
+        display: inline-block;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        margin-bottom: 16px;
+        background-color: $dark-color;
+        border-radius: 3px;
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        @include antialias;
+    }
+    .ticket {
+        @include make-col-ready;
+
+        h3 {
+            font-size: 1.875rem;
+            margin-bottom: 9px;
+        }
+        &.fullconf {
+            background-color: white;
+
+            h3 {
+                font-size: 2.25rem;
+            }
+        }
+        &.oneday,
+        &.party {
+            background-color: #f1f1f1;
+        }
+    }
+    .ticket-caption {
+        margin-bottom: 30px;
+        color: #848484;
+        font-size: 1.125rem;
+    }
+    .ticket-features {
+        position: relative;
+        max-width: 280px;
+        padding: 30px 0 15px;
+        margin: 0 auto 30px;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: calc(50% - 52.5px);
+            width: 105px;
+            height: 1px;
+            background-color: $light-blue;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+    }
+    .early-bird {
+        margin-bottom: 0;
+        color: $light-blue;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .price {
+        position: relative;
+        margin-bottom: 0;
+        font-size: 3.4375rem;
+
+        .full {
+            position: absolute;
+            top: 0.25em;
+            left: 0;
+            font-size: 0.75em;
+            font-weight: 300;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+            }
+        }
+        .current {
+            font-weight: 700;
+        }
+        .currency {
+            font-size: 0.75em;
+        }
+    }
+    .fee-vat {
+        color: #868686;
+    }
+    .cta-link {
+        a {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: $cta-yellow;
+            border-radius: 3px;
+            color: black;
+            font-size: 1.5625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.2s background-color ease;
+
+            &:hover,
+            &:focus {
+                background-color: darken($cta-yellow, 10%);
+            }
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .recommended span {
+            @include make-col(4);
+        }
+        .ticket {
+            @include make-col(4);
+
+            &.fullconf {
+                order: 1;
+            }
+            &.oneday {
+                order: 0;
+            }
+            &.party {
+                order: 2;
+            }
+        }
+    }
+}

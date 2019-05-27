@@ -3,11 +3,16 @@ $font-family-base: $font-family-sans-serif;
 $font-family-roboto: 'Roboto', $font-family-sans-serif;
 $font-family-quantify: 'Quantify', $font-family-sans-serif;
 
-// $font-size-base: 16px;
-
 $light-blue: #35c9e2;
 $header-blue: #008abe;
 $dark-color: #222;
 $footer-actions-bg: #303030;
 $footer-gray: #c6c6c6;
 $cta-yellow: #fad03d;
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1398px,
+);

@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import cx from 'classnames';
 
-import '../../scss/_base.scss';
 import './index.scss';
 
 import Header from '../Header';

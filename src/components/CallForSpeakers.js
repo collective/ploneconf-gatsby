@@ -1,6 +1,6 @@
 import React from 'react';
 import { array, object } from 'prop-types';
-import TalkSubmission from './TalkSubmission';
+import FormContainer from './form/FormContainer';
 import Document from './Document';
 
 const CallForSpeakers = ({ data, images = [], files = [] }) => (
@@ -13,7 +13,13 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
         files,
       }}
     />
-    <TalkSubmission />
+    <div className="talk-submission-form container">
+      <FormContainer
+        withCaptcha={true}
+        schemaEndpoint="@talk-proposal"
+        actionEndpoint="@talk-proposal"
+      />
+    </div>
   </React.Fragment>
 );
 
