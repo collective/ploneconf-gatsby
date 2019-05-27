@@ -73,6 +73,9 @@ export const query = graphql`
     plonePerson(_path: { eq: $path }) {
       ...Person
     }
+    ploneTraining(_path: { eq: $path }) {
+      ...Training
+    }
     allPloneImage(filter: { _backlinks: { eq: $path } }) {
       edges {
         node {
