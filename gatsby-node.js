@@ -16,6 +16,29 @@ exports.onCreateNode = ({ node }) => {
       node._path,
     );
   }
+  if (node._type === 'Training') {
+    if (node.what_learn) {
+      node.what_learn.react = parseHTMLToReact(
+        node.what_learn.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
+    if (node.prerequisites) {
+      node.prerequisites.react = parseHTMLToReact(
+        node.prerequisites.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
+    if (node.things_to_bring) {
+      node.things_to_bring.react = parseHTMLToReact(
+        node.things_to_bring.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
+  }
 };
 
 exports.createPages = async ({ graphql, actions }) => {

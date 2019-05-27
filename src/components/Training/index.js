@@ -4,41 +4,65 @@ import { graphql } from 'gatsby';
 import cx from 'classnames';
 
 import RichText from '../RichText';
-import PageHeader from '../PageHeader';
+import StandardHeader from '../StandardHeader';
 
 import './index.scss';
 
-const Training = ({ data, cssClass, images = [], files = [] }) => (
+const TextBlock = ({ label, text, images, files }) => (
   <React.Fragment>
-    {data.image && data.image.childImageSharp && (
-      <PageHeader
-        img={data.image.childImageSharp}
-        text={
-          data.title ? (
-            <React.Fragment>
-              <h1>{data.title}</h1>
-              {data.description && <p>{data.description}</p>}
-            </React.Fragment>
-          ) : (
-            ''
-          )
-        }
-      />
-    )}
-    <article key={data._id} className={cx('training-content', cssClass)}>
-      <div className="container">
-        prova
-        {/* {data.text ? (
-          <RichText
-            serialized={data.text.react}
-            images={images}
-            files={files}
-          />
-        ) : null} */}
-      </div>
-    </article>
+    <h4>{label}</h4>
+    <RichText serialized={text.react} images={images} files={files} />
   </React.Fragment>
 );
+
+const Training = ({ data, cssClass, images = [], files = [] }) => {
+  const {
+    what_learn,
+    things_to_bring,
+    prerequisites,
+    room,
+    title,
+    description,
+    docs_link,
+    audience,
+    level,
+    duration,
+  } = data;
+
+  return (
+    <React.Fragment>
+      <StandardHeader title={data.title} description={data.description} />
+      <article key={data._id} className={cx('training-content', cssClass)}>
+        <div className="container">
+          {what_learn ? (
+            <TextBlock
+              text={what_learn}
+              images={images}
+              files={files}
+              label="What will you learn"
+            />
+          ) : null}
+          {things_to_bring ? (
+            <TextBlock
+              text={things_to_bring}
+              images={images}
+              files={files}
+              label="Things to bring"
+            />
+          ) : null}
+          {prerequisites ? (
+            <TextBlock
+              text={prerequisites}
+              images={images}
+              files={files}
+              label="Prerequisites"
+            />
+          ) : null}
+        </div>
+      </article>
+    </React.Fragment>
+  );
+};
 
 Training.propTypes = {
   data: object.isRequired,
@@ -56,5 +80,19 @@ export const query = graphql`
     title
     description
     _path
+    things_to_bring {
+      react
+    }
+    prerequisites {
+      react
+    }
+    what_learn {
+      react
+    }
+    docs_link
+    room
+    audience
+    level
+    duration
   }
 `;
