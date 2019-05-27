@@ -6,6 +6,8 @@ import SelectWidget from '../widgets/SelectWidget';
 import MultiSelectWidget from '../widgets/MultiSelectWidget';
 import CaptchaWidget from '../widgets/CaptchaWidget';
 import FileUploadWidget from '../widgets/FileUploadWidget';
+import CheckboxWidget from '../widgets/CheckboxWidget';
+import PrivacyWidget from '../widgets/PrivacyWidget';
 
 import './index.scss';
 
@@ -46,6 +48,12 @@ const FieldWrapper = ({
     case 'captcha':
       FieldComponent = CaptchaWidget;
       break;
+    case 'boolean':
+      if (id === 'privacy') {
+        FieldComponent = PrivacyWidget;
+      } else {
+        FieldComponent = CheckboxWidget;
+      }
     default:
       break;
   }
