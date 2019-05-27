@@ -19,10 +19,18 @@ const AboutTheEvent = () => (
                 </span>
               </h2>
               <p>
-                Be a part of the discussion surrounding the latest trends and
-                success stories of Digital Experience Innovation about Plone,
-                Python, Pyramid, Guillotina, Volto and the most celebrated
-                frontend frameworks.
+                Join the <b>17th</b> edition of <b>Plone Conference</b> in the
+                amazing Ferrara and gain an unparalleled opportunity to discover
+                insights from the <b>inspiring keynote speakers</b> and exchange
+                experiences with <b>designers</b> and <b>developers</b> from{' '}
+                <b>all over the world</b>.
+                <br />
+                We are building for you a great gathering of the global Plone
+                Community with a lot of <b>networking</b> and growth
+                opportunities. Be a part of the discussion surrounding the{' '}
+                <b>latest trends</b> and <b>success stories</b> of Digital
+                Experience Innovation about Plone, Volto, Guillotina, Pyramid,
+                Python and the most celebrated frontend frameworks.
               </p>
             </div>
             <div className="text-info-wrapper">
