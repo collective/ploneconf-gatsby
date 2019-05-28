@@ -1,14 +1,12 @@
 @import '../../scss/base';
 
 .cta-tickets {
+    margin-bottom: 150px;
     text-align: center;
     font-family: $font-family-roboto;
 
-    .row {
-        align-items: flex-end;
-    }
     .title {
-        margin-bottom: 55px;
+        margin-bottom: 35px;
         font-size: 3.125rem;
         font-weight: 400;
     }
@@ -26,24 +24,71 @@
         text-transform: uppercase;
         @include antialias;
     }
-    .ticket {
-        @include make-col-ready;
+    .tickets {
+        position: relative;
+    }
+    .blue-block,
+    .black-block {
+        position: absolute;
+        top: 100px;
+        right: 0;
+        bottom: 100px;
+        left: 0;
+        z-index: -1;
 
-        h3 {
-            font-size: 1.875rem;
-            margin-bottom: 9px;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            left: 0;
         }
-        &.fullconf {
-            background-color: white;
+    }
+    .blue-block {
+        background-color: $light-blue;
 
-            h3 {
-                font-size: 2.25rem;
-            }
+        &::before {
+            top: -100px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 0 0 100vw;
+            border-color: transparent transparent transparent $light-blue;
         }
-        &.oneday,
-        &.party {
-            background-color: #f1f1f1;
+        &::after {
+            bottom: -100px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 100vw 0 0;
+            border-color: $light-blue transparent transparent transparent;
         }
+    }
+    .black-block {
+        background-color: #333;
+
+        &::before {
+            top: -80px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 80px 100vw;
+            border-color: transparent transparent #333 transparent;
+        }
+        &::after {
+            right: calc(50vw - 600px);
+            bottom: -80px;
+            left: calc(50vw - 600px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 130px 1200px 0 0;
+            border-color: #333 transparent transparent transparent;
+            transform: rotate3d(0, 0, 1, -6deg);
+        }
+    }
+    .row {
+        align-items: flex-end;
     }
     .ticket-caption {
         margin-bottom: 30px;
@@ -86,7 +131,7 @@
         .full {
             position: absolute;
             top: 0.25em;
-            left: 0;
+            left: calc(50% - 4.5em);
             font-size: 0.75em;
             font-weight: 300;
 
@@ -129,7 +174,34 @@
             }
         }
     }
+    .ticket {
+        @include make-col-ready;
+        padding-bottom: 30px;
+
+        h3 {
+            font-size: 1.875rem;
+            margin-bottom: 9px;
+        }
+        &.fullconf {
+            background-color: white;
+
+            h3 {
+                font-size: 2.25rem;
+            }
+            .ticket-features {
+                font-size: 1.05em;
+            }
+        }
+        &.oneday,
+        &.party {
+            padding-top: 30px;
+            background-color: #f1f1f1;
+        }
+    }
     @include media-breakpoint-up(lg) {
+        .title {
+            margin-bottom: 55px;
+        }
         .recommended span {
             @include make-col(4);
         }
