@@ -2,7 +2,7 @@ import React from 'react';
 import { array } from 'prop-types';
 import Document from '../../Document';
 import { StaticQuery, graphql } from 'gatsby';
-import TrainersList from '../helpers/TrainersList';
+import TrainingsList from '../helpers/TrainingsList';
 
 const TrainingHome = ({ images = [], files = [] }) => (
   <StaticQuery
@@ -14,6 +14,7 @@ const TrainingHome = ({ images = [], files = [] }) => (
         allPloneTraining {
           edges {
             node {
+              UID
               id
               _path
               title
@@ -29,9 +30,18 @@ const TrainingHome = ({ images = [], files = [] }) => (
             }
           }
         }
+        allPlonePerson {
+          edges {
+            node {
+              id
+              _path
+              title
+            }
+          }
+        }
       }
     `}
-    render={({ ploneDocument, allPloneTraining }) => (
+    render={({ ploneDocument, allPloneTraining, allPlonePerson }) => (
       <React.Fragment>
         <Document
           cssClass="training"
@@ -41,7 +51,10 @@ const TrainingHome = ({ images = [], files = [] }) => (
             files,
           }}
         />
-        <TrainersList data={allPloneTraining.edges} />
+        <TrainingsList
+          data={allPloneTraining.edges}
+          people={allPlonePerson.edges}
+        />
       </React.Fragment>
     )}
   />
