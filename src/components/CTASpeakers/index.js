@@ -21,10 +21,10 @@ const CTASpeakers = ({ img }) => (
           Interested in <b>speaking?</b>
         </h2>
         <p>
-          Donec id elit non mi porta gravida at eget metus. Curabitur blandit
-          tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-          condimentum nibh, ut
+          We are an open community and we love <b>inspiring stories</b>. Plone
+          of course, but also about other python frameworks, frontend
+          development, new trends and hypes, everything you are passionate
+          about.
         </p>
         <Link to="/call-for-speakers" className="cta-speakers-link">
           Send us your speech proposal!
