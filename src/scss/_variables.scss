@@ -1,7 +1,9 @@
-$font-family-sans-serif: 'Open Sans Regular', sans-serif;
+$font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-base: $font-family-sans-serif;
 $font-family-roboto: 'Roboto', $font-family-sans-serif;
 $font-family-quantify: 'Quantify', $font-family-sans-serif;
+
+$font-size-base: 1.25rem;
 
 $light-blue: #35c9e2;
 $header-blue: #008abe;
@@ -9,6 +11,8 @@ $dark-color: #222;
 $footer-actions-bg: #303030;
 $footer-gray: #c6c6c6;
 $cta-yellow: #fad03d;
+
+$primary: $light-blue;
 
 $container-max-widths: (
     sm: 540px,

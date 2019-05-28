@@ -8,6 +8,7 @@ import CaptchaWidget from '../widgets/CaptchaWidget';
 import FileUploadWidget from '../widgets/FileUploadWidget';
 import CheckboxWidget from '../widgets/CheckboxWidget';
 import PrivacyWidget from '../widgets/PrivacyWidget';
+import { Link } from 'gatsby';
 
 import './index.scss';
 
@@ -31,6 +32,20 @@ const FieldWrapper = ({
   if (mode && mode === 'hidden') {
     return '';
   }
+  const hasError = fieldError && fieldError.length > 0;
+
+  if (type === 'boolean' && id === 'privacy') {
+    return (
+      <PrivacyWidget
+        {...properties}
+        hasError={hasError}
+        handleUpdate={handleUpdate}
+        fieldError={fieldError}
+        id={id}
+      />
+    );
+  }
+
   let FieldComponent = TextLineWidget;
   switch (type) {
     case 'string':
@@ -49,24 +64,19 @@ const FieldWrapper = ({
       FieldComponent = CaptchaWidget;
       break;
     case 'boolean':
-      if (id === 'privacy') {
-        FieldComponent = PrivacyWidget;
-      } else {
-        FieldComponent = CheckboxWidget;
-      }
+      FieldComponent = CheckboxWidget;
+      break;
     default:
       break;
   }
-  const hasError = fieldError && fieldError.length;
-  let cssClass = hasError ? 'field error' : 'field';
+
   return (
-    <div className={cssClass}>
-      {hasError ? <div className="error-message">{fieldError}</div> : ''}
-      <label className={isRequired ? 'required' : ''} htmlFor={id}>
-        {title}
-      </label>
+    <div className="form-group">
+      <label htmlFor={id}>{title}</label>
       {description && description.length ? (
-        <p className="description">{description}</p>
+        <small id={`${id}Help`} className="form-text text-muted">
+          {description}
+        </small>
       ) : (
         ''
       )}
@@ -74,8 +84,11 @@ const FieldWrapper = ({
         id={id}
         value={value}
         properties={properties}
+        required={isRequired}
         handleUpdate={handleUpdate}
+        hasError={hasError}
       />
+      {hasError ? <div className="invalid-feedback">{fieldError}</div> : ''}
     </div>
   );
 };

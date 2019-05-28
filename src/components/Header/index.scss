@@ -1,5 +1,4 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import '../../scss/base';
 
 header#header-navigation {
     position: sticky;
@@ -122,6 +121,7 @@ header#header-navigation {
             padding: 0.5rem 1rem;
             display: inline-block;
             text-transform: uppercase;
+            font-size: px2rem(18);
             font-family: $font-family-roboto;
             font-weight: 600;
             transition: color 0.3s ease;

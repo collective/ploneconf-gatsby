@@ -74,13 +74,12 @@ class Header extends Component {
             {/* <Link to="/contacts" activeClassName="active">
               <span>Contacts</span>
             </Link> */}
-            {/* <Link
-              to="/tickets"
+            <a
+              href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
               className="get-tickets"
-              activeClassName="active"
             >
               <span>Get tickets!</span>
-            </Link> */}
+            </a>
           </div>
           <OffcanvasMenu />
         </div>
