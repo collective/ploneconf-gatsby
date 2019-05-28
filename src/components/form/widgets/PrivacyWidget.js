@@ -2,25 +2,48 @@ import React from 'react';
 import { bool, func, string } from 'prop-types';
 import { Link } from 'gatsby';
 
-const PrivacyWidget = ({ value, id, handleUpdate }) => (
-  <React.Fragment>
-    <input
-      type="checkbox"
-      defaultChecked={value}
-      id={id}
-      name={id}
-      onChange={e => handleUpdate({ id, value: e.target.checked })}
-    />{' '}
-    <span>
-      I agree to the <Link to="/privacy-policy">terms and conditions</Link>
-    </span>
-  </React.Fragment>
+const PrivacyWidget = ({
+  value,
+  id,
+  title,
+  description,
+  handleUpdate,
+  hasError,
+  fieldError,
+}) => (
+  <div className="form-group">
+    <div className="form-check">
+      <label htmlFor={id} className="form-check-label">
+        I agree to the terms and conditions
+      </label>
+      <input
+        type="checkbox"
+        className="form-check-input"
+        defaultChecked={value}
+        id={id}
+        name={id}
+        onChange={e => handleUpdate({ id, value: e.target.checked })}
+      />
+      {description && description.length ? (
+        <small id={`${id}Help`} className="form-text text-muted">
+          {description} <Link to="/privacy-policy">terms and conditions</Link>
+        </small>
+      ) : (
+        ''
+      )}
+      {hasError ? <div className="invalid-feedback">{fieldError}</div> : ''}
+    </div>
+  </div>
 );
 
 PrivacyWidget.propTypes = {
   id: string,
   value: bool,
+  title: string,
+  description: string,
   handleUpdate: func,
+  hasError: bool,
+  fieldError: string,
 };
 
 export default PrivacyWidget;

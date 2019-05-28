@@ -162,7 +162,12 @@ class FormContainer extends React.Component {
     return (
       <div className="form-wrapper">
         {message}
-        <form onSubmit={this.onSubmit} method="POST">
+        <form
+          onSubmit={this.onSubmit}
+          method="POST"
+          className="needs-validation"
+          noValidate
+        >
           {fieldsets.map(fieldset => (
             <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
               {fieldset.fields.map(fieldId => (
@@ -179,7 +184,9 @@ class FormContainer extends React.Component {
             </div>
           ))}
           <div className="form-buttons">
-            <button name="submit">Submit</button>
+            <button className="btn btn-primary" name="submit">
+              Submit
+            </button>
             <button type="reset" name="cancel" onClick={this.resetForm}>
               Cancel
             </button>
