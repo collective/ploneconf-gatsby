@@ -73,6 +73,7 @@ $shape-height: 2vw;
 
     .section-label {
         color: $light-blue;
+        font-size: 1rem;
         text-transform: uppercase;
     }
 
@@ -90,7 +91,7 @@ $shape-height: 2vw;
                 width: 50%;
 
                 h2 {
-                    font-size: px2rem(42);
+                    font-size: px2rem(49);
                     line-height: 50px;
                     font-weight: 300;
                     font-family: $font-family-roboto;
@@ -145,12 +146,12 @@ $shape-height: 2vw;
 
                     .italy-label {
                         color: $light-blue;
-                        font-size: 1.75rem;
-                        line-height: 33px;
+                        font-size: 2rem;
+                        line-height: 1;
                     }
 
                     .ferrara {
-                        font-size: 7rem;
+                        font-size: px2rem(127);
                         font-weight: 600;
                         line-height: 0.7;
                         margin-bottom: 1rem;
@@ -160,14 +161,14 @@ $shape-height: 2vw;
                         font-weight: 600;
 
                         .month {
-                            font-size: px2rem(28);
-                            line-height: 40px;
+                            font-size: px2rem(40);
+                            line-height: 1;
                             margin-right: 1rem;
                             text-transform: uppercase;
                         }
 
                         .days {
-                            font-size: px2rem(67);
+                            font-size: px2rem(76);
                             line-height: 80px;
                         }
                     }

@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@import '../../scss/base';
 
 #footer-wrapper {
     border-top: 13px solid $light-blue;
@@ -16,6 +16,7 @@
     .footer-plone-actions {
         background: $footer-actions-bg;
         padding: 1.5rem 0;
+        font-size: 1rem;
 
         ul {
             list-style: none;
@@ -90,7 +91,7 @@
 
     .logo-about-wrapper {
         svg {
-            height: 10rem;
+            height: 205px;
             width: auto;
         }
     }
@@ -151,12 +152,11 @@
 
         span {
             line-height: 22px;
-            font-size: px2rem(14);
         }
     }
 
     .coc-link {
-        font-size: px2rem(16);
+        font-size: 1rem;
         line-height: 26px;
         text-transform: uppercase;
     }
@@ -183,6 +183,8 @@
     }
 
     .contact-wrapper {
+        font-size: px2rem(16);
+
         .label {
             font-weight: 600;
             text-transform: uppercase;

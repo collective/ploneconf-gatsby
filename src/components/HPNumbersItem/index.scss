@@ -1,8 +1,8 @@
-@import '../../scss/variables';
+@import '../../scss/base';
 
 .hp-numbers-item {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 
     .icon-wrapper {
         width: 70px;
@@ -22,16 +22,16 @@
         .text-row {
             display: flex;
             align-items: flex-end;
+            font-weight: 700;
 
             .number {
-                font-size: px2rem(60);
-                line-height: 50px;
-                font-weight: 700;
+                font-size: px2rem(70);
+                line-height: 60px;
                 font-family: 'Lato', $font-family-sans-serif;
             }
 
             .text {
-                font-size: px2rem(20);
+                font-size: px2rem(23);
                 line-height: 1;
                 font-family: $font-family-roboto;
                 padding-left: 0.3rem;
@@ -40,11 +40,10 @@
 
         .subtitle {
             font-family: $font-family-roboto;
-            font-size: px2rem(20);
-            line-height: 26px;
+            font-size: px2rem(26);
+            line-height: 1;
             color: #222;
-            font-weight: 300;
-            margin: 0.75rem 0 0;
+            margin: 0.75rem 0 -3px;
         }
     }
 }

@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@import '../../scss/base';
 
 .venue-info {
     font-family: $font-family-roboto;
@@ -6,8 +6,8 @@
     .content-wrapper {
         position: relative;
         color: #222;
-        max-width: 320px;
-        padding: 2rem;
+        max-width: 467px;
+        padding: 50px;
         background: rgba(#ffd23d, 0.74);
 
         .light-box {
@@ -27,8 +27,8 @@
             position: relative;
         }
 
-        > p {
-            font-size: 0.8rem;
+        > h3 {
+            font-size: px2rem(36);
         }
 
         .apollo-info {
@@ -36,6 +36,7 @@
 
             svg {
                 color: #008abe;
+                font-size: px2rem(27);
             }
 
             .apollo-info-text {
@@ -43,12 +44,11 @@
 
                 .apollo {
                     font-weight: 600;
-                    font-size: 0.9rem;
+                    font-size: px2rem(22);
                     margin: 0;
                 }
 
                 .address {
-                    font-size: 0.75rem;
                     margin: 0;
                 }
             }
@@ -61,17 +61,18 @@
             justify-content: flex-end;
 
             svg {
-                width: 4rem;
+                width: 87px;
+                margin-top: 15px;
+                margin-right: 15px;
             }
 
             p {
-                font-size: 0.8rem;
                 font-weight: 600;
                 margin: 0;
             }
         }
 
-        @media (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             max-width: 85vw;
             margin: 3rem auto;
         }

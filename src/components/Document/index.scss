@@ -12,8 +12,7 @@
         margin-bottom: 1.5rem;
         font-family: $font-family-roboto;
         font-weight: 300;
-        font-size: 2.5rem;
-        line-height: 3rem;
+        font-size: px2rem(50);
         @include antialias;
 
         b,
@@ -23,7 +22,7 @@
     }
 
     h3 {
-        font-size: 2rem;
+        font-size: px2rem(40);
     }
 
     p {
@@ -32,6 +31,7 @@
     }
 
     p.callout {
+        font-size: px2rem(25);
         font-family: $font-family-roboto;
         font-weight: 600;
 

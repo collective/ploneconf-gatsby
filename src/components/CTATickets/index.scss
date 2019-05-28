@@ -7,7 +7,7 @@
 
     .title {
         margin-bottom: 35px;
-        font-size: 3.125rem;
+        font-size: px2rem(49);
         font-weight: 400;
     }
     .recommended span {
@@ -97,7 +97,7 @@
     }
     .ticket-features {
         position: relative;
-        max-width: 280px;
+        max-width: 300px;
         padding: 30px 0 15px;
         margin: 0 auto 30px;
 
@@ -131,7 +131,7 @@
         .full {
             position: absolute;
             top: 0.25em;
-            left: calc(50% - 4.5em);
+            left: calc(50% - 4.2em);
             font-size: 0.75em;
             font-weight: 300;
 
@@ -166,11 +166,12 @@
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
-            transition: 0.2s background-color ease;
+            transition: 0.2s all ease;
 
             &:hover,
             &:focus {
-                background-color: darken($cta-yellow, 10%);
+                background-color: black;
+                color: $cta-yellow;
             }
         }
     }

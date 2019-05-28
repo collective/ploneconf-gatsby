@@ -1,17 +1,16 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import '../../scss/base';
 
 .hp-venue {
     margin: 3rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    @media (min-width: 768px) {
-        max-width: 90vw;
+    @include media-breakpoint-up(md) {
+        max-width: 95vw;
     }
 
-    @media (min-width: 1200px) {
-        max-width: 1024px;
+    @media (min-width: 1760px) {
+        max-width: 1730px;
     }
 
     .hp-image-wrapper {
@@ -75,20 +74,19 @@
                 color: $light-blue;
                 font-weight: 600;
                 text-transform: uppercase;
-                font-size: 0.8rem;
-                line-height: 1.2rem;
+                font-size: px2rem(22);
                 margin: 0;
             }
 
             h3 {
-                font-size: 4rem;
+                font-size: px2rem(127);
                 font-weight: 600;
                 line-height: 1;
                 margin-bottom: 0;
             }
 
             .italy {
-                font-size: 1.5rem;
+                font-size: px2rem(43);
                 margin: 0;
                 line-height: 1;
                 text-align: right;
