@@ -74,28 +74,41 @@
                 color: $light-blue;
                 font-weight: 600;
                 text-transform: uppercase;
-                font-size: px2rem(22);
+                font-size: px2rem(18);
                 margin: 0;
             }
 
             h3 {
-                font-size: px2rem(127);
+                font-size: px2rem(80);
                 font-weight: 600;
                 line-height: 1;
                 margin-bottom: 0;
             }
 
             .italy {
-                font-size: px2rem(43);
+                font-size: px2rem(35);
                 margin: 0;
                 line-height: 1;
                 text-align: right;
             }
         }
+        @include media-breakpoint-up(md) {
+            .ferrara {
+                .label {
+                    font-size: px2rem(22);
+                }
+                h3 {
+                    font-size: px2rem(127);
+                }
+                .italy {
+                    font-size: px2rem(43);
+                }
+            }
+        }
     }
 
     .venue-info {
-        @media (min-width: 769px) {
+        @media (min-width: 768px) {
             grid-row: 1;
             grid-column: 2;
             align-self: flex-end;
@@ -103,7 +116,7 @@
             padding: 0 3rem 2rem 0;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             grid-row: 2;
             grid-column: 1 / -1;
             background: #000;
