@@ -18,7 +18,8 @@ const PrivacyWidget = ({
       <input
         type="checkbox"
         className="form-check-input"
-        defaultChecked={value}
+        defaultChecked={value === true}
+        checked={value}
         id={id}
         name={id}
         onChange={e => handleUpdate({ id, value: e.target.checked })}

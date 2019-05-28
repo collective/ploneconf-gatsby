@@ -14,7 +14,7 @@ class FileUploadWidget extends React.Component {
     const { value, id, handleUpdate } = this.props;
     const { uploadedFile } = this.state;
     let file = '';
-    if (uploadedFile) {
+    if (uploadedFile && value) {
       file = (
         <div className="thumb">
           <div className="thumb-inner">

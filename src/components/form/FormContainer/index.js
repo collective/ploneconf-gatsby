@@ -147,13 +147,13 @@ class FormContainer extends React.Component {
     let message = '';
     if (submitted) {
       message = (
-        <div className="status-message info">
+        <div className="alert alert-primary">
           Thank you! Your proposal has been submitted.
         </div>
       );
     } else if (Object.keys(errors).length) {
       message = (
-        <div className="status-message error">
+        <div className="alert alert-danger">
           Please correct errors before submitting the form.
         </div>
       );
@@ -161,7 +161,6 @@ class FormContainer extends React.Component {
     const { fieldsets } = schema;
     return (
       <div className="form-wrapper">
-        {message}
         <form
           onSubmit={this.onSubmit}
           method="POST"
@@ -192,6 +191,7 @@ class FormContainer extends React.Component {
             </button>
           </div>
         </form>
+        {message}
       </div>
     );
   }
