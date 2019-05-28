@@ -24,14 +24,14 @@
             align-items: flex-end;
 
             .number {
-                font-size: 60px;
+                font-size: px2rem(60);
                 line-height: 50px;
                 font-weight: 700;
                 font-family: 'Lato', $font-family-sans-serif;
             }
 
             .text {
-                font-size: 20px;
+                font-size: px2rem(20);
                 line-height: 1;
                 font-family: $font-family-roboto;
                 padding-left: 0.3rem;
@@ -40,7 +40,7 @@
 
         .subtitle {
             font-family: $font-family-roboto;
-            font-size: 20px;
+            font-size: px2rem(20);
             line-height: 26px;
             color: #222;
             font-weight: 300;

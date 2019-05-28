@@ -103,7 +103,7 @@
     }
 
     h2 {
-        font-size: 15px;
+        font-size: px2rem(15);
         color: $light-blue;
         text-transform: uppercase;
         line-height: 20px;
@@ -112,7 +112,7 @@
 
     p,
     span {
-        font-size: 16px;
+        font-size: px2rem(16);
         line-height: 26px;
         font-weight: 300;
     }
@@ -151,12 +151,12 @@
 
         span {
             line-height: 22px;
-            font-size: 14px;
+            font-size: px2rem(14);
         }
     }
 
     .coc-link {
-        font-size: 16px;
+        font-size: px2rem(16);
         line-height: 26px;
         text-transform: uppercase;
     }
@@ -187,7 +187,7 @@
             font-weight: 600;
             text-transform: uppercase;
             margin-right: 0.5rem;
-            font-size: 12px;
+            font-size: px2rem(12);
         }
     }
 

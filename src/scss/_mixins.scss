@@ -19,3 +19,7 @@
         background-color: darken($light-blue, 10%);
     }
 }
+
+@function px2rem($px) {
+    @return $px / 16 * 1rem;
+}
