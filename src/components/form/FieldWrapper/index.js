@@ -69,15 +69,6 @@ const FieldWrapper = ({
       break;
   }
 
-  // let labelText =
-  //   id === 'privacy' ? (
-  //     <label htmlFor={id} className="form-check-label">
-  //       I agree to the terms and conditions
-  //       {/* <Link to="/privacy-policy">terms and conditions</Link> */}
-  //     </label>
-  //   ) : (
-  //     <label htmlFor={id}>{title}</label>
-  //   );
   return (
     <div className="form-group">
       <label htmlFor={id}>{title}</label>

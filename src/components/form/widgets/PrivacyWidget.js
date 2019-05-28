@@ -5,7 +5,6 @@ import { Link } from 'gatsby';
 const PrivacyWidget = ({
   value,
   id,
-  title,
   description,
   handleUpdate,
   hasError,
