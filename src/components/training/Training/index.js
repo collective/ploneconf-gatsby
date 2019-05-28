@@ -3,19 +3,13 @@ import { array, object, string } from 'prop-types';
 import { graphql } from 'gatsby';
 import cx from 'classnames';
 
-import RichText from '../RichText';
-import StandardHeader from '../StandardHeader';
+import TextBlock from '../helpers/TextBlock';
+import TrainerWrapper from '../helpers/TrainerWrapper';
+import StandardHeader from '../../StandardHeader';
 
 import './index.scss';
 
-const TextBlock = ({ label, text, images, files }) => (
-  <React.Fragment>
-    <h4>{label}</h4>
-    <RichText serialized={text.react} images={images} files={files} />
-  </React.Fragment>
-);
-
-const Training = ({ data, cssClass, images = [], files = [] }) => {
+const Training = ({ data, people, cssClass, images = [], files = [] }) => {
   const {
     what_learn,
     things_to_bring,
@@ -27,13 +21,30 @@ const Training = ({ data, cssClass, images = [], files = [] }) => {
     audience,
     level,
     duration,
+    related_people,
   } = data;
+  const trainer_ids = related_people.map(person => person._id);
+  const trainers = people.edges.filter(({ node }) =>
+    trainer_ids.includes(node.id),
+  );
+  let trainersElement = '';
+  if (trainers.length) {
+    trainersElement = (
+      <div className="trainers">
+        <strong>Trainers</strong>
+        {trainers.map(({ node }) => {
+          return <TrainerWrapper {...node} key={node.UID} />;
+        })}
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>
       <StandardHeader title={data.title} description={data.description} />
       <article key={data._id} className={cx('training-content', cssClass)}>
         <div className="container">
+          {trainersElement}
           {what_learn ? (
             <TextBlock
               text={what_learn}
@@ -66,6 +77,7 @@ const Training = ({ data, cssClass, images = [], files = [] }) => {
 
 Training.propTypes = {
   data: object.isRequired,
+  people: object,
   cssClass: string,
   images: array,
   files: array,
@@ -94,5 +106,8 @@ export const query = graphql`
     audience
     level
     duration
+    related_people {
+      _id
+    }
   }
 `;

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 
 import Document from '../components/Document';
 import CallForSpeakers from '../components/CallForSpeakers';
+import TrainingHome from '../components/training/TrainingHome';
 import Person from '../components/Person';
 import Folder from '../components/Folder';
 import Layout from '../components/Layout';
@@ -30,6 +31,15 @@ const componentFor = data => {
         />
       );
     } else if (data['ploneFolder']) {
+      const { ploneFolder } = data;
+      if (ploneFolder.title === 'Training') {
+        return (
+          <TrainingHome
+            images={nodes(data['allPloneImage'])}
+            files={nodes(data['allPloneFile'])}
+          />
+        );
+      }
       return (
         <Folder
           data={data['ploneFolder']}

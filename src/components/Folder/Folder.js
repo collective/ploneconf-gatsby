@@ -13,6 +13,7 @@ const Folder = ({ data, title, images = [], files = [] }) => {
     'Collection',
     'File',
     'Talk',
+    'Training',
   ]);
   let byPath = files.reduce(function(result, file) {
     result[file._path] = file;
@@ -30,7 +31,8 @@ const Folder = ({ data, title, images = [], files = [] }) => {
       <ul className="list-group">
         {data.items
           .filter(
-            item => listedTypes.has(item._type) && item._path !== '/docs/index/'
+            item =>
+              listedTypes.has(item._type) && item._path !== '/docs/index/',
           )
           .map(item => (
             <li key={item._path} className="list-group-item">
