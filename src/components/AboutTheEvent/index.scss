@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@import '../../scss/base';
 
 $shape-height: 2vw;
 
@@ -90,7 +90,7 @@ $shape-height: 2vw;
                 width: 50%;
 
                 h2 {
-                    font-size: 42px;
+                    font-size: px2rem(42);
                     line-height: 50px;
                     font-weight: 300;
                     font-family: $font-family-roboto;
@@ -108,7 +108,7 @@ $shape-height: 2vw;
                     }
 
                     p {
-                        font-size: 20px;
+                        font-size: 1.25rem;
                         line-height: 30px;
                     }
                 }
@@ -145,12 +145,12 @@ $shape-height: 2vw;
 
                     .italy-label {
                         color: $light-blue;
-                        font-size: 28px;
+                        font-size: 1.75rem;
                         line-height: 33px;
                     }
 
                     .ferrara {
-                        font-size: 112px;
+                        font-size: 7rem;
                         font-weight: 600;
                         line-height: 0.7;
                         margin-bottom: 1rem;
@@ -160,14 +160,14 @@ $shape-height: 2vw;
                         font-weight: 600;
 
                         .month {
-                            font-size: 35px;
+                            font-size: px2rem(28);
                             line-height: 40px;
                             margin-right: 1rem;
                             text-transform: uppercase;
                         }
 
                         .days {
-                            font-size: 67px;
+                            font-size: px2rem(67);
                             line-height: 80px;
                         }
                     }
@@ -176,7 +176,7 @@ $shape-height: 2vw;
                         display: inline-block;
                         position: relative;
                         font-family: $font-family-roboto;
-                        font-size: 22px;
+                        font-size: px2rem(22);
                         line-height: 29px;
                         color: $cta-yellow;
                         border: 2px solid $cta-yellow;
@@ -227,24 +227,24 @@ $shape-height: 2vw;
 
                     .text-info {
                         .ferrara {
-                            font-size: 80px;
+                            font-size: px2rem(80);
                         }
 
                         .italy-label {
-                            font-size: 23px;
+                            font-size: px2rem(23);
                         }
 
                         .dates {
                             margin-top: 1rem;
 
                             .month {
-                                font-size: 30px;
+                                font-size: px2rem(30);
                                 display: block;
                                 margin-right: 0;
                             }
 
                             .days {
-                                font-size: 60px;
+                                font-size: px2rem(60);
                                 display: block;
                             }
                         }

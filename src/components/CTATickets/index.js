@@ -84,9 +84,8 @@ const CTASpeakers = () => (
             </p>
             <div className="ticket-features">
               <p>
-                It will take place <strong>inside the Este Castle</strong> in
-                the evocative Imbarcadero’s room: breathe the medieval and
-                renaissance atmosphere that surrounds this location.
+                Bring a friend/partner at the party and share the medieval and
+                renaissance atmosphere that surrounds the Este Castle.
               </p>
             </div>
             <p className="price">

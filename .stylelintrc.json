@@ -4,9 +4,15 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["each", "extend", "include", "mixin"]
+        "ignoreAtRules": [
+          "each",
+          "extend",
+          "include",
+          "function",
+          "mixin",
+          "return"
+        ]
       }
     ]
   }
 }
-
