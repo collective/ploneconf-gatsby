@@ -90,7 +90,7 @@ const CTASpeakers = () => (
             </div>
             <p className="price">
               <span className="current">
-                65 <span className="currency">€</span>
+                50 <span className="currency">€</span>
               </span>
             </p>
             <p className="fee-vat">+ Fee &amp; VAT</p>
