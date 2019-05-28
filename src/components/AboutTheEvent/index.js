@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import CastelloLogoSVG from '../../components/svg/CastelloLogoSVG';
 
 import './index.scss';
@@ -44,9 +43,12 @@ const AboutTheEvent = () => (
                   <span className="month">October</span>
                   <span className="days">21-27</span>
                 </p>
-                {/* <Link to="/tickets" className="get-tickets">
+                <a
+                  href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                  className="get-tickets"
+                >
                   Get tickets!
-                </Link> */}
+                </a>
               </div>
             </div>
           </div>
