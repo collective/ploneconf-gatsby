@@ -3,11 +3,11 @@ import { array, object, string } from 'prop-types';
 
 import RichText from '../../RichText';
 
-const TextBlock = ({ label, text, images, files }) => (
-  <React.Fragment>
+const TextBlock = ({ cssClass, label, text, images, files }) => (
+  <div className={cssClass && cssClass.length ? cssClass : ''}>
     <h4>{label}</h4>
     <RichText serialized={text.react} images={images} files={files} />
-  </React.Fragment>
+  </div>
 );
 
 TextBlock.propTypes = {
@@ -15,6 +15,7 @@ TextBlock.propTypes = {
   text: object,
   images: array,
   files: array,
+  cssClass: string,
 };
 
 export default TextBlock;

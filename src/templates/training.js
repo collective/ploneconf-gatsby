@@ -5,9 +5,14 @@ import Layout from '../components/Layout';
 import Training from '../components/training/Training';
 
 const TrainingLayout = ({ data }) => {
+  console.log(data.ploneTraining);
   return (
-    <Layout breadcrumbs={data.ploneBreadcrumbs}>
-      <Training data={data['ploneTraining']} people={data.allPlonePerson} />
+    <Layout>
+      <Training
+        data={data.ploneTraining}
+        breadcrumbs={data.ploneBreadcrumbs}
+        people={data.allPlonePerson}
+      />
     </Layout>
   );
 };
@@ -34,6 +39,13 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    ploneBreadcrumbs(_path: { eq: $path }) {
+      items {
+        _id
+        _path
+        title
       }
     }
   }
