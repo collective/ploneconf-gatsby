@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Document from '../components/Document';
 import CallForSpeakers from '../components/CallForSpeakers';
 import TrainingHome from '../components/training/TrainingHome';
-import Person from '../components/Person';
+import Person from '../components/people/Person';
 import Folder from '../components/Folder';
 import Layout from '../components/Layout';
 

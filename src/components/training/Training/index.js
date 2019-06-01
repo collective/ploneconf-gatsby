@@ -5,16 +5,10 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
 import TrainingsHeader from '../TrainingsHeader';
+import { whenLabel } from '../../../helpers';
 
 import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
-import {
-  format,
-  formatDistance,
-  formatRelative,
-  subDays,
-  isSameDay,
-} from 'date-fns';
 
 const TrainerBlock = ({ trainers }) => {
   if (trainers.length === 0) {
@@ -88,28 +82,9 @@ const Training = ({
   const audienceLabel =
     audience && audience.length > 1 ? audience.join(', ') : audience[0];
 
-  const whenLabel = () => {
-    if (start.length === 0 && end.length === 0) {
-      return '';
-    }
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    if (isSameDay(startDate, endDate)) {
-      return `${format(startDate, 'dddd')}, ${format(
-        startDate,
-        'HH:mm',
-      )}-${format(endDate, 'HH:mm')}`;
-    } else {
-      return `${format(startDate, 'dddd')} & ${format(
-        endDate,
-        'dddd',
-      )}, ${format(startDate, 'HH:mm')}-${format(endDate, 'HH:mm')}`;
-    }
-  };
-
   return (
     <React.Fragment>
-      <TrainingsHeader title={data.title} description={trainerNames} />
+      <TrainingsHeader title={title} description={trainerNames} />
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container">
@@ -166,7 +141,7 @@ const Training = ({
                 cssClass="length"
               />
               <DefaultBlock
-                strValue={whenLabel()}
+                strValue={whenLabel({ start, end })}
                 label="When"
                 cssClass="when"
               />
@@ -198,6 +173,7 @@ Training.propTypes = {
   cssClass: string,
   images: array,
   files: array,
+  breadcrumbs: object,
 };
 
 export default Training;
