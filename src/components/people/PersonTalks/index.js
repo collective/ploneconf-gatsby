@@ -4,14 +4,11 @@ import { graphql, StaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTv } from '@fortawesome/free-solid-svg-icons';
-import PersonDetailsDate from '../PersonDetailsDate';
+// import PersonDetailsDate from '../PersonDetailsDate';
 
 const TalkDetails = ({
-  duration,
-  end,
-  id,
-  related_people,
-  start,
+  // end,
+  // start,
   title,
   _path,
 }) => (

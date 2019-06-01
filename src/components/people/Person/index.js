@@ -2,13 +2,13 @@ import React from 'react';
 import { object, string } from 'prop-types';
 import { graphql } from 'gatsby';
 import cx from 'classnames';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import PeopleHeader from '../PeopleHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import PersonTrainings from '../PersonTrainings';
 import PersonTalks from '../PersonTalks';
+import CTATickets from '../../CTATickets';
 
 import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
@@ -51,6 +51,7 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
             <PersonTalks id={id} />
           </div>
         </div>
+        <CTATickets />
       </article>
     </React.Fragment>
   );
