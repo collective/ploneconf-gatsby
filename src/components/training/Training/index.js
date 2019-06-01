@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
-import StandardHeader from '../../StandardHeader';
+import TrainingsHeader from '../TrainingsHeader';
 
 import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
@@ -109,7 +109,7 @@ const Training = ({
 
   return (
     <React.Fragment>
-      <StandardHeader title={data.title} description={trainerNames} />
+      <TrainingsHeader title={data.title} description={trainerNames} />
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container">
