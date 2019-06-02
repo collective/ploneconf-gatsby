@@ -12,14 +12,17 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
         images,
         files,
       }}
-    />
-    <div className="talk-submission-form container">
-      <FormContainer
-        withCaptcha={true}
-        schemaEndpoint="@talk-proposal"
-        actionEndpoint="@talk-proposal"
-      />
-    </div>
+    >
+      <div className="talk-submission-form">
+        <hr />
+        <h3>Submit your proposal</h3>
+        <FormContainer
+          withCaptcha={true}
+          schemaEndpoint="@talk-proposal"
+          actionEndpoint="@talk-proposal"
+        />
+      </div>
+    </Document>
   </React.Fragment>
 );
 

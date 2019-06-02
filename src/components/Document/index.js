@@ -7,12 +7,13 @@ import RichText from '../RichText';
 
 import './index.scss';
 
-const Document = ({ data, cssClass, images = [], files = [] }) => (
+const Document = ({ data, cssClass, images = [], files = [], children }) => (
   <article key={data._id} className={cx('document-content', cssClass)}>
     <div className="container">
       {data.text ? (
         <RichText serialized={data.text.react} images={images} files={files} />
       ) : null}
+      {children}
     </div>
   </article>
 );
