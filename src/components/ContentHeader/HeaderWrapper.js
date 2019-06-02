@@ -1,10 +1,8 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { shape, object, string, element, oneOfType, any } from 'prop-types';
+import { shape, object, any } from 'prop-types';
 
-import './index.scss';
-
-const PageHeader = ({ img, text }) => (
+const HeaderWrapper = ({ img, text }) => (
   <header className="page-header">
     <div className="header-content">
       {img && (
@@ -17,12 +15,11 @@ const PageHeader = ({ img, text }) => (
   </header>
 );
 
-PageHeader.propTypes = {
+HeaderWrapper.propTypes = {
   img: shape({
     fluid: object,
   }),
   text: any,
-  // text: oneOfType(string, element),
 };
 
-export default PageHeader;
+export default HeaderWrapper;

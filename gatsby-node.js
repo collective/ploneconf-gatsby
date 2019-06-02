@@ -102,30 +102,12 @@ exports.createPages = async ({ graphql, actions }) => {
       result.data.allPloneTraining.edges,
     )
     .forEach(({ node }) => {
-      const { related_people, _type } = node;
-      let related_uids = null;
-      if (related_people && related_people.length > 0) {
-        related_uids = related_people.map(person => person._id);
-      }
+      const { _type } = node;
       switch (_type) {
         case 'Talk':
           createPage({
             path: node._path,
             component: path.resolve('./src/templates/talk.js'),
-            // context: {
-            //   relator: related_uids,
-            // },
-          });
-          break;
-        case 'Training':
-          // console.log('RELATED PEOPLE: ', node.related_people);
-          console.log('RELATORS: ', related_uids);
-          createPage({
-            path: node._path,
-            component: path.resolve('./src/templates/training.js'),
-            context: {
-              relators: related_uids,
-            },
           });
           break;
         default:

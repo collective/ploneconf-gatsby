@@ -1,9 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import PageHeader from '../../PageHeader';
-import { string } from 'prop-types';
+import HeaderWrapper from './HeaderWrapper';
+import { object } from 'prop-types';
 
-const TrainingsHeader = ({ title, description }) => (
+const TrainingsHeader = ({ context }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -20,15 +20,19 @@ const TrainingsHeader = ({ title, description }) => (
       }
     `}
     render={data => {
-      const { ploneImage } = data;
+      const { ploneImage, people } = data;
+      const { title, related_people } = context;
+      const trainerNames = related_people
+        .map(person => person.title)
+        .join(', ');
       return (
-        <PageHeader
+        <HeaderWrapper
           img={ploneImage ? ploneImage.image.childImageSharp : null}
           text={
             title ? (
               <React.Fragment>
                 <h1>{title}</h1>
-                {description && <p>{description}</p>}
+                {trainerNames && <p>{trainerNames}</p>}
               </React.Fragment>
             ) : (
               ''
@@ -41,8 +45,7 @@ const TrainingsHeader = ({ title, description }) => (
 );
 
 TrainingsHeader.propTypes = {
-  title: string,
-  description: string,
+  context: object,
 };
 
 export default TrainingsHeader;

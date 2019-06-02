@@ -6,49 +6,56 @@ import Document from '../components/Document';
 import CallForSpeakers from '../components/CallForSpeakers';
 import TrainingHome from '../components/training/TrainingHome';
 import Person from '../components/people/Person';
+import Training from '../components/training/Training';
 import Folder from '../components/Folder';
 import Layout from '../components/Layout';
 
-const componentFor = data => {
+const getInfosFor = data => {
   const nodes = query => (query ? query['edges'] : []).map(edge => edge.node);
+  const images = nodes(data['allPloneImage']);
+  const files = nodes(data['allPloneFile']);
+  let result = {
+    images,
+    files,
+  };
   if (data) {
     if (data['ploneDocument']) {
       const { ploneDocument } = data;
+      result.context = ploneDocument;
       if (ploneDocument._id === 'call-for-speakers') {
-        return (
-          <CallForSpeakers
-            data={ploneDocument}
-            images={nodes(data['allPloneImage'])}
-            files={nodes(data['allPloneFile'])}
-          />
+        result.component = (
+          <CallForSpeakers data={ploneDocument} images={images} files={files} />
+        );
+      } else {
+        result.component = (
+          <Document data={ploneDocument} images={images} files={files} />
         );
       }
-      return (
-        <Document
-          data={ploneDocument}
-          images={nodes(data['allPloneImage'])}
-          files={nodes(data['allPloneFile'])}
-        />
-      );
+      return result;
     } else if (data['ploneFolder']) {
       const { ploneFolder } = data;
+      result.context = ploneFolder;
       if (ploneFolder.title === 'Training') {
-        return (
-          <TrainingHome
-            images={nodes(data['allPloneImage'])}
-            files={nodes(data['allPloneFile'])}
-          />
+        result.context = data.trainingHome;
+        result.component = <TrainingHome images={images} files={files} />;
+      } else {
+        result.component = (
+          <Folder data={data['ploneFolder']} images={images} files={files} />
         );
       }
-      return (
-        <Folder
-          data={data['ploneFolder']}
-          images={nodes(data['allPloneImage'])}
-          files={nodes(data['allPloneFile'])}
-        />
-      );
+      return result;
     } else if (data['plonePerson']) {
-      return <Person data={data['plonePerson']} />;
+      const plonePerson = data.plonePerson;
+      result.context = plonePerson;
+      result.component = <Person data={plonePerson} />;
+      return result;
+    } else if (data['ploneTraining']) {
+      const ploneTraining = data.ploneTraining;
+      result.context = ploneTraining;
+      result.component = (
+        <Training data={ploneTraining} people={data.allPlonePerson} />
+      );
+      return result;
     } else {
       return null;
     }
@@ -57,7 +64,19 @@ const componentFor = data => {
   }
 };
 
-const DefaultLayout = ({ data }) => <Layout>{componentFor(data)}</Layout>;
+const DefaultLayout = ({ data }) => {
+  const { context, component, images, files } = getInfosFor(data);
+  return (
+    <Layout
+      context={context}
+      images={images}
+      files={files}
+      breadcrumbs={data.ploneBreadcrumbs}
+    >
+      {component}
+    </Layout>
+  );
+};
 
 DefaultLayout.propTypes = {
   data: object.isRequired,
@@ -99,6 +118,26 @@ export const query = graphql`
           ...File
         }
       }
+    }
+    allPlonePerson {
+      edges {
+        node {
+          id
+          UID
+          title
+          _path
+          image {
+            childImageSharp {
+              fixed(width: 200) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
+      }
+    }
+    trainingHome: ploneDocument(_id: { eq: "training" }) {
+      ...Document
     }
   }
 `;

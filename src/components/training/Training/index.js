@@ -4,11 +4,9 @@ import { graphql } from 'gatsby';
 import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
-import TrainingsHeader from '../TrainingsHeader';
 import { whenLabel } from '../../../helpers';
 
 import './index.scss';
-import Breadcrumbs from '../../Breadcrumbs';
 
 const TrainerBlock = ({ trainers }) => {
   if (trainers.length === 0) {
@@ -51,20 +49,12 @@ const DefaultBlock = props => {
   );
 };
 
-const Training = ({
-  data,
-  people,
-  breadcrumbs,
-  cssClass,
-  images = [],
-  files = [],
-}) => {
+const Training = ({ data, people, cssClass, images = [], files = [] }) => {
   const {
     what_learn,
     things_to_bring,
     prerequisites,
     room,
-    title,
     description,
     docs_link,
     audience,
@@ -78,14 +68,10 @@ const Training = ({
   const trainers = people.edges.filter(({ node }) =>
     trainer_ids.includes(node.id),
   );
-  const trainerNames = trainers.map(({ node }) => node.title).join(', ');
   const audienceLabel =
     audience && audience.length > 1 ? audience.join(', ') : audience[0];
-
   return (
     <React.Fragment>
-      <TrainingsHeader title={title} description={trainerNames} />
-      {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container">
           {description && description.length ? (
@@ -182,6 +168,7 @@ export const query = graphql`
   fragment Training on PloneTraining {
     id
     _id
+    _type
     title
     description
     _path
@@ -201,6 +188,7 @@ export const query = graphql`
     duration
     related_people {
       _id
+      title
     }
     start
     end

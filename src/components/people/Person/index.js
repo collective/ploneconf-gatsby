@@ -3,7 +3,6 @@ import { object, string } from 'prop-types';
 import { graphql } from 'gatsby';
 import cx from 'classnames';
 import Img from 'gatsby-image';
-import PeopleHeader from '../PeopleHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import PersonTrainings from '../PersonTrainings';
@@ -18,7 +17,6 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
 
   return (
     <React.Fragment>
-      <PeopleHeader />
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container" />
@@ -68,6 +66,7 @@ export default Person;
 export const query = graphql`
   fragment Person on PlonePerson {
     id
+    _type
     title
     bio
     github

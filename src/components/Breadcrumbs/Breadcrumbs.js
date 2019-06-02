@@ -23,7 +23,13 @@ const Breadcrumbs = ({ data, skipLast }) => (
       return (
         <nav className="breadcrumb-container">
           <ol className="breadcrumb">
-            <li className="breadcrumb-item">
+            <li
+              className={
+                breadcrumbs.length
+                  ? 'breadcrumb-item'
+                  : 'breadcrumb-item last-item'
+              }
+            >
               <Link to="/">{siteMetadataQuery.site.siteMetadata.title}</Link>
             </li>
             {breadcrumbs.map((item, index, original) => {

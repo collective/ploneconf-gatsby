@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import PageHeader from '../../PageHeader';
+import HeaderWrapper from './HeaderWrapper';
 
 const PeopleHeader = () => (
   <StaticQuery
@@ -27,7 +27,7 @@ const PeopleHeader = () => (
         </React.Fragment>
       );
       return (
-        <PageHeader
+        <HeaderWrapper
           img={ploneImage ? ploneImage.image.childImageSharp : null}
           text={text}
         />

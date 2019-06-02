@@ -62,6 +62,7 @@ export const query = graphql`
   fragment Site on PloneSite {
     id
     title
+    _type
     items {
       _id
       _path
