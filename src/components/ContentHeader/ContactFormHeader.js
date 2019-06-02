@@ -1,9 +1,8 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import PageHeader from '../PageHeader';
-import { string } from 'prop-types';
+import HeaderWrapper from './HeaderWrapper';
 
-const StandardHeader = ({ title, description }) => (
+const ContactForm = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -21,28 +20,27 @@ const StandardHeader = ({ title, description }) => (
     `}
     render={data => {
       const { ploneImage } = data;
+      const text = (
+        <React.Fragment>
+          <h1>
+            <span>Contact</span> form
+          </h1>
+          <p className="subtitle">
+            Fill this form to contact <strong>Plone Conference</strong>{' '}
+            organizators
+          </p>
+        </React.Fragment>
+      );
       return (
-        <PageHeader
+        <HeaderWrapper
           img={ploneImage ? ploneImage.image.childImageSharp : null}
-          text={
-            title ? (
-              <React.Fragment>
-                <h1>{title}</h1>
-                {description && <p>{description}</p>}
-              </React.Fragment>
-            ) : (
-              ''
-            )
-          }
+          text={text}
         />
       );
     }}
   />
 );
 
-StandardHeader.propTypes = {
-  title: string,
-  description: string,
-};
+ContactForm.propTypes = {};
 
-export default StandardHeader;
+export default ContactForm;

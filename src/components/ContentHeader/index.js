@@ -2,7 +2,10 @@ import React from 'react';
 import DocumentHeader from './DocumentHeader';
 import PeopleHeader from './PeopleHeader';
 import TrainingHeader from './TrainingHeader';
+import ContactFormHeader from './ContactFormHeader';
 import { object } from 'prop-types';
+
+import './index.scss';
 
 const ContentHeader = props => {
   const { context } = props;
@@ -12,6 +15,9 @@ const ContentHeader = props => {
       break;
     case 'Person':
       return <PeopleHeader />;
+    case 'ContactForm':
+      return <ContactFormHeader />;
+      break;
     default:
       return <DocumentHeader {...props} />;
       break;
