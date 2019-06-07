@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import cx from 'classnames';
+import ContentHeader from '../ContentHeader';
+import Breadcrumbs from '../Breadcrumbs';
 
 import './index.scss';
 
@@ -10,7 +12,15 @@ import Header from '../Header';
 // import NavBar from '../NavBar';
 import Footer from '../Footer';
 
-const Layout = ({ children, isHome, is404 }) => (
+const Layout = ({
+  children,
+  isHome,
+  is404,
+  context,
+  images,
+  files,
+  breadcrumbs,
+}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -31,10 +41,15 @@ const Layout = ({ children, isHome, is404 }) => (
           ? '/'
           : node._path
         : null;
+      const contextTitle = context && context.title ? context.title : '';
+      const title =
+        contextTitle && contextTitle.length
+          ? `${data.site.siteMetadata.title} - ${contextTitle}`
+          : data.site.siteMetadata.title;
       return (
         <>
           <Helmet>
-            <title>{data.site.siteMetadata.title}</title>
+            <title>{title}</title>
             <meta name="description" content="Plone Conference 2019" />
             <meta
               name="keywords"
@@ -59,6 +74,12 @@ const Layout = ({ children, isHome, is404 }) => (
               'is-404': is404,
             })}
           >
+            {context ? (
+              <ContentHeader context={context} images={images} files={files} />
+            ) : (
+              ''
+            )}
+            {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
             {children}
           </div>
           <Footer />
@@ -72,6 +93,10 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   isHome: PropTypes.bool,
   is404: PropTypes.bool,
+  context: PropTypes.object,
+  images: array,
+  files: array,
+  breadcrumbs: PropTypes.object,
 };
 
 export default Layout;

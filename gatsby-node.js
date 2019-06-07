@@ -13,8 +13,31 @@ exports.onCreateNode = ({ node }) => {
     node.hero_text.react = parseHTMLToReact(
       node.hero_text.data,
       process.env.baseUrl,
-      node._path
+      node._path,
     );
+  }
+  if (node._type === 'Training') {
+    if (node.what_learn) {
+      node.what_learn.react = parseHTMLToReact(
+        node.what_learn.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
+    if (node.prerequisites) {
+      node.prerequisites.react = parseHTMLToReact(
+        node.prerequisites.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
+    if (node.things_to_bring) {
+      node.things_to_bring.react = parseHTMLToReact(
+        node.things_to_bring.data,
+        process.env.baseUrl,
+        node._path,
+      );
+    }
   }
 };
 
@@ -57,6 +80,17 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPloneTraining {
+        edges {
+          node {
+            _path
+            _type
+            related_people {
+              _id
+            }
+          }
+        }
+      }
     }
   `);
   []
@@ -64,27 +98,24 @@ exports.createPages = async ({ graphql, actions }) => {
       result.data.allPloneDocument.edges,
       result.data.allPloneTalk.edges,
       result.data.allPloneFolder.edges,
-      result.data.allPlonePerson.edges
+      result.data.allPlonePerson.edges,
+      result.data.allPloneTraining.edges,
     )
     .forEach(({ node }) => {
-      const { related_people, _type } = node;
-      if (_type === 'Talk') {
-        const related_uids =
-          related_people && related_people.length > 0
-            ? related_people[0]._id
-            : '';
-        createPage({
-          path: node._path,
-          component: path.resolve('./src/templates/talk.js'),
-          context: {
-            relator: related_uids,
-          },
-        });
-      } else {
-        createPage({
-          path: node._path,
-          component: path.resolve('./src/templates/default.js'),
-        });
+      const { _type } = node;
+      switch (_type) {
+        case 'Talk':
+          createPage({
+            path: node._path,
+            component: path.resolve('./src/templates/talk.js'),
+          });
+          break;
+        default:
+          createPage({
+            path: node._path,
+            component: path.resolve('./src/templates/default.js'),
+          });
+          break;
       }
     });
 };

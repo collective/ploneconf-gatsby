@@ -1,0 +1,14 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.training-details {
+    display: flex;
+
+    .column {
+        flex: 50%;
+        padding: 1em;
+        &.right-block {
+            border-left: 15px solid $cta-yellow;
+        }
+    }
+}
