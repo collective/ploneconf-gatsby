@@ -11,6 +11,7 @@ import HPNumbers from '../components/HPNumbers';
 import CTATickets from '../components/CTATickets';
 import CTASponsor from '../components/CTASponsor';
 import HPVenue from '../components/HPVenue';
+import HPSponsorsPartners from '../components/HPSponsorsPartners';
 
 const IndexPage = ({ data }) => (
   <Layout isHome>
@@ -21,6 +22,7 @@ const IndexPage = ({ data }) => (
     <CTATickets />
     <CTASponsor />
     <HPVenue img={data.venue.childImageSharp} />
+    <HPSponsorsPartners />
   </Layout>
 );
 
