@@ -6,7 +6,6 @@ const SelectWidget = ({ value, id, properties, handleUpdate }) => {
   const options = properties.choices.map(option => {
     return { value: option[0], label: option[1] };
   });
-
   const valueOption = options.filter(option => option.value === value);
   return (
     <Select
@@ -16,7 +15,7 @@ const SelectWidget = ({ value, id, properties, handleUpdate }) => {
       value={valueOption && valueOption.length ? valueOption[0] : null}
       options={options}
       onChange={selectedOption =>
-        handleUpdate({ id, value: selectedOption.value })
+        handleUpdate({ id, value: selectedOption ? selectedOption.value : '' })
       }
     />
   );
