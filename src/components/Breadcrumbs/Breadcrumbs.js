@@ -20,6 +20,9 @@ const Breadcrumbs = ({ data, skipLast }) => (
       if (skipLast) {
         breadcrumbs.pop();
       }
+      if (breadcrumbs.length === 0) {
+        return '';
+      }
       return (
         <nav className="breadcrumb-container">
           <ol className="breadcrumb">
