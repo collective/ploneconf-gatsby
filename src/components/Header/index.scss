@@ -26,7 +26,8 @@ header#header-navigation {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem 0;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         position: relative;
 
         .collapse-menu {
