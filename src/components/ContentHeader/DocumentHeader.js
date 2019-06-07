@@ -25,6 +25,8 @@ const DocumentHeader = ({ context, images, files }) => {
         }
       />
     );
+  } else {
+    return '';
   }
 };
 DocumentHeader.propTypes = {};
