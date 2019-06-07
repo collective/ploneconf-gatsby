@@ -147,7 +147,6 @@
             li {
                 position: relative;
                 display: flex;
-                flex-wrap: wrap;
 
                 &::before {
                     counter-increment: speakers;
