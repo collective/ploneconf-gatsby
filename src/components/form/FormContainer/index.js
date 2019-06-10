@@ -168,7 +168,10 @@ class FormContainer extends React.Component {
           noValidate
         >
           {fieldsets.map(fieldset => (
-            <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
+            <div
+              className={`fieldset ${fieldset.id}`}
+              key={`fieldset-${fieldset.id}`}
+            >
               {fieldset.fields.map(fieldId => (
                 <FieldWrapper
                   key={`field-${fieldId}`}
@@ -183,10 +186,15 @@ class FormContainer extends React.Component {
             </div>
           ))}
           <div className="form-buttons">
-            <button className="btn btn-primary" name="submit">
+            <button className="btn btn-primary" name="submit" type="submit">
               Submit
             </button>
-            <button type="reset" name="cancel" onClick={this.resetForm}>
+            <button
+              type="reset"
+              name="cancel"
+              onClick={this.resetForm}
+              className="btn"
+            >
               Cancel
             </button>
           </div>

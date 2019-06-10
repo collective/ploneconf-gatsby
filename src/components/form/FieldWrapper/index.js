@@ -1,5 +1,6 @@
 import React from 'react';
 import { bool, shape, any, string, func } from 'prop-types';
+import cx from 'classnames';
 import TextLineWidget from '../widgets/TextLineWidget';
 import TextAreaWidget from '../widgets/TextAreaWidget';
 import SelectWidget from '../widgets/SelectWidget';
@@ -71,15 +72,8 @@ const FieldWrapper = ({
   }
 
   return (
-    <div className="form-group">
+    <div className={cx([`form-group ${id}Group`, { required: isRequired }])}>
       <label htmlFor={id}>{title}</label>
-      {description && description.length ? (
-        <small id={`${id}Help`} className="form-text text-muted">
-          {description}
-        </small>
-      ) : (
-        ''
-      )}
       <FieldComponent
         id={id}
         value={value}
@@ -88,7 +82,14 @@ const FieldWrapper = ({
         handleUpdate={handleUpdate}
         hasError={hasError}
       />
-      {hasError ? <div className="invalid-feedback">{fieldError}</div> : ''}
+      {hasError ? <small className="invalid-feedback">{fieldError}</small> : ''}
+      {description && description.length ? (
+        <small id={`${id}Help`} className="form-text text-muted">
+          {description}
+        </small>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

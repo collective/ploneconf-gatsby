@@ -1,7 +1,9 @@
 import React from 'react';
 import { array, object } from 'prop-types';
-import FormContainer from './form/FormContainer';
-import Document from './Document';
+import FormContainer from '../form/FormContainer';
+import Document from '../Document';
+
+import './index.scss';
 
 const CallForSpeakers = ({ data, images = [], files = [] }) => (
   <React.Fragment>

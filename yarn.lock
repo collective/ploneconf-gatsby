@@ -9768,10 +9768,10 @@ react-dom@^16.8.3:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-dropzone-styled@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-dropzone-styled/-/react-dropzone-styled-0.1.0.tgz#9d178bacad68d087e9abeda281208311696a063d"
-  integrity sha512-Dh45ug6RXpSKANBFPcg8ciWHsYAPe2HTwMMb+MAnfak77ml+o+NblYosayjZJfzQpazAbCePIS8Ox6/L4i0qWw==
+react-dropzone-styled@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-dropzone-styled/-/react-dropzone-styled-0.0.1.tgz#bdc14988469a166d65919d937d3b18f1faef362a"
+  integrity sha512-sHPcyNgIUx4WxhPIyXDPf2dU6C8GI20FEIPo9BWWILsFJvg8RimXZ2+MW5um1FJs0ZlYa/U/v91Pw1Ei8lv/Yw==
   dependencies:
     react-dropzone "^4.2.7"
     react-icons "^2.2.7"

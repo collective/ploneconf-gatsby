@@ -23,6 +23,7 @@ Document.propTypes = {
   cssClass: string,
   images: array,
   files: array,
+  children: array,
 };
 
 export default Document;

@@ -1,12 +1,16 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import '../../scss/base';
 
 .document-content {
     padding-top: 3rem;
     padding-bottom: 3rem;
     background: url('../../images/document-background.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
+
+    .container {
+        @include media-breakpoint-up(xl) {
+            max-width: $document-container;
+        }
+    }
 
     h2 {
         margin-bottom: 1.5rem;
@@ -28,6 +32,22 @@
     p {
         font-family: $font-family-sans-serif;
         @include antialias;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 1em;
+
+        li {
+            margin-bottom: 0.5em;
+
+            &::before {
+                content: '\2013';
+                width: 1em;
+                margin-right: 0.5em;
+                margin-left: -1em;
+            }
+        }
     }
 
     p.callout {
@@ -134,58 +154,6 @@
             $hr-vital-space: 300px;
             $hr-skewed: -10deg;
             @include draw-sexy-hr($hr-vital-space, $hr-skewed);
-        }
-    }
-
-    &.call-for-speakers {
-        ol {
-            padding-left: 0;
-            list-style: none;
-            margin: 1.5rem 0;
-            counter-reset: speakers;
-
-            li {
-                position: relative;
-                display: flex;
-
-                &::before {
-                    counter-increment: speakers;
-                    content: counter(speakers);
-                    margin-right: 1rem;
-                    width: 2rem;
-                    height: 2rem;
-                    background: #000;
-                    display: inline-flex;
-                    color: #fff;
-                    justify-content: center;
-                    align-items: center;
-                    flex-shrink: 0;
-                    position: relative;
-                    z-index: 1;
-                    font-family: $font-family-roboto;
-                    font-weight: 600;
-                    font-size: 1.25rem;
-                }
-
-                &::after {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 2rem;
-                    height: 2rem;
-                    content: '';
-                    background: $cta-yellow;
-                    transform: rotate(15deg);
-                }
-
-                + li {
-                    margin-top: 0.5rem;
-                }
-
-                h4 {
-                    margin: 0;
-                }
-            }
         }
     }
 }

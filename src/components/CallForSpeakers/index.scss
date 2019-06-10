@@ -1,0 +1,76 @@
+@import '../../scss/base';
+
+.document-content.call-for-speakers {
+    ol {
+        padding-left: 0;
+        list-style: none;
+        margin: 1.5rem 0;
+        counter-reset: speakers;
+
+        li {
+            position: relative;
+            display: flex;
+
+            &::before {
+                counter-increment: speakers;
+                content: counter(speakers);
+                margin-right: 1rem;
+                width: 2rem;
+                height: 2rem;
+                background: #000;
+                display: inline-flex;
+                color: #fff;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                z-index: 1;
+                flex-shrink: 0;
+                font-family: $font-family-roboto;
+                font-weight: 600;
+                font-size: 1.25rem;
+            }
+
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2rem;
+                height: 2rem;
+                content: '';
+                background: $cta-yellow;
+                transform: rotate(15deg);
+            }
+
+            + li {
+                margin-top: 0.5rem;
+            }
+
+            h4 {
+                margin: 0;
+            }
+        }
+    }
+    .talk-submission-form {
+        max-width: 850px;
+        margin-right: auto;
+        margin-left: auto;
+
+        .fieldset {
+            @include make-row;
+        }
+        .form-group {
+            @include make-col-ready;
+            margin-bottom: 1.5em;
+        }
+        @include media-breakpoint-up(md) {
+            .durationGroup,
+            .levelGroup,
+            .audienceGroup,
+            .topicGroup,
+            .twitterGroup,
+            .githubGroup {
+                @include make-col(6);
+            }
+        }
+    }
+}

@@ -5,7 +5,6 @@ import { string, arrayOf, shape, func } from 'prop-types';
 // Define a custom component for handling the root position object
 const CaptchaWidget = ({ id, handleUpdate }) => (
   <ReCAPTCHA
-    style={{ display: 'inline-block' }}
     theme="dark"
     onChange={token => handleUpdate({ id, value: token })}
     sitekey={process.env.GATSBY_CAPTCHA_SITEKEY}

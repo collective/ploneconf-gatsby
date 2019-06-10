@@ -12,9 +12,6 @@ const PrivacyWidget = ({
 }) => (
   <div className="form-group">
     <div className="form-check">
-      <label htmlFor={id} className="form-check-label">
-        I agree to the terms and conditions
-      </label>
       <input
         type="checkbox"
         className="form-check-input"
@@ -24,6 +21,10 @@ const PrivacyWidget = ({
         name={id}
         onChange={e => handleUpdate({ id, value: e.target.checked })}
       />
+      <label htmlFor={id} className="form-check-label">
+        I agree to the terms and conditions
+      </label>
+      {hasError ? <small className="invalid-feedback">{fieldError}</small> : ''}
       {description && description.length ? (
         <small id={`${id}Help`} className="form-text text-muted">
           {description} <Link to="/privacy-policy">terms and conditions</Link>
@@ -31,7 +32,6 @@ const PrivacyWidget = ({
       ) : (
         ''
       )}
-      {hasError ? <div className="invalid-feedback">{fieldError}</div> : ''}
     </div>
   </div>
 );
