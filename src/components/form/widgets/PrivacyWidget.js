@@ -9,6 +9,7 @@ const PrivacyWidget = ({
   handleUpdate,
   hasError,
   fieldError,
+  required,
 }) => (
   <div className="form-group">
     <div className="form-check">
@@ -19,6 +20,7 @@ const PrivacyWidget = ({
         checked={value}
         id={id}
         name={id}
+        required={required}
         onChange={e => handleUpdate({ id, value: e.target.checked })}
       />
       <label htmlFor={id} className="form-check-label">
@@ -44,6 +46,7 @@ PrivacyWidget.propTypes = {
   handleUpdate: func,
   hasError: bool,
   fieldError: string,
+  required: bool,
 };
 
 export default PrivacyWidget;

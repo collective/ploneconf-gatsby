@@ -6,6 +6,12 @@
     }
 }
 
+.captchaGroup {
+    iframe {
+        height: 74px;
+    }
+}
+
 small.form-text {
     font-size: 75%;
     color: #4a4a4a;
@@ -19,7 +25,10 @@ small.form-text {
     }
 }
 
-.react-select-container {
+.was-validated .react-select-container {
+    .react-select__control {
+        border-color: $success;
+    }
     &.is-invalid {
         .react-select__control {
             border-color: $danger;

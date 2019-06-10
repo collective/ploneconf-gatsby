@@ -62,6 +62,9 @@
             @include make-col-ready;
             margin-bottom: 1.5em;
         }
+        .btn {
+            font-weight: 700;
+        }
         @include media-breakpoint-up(md) {
             .durationGroup,
             .levelGroup,

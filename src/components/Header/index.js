@@ -62,15 +62,21 @@ class Header extends Component {
             </div>
           </Link>
           <div className="nav-wrapper">
-            {/* <Link to="/speakers" activeClassName="active">
+            <Link to="/call-for-speakers" activeClassName="active">
               <span>Call for speakers</span>
-            </Link> */}
-            {/* <Link to="/sponsors" activeClassName="active">
-              <span>Sponsors</span>
-            </Link> */}
-            <Link to="/code-of-conduct" activeClassName="active">
-              <span>Code of Conduct</span>
             </Link>
+            <Link to="/venue" activeClassName="active">
+              <span>Venue</span>
+            </Link>
+            <Link to="/ferrara" activeClassName="active">
+              <span>Ferrara</span>
+            </Link>
+            <Link to="/sponsors" activeClassName="active">
+              <span>Sponsors</span>
+            </Link>
+            {/* <Link to="/code-of-conduct" activeClassName="active">
+              <span>Code of Conduct</span>
+            </Link> */}
             {/* <Link to="/contacts" activeClassName="active">
               <span>Contacts</span>
             </Link> */}

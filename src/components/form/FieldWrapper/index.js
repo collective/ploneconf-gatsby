@@ -43,6 +43,7 @@ const FieldWrapper = ({
         handleUpdate={handleUpdate}
         fieldError={fieldError}
         id={id}
+        required={isRequired}
       />
     );
   }

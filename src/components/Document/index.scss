@@ -45,7 +45,11 @@
 
     p {
         font-family: $font-family-sans-serif;
-        @include antialias;
+
+        a.btn {
+            margin-top: 20px;
+            font-weight: 700;
+        }
     }
 
     ul {
@@ -100,24 +104,17 @@
         border: 0;
     }
 
-    div.submit-button a {
-        @extend %light-blue-button;
-    }
-
     &#sponsors {
-        .gatsby-image-wrapper {
-            width: 100% !important;
-            height: auto !important;
-            text-align: center;
-            overflow: visible;
-
-            picture {
-                img {
-                    width: 1024px !important;
-                    max-width: 100%;
-                    position: static !important;
-                }
-            }
+        // .gatsby-image-wrapper {
+        //     width: 100% !important;
+        //     height: auto !important;
+        //     text-align: center;
+        //     overflow: visible;
+        // }
+        img {
+            width: 1024px !important;
+            // max-width: 100%;
+            // position: static !important;
         }
     }
 
