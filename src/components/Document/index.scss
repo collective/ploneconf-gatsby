@@ -3,8 +3,9 @@
 .document-content {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background: url('../../images/document-background.jpg');
+    background: url('../../images/document-background.svg');
     background-repeat: no-repeat;
+    background-size: contain;
 
     .container {
         @include media-breakpoint-up(xl) {
