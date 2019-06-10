@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 import { deserialize } from 'react-serialize';
 
 const ResolveImage = images => data => {
@@ -9,13 +9,21 @@ const ResolveImage = images => data => {
     new Map(),
   );
   if (byPath.get(data.src)) {
+    const imgProps = byPath.get(data.src).image.childImageSharp;
     return (
-      <Img
-        Tag="span"
-        className={data.className}
-        resolutions={byPath.get(data.src).image.childImageSharp.fluid}
-      />
+      <img className={data.className} src={imgProps.fluid.src} alt={data.alt} />
     );
+    // return (
+    //   <Img
+    //     Tag="span"
+    //     className={data.className}
+    //     fluid={imgProps.fluid}
+    //     style={{
+    //       maxWidth: imgProps.fluid.presentationWidth,
+    //       margin: '0 auto', // Used to center the image
+    //     }}
+    //   />
+    // );
   } else {
     return <img src={data.src} alt={data.alt} title={data.title} />;
   }
@@ -59,8 +67,9 @@ export const query = graphql`
     image {
       publicURL
       childImageSharp {
-        fluid(maxWidth: 1110) {
+        fluid(maxWidth: 1100, quality: 100) {
           ...GatsbyImageSharpFluid
+          presentationWidth
         }
       }
     }
