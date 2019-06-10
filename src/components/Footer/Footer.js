@@ -52,6 +52,9 @@ const Footer = () => (
           <div className="flex-item">
             <ul>
               <li>
+                <Link to="/code-of-conduct">code of conduct</Link>
+              </li>
+              <li>
                 <Link to="/privacy-policy">privacy policy</Link>
               </li>
               {/* <li>
