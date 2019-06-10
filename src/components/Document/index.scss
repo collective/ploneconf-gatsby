@@ -15,6 +15,11 @@
         font-size: px2rem(50);
         @include antialias;
 
+        @media (max-width: 480px) {
+            font-size: 2.75rem;
+            line-height: 3.5rem;
+        }
+
         b,
         strong {
             font-weight: 600;
@@ -23,6 +28,14 @@
 
     h3 {
         font-size: px2rem(40);
+
+        @media (max-width: 480px) {
+            font-size: 2.2rem;
+
+            span {
+                display: block;
+            }
+        }
     }
 
     p {
@@ -54,6 +67,16 @@
         a {
             text-decoration: underline;
         }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    iframe {
+        max-width: 100%;
+        height: auto;
+        border: 0;
     }
 
     div.submit-button a {

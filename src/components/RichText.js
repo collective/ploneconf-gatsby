@@ -11,16 +11,7 @@ const ResolveImage = images => data => {
   if (byPath.get(data.src)) {
     const imgProps = byPath.get(data.src).image.childImageSharp;
     return (
-      <span
-        className={`gatsby-image-wrapper ${data.className}`}
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          display: 'inline-block',
-        }}
-      >
-        <img src={imgProps.fluid.src} alt={data.alt} />
-      </span>
+      <img className={data.className} src={imgProps.fluid.src} alt={data.alt} />
     );
     // return (
     //   <Img
