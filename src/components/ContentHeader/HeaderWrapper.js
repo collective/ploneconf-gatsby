@@ -1,9 +1,15 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { shape, object, any } from 'prop-types';
+import Helmet from 'react-helmet';
 
 const HeaderWrapper = ({ img, text }) => (
   <header className="page-header">
+    {img && (
+      <Helmet>
+        <meta property="og:image" content={img.fluid.src} />
+      </Helmet>
+    )}
     <div className="header-content">
       {img && (
         <div className="bg-image">
