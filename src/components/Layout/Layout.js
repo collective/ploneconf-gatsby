@@ -50,7 +50,16 @@ const Layout = ({
         <>
           <Helmet>
             <title>{title}</title>
-            <meta name="description" content="Plone Conference 2019" />
+            <meta property="og:title" content={title} />
+            <meta property="og:title" content={title} />
+            <meta
+              name="description"
+              content={
+                context.description && context.description.length
+                  ? context.description
+                  : data.site.siteMetadata.title
+              }
+            />
             <meta
               name="keywords"
               content="gatsby, plone, conference, ploneconf"
