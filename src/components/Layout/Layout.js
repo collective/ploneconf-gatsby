@@ -41,13 +41,12 @@ const Layout = ({
           ? '/'
           : node._path
         : null;
-      console.log(context);
       const contextTitle = context && context.title ? context.title : '';
       const contextDescription =
         context && context.description ? context.description : '';
       const title =
         contextTitle && contextTitle.length
-          ? `${data.site.siteMetadata.title} - ${contextTitle}`
+          ? `${contextTitle} - ${data.site.siteMetadata.title}`
           : data.site.siteMetadata.title;
       const description = contextDescription.length
         ? contextDescription
