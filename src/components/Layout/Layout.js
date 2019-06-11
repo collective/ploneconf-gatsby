@@ -42,6 +42,8 @@ const Layout = ({
           : node._path
         : null;
       const contextTitle = context && context.title ? context.title : '';
+      const contextDescription =
+        context && context.description ? context.description : '';
       const title =
         contextTitle && contextTitle.length
           ? `${data.site.siteMetadata.title} - ${contextTitle}`
@@ -55,8 +57,8 @@ const Layout = ({
             <meta
               name="description"
               content={
-                context.description && context.description.length
-                  ? context.description
+                contextDescription.length
+                  ? contextDescription
                   : data.site.siteMetadata.title
               }
             />
