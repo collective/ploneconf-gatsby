@@ -54,7 +54,7 @@ const Layout = ({
       return (
         <>
           <Helmet>
-            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content={data.site.siteMetadata.title} />
 
             <title>{title}</title>
