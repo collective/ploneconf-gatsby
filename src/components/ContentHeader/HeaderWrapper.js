@@ -8,6 +8,7 @@ const HeaderWrapper = ({ img, text }) => (
     {img && (
       <Helmet>
         <meta property="og:image" content={img.fluid.src} />
+        <meta name="twitter:image" content={img.fluid.src} />
       </Helmet>
     )}
     <div className="header-content">

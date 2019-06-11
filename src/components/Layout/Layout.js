@@ -54,10 +54,17 @@ const Layout = ({
       return (
         <>
           <Helmet>
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content={data.site.siteMetadata.title} />
+
             <title>{title}</title>
             <meta property="og:title" content={title} />
+            <meta name="twitter:title" content={title} />
+
             <meta property="og:description" content={description} />
             <meta name="description" content={description} />
+            <meta name="twitter:description" content={description} />
+
             <meta
               name="keywords"
               content="gatsby, plone, conference, ploneconf"
