@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'Ploneconf 2019',
+    title: 'Plone Conference 2019',
     subTitle: '21 - 27 October, Ferrara',
   },
   pathPrefix: '/ploneconf-gatsby',

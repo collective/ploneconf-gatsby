@@ -41,6 +41,7 @@ const Layout = ({
           ? '/'
           : node._path
         : null;
+      console.log(context);
       const contextTitle = context && context.title ? context.title : '';
       const contextDescription =
         context && context.description ? context.description : '';
@@ -48,20 +49,16 @@ const Layout = ({
         contextTitle && contextTitle.length
           ? `${data.site.siteMetadata.title} - ${contextTitle}`
           : data.site.siteMetadata.title;
+      const description = contextDescription.length
+        ? contextDescription
+        : data.site.siteMetadata.title;
       return (
         <>
           <Helmet>
             <title>{title}</title>
             <meta property="og:title" content={title} />
-            <meta property="og:title" content={title} />
-            <meta
-              name="description"
-              content={
-                contextDescription.length
-                  ? contextDescription
-                  : data.site.siteMetadata.title
-              }
-            />
+            <meta property="og:description" content={description} />
+            <meta name="description" content={description} />
             <meta
               name="keywords"
               content="gatsby, plone, conference, ploneconf"
