@@ -10,7 +10,7 @@ const HeaderWrapper = ({ img, text }) => (
         <meta property="og:image" content={img.fluid.src} />
         <meta
           name="twitter:image"
-          content={`https://rt-ploneconf.netlify.com${img.fluid.src}`}
+          content={`https://2019.ploneconf.org${img.fluid.src}`}
         />
       </Helmet>
     )}
