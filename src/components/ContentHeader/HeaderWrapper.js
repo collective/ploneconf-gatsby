@@ -8,7 +8,10 @@ const HeaderWrapper = ({ img, text }) => (
     {img && (
       <Helmet>
         <meta property="og:image" content={img.fluid.src} />
-        <meta name="twitter:image" content={img.fluid.src} />
+        <meta
+          name="twitter:image"
+          content={`https://rt-ploneconf.netlify.com${img.fluid.src}`}
+        />
       </Helmet>
     )}
     <div className="header-content">
