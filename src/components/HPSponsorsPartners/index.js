@@ -13,7 +13,7 @@ const HPSponsorsPartners = () => (
     query={graphql`
       {
         gold: allPloneLink(
-          filter: { _path: { regex: "/sponsors-links\/gold/" } }
+          filter: { _path: { regex: "/sponsors-links/gold/" } }
         ) {
           nodes {
             id
@@ -29,7 +29,7 @@ const HPSponsorsPartners = () => (
           }
         }
         silver: allPloneLink(
-          filter: { _path: { regex: "/sponsors-links\/silver/" } }
+          filter: { _path: { regex: "/sponsors-links/silver/" } }
         ) {
           nodes {
             id
@@ -45,7 +45,7 @@ const HPSponsorsPartners = () => (
           }
         }
         bronze: allPloneLink(
-          filter: { _path: { regex: "/sponsors-links\/bronze/" } }
+          filter: { _path: { regex: "/sponsors-links/bronze/" } }
         ) {
           nodes {
             id
@@ -61,7 +61,7 @@ const HPSponsorsPartners = () => (
           }
         }
         partners: allPloneLink(
-          filter: { _path: { regex: "/sponsors-links\/partners/" } }
+          filter: { _path: { regex: "/sponsors-links/partners/" } }
         ) {
           nodes {
             id
@@ -116,7 +116,11 @@ const HPSponsorsPartners = () => (
                       <p className="sponsor-type gold">
                         <strong>Gold</strong> Sponsor
                       </p>
-                      <a href={sponsor.remoteUrl}>
+                      <a
+                        href={sponsor.remoteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Img
                           fixed={sponsor.image.childImageSharp.fixed}
                           alt={sponsor.title}
@@ -138,7 +142,11 @@ const HPSponsorsPartners = () => (
                       silver.nodes &&
                       silver.nodes.map(sponsor => (
                         <div className="sponsor-link" key={sponsor.id}>
-                          <a href={sponsor.remoteUrl}>
+                          <a
+                            href={sponsor.remoteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Img
                               fixed={sponsor.image.childImageSharp.fixed}
                               alt={sponsor.title}
@@ -160,7 +168,11 @@ const HPSponsorsPartners = () => (
                     </p>
                     {bronze.nodes.map(sponsor => (
                       <div className="sponsor-link" key={sponsor.id}>
-                        <a href={sponsor.remoteUrl}>
+                        <a
+                          href={sponsor.remoteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Img
                             fixed={sponsor.image.childImageSharp.fixed}
                             alt={sponsor.title}
@@ -180,7 +192,11 @@ const HPSponsorsPartners = () => (
                     <p className="sponsor-type partners">Partners</p>
                     {partners.nodes.map(sponsor => (
                       <div className="sponsor-link" key={sponsor.id}>
-                        <a href={sponsor.remoteUrl}>
+                        <a
+                          href={sponsor.remoteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Img
                             fixed={sponsor.image.childImageSharp.fixed}
                             alt={sponsor.title}
@@ -193,7 +209,7 @@ const HPSponsorsPartners = () => (
               )}
             </div>
             <div className="cta-sponsors">
-              <Link to="/sponsors">
+              <Link to="/sponsors" className="btn btn-primary btn-lg">
                 <span>Become a sponsor</span>
               </Link>
             </div>
