@@ -1,7 +1,9 @@
 import React from 'react';
 import { array, object } from 'prop-types';
-import FormContainer from './form/FormContainer';
-import Document from './Document';
+import FormContainer from '../form/FormContainer';
+import Document from '../Document';
+
+import './index.scss';
 
 const CallForSpeakers = ({ data, images = [], files = [] }) => (
   <React.Fragment>
@@ -13,7 +15,7 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
         files,
       }}
     >
-      <div className="talk-submission-form">
+      <div className="talk-submission-form" id="talk-form">
         <hr />
         <h3>Submit your proposal</h3>
         <FormContainer

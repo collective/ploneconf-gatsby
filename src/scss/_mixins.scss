@@ -3,22 +3,22 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-%light-blue-button {
-    background-color: $light-blue;
-    border-radius: 3px;
-    padding: 13px 21px;
-    color: white;
-    @include antialias();
-    font-weight: 700;
-    font-size: 1.5625rem;
-    display: inline-block;
-    border: 0;
+// %light-blue-button {
+//     background-color: $light-blue;
+//     border-radius: 3px;
+//     padding: 13px 21px;
+//     color: white;
+//     @include antialias();
+//     font-weight: 700;
+//     font-size: 1.5625rem;
+//     display: inline-block;
+//     border: 0;
 
-    &:hover,
-    &:focus {
-        background-color: darken($light-blue, 10%);
-    }
-}
+//     &:hover,
+//     &:focus {
+//         background-color: darken($light-blue, 10%);
+//     }
+// }
 
 @function px2rem($px) {
     @return $px / 16 * 1rem;

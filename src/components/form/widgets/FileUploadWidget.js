@@ -1,6 +1,8 @@
 import React from 'react';
 import { string, func } from 'prop-types';
-import Dropzone from 'react-dropzone';
+import DropzoneStyled from 'react-dropzone-styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 class FileUploadWidget extends React.Component {
   constructor(props) {
@@ -18,14 +20,14 @@ class FileUploadWidget extends React.Component {
       file = (
         <div className="thumb">
           <div className="thumb-inner">
-            {uploadedFile.name}
-            {/* <img src={uploadedFile.preview} className="img" alt="" /> */}
+            {/* {uploadedFile.name} */}
+            <img src={uploadedFile.preview} className="img" alt="" />
           </div>
         </div>
       );
     }
     return (
-      <Dropzone
+      <DropzoneStyled
         onDrop={files => {
           const reader = new FileReader();
           reader.onload = event => {
@@ -35,19 +37,19 @@ class FileUploadWidget extends React.Component {
           this.setState({ uploadedFile: files[0] });
         }}
       >
-        {() => (
-          <section className="container">
-            <div className="dropzone">
-              <input />
-              <p>Drag and drop some files here, or click to select files</p>
-            </div>
-            <aside>
-              <h4>File</h4>
-              <aside className="thumbs-container">{file}</aside>
-            </aside>
-          </section>
-        )}
-      </Dropzone>
+        <section className="dropzone-content">
+          <span className="icon-line">
+            {file || <FontAwesomeIcon icon={faUser} />}
+          </span>
+          <p className="main-line">Drag and drop an image here</p>
+          <p className="or-line">or</p>
+          <p>
+            <button type="button" className="browse-button">
+              Browse files
+            </button>
+          </p>
+        </section>
+      </DropzoneStyled>
     );
   }
 }

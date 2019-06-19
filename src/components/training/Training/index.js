@@ -5,6 +5,14 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
 import { whenLabel } from '../../../helpers';
+import CastelloLogoBluSVG from '../../svg/CastelloLogoBluSVG';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTerminal,
+  faGraduationCap,
+  faLaptop,
+  faBook,
+} from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
@@ -13,7 +21,7 @@ const TrainerBlock = ({ trainers }) => {
     return '';
   }
   return (
-    <div className="trainers">
+    <div className="trainers blocco">
       <h4>Instructor</h4>
       {trainers.map(({ node }, index, arr) => {
         if (arr.length - 1 === index) {
@@ -65,6 +73,7 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
     end,
   } = data;
   const trainer_ids = related_people.map(person => person._id);
+
   const trainers = people.edges.filter(({ node }) =>
     trainer_ids.includes(node.id),
   );
@@ -82,38 +91,55 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
           <div className="training-details">
             <div className="column left-block">
               {what_learn ? (
-                <TextBlock
-                  cssClass="what-learn"
-                  text={what_learn}
-                  images={images}
-                  files={files}
-                  label="What will you learn"
-                />
+                <div className="blocco">
+                  <FontAwesomeIcon icon={faGraduationCap} />
+                  <TextBlock
+                    cssClass="what-learn"
+                    text={what_learn}
+                    images={images}
+                    files={files}
+                    label="What will you learn"
+                  />
+                </div>
               ) : null}
               {things_to_bring ? (
-                <TextBlock
-                  cssClass="things-to-bring"
-                  text={things_to_bring}
-                  images={images}
-                  files={files}
-                  label="Things to bring"
-                />
+                <div className="blocco">
+                  <FontAwesomeIcon icon={faTerminal} />
+                  <TextBlock
+                    cssClass="things-to-bring"
+                    text={things_to_bring}
+                    images={images}
+                    files={files}
+                    label="Things to bring"
+                    icon={faTerminal}
+                  />
+                </div>
               ) : null}
               {prerequisites ? (
-                <TextBlock
-                  cssClass="prerequisites"
-                  text={prerequisites}
-                  images={images}
-                  files={files}
-                  label="Prerequisites"
-                />
+                <div className="blocco">
+                  <FontAwesomeIcon icon={faLaptop} />
+                  <TextBlock
+                    cssClass="prerequisites"
+                    text={prerequisites}
+                    images={images}
+                    files={files}
+                    label="Prerequisites"
+                  />
+                </div>
               ) : null}
               {docs_link.length ? (
-                <div className="training-documentation">
-                  <h4>Documentation</h4>
-                  <a href={docs_link} title="Training documentation">
-                    {docs_link}
-                  </a>
+                <div className="blocco">
+                  <FontAwesomeIcon icon={faBook} />
+                  <div className="blocco training-documentation">
+                    <h4>Documentation</h4>
+                    <a
+                      href={docs_link}
+                      title="Training documentation"
+                      className="dont-break-out"
+                    >
+                      {docs_link}
+                    </a>
+                  </div>
                 </div>
               ) : (
                 ''
@@ -124,28 +150,41 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
               <DefaultBlock
                 strValue={duration}
                 label="Length"
-                cssClass="length"
+                cssClass="length blocco"
               />
               <DefaultBlock
                 strValue={whenLabel({ start, end })}
                 label="When"
-                cssClass="when"
+                cssClass="when blocco"
               />
               <DefaultBlock
                 strValue={audienceLabel}
                 label="Target audience"
-                cssClass="target-audience"
+                cssClass="target-audience blocco"
               />
               <DefaultBlock
                 strValue={level}
                 label="Target level"
-                cssClass="target-level"
+                cssClass="target-level blocco"
               />
               <DefaultBlock strValue={room} label="Room" cssClass="room" />
             </div>
           </div>
           <div className="training-footer">
-            INTERESTED IN THIS TRAINING? - TODO
+            <div className="img">
+              <CastelloLogoBluSVG />
+            </div>
+            <h3>
+              Interested in this <strong>training</strong>?
+            </h3>
+            <p>
+              <a
+                href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                className="btn-yellow"
+              >
+                GET YOUR TICKET NOW!
+              </a>
+            </p>
           </div>
         </div>
       </article>

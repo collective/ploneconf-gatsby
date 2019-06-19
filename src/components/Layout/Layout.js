@@ -42,15 +42,29 @@ const Layout = ({
           : node._path
         : null;
       const contextTitle = context && context.title ? context.title : '';
+      const contextDescription =
+        context && context.description ? context.description : '';
       const title =
         contextTitle && contextTitle.length
-          ? `${data.site.siteMetadata.title} - ${contextTitle}`
+          ? `${contextTitle} - ${data.site.siteMetadata.title}`
           : data.site.siteMetadata.title;
+      const description = contextDescription.length
+        ? contextDescription
+        : data.site.siteMetadata.title;
       return (
         <>
           <Helmet>
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content={data.site.siteMetadata.title} />
+
             <title>{title}</title>
-            <meta name="description" content="Plone Conference 2019" />
+            <meta property="og:title" content={title} />
+            <meta name="twitter:title" content={title} />
+
+            <meta property="og:description" content={description} />
+            <meta name="description" content={description} />
+            <meta name="twitter:description" content={description} />
+
             <meta
               name="keywords"
               content="gatsby, plone, conference, ploneconf"

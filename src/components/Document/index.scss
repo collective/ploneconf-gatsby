@@ -1,12 +1,17 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import '../../scss/base';
 
 .document-content {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background: url('../../images/document-background.jpg');
-    background-size: cover;
+    background: url('../../images/document-background.svg');
     background-repeat: no-repeat;
+    background-size: contain;
+
+    .container {
+        @include media-breakpoint-up(xl) {
+            max-width: $document-container;
+        }
+    }
 
     h2 {
         margin-bottom: 1.5rem;
@@ -14,6 +19,11 @@
         font-weight: 300;
         font-size: px2rem(50);
         @include antialias;
+
+        @media (max-width: 480px) {
+            font-size: 2.75rem;
+            line-height: 3.5rem;
+        }
 
         b,
         strong {
@@ -23,11 +33,39 @@
 
     h3 {
         font-size: px2rem(40);
+
+        @media (max-width: 480px) {
+            font-size: 2.2rem;
+
+            span {
+                display: block;
+            }
+        }
     }
 
     p {
         font-family: $font-family-sans-serif;
-        @include antialias;
+
+        a.btn {
+            margin-top: 20px;
+            font-weight: 700;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 1em;
+
+        li {
+            margin-bottom: 0.5em;
+
+            &::before {
+                content: '\2013';
+                width: 1em;
+                margin-right: 0.5em;
+                margin-left: -1em;
+            }
+        }
     }
 
     p.callout {
@@ -56,22 +94,27 @@
         }
     }
 
-    div.submit-button a {
-        @extend %light-blue-button;
+    img {
+        max-width: 100%;
     }
 
-    .gatsby-image-wrapper {
-        width: 100% !important;
-        height: auto !important;
-        text-align: center;
-        overflow: visible;
+    iframe {
+        max-width: 100%;
+        // height: auto;
+        border: 0;
+    }
 
-        picture {
-            img {
-                width: 1024px !important;
-                max-width: 100%;
-                position: static !important;
-            }
+    &#sponsors {
+        // .gatsby-image-wrapper {
+        //     width: 100% !important;
+        //     height: auto !important;
+        //     text-align: center;
+        //     overflow: visible;
+        // }
+        img {
+            width: 1024px !important;
+            // max-width: 100%;
+            // position: static !important;
         }
     }
 
@@ -134,58 +177,6 @@
             $hr-vital-space: 300px;
             $hr-skewed: -10deg;
             @include draw-sexy-hr($hr-vital-space, $hr-skewed);
-        }
-    }
-
-    &.call-for-speakers {
-        ol {
-            padding-left: 0;
-            list-style: none;
-            margin: 1.5rem 0;
-            counter-reset: speakers;
-
-            li {
-                position: relative;
-                display: flex;
-
-                &::before {
-                    counter-increment: speakers;
-                    content: counter(speakers);
-                    margin-right: 1rem;
-                    width: 2rem;
-                    height: 2rem;
-                    background: #000;
-                    display: inline-flex;
-                    color: #fff;
-                    justify-content: center;
-                    align-items: center;
-                    flex-shrink: 0;
-                    position: relative;
-                    z-index: 1;
-                    font-family: $font-family-roboto;
-                    font-weight: 600;
-                    font-size: 1.25rem;
-                }
-
-                &::after {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 2rem;
-                    height: 2rem;
-                    content: '';
-                    background: $cta-yellow;
-                    transform: rotate(15deg);
-                }
-
-                + li {
-                    margin-top: 0.5rem;
-                }
-
-                h4 {
-                    margin: 0;
-                }
-            }
         }
     }
 }

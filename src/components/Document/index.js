@@ -8,7 +8,11 @@ import RichText from '../RichText';
 import './index.scss';
 
 const Document = ({ data, cssClass, images = [], files = [], children }) => (
-  <article key={data._id} className={cx('document-content', cssClass)}>
+  <article
+    key={data._id}
+    className={cx('document-content', cssClass)}
+    id={data._id}
+  >
     <div className="container">
       {data.text ? (
         <RichText serialized={data.text.react} images={images} files={files} />
@@ -23,6 +27,7 @@ Document.propTypes = {
   cssClass: string,
   images: array,
   files: array,
+  children: object,
 };
 
 export default Document;

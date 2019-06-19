@@ -12,7 +12,10 @@ $footer-actions-bg: #303030;
 $footer-gray: #c6c6c6;
 $cta-yellow: #fad03d;
 
+$link-color: #008abe;
+
 $primary: $light-blue;
+$yiq-contrasted-threshold: 200;
 
 $container-max-widths: (
     sm: 540px,
@@ -20,3 +23,5 @@ $container-max-widths: (
     lg: 960px,
     xl: 1398px,
 );
+
+$document-container: 1120px;

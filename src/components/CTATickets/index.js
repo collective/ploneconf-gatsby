@@ -44,7 +44,10 @@ const CTASpeakers = () => (
             </p>
             <p className="fee-vat">+ Fee &amp; VAT</p>
             <p className="cta-link">
-              <a href="https://ploneconference2019.eventbrite.com/?aff=ploneconf">
+              <a
+                href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                className="btn-yellow"
+              >
                 Buy ticket
               </a>
             </p>
@@ -68,7 +71,10 @@ const CTASpeakers = () => (
             </p>
             <p className="fee-vat">+ Fee &amp; VAT</p>
             <p className="cta-link">
-              <a href="https://ploneconference2019.eventbrite.com/?aff=ploneconf">
+              <a
+                href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                className="btn-yellow"
+              >
                 Buy ticket
               </a>
             </p>
@@ -95,7 +101,10 @@ const CTASpeakers = () => (
             </p>
             <p className="fee-vat">+ Fee &amp; VAT</p>
             <p className="cta-link">
-              <a href="https://ploneconference2019.eventbrite.com/?aff=ploneconf">
+              <a
+                href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                className="btn-yellow"
+              >
                 Buy ticket
               </a>
             </p>

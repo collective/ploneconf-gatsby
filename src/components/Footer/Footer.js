@@ -52,14 +52,17 @@ const Footer = () => (
           <div className="flex-item">
             <ul>
               <li>
+                <Link to="/code-of-conduct">code of conduct</Link>
+              </li>
+              <li>
                 <Link to="/privacy-policy">privacy policy</Link>
               </li>
               {/* <li>
                 <Link to="/cookie-policy">cookie</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/credits">credits</Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

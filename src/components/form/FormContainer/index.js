@@ -12,6 +12,7 @@ class FormContainer extends React.Component {
       errors: {},
       formData: {},
       submitted: false,
+      validated: false,
     };
   }
 
@@ -76,7 +77,7 @@ class FormContainer extends React.Component {
     const { actionEndpoint } = this.props;
     const errors = this.validateForm();
     if (Object.keys(errors).length > 0 && errors.constructor === Object) {
-      this.setState({ ...this.state, errors });
+      this.setState({ ...this.state, errors, validated: true });
       return;
     }
     fetch(`${process.env.GATSBY_API_URL}/${actionEndpoint}`, {
@@ -108,16 +109,16 @@ class FormContainer extends React.Component {
       });
   };
 
-  resetForm = () => {
-    const { schema } = this.state;
-    let formData = {};
-    Object.keys(schema.properties).forEach(fieldId => {
-      if (schema.properties[fieldId].mode !== 'hidden') {
-        formData[fieldId] = null;
-      }
-    });
-    this.setState({ ...this.state, formData, errors: {} });
-  };
+  // resetForm = () => {
+  //   const { schema } = this.state;
+  //   let formData = {};
+  //   Object.keys(schema.properties).forEach(fieldId => {
+  //     if (schema.properties[fieldId].mode !== 'hidden') {
+  //       formData[fieldId] = null;
+  //     }
+  //   });
+  //   this.setState({ ...this.state, formData, errors: {} });
+  // };
 
   updateFormValue = ({ id, value }) => {
     const { errors } = this.state;
@@ -140,7 +141,7 @@ class FormContainer extends React.Component {
   // };
 
   render() {
-    const { schema, formData, errors, submitted } = this.state;
+    const { schema, formData, errors, submitted, validated } = this.state;
     if (!schema) {
       return '';
     }
@@ -164,11 +165,14 @@ class FormContainer extends React.Component {
         <form
           onSubmit={this.onSubmit}
           method="POST"
-          className="needs-validation"
+          className={validated ? 'was-validated' : 'needs-validation'}
           noValidate
         >
           {fieldsets.map(fieldset => (
-            <div className={fieldset.id} key={`fieldset-${fieldset.id}`}>
+            <div
+              className={`fieldset ${fieldset.id}`}
+              key={`fieldset-${fieldset.id}`}
+            >
               {fieldset.fields.map(fieldId => (
                 <FieldWrapper
                   key={`field-${fieldId}`}
@@ -183,12 +187,21 @@ class FormContainer extends React.Component {
             </div>
           ))}
           <div className="form-buttons">
-            <button className="btn btn-primary" name="submit">
+            <button
+              className="btn btn-primary btn-lg"
+              name="submit"
+              type="submit"
+            >
               Submit
             </button>
-            <button type="reset" name="cancel" onClick={this.resetForm}>
+            {/* <button
+              type="reset"
+              name="cancel"
+              onClick={this.resetForm}
+              className="btn"
+            >
               Cancel
-            </button>
+            </button> */}
           </div>
         </form>
         {message}

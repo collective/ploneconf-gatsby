@@ -24,15 +24,20 @@ const OffcanvasMenu = () => (
       right
     >
       <div className="navs-wrapper">
-        {/* <Link to="/speakers">Call for speakers</Link> */}
-        {/* <Link to="/sponsors">Sponsors</Link> */}
-        <Link to="/code-of-conduct">Code of Conduct</Link>
+        <Link to="/call-for-speakers">Call for speakers</Link>
+        <Link to="/venue">Venue</Link>
+        <Link to="/ferrara">Ferrara</Link>
+        <Link to="/sponsors">Sponsors</Link>
+        {/* <Link to="/code-of-conduct">Code of Conduct</Link> */}
         {/* <Link to="/contacts">Contacts</Link> */}
-        {/* <div className="get-tickets-wrapper">
-          <Link to="/tickets" className="get-tickets">
+        <div className="get-tickets-wrapper">
+          <a
+            href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+            className="get-tickets"
+          >
             Get tickets!
-          </Link>
-        </div> */}
+          </a>
+        </div>
       </div>
     </Menu>
   </div>

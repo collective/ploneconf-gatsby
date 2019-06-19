@@ -89,12 +89,16 @@ header#header-navigation {
             }
 
             @media (max-width: 991px) {
+                .logo-text-wrapper {
+                    padding-left: 1rem;
+                }
+
                 .ploneconf {
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
                 }
 
                 .year {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
                 }
             }
 
@@ -109,11 +113,11 @@ header#header-navigation {
             }
         }
 
-        @media (max-width: 768px) {
-            svg {
-                padding-left: 1rem;
-            }
-        }
+        // @media (max-width: 768px) {
+        //     svg {
+        //         padding-left: 1rem;
+        //     }
+        // }
     }
 
     .nav-wrapper {

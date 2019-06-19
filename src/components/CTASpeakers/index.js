@@ -26,7 +26,7 @@ const CTASpeakers = ({ img }) => (
           development, new trends and hypes, everything you are passionate
           about.
         </p>
-        <Link to="/call-for-speakers" className="cta-speakers-link">
+        <Link to="/call-for-speakers" className="btn btn-primary btn-lg">
           Send us your speech proposal!
         </Link>
       </div>

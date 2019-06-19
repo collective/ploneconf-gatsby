@@ -1,7 +1,37 @@
-@import '../../../scss/variables';
+@import '../../../scss/base';
 
 .form-group {
     .invalid-feedback {
         display: inherit;
+    }
+}
+
+.captchaGroup {
+    iframe {
+        height: 74px;
+    }
+}
+
+small.form-text {
+    font-size: 75%;
+    color: #4a4a4a;
+}
+
+.dropzone-content {
+    .thumb {
+        img {
+            max-height: 150px;
+        }
+    }
+}
+
+.was-validated .react-select-container {
+    .react-select__control {
+        border-color: $success;
+    }
+    &.is-invalid {
+        .react-select__control {
+            border-color: $danger;
+        }
     }
 }
