@@ -3,12 +3,59 @@
 
 .training-details {
     display: flex;
+    align-items: flex-start;
 
     .column {
-        flex: 50%;
-        padding: 1em;
+        min-width: 0;
+        flex: 60%;
+        padding: 1em 1em 0 0;
         &.right-block {
             border-left: 15px solid $cta-yellow;
+            padding-left: 2em;
+            flex: 40%;
+        }
+    }
+    .blocco {
+        margin-bottom: 2rem;
+    }
+}
+
+.training-footer {
+    text-align: center;
+    .img {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    h3 {
+        font-weight: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .training-details {
+        flex-direction: column-reverse;
+        .column {
+            flex: 100%;
+            max-width: 100%;
+            &.right-block {
+                flex: 100%;
+                padding-left: 1em;
+                padding-bottom: 1em;
+                margin-bottom: 1em;
+            }
+        }
+    }
+    .training-footer {
+        .img {
+            svg {
+                max-width: 70%;
+            }
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
     }
 }

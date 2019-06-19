@@ -25,7 +25,7 @@ const Breadcrumbs = ({ data, skipLast }) => (
       }
       return (
         <nav className="breadcrumb-container">
-          <ol className="breadcrumb">
+          <ol className="breadcrumb container">
             <li
               className={
                 breadcrumbs.length

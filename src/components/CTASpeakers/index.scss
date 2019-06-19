@@ -86,22 +86,6 @@
                 font-weight: 600;
             }
         }
-
-        .cta-speakers-link {
-            background: $light-blue;
-            padding: 10px 15px;
-            display: inline-block;
-            color: #fff;
-            border-radius: 3px;
-            font-weight: 600;
-            text-align: center;
-            @include antialias;
-
-            &:hover,
-            &:focus {
-                background: darken($light-blue, 10%);
-            }
-        }
     }
 
     .svg-bg-wrapper {
