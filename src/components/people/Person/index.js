@@ -11,6 +11,7 @@ import CTATickets from '../../CTATickets';
 
 import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
+import BirdSVG from '../../svg/BirdSVG';
 
 const Person = ({ data, breadcrumbs, cssClass }) => {
   const { title, bio, github, twitter, image, id } = data;
@@ -28,7 +29,7 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
               <div className="user-general">
                 {image && image.childImageSharp ? (
                   <div className="user-image">
-                    <div className="roundedImage">
+                    <div className="rounded-image">
                       <Img resolutions={image.childImageSharp.fixed} />
                     </div>
                   </div>
@@ -65,9 +66,12 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
               <PersonTalks id={id} />
             </div>
           </div>
-          <CTATickets />
+          <div className="bird-sep">
+            <BirdSVG />
+          </div>
         </div>
       </article>
+      <CTATickets />
     </React.Fragment>
   );
 };

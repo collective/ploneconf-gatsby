@@ -14,12 +14,13 @@ const TalkDetails = ({
 }) => (
   <div className="talk-detail">
     {/* <PersonDetailsDate start={start} end={end} /> */}
+    <h4>TALK</h4>
     <div className="talk-slot">
-      <FontAwesomeIcon icon={faTv} size="2x" /> Talk
+      <FontAwesomeIcon icon={faTv} />{' '}
+      <Link to={_path} title="talk details">
+        {title}
+      </Link>
     </div>
-    <Link to={_path} title="talk details">
-      {title}
-    </Link>
   </div>
 );
 
