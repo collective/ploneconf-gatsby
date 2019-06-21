@@ -77,9 +77,9 @@ class Header extends Component {
             {/* <Link to="/code-of-conduct" activeClassName="active">
               <span>Code of Conduct</span>
             </Link> */}
-            {/* <Link to="/contacts" activeClassName="active">
+            <Link to="/contact-form" activeClassName="active">
               <span>Contacts</span>
-            </Link> */}
+            </Link>
             <a
               href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
               className="get-tickets"
