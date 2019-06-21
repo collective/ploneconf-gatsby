@@ -48,6 +48,11 @@
                     margin-right: auto;
                 }
             }
+            &.gold {
+                img {
+                    max-height: 160px;
+                }
+            }
         }
         .sponsor-link:last-child {
             margin-right: 0;

@@ -21,7 +21,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 160) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -46,6 +46,38 @@ const HPSponsorsPartners = () => (
         }
         bronze: allPloneLink(
           filter: { _path: { regex: "/sponsors-links/bronze/" } }
+        ) {
+          nodes {
+            id
+            title
+            remoteUrl
+            image {
+              childImageSharp {
+                fixed(height: 120) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+        supporting: allPloneLink(
+          filter: { _path: { regex: "/sponsors-links/supporting/" } }
+        ) {
+          nodes {
+            id
+            title
+            remoteUrl
+            image {
+              childImageSharp {
+                fixed(height: 120) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+        individual: allPloneLink(
+          filter: { _path: { regex: "/sponsors-links/individual/" } }
         ) {
           nodes {
             id
@@ -90,7 +122,15 @@ const HPSponsorsPartners = () => (
     `}
     render={data => {
       console.log(data);
-      const { gold, silver, bronze, partners, redturtle } = data;
+      const {
+        gold,
+        silver,
+        bronze,
+        supporting,
+        individual,
+        partners,
+        redturtle,
+      } = data;
 
       return (
         <div className="hp-sponsors-partners">
@@ -112,7 +152,7 @@ const HPSponsorsPartners = () => (
                 {gold &&
                   gold.nodes &&
                   gold.nodes.map(sponsor => (
-                    <div className="sponsor-link" key={sponsor.id}>
+                    <div className="sponsor-link gold" key={sponsor.id}>
                       <p className="sponsor-type gold">
                         <strong>Gold</strong> Sponsor
                       </p>
@@ -167,6 +207,58 @@ const HPSponsorsPartners = () => (
                       <strong>Bronze</strong> Sponsor
                     </p>
                     {bronze.nodes.map(sponsor => (
+                      <div className="sponsor-link" key={sponsor.id}>
+                        <a
+                          href={sponsor.remoteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Img
+                            fixed={sponsor.image.childImageSharp.fixed}
+                            alt={sponsor.title}
+                          />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </React.Fragment>
+              )}
+              {supporting && supporting.nodes && supporting.nodes.length > 0 && (
+                <React.Fragment>
+                  <div className="hr">
+                    <HPhrSVG />
+                  </div>
+                  <div className="links-row">
+                    <p className="sponsor-type supporting">
+                      <strong>Supporting</strong> Sponsor
+                    </p>
+                    {supporting.nodes.map(sponsor => (
+                      <div className="sponsor-link" key={sponsor.id}>
+                        <a
+                          href={sponsor.remoteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Img
+                            fixed={sponsor.image.childImageSharp.fixed}
+                            alt={sponsor.title}
+                          />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </React.Fragment>
+              )}
+              {individual && individual.nodes && individual.nodes.length > 0 && (
+                <React.Fragment>
+                  <div className="hr">
+                    <HPhrAltSVG />
+                  </div>
+                  <div className="links-row">
+                    <p className="sponsor-type individual">
+                      <strong>Individual</strong> Sponsor
+                    </p>
+                    {individual.nodes.map(sponsor => (
                       <div className="sponsor-link" key={sponsor.id}>
                         <a
                           href={sponsor.remoteUrl}
