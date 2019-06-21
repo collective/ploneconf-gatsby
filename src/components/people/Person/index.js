@@ -19,37 +19,54 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
     <React.Fragment>
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
-        <div className="container" />
-        <div className="person-details">
-          <div className="column left-block">
-            {image && image.childImageSharp ? (
-              <Img resolutions={image.childImageSharp.fixed} />
-            ) : null}
-            <h2>{title}</h2>
-            {twitter && twitter.length ? (
-              <div className="twitter-link">
-                <FontAwesomeIcon icon={faTwitter} />{' '}
-                <a href={`https://twitter.com/${twitter}`}>@{twitter}</a>
-              </div>
-            ) : (
-              ''
-            )}{' '}
-            {github && github.length ? (
-              <div className="github-link">
-                <FontAwesomeIcon icon={faGithub} />{' '}
-                <a href={`https://github.com/${github}`}>{github}</a>
-              </div>
-            ) : (
-              ''
-            )}
-            {bio && bio.length ? <div className="bio">{bio}</div> : ''}
+        <div className="container">
+          <div className="label-row">
+            <span className="label">Speaker</span>
           </div>
-          <div className="column right-block">
-            <PersonTrainings id={id} />
-            <PersonTalks id={id} />
+          <div className="person-details">
+            <div className="column left-block">
+              <div className="user-general">
+                {image && image.childImageSharp ? (
+                  <div className="user-image">
+                    <div className="roundedImage">
+                      <Img resolutions={image.childImageSharp.fixed} />
+                    </div>
+                  </div>
+                ) : null}
+                <div className="user-data">
+                  <h2>{title}</h2>
+
+                  <div class="user-link">
+                    {twitter && twitter.length ? (
+                      <div className="link twitter-link">
+                        <FontAwesomeIcon icon={faTwitter} size="2x" />{' '}
+                        <a href={`https://twitter.com/${twitter}`}>
+                          @{twitter}
+                        </a>
+                      </div>
+                    ) : (
+                      ''
+                    )}{' '}
+                    {github && github.length ? (
+                      <div className="link github-link">
+                        <FontAwesomeIcon icon={faGithub} size="2x" />{' '}
+                        <a href={`https://github.com/${github}`}>{github}</a>
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                </div>
+              </div>
+              {bio && bio.length ? <div className="bio">{bio}</div> : ''}
+            </div>
+            <div className="column right-block">
+              <PersonTrainings id={id} />
+              <PersonTalks id={id} />
+            </div>
           </div>
+          <CTATickets />
         </div>
-        <CTATickets />
       </article>
     </React.Fragment>
   );

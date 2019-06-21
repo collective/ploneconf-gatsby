@@ -1,14 +1,96 @@
 @import '../../../scss/variables';
 @import '../../../scss/mixins';
-
+.label-row {
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+    .label {
+        width: auto;
+        background-color: #b13039;
+        padding: 0.8em;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
 .person-details {
     display: flex;
+    margin-bottom: 3rem;
 
     .column {
-        flex: 50%;
+        flex: 70%;
         padding: 1em;
         &.right-block {
+            flex: 30%;
             border-left: 15px solid $cta-yellow;
+        }
+    }
+
+    .user-general {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 3em;
+        .user-image {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-right: 2.5em;
+            .rounded-image {
+                display: inline;
+                margin: 0 auto;
+                margin-left: -25%; //centers the image
+                height: 100%;
+                width: auto;
+            }
+        }
+        .user-link {
+            display: flex;
+            flex-direction: row;
+            .link {
+                padding: 1em;
+                padding-left: 0;
+                &.twitter-link {
+                    color: $link-color;
+                }
+            }
+        }
+    }
+}
+
+.person-trainings,
+.person-talks {
+    .training-detail,
+    .talk-detail {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 1.5em;
+        margin-bottom: 1.5em;
+        .details-date {
+            margin-bottom: 2.5em;
+            .date-wrapper {
+                .month {
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #000;
+                    width: auto;
+                    display: inline-block;
+                }
+                .day-hour {
+                    span {
+                        line-height: 1.2em;
+                        font-size: 2.4em;
+                        font-weight: 700;
+                        margin-right: 0.2em;
+                    }
+                }
+            }
+        }
+        .training-slot {
+            span {
+                margin-left: 0.8em;
+            }
         }
     }
 }

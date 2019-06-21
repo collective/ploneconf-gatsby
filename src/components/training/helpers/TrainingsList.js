@@ -1,6 +1,8 @@
 import React from 'react';
 import { array, object, string } from 'prop-types';
 import { Link } from 'gatsby';
+import HPhrSVG from '../../svg/HPhrSVG';
+import HPhrAltSVG from '../../svg/HPhrAltSVG';
 
 const TrainingDetails = ({
   audience,
@@ -11,6 +13,7 @@ const TrainingDetails = ({
   title,
   _path,
   people,
+  index,
 }) => {
   const relatedIds =
     related_people && related_people.length
@@ -19,43 +22,49 @@ const TrainingDetails = ({
   const relatedNodes = people.filter(({ node }) =>
     relatedIds.includes(node.id),
   );
-  return (
+  let alt = index % 2 == 0;
+  return [
+    alt ? <HPhrAltSVG /> : <HPhrSVG />,
     <div className="training-details">
-      <Link to={_path}>
-        <h4>{title}</h4>
-      </Link>
-      {related_people.length ? (
-        <div className="trainers">
-          by{' '}
-          {relatedNodes.length
-            ? relatedNodes.map(({ node }) => (
-                <React.Fragment key={node.id}>
-                  <Link to={node._path}>{node.title}</Link>{' '}
-                </React.Fragment>
-              ))
-            : ''}
+      <div className="block">
+        <Link to={_path}>
+          <h3>{title}</h3>
+        </Link>
+        {related_people.length ? (
+          <div className="trainers">
+            by{' '}
+            {relatedNodes.length
+              ? relatedNodes.map(({ node }) => (
+                  <React.Fragment key={node.id}>
+                    <Link to={node._path}>{node.title}</Link>{' '}
+                  </React.Fragment>
+                ))
+              : ''}
+          </div>
+        ) : (
+          ''
+        )}
+      </div>
+      {description && description.length ? (
+        <div className="block training-description">
+          <p>{description}</p>
         </div>
       ) : (
         ''
       )}
-      {description && description.length ? (
-        <p className="training-description">{description}</p>
-      ) : (
-        ''
-      )}
-      <div className="additional-infos">
-        <span>
-          Duration: <strong>{duration}</strong>
-        </span>
-        <span>
-          Audience: <strong>{audience.join(', ')}</strong>
-        </span>
-        <span>
-          Level: <strong>{level}</strong>
-        </span>
+      <div className="block additional-infos">
+        <div>
+          <span>Duration:</span> <strong>{duration}</strong>
+        </div>
+        <div>
+          <span>Audience:</span> <strong>{audience.join(', ')}</strong>
+        </div>
+        <div>
+          <span>Level:</span> <strong>{level}</strong>
+        </div>
       </div>
-    </div>
-  );
+    </div>,
+  ];
 };
 
 TrainingDetails.propTypes = {
@@ -73,8 +82,13 @@ TrainingDetails.propTypes = {
 const TrainingsList = ({ data, people }) => (
   <div className="trainings">
     {data && data.length
-      ? data.map(({ node }) => (
-          <TrainingDetails people={people} key={node.UID} {...node} />
+      ? data.map(({ node }, index) => (
+          <TrainingDetails
+            people={people}
+            index={index}
+            key={node.UID}
+            {...node}
+          />
         ))
       : ''}
   </div>

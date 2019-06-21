@@ -15,7 +15,7 @@ const TalkDetails = ({
   <div className="talk-detail">
     {/* <PersonDetailsDate start={start} end={end} /> */}
     <div className="talk-slot">
-      <FontAwesomeIcon icon={faTv} /> Talk
+      <FontAwesomeIcon icon={faTv} size="2x" /> Talk
     </div>
     <Link to={_path} title="talk details">
       {title}

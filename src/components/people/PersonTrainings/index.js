@@ -19,7 +19,8 @@ const TrainingDetails = ({
   <div className="training-detail">
     <PersonDetailsDate start={start} end={end} />
     <div className="training-slot">
-      <FontAwesomeIcon icon={faChalkboardTeacher} /> Training
+      <FontAwesomeIcon icon={faChalkboardTeacher} size="2x" />{' '}
+      <span>Training</span>
     </div>
     <Link to={_path} title="training details">
       {title}

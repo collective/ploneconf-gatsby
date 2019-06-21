@@ -4,6 +4,8 @@ import Document from '../../Document';
 import { StaticQuery, graphql } from 'gatsby';
 import TrainingsList from '../helpers/TrainingsList';
 
+import './index.scss';
+
 const TrainingHome = ({ images = [], files = [] }) => (
   <StaticQuery
     query={graphql`
@@ -51,10 +53,13 @@ const TrainingHome = ({ images = [], files = [] }) => (
             files,
           }}
         />
-        <TrainingsList
-          data={allPloneTraining.edges}
-          people={allPlonePerson.edges}
-        />
+
+        <div className="container">
+          <TrainingsList
+            data={allPloneTraining.edges}
+            people={allPlonePerson.edges}
+          />
+        </div>
       </React.Fragment>
     )}
   />
