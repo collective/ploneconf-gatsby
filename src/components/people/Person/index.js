@@ -8,6 +8,7 @@ import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import PersonTrainings from '../PersonTrainings';
 import PersonTalks from '../PersonTalks';
 import CTATickets from '../../CTATickets';
+import LabelRow from '../../LabelRow';
 
 import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
@@ -15,15 +16,13 @@ import BirdSVG from '../../svg/BirdSVG';
 
 const Person = ({ data, breadcrumbs, cssClass }) => {
   const { title, bio, github, twitter, image, id } = data;
-
+  let labels = [{ text: 'Speaker', color: 'red' }];
   return (
     <React.Fragment>
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container">
-          <div className="label-row">
-            <span className="label">Speaker</span>
-          </div>
+          <LabelRow labels={labels} />
           <div className="person-details">
             <div className="column left-block">
               <div className="user-general">
