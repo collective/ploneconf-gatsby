@@ -37,7 +37,7 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
                 <div className="user-data">
                   <h2>{title}</h2>
 
-                  <div class="user-link">
+                  <div className="user-link">
                     {twitter && twitter.length ? (
                       <div className="link twitter-link">
                         <FontAwesomeIcon icon={faTwitter} size="2x" />{' '}

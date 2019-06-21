@@ -15,6 +15,7 @@ const Folder = ({ data, title, images = [], files = [] }) => {
     'Talk',
     'Training',
   ]);
+  console.log(data);
   let byPath = files.reduce(function(result, file) {
     result[file._path] = file;
     return result;
@@ -85,5 +86,12 @@ export const query = graphql`
       title
     }
     _path
+    image {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 `;

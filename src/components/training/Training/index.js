@@ -7,6 +7,8 @@ import TextBlock from '../helpers/TextBlock';
 import { whenLabel } from '../../../helpers';
 import CastelloLogoBluSVG from '../../svg/CastelloLogoBluSVG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import LabelRow from '../../LabelRow';
+
 import {
   faTerminal,
   faGraduationCap,
@@ -79,10 +81,17 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
   );
   const audienceLabel =
     audience && audience.length > 1 ? audience.join(', ') : audience[0];
+  let labels = [
+    {
+      text: 'Training',
+      color: 'light-blue',
+    },
+  ];
   return (
     <React.Fragment>
       <article key={data._id} className={cx('document-content', cssClass)}>
         <div className="container">
+          <LabelRow labels={labels} />
           {description && description.length ? (
             <h3 className="training-description">{description}</h3>
           ) : (

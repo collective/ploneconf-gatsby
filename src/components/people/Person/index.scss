@@ -1,18 +1,9 @@
 @import '../../../scss/variables';
 @import '../../../scss/mixins';
-.label-row {
-    padding: 1em;
-    margin-bottom: 1em;
-    margin-top: 1.5em;
-    .label {
-        width: auto;
-        background-color: #b13039;
-        padding: 0.8em;
-        color: #fff;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
+.cta-tickets {
+    overflow: hidden;
 }
+
 .person-details {
     display: flex;
     margin-bottom: 3rem;
@@ -140,11 +131,5 @@
         svg {
             width: 60%;
         }
-    }
-}
-
-@media (max-width: 768px) {
-    .label-row {
-        padding-top: 0;
     }
 }
