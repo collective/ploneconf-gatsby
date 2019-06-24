@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TrainingHrAltSVG = () => (
+const HrAltSVG = () => (
   <svg version="1.1" viewBox="0 0 1367 43" xmlns="http://www.w3.org/2000/svg">
     <g id="hp-hr" fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
       <g
@@ -22,4 +22,4 @@ const TrainingHrAltSVG = () => (
   </svg>
 );
 
-export default TrainingHrAltSVG;
+export default HrAltSVG;

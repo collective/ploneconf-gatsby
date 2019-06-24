@@ -1,8 +1,8 @@
 import React from 'react';
 import { array, object, string } from 'prop-types';
 import { Link } from 'gatsby';
-import TrainingHrSVG from '../../svg/TrainingHrSVG';
-import TrainingHrAltSVG from '../../svg/TrainingHrAltSVG';
+import HrSVG from '../../svg/HrSVG';
+import HrAltSVG from '../../svg/HrAltSVG';
 
 const TrainingDetails = ({
   audience,
@@ -24,7 +24,7 @@ const TrainingDetails = ({
   );
   let alt = index % 2 == 0;
   return [
-    alt ? <TrainingHrAltSVG /> : <TrainingHrSVG />,
+    alt ? <HrAltSVG /> : <HrSVG />,
     <div className="training-details">
       <div className="block">
         <Link to={_path}>
