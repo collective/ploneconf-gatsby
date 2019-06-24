@@ -8,7 +8,7 @@ const LabelRow = ({ labels }) => {
     <div className="label-row">
       {labels.map(label => {
         return (
-          <span key={label} className={cx('label', label.color)}>
+          <span key={label.text} className={cx('label', label.color)}>
             {label.text}
           </span>
         );

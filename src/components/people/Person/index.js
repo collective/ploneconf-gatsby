@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, string } from 'prop-types';
+import { object, string, array } from 'prop-types';
 import { graphql } from 'gatsby';
 import cx from 'classnames';
 import Img from 'gatsby-image';
@@ -14,9 +14,41 @@ import './index.scss';
 import Breadcrumbs from '../../Breadcrumbs';
 import BirdSVG from '../../svg/BirdSVG';
 
-const Person = ({ data, breadcrumbs, cssClass }) => {
+const Person = ({ data, trainings, talks, breadcrumbs, cssClass }) => {
   const { title, bio, github, twitter, image, id } = data;
-  let labels = [{ text: 'Speaker', color: 'red' }];
+  let labels = [];
+  //console.log('data', data);
+  //console.log(trainings);
+
+  //verify if has trainings
+  if (trainings) {
+    const filteredTrainings = trainings.filter(node => {
+      const trainers = node.related_people.filter(
+        trainer => trainer._id === id,
+      );
+      return trainers.length !== 0;
+    });
+
+    if (filteredTrainings.length > 0) {
+      labels.push({ text: 'Trainer', color: 'red' });
+    }
+  }
+
+  //verify if has talks
+
+  if (talks) {
+    const filteredTalks = talks.filter(node => {
+      const trainers = node.related_people.filter(
+        trainer => trainer._id === id,
+      );
+      return trainers.length !== 0;
+    });
+
+    if (filteredTalks.length > 0) {
+      labels.push({ text: 'Speaker', color: 'red' });
+    }
+  }
+
   return (
     <React.Fragment>
       {breadcrumbs && <Breadcrumbs data={breadcrumbs} skipLast={true} />}
@@ -62,7 +94,7 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
             </div>
             <div className="column right-block">
               <PersonTrainings id={id} />
-              <PersonTalks id={id} />
+              {/*<PersonTalks id={id} />*/}
             </div>
           </div>
           <div className="bird-sep">
@@ -77,6 +109,8 @@ const Person = ({ data, breadcrumbs, cssClass }) => {
 
 Person.propTypes = {
   data: object.isRequired,
+  trainings: array,
+  talks: array,
   cssClass: string,
   breadcrumbs: object,
 };
@@ -98,6 +132,28 @@ export const query = graphql`
           ...GatsbyImageSharpFixed
         }
       }
+    }
+  }
+  fragment TrainingFragment on PloneTraining {
+    UID
+    id
+    _path
+    title
+    duration
+    start
+    end
+    related_people {
+      _id
+    }
+  }
+  fragment TalkFragment on PloneTalk {
+    UID
+    id
+    _path
+    title
+    duration
+    related_people {
+      _id
     }
   }
 `;

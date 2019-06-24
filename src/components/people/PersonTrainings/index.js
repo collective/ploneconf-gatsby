@@ -36,16 +36,7 @@ const PersonTrainings = ({ id }) => {
           allPloneTraining {
             edges {
               node {
-                UID
-                id
-                _path
-                title
-                duration
-                start
-                end
-                related_people {
-                  _id
-                }
+                ...TrainingFragment
               }
             }
           }
