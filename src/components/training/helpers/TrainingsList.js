@@ -25,7 +25,7 @@ const TrainingDetails = ({
   let alt = index % 2 == 0;
   return [
     alt ? <HrAltSVG /> : <HrSVG />,
-    <div className="training-details">
+    <div key="training-details" className="training-details">
       <div className="block">
         <Link to={_path}>
           <h3>{title}</h3>
@@ -34,9 +34,10 @@ const TrainingDetails = ({
           <div className="trainers">
             by{' '}
             {relatedNodes.length
-              ? relatedNodes.map(({ node }) => (
+              ? relatedNodes.map(({ node }, idx) => (
                   <React.Fragment key={node.id}>
-                    <Link to={node._path}>{node.title}</Link>{' '}
+                    <Link to={node._path}>{node.title}</Link>
+                    {idx < relatedNodes.length - 1 && ', '}
                   </React.Fragment>
                 ))
               : ''}

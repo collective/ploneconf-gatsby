@@ -107,7 +107,7 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
                     text={what_learn}
                     images={images}
                     files={files}
-                    label="What will you learn"
+                    label="What you will learn"
                   />
                 </div>
               ) : null}
