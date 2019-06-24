@@ -30,7 +30,7 @@ const OffcanvasMenu = () => (
         <Link to="/ferrara">Ferrara</Link>
         <Link to="/sponsors">Sponsors</Link>
         {/* <Link to="/code-of-conduct">Code of Conduct</Link> */}
-        {/* <Link to="/contacts">Contacts</Link> */}
+        <Link to="/contact-form">Contacts</Link>
         <div className="get-tickets-wrapper">
           <a
             href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"

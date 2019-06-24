@@ -103,6 +103,13 @@
         }
     }
 
+    .text-about-wrapper {
+        margin-left: 2em;
+        a {
+            font-weight: 700;
+        }
+    }
+
     h2 {
         font-size: px2rem(15);
         color: $light-blue;
