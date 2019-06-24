@@ -14,8 +14,19 @@ const Footer = () => (
           <div className="flex-item flex-item-grow">
             <div className="footer-flex-helper logo-about-wrapper">
               <LogoSVG />
+              <div className="text-about-wrapper">
+                <h2>ABOUT THE CONFERENCE</h2>
+                <p>
+                  The Plone Conference 2019 is proudly hosted by the RedTurtle
+                  Team.
+                </p>
+                <p>
+                  <Link to="/code-of-conduct">CODE OF CONDUCT</Link>
+                </p>
+              </div>
             </div>
           </div>
+
           <div className="flex-item rt-info">
             <h2>The Organizer</h2>
             <a className="rt-logo" href="https://www.redturtle.it/">
@@ -51,9 +62,6 @@ const Footer = () => (
           </div>
           <div className="flex-item">
             <ul>
-              <li>
-                <Link to="/code-of-conduct">code of conduct</Link>
-              </li>
               <li>
                 <Link to="/privacy-policy">privacy policy</Link>
               </li>
