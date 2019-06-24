@@ -21,7 +21,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 160) {
+                fixed(height: 120) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -37,7 +37,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 90) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -53,7 +53,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 65) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -69,7 +69,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 40) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -85,7 +85,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 40) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -101,7 +101,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -121,7 +121,6 @@ const HPSponsorsPartners = () => (
       }
     `}
     render={data => {
-      console.log(data);
       const {
         gold,
         silver,
@@ -140,8 +139,8 @@ const HPSponsorsPartners = () => (
             </h2>
             <div className="sponsors-partners">
               <div className="links-row">
-                <div className="sponsor-link organizer">
-                  <p className="sponsor-type">Organizer</p>
+                <div className="ploneconf-sponsor-link organizer">
+                  <p className="ploneconf-sponsor-type">Organizer</p>
                   <a href="https://www.redturtle.it">
                     <Img
                       fixed={redturtle.image.childImageSharp.fixed}
@@ -152,8 +151,11 @@ const HPSponsorsPartners = () => (
                 {gold &&
                   gold.nodes &&
                   gold.nodes.map(sponsor => (
-                    <div className="sponsor-link gold" key={sponsor.id}>
-                      <p className="sponsor-type gold">
+                    <div
+                      className="ploneconf-sponsor-link gold"
+                      key={sponsor.id}
+                    >
+                      <p className="ploneconf-sponsor-type gold">
                         <strong>Gold</strong> Sponsor
                       </p>
                       <a
@@ -175,13 +177,16 @@ const HPSponsorsPartners = () => (
                     <HPhrSVG />
                   </div>
                   <div className="links-row">
-                    <p className="sponsor-type silver">
+                    <p className="ploneconf-sponsor-type silver">
                       <strong>Silver</strong> Sponsor
                     </p>
                     {silver &&
                       silver.nodes &&
                       silver.nodes.map(sponsor => (
-                        <div className="sponsor-link" key={sponsor.id}>
+                        <div
+                          className="ploneconf-sponsor-link silver"
+                          key={sponsor.id}
+                        >
                           <a
                             href={sponsor.remoteUrl}
                             target="_blank"
@@ -203,11 +208,14 @@ const HPSponsorsPartners = () => (
                     <HPhrAltSVG />
                   </div>
                   <div className="links-row">
-                    <p className="sponsor-type bronze">
+                    <p className="ploneconf-sponsor-type bronze">
                       <strong>Bronze</strong> Sponsor
                     </p>
                     {bronze.nodes.map(sponsor => (
-                      <div className="sponsor-link" key={sponsor.id}>
+                      <div
+                        className="ploneconf-sponsor-link bronze"
+                        key={sponsor.id}
+                      >
                         <a
                           href={sponsor.remoteUrl}
                           target="_blank"
@@ -229,11 +237,14 @@ const HPSponsorsPartners = () => (
                     <HPhrSVG />
                   </div>
                   <div className="links-row">
-                    <p className="sponsor-type supporting">
+                    <p className="ploneconf-sponsor-type supporting">
                       <strong>Supporting</strong> Sponsor
                     </p>
                     {supporting.nodes.map(sponsor => (
-                      <div className="sponsor-link" key={sponsor.id}>
+                      <div
+                        className="ploneconf-sponsor-link supporting"
+                        key={sponsor.id}
+                      >
                         <a
                           href={sponsor.remoteUrl}
                           target="_blank"
@@ -255,11 +266,14 @@ const HPSponsorsPartners = () => (
                     <HPhrAltSVG />
                   </div>
                   <div className="links-row">
-                    <p className="sponsor-type individual">
+                    <p className="ploneconf-sponsor-type individual">
                       <strong>Individual</strong> Sponsor
                     </p>
                     {individual.nodes.map(sponsor => (
-                      <div className="sponsor-link" key={sponsor.id}>
+                      <div
+                        className="ploneconf-sponsor-link individual"
+                        key={sponsor.id}
+                      >
                         <a
                           href={sponsor.remoteUrl}
                           target="_blank"
@@ -281,9 +295,12 @@ const HPSponsorsPartners = () => (
                     <HPhrSVG />
                   </div>
                   <div className="links-row">
-                    <p className="sponsor-type partners">Partners</p>
+                    <p className="ploneconf-sponsor-type partners">Partners</p>
                     {partners.nodes.map(sponsor => (
-                      <div className="sponsor-link" key={sponsor.id}>
+                      <div
+                        className="ploneconf-sponsor-link partners"
+                        key={sponsor.id}
+                      >
                         <a
                           href={sponsor.remoteUrl}
                           target="_blank"
