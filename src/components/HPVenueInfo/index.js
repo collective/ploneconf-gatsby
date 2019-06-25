@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import Link from 'gatsby-link';
 
 import RotatedArrowSVG from '../svg/RotatedArrowSVG';
 
@@ -24,7 +25,9 @@ const HPVenueInfo = () => (
       </div>
       <div className="more-details">
         <RotatedArrowSVG />
-        <p>More details soon! :-)</p>
+        <p>
+          <Link to="/venue">More details ›</Link>
+        </p>
       </div>
     </div>
   </div>
