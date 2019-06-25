@@ -14,12 +14,13 @@ const TalkDetails = ({
 }) => (
   <div className="talk-detail">
     {/* <PersonDetailsDate start={start} end={end} /> */}
+    <h4>TALK</h4>
     <div className="talk-slot">
-      <FontAwesomeIcon icon={faTv} /> Talk
+      <FontAwesomeIcon icon={faTv} />{' '}
+      <Link to={_path} title="talk details">
+        {title}
+      </Link>
     </div>
-    <Link to={_path} title="talk details">
-      {title}
-    </Link>
   </div>
 );
 
@@ -31,14 +32,7 @@ const PersonTalks = ({ id }) => {
           allPloneTalk {
             edges {
               node {
-                UID
-                id
-                _path
-                title
-                duration
-                related_people {
-                  _id
-                }
+                ...TalkFragment
               }
             }
           }
@@ -52,6 +46,7 @@ const PersonTalks = ({ id }) => {
         if (talks.length === 0) {
           return '';
         }
+
         const filteredTalks = talks.filter(({ node }) => {
           const trainers = node.related_people.filter(
             trainer => trainer._id === id,

@@ -40,12 +40,25 @@
         flex-direction: column-reverse;
         .column {
             flex: 100%;
-            max-width: 100%;
+            width: 100%;
             &.right-block {
                 flex: 100%;
+                border-left: none;
+                border-bottom: 15px solid $cta-yellow;
                 padding-left: 1em;
                 padding-bottom: 1em;
                 margin-bottom: 1em;
+                h4 {
+                    border-top: 1px solid #e8eef2;
+                    padding-top: 1rem;
+                }
+            }
+        }
+        .blocco,
+        .room {
+            margin-bottom: 1rem;
+            h4 {
+                margin-bottom: 0rem;
             }
         }
     }

@@ -9,6 +9,7 @@ import './index.scss';
 
 const ContentHeader = props => {
   const { context } = props;
+
   switch (context['_type']) {
     case 'Training':
       return <TrainingHeader {...props} />;

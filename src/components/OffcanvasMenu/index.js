@@ -25,11 +25,12 @@ const OffcanvasMenu = () => (
     >
       <div className="navs-wrapper">
         <Link to="/call-for-speakers">Call for speakers</Link>
+        <Link to="/training">Training</Link>
         <Link to="/venue">Venue</Link>
         <Link to="/ferrara">Ferrara</Link>
         <Link to="/sponsors">Sponsors</Link>
         {/* <Link to="/code-of-conduct">Code of Conduct</Link> */}
-        {/* <Link to="/contacts">Contacts</Link> */}
+        <Link to="/contact-form">Contacts</Link>
         <div className="get-tickets-wrapper">
           <a
             href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"

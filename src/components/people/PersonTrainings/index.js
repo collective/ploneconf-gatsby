@@ -19,11 +19,12 @@ const TrainingDetails = ({
   <div className="training-detail">
     <PersonDetailsDate start={start} end={end} />
     <div className="training-slot">
-      <FontAwesomeIcon icon={faChalkboardTeacher} /> Training
+      <h4>TRAINING</h4>
+      <FontAwesomeIcon icon={faChalkboardTeacher} />{' '}
+      <Link to={_path} title="training details">
+        {title}
+      </Link>
     </div>
-    <Link to={_path} title="training details">
-      {title}
-    </Link>
   </div>
 );
 
@@ -35,16 +36,7 @@ const PersonTrainings = ({ id }) => {
           allPloneTraining {
             edges {
               node {
-                UID
-                id
-                _path
-                title
-                duration
-                start
-                end
-                related_people {
-                  _id
-                }
+                ...TrainingFragment
               }
             }
           }

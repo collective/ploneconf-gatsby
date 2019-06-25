@@ -47,7 +47,12 @@ const getInfosFor = data => {
     } else if (data['plonePerson']) {
       const plonePerson = data.plonePerson;
       result.context = plonePerson;
-      result.component = <Person data={plonePerson} />;
+      const trainings = nodes(data['allPloneTraining']);
+      const talks = nodes(data['allPloneTalk']);
+
+      result.component = (
+        <Person data={plonePerson} trainings={trainings} talks={talks} />
+      );
       return result;
     } else if (data['ploneTraining']) {
       const ploneTraining = data.ploneTraining;
@@ -104,6 +109,21 @@ export const query = graphql`
     }
     ploneTraining(_path: { eq: $path }) {
       ...Training
+    }
+
+    allPloneTraining {
+      edges {
+        node {
+          ...TrainingFragment
+        }
+      }
+    }
+    allPloneTalk {
+      edges {
+        node {
+          ...TalkFragment
+        }
+      }
     }
     allPloneImage(filter: { _backlinks: { eq: $path } }) {
       edges {

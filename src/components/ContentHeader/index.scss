@@ -8,7 +8,7 @@
     text-align: center;
     padding-bottom: 70px;
     padding-top: 116px;
-    margin-top: -96px;
+    margin-top: -6.4em;
 
     .header-content {
         max-width: 800px;
@@ -42,7 +42,7 @@
     }
     h1 {
         font-size: 5rem;
-
+        overflow-wrap: break-word;
         span {
             color: $cta-yellow;
         }

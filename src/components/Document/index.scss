@@ -1,11 +1,11 @@
 @import '../../scss/base';
-
 .document-content {
     padding-top: 3rem;
     padding-bottom: 3rem;
     background: url('../../images/document-background.svg');
     background-repeat: no-repeat;
-    background-size: contain;
+    overflow: hidden;
+    background-size: 100% auto;
 
     .container {
         @include media-breakpoint-up(xl) {
@@ -105,6 +105,11 @@
     }
 
     &#sponsors {
+        .page-text {
+            // @media (min-width: 1500px) {
+            position: relative; //serve quando c'è il savonarola
+        }
+        // }
         // .gatsby-image-wrapper {
         //     width: 100% !important;
         //     height: auto !important;
@@ -115,6 +120,42 @@
             width: 1024px !important;
             // max-width: 100%;
             // position: static !important;
+        }
+    }
+    &#call-for-speakers {
+        .page-text {
+            // @media (min-width: 1500px) {
+            position: relative; //serve quando c'è il savonarola
+        }
+        .savonarola-bg {
+            bottom: -90px;
+        }
+        @media (max-width: 1550px) {
+            .savonarola-bg {
+                height: 534px;
+                width: 200px;
+            }
+        }
+    }
+    .savonarola-bg {
+        height: 800px;
+        width: 300px;
+        background: url('../../images/savonarola.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    @media (max-width: 1300px) {
+        .savonarola-bg {
+            display: none;
+        }
+    }
+    @media (max-width: 1550px) {
+        .savonarola-bg {
+            height: 700px;
+            width: 262px;
         }
     }
 

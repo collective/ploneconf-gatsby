@@ -65,6 +65,9 @@ class Header extends Component {
             <Link to="/call-for-speakers" activeClassName="active">
               <span>Call for speakers</span>
             </Link>
+            <Link to="/training" activeClassName="active">
+              <span>Training</span>
+            </Link>
             <Link to="/venue" activeClassName="active">
               <span>Venue</span>
             </Link>
@@ -77,9 +80,9 @@ class Header extends Component {
             {/* <Link to="/code-of-conduct" activeClassName="active">
               <span>Code of Conduct</span>
             </Link> */}
-            {/* <Link to="/contacts" activeClassName="active">
+            <Link to="/contact-form" activeClassName="active">
               <span>Contacts</span>
-            </Link> */}
+            </Link>
             <a
               href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
               className="get-tickets"

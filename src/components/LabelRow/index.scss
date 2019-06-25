@@ -1,0 +1,30 @@
+@import '../../scss/base';
+.label-row {
+    padding: 1em 0;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+
+    .label {
+        width: auto;
+        background-color: grey;
+        padding: 0.8em;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-right: 1em;
+        &.red {
+            background-color: #b13039;
+        }
+        &.light-blue {
+            background-color: #8cbdcd;
+        }
+        &.purple {
+            background-color: #5f3b9e;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .label-row {
+        padding-top: 0;
+    }
+}
