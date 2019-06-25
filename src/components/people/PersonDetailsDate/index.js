@@ -22,15 +22,15 @@ const PersonDetailsDate = ({ start, end }) => {
         <div className="date-wrapper">
           <div className="month">{format(startDate, 'MMM')}</div>
           <div className="day-hour">
-            <span>{format(startDate, 'DD')}</span> ${format(startDate, 'HH:mm')}{' '}
-            - ${format(endDate, 'HH:mm')}
+            <span>{format(startDate, 'DD')}</span> {format(startDate, 'HH:mm')}{' '}
+            - {format(endDate, 'HH:mm')}
           </div>
         </div>
         <div className="date-wrapper">
           <div className="month">{format(endDate, 'MMM')}</div>
           <div className="day-hour">
-            <span>{format(endDate, 'DD')}</span> ${format(startDate, 'HH:mm')} -
-            ${format(endDate, 'HH:mm')}
+            <span>{format(endDate, 'DD')}</span> {format(startDate, 'HH:mm')} -
+            {format(endDate, 'HH:mm')}
           </div>
         </div>
       </React.Fragment>

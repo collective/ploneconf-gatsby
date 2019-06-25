@@ -136,7 +136,7 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
                   />
                 </div>
               ) : null}
-              {docs_link.length ? (
+              {docs_link && docs_link.length ? (
                 <div className="blocco">
                   <FontAwesomeIcon icon={faBook} />
                   <div className="blocco training-documentation">
