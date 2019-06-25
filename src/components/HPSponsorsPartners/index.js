@@ -21,7 +21,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 120) {
+                fixed(height: 90) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -37,7 +37,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 90) {
+                fixed(height: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -53,7 +53,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 65) {
+                fixed(height: 60) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -69,7 +69,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 35) {
+                fixed(height: 30) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
