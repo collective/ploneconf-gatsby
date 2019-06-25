@@ -45,6 +45,7 @@
             &.logo-about-wrapper {
                 @media (max-width: 480px) {
                     flex-wrap: wrap;
+                    justify-content: space-around;
                 }
             }
 
@@ -107,6 +108,10 @@
         margin-left: 2em;
         a {
             font-weight: 700;
+        }
+        @media (max-width: 480px) {
+            margin: 0;
+            margin-top: 2em;
         }
     }
 
