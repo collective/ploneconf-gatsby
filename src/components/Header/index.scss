@@ -78,14 +78,14 @@ header#header-navigation {
             @include antialias;
 
             .ploneconf {
-                font-size: 1.7rem;
+                font-size: 1.4rem;
                 margin: 0;
             }
 
             .year {
                 margin: 0;
                 line-height: 1;
-                font-size: 2rem;
+                font-size: 1.7rem;
             }
 
             @media (max-width: 991px) {
@@ -94,11 +94,11 @@ header#header-navigation {
                 }
 
                 .ploneconf {
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                 }
 
                 .year {
-                    font-size: 1.6rem;
+                    font-size: 1.5rem;
                 }
             }
 
