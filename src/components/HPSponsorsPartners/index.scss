@@ -39,7 +39,7 @@
 
             img {
                 width: auto;
-                max-height: 40px;
+                max-height: 35px;
             }
 
             &.organizer {
@@ -96,12 +96,14 @@
 
             &.silver,
             &.bronze,
-            &.supporting {
+            &.supporting,
+            &.partners {
                 color: #c3c3c3;
             }
 
             &.bronze,
-            &.supporting {
+            &.supporting,
+            &.partners {
                 strong {
                     color: #222;
                 }

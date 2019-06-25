@@ -14,24 +14,22 @@ const Document = ({ data, cssClass, images = [], files = [], children }) => {
       className={cx('document-content', cssClass)}
       id={data._id}
     >
-      <div className="page-text">
-        <div className="container">
-          {data.text ? (
-            <RichText
-              serialized={data.text.react}
-              images={images}
-              files={files}
-            />
-          ) : null}
-        </div>
-
-        {data._id == 'sponsors' || data._id == 'call-for-speakers' ? (
-          <div className="savonarola-bg" />
-        ) : (
-          ''
-        )}
+      <div className="container">
+        {data.text ? (
+          <RichText
+            serialized={data.text.react}
+            images={images}
+            files={files}
+          />
+        ) : null}
       </div>
+
       <div className="container">{children}</div>
+      {data._id == 'sponsors' || data._id == 'call-for-speakers' ? (
+        <div className="savonarola-bg" />
+      ) : (
+        ''
+      )}
     </article>
   );
 };

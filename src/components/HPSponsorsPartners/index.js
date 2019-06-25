@@ -69,7 +69,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 40) {
+                fixed(height: 35) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -85,7 +85,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 40) {
+                fixed(height: 35) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -295,7 +295,9 @@ const HPSponsorsPartners = () => (
                     <HPhrSVG />
                   </div>
                   <div className="links-row">
-                    <p className="ploneconf-sponsor-type partners">Partners</p>
+                    <p className="ploneconf-sponsor-type partners">
+                      <strong>Technical</strong> Partners
+                    </p>
                     {partners.nodes.map(sponsor => (
                       <div
                         className="ploneconf-sponsor-link partners"
