@@ -21,7 +21,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 90) {
+                fixed(width: 300) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -37,7 +37,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 80) {
+                fixed(height: 50) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -53,7 +53,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 60) {
+                fixed(height: 40) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -101,7 +101,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 80) {
+                fixed(height: 70) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -112,7 +112,7 @@ const HPSponsorsPartners = () => (
           id
           image {
             childImageSharp {
-              fixed(height: 120) {
+              fixed(height: 70) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }
@@ -139,15 +139,6 @@ const HPSponsorsPartners = () => (
             </h2>
             <div className="sponsors-partners">
               <div className="links-row">
-                <div className="ploneconf-sponsor-link organizer">
-                  <p className="ploneconf-sponsor-type">Organizer</p>
-                  <a href="https://www.redturtle.it">
-                    <Img
-                      fixed={redturtle.image.childImageSharp.fixed}
-                      alt="RedTurtle"
-                    />
-                  </a>
-                </div>
                 {gold &&
                   gold.nodes &&
                   gold.nodes.map(sponsor => (
@@ -298,6 +289,15 @@ const HPSponsorsPartners = () => (
                     <p className="ploneconf-sponsor-type partners">
                       <strong>Technical</strong> Partners
                     </p>
+                    <div className="ploneconf-sponsor-link sponsor _organizer">
+                      <p className="ploneconf-sponsor-type">Organizer</p>
+                      <a href="https://www.redturtle.it">
+                        <Img
+                          fixed={redturtle.image.childImageSharp.fixed}
+                          alt="RedTurtle"
+                        />
+                      </a>
+                    </div>
                     {partners.nodes.map(sponsor => (
                       <div
                         className="ploneconf-sponsor-link partners"
