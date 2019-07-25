@@ -38,23 +38,8 @@
         }
 
         .user-image {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 50%;
+            @include roundedImage(200px);
             margin-right: 2.5em;
-            @media (max-width: 768px) {
-                margin: auto;
-                margin-bottom: 1em;
-            }
-            .rounded-image {
-                display: inline;
-                margin: 0 auto;
-                // margin-left: -25%; //centers the image
-                height: 100%;
-                width: auto;
-            }
         }
         .user-data {
             @media (max-width: 768px) {

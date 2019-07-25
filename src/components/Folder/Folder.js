@@ -17,7 +17,7 @@ const Folder = ({ data, title, images = [], files = [] }) => {
     'Training',
     'Person',
   ]);
-  console.log(data);
+  console.log('Folder.js', data);
   let byPath = files.reduce(function(result, file) {
     result[file._path] = file;
     return result;

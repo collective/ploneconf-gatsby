@@ -23,3 +23,28 @@
 @function px2rem($px) {
     @return $px / 16 * 1rem;
 }
+
+@mixin roundedImage($size) {
+    width: $size;
+    height: $size;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #edf1f1;
+
+    @media (max-width: 768px) {
+        margin: auto;
+        margin-bottom: 1em;
+    }
+    .rounded-image {
+        display: inline;
+        margin: 0 auto;
+        // margin-left: -25%; //centers the image
+        height: 100%;
+        width: auto;
+        .gatsby-image-wrapper {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

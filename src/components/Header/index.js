@@ -32,6 +32,18 @@ class Header extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    if (typeof window !== 'undefined') {
+      /**** add active class to parent menu**** */
+      var mainNav = window.document.querySelector('#main-nav');
+      if (mainNav) {
+        var active = mainNav.querySelector('li ul li .active');
+        if (active) {
+          active.parentNode.parentNode.parentNode
+            .querySelector('a')
+            .classList.add('active');
+        }
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -62,33 +74,74 @@ class Header extends Component {
             </div>
           </Link>
           <div className="nav-wrapper">
-            <Link to="/call-for-speakers" activeClassName="active">
-              <span>Call for speakers</span>
-            </Link>
-            <Link to="/training" activeClassName="active">
-              <span>Training</span>
-            </Link>
-            <Link to="/venue" activeClassName="active">
-              <span>Venue</span>
-            </Link>
-            <Link to="/ferrara" activeClassName="active">
-              <span>Ferrara</span>
-            </Link>
-            <Link to="/sponsors" activeClassName="active">
-              <span>Sponsors</span>
-            </Link>
-            {/* <Link to="/code-of-conduct" activeClassName="active">
-              <span>Code of Conduct</span>
-            </Link> */}
-            <Link to="/contact-form" activeClassName="active">
-              <span>Contacts</span>
-            </Link>
-            <a
-              href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
-              className="get-tickets"
-            >
-              <span>Get tickets!</span>
-            </a>
+            <ul id="main-nav">
+              <li>
+                <Link to="/call-for-speakers" activeClassName="active">
+                  <span>Call for speakers</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/training" activeClassName="active">
+                  <span>Training</span>
+                </Link>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Agenda</span>
+                </a>
+                <ul>
+                  <li>
+                    <Link to="/schedule" activeClassName="active">
+                      <span>Schedule</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/people" activeClassName="active">
+                      <span>Speakers</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Location</span>
+                </a>
+                <ul>
+                  <li>
+                    <Link to="/venue" activeClassName="active">
+                      <span>Venue</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/ferrara" activeClassName="active">
+                      <span>Ferrara</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <Link to="/sponsors" activeClassName="active">
+                  <span>Sponsors</span>
+                </Link>
+              </li>
+              {/* <li><Link to="/code-of-conduct" activeClassName="active">
+                <span>Code of Conduct</span>
+                </Link> </li>*/}
+              <li>
+                <Link to="/contact-form" activeClassName="active">
+                  <span>Contacts</span>
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
+                  className="get-tickets"
+                >
+                  <span>Get tickets!</span>
+                </a>
+              </li>
+            </ul>
           </div>
           <OffcanvasMenu />
         </div>
