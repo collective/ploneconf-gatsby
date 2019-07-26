@@ -1,4 +1,34 @@
 @import '../../../scss/variables';
 .schedule-talks {
     text-align: center;
+    .talk {
+        border: 1px solid #f2f2f3;
+        min-width: 400px;
+        max-width: 500px;
+        float: left;
+        display: inline-block;
+        margin: 1em;
+
+        .col {
+            float: left;
+            display: inline-block;
+            &.speaker {
+                padding: 1em;
+                border-right: 1px solid #f2f2f3;
+            }
+            &.talk-data {
+                padding: 1em;
+                .speakers {
+                    color: $dark-blue;
+                    font-size: 0.6em;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+            }
+        }
+        .user-image {
+            width: 100px;
+            height: 100px;
+        }
+    }
 }

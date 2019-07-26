@@ -1,0 +1,5 @@
+@import '../../../scss/base';
+
+.user-image {
+    @include roundedImage(200px);
+}

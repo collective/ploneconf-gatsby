@@ -34,7 +34,6 @@
             .user-image {
                 margin: 0 auto;
                 margin-bottom: 1em;
-                @include roundedImage(200px);
             }
             .name {
                 text-transform: uppercase;

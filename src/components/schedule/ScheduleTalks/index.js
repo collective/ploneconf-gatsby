@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-
+import PersonImage from '../../people/PersonImage';
 import './index.scss';
 
 const ScheduleTalks = () => {
@@ -67,29 +67,18 @@ const ScheduleTalks = () => {
             <div className="talks">
               {talks.map(talk => (
                 <div className="talk" key={talk.node.id}>
-                  <div className="talk-data">
-                    <h4>{talk.node.title}</h4>
-                    <div className="speakers" />
+                  <div className="col speaker">
+                    <PersonImage
+                      person={talk.node.speaker}
+                      viewDefaultImage={true}
+                    />
                   </div>
-                  {talk.node.speaker ? (
-                    <div className="speaker">
-                      <div className="user-image">
-                        <div className="rounded-image">
-                          {talk.node.speaker.image &&
-                          talk.node.speaker.image.childImageSharp ? (
-                            <Img
-                              resolutions={
-                                talk.node.speaker.image.childImageSharp.fixed
-                              }
-                            />
-                          ) : (
-                            <UserSVG />
-                          )}
-                        </div>
-                      </div>
-                      <div className="name">{talk.node.speaker.title}</div>
+                  <div className="col talk-data">
+                    <div className="speakers">
+                      Speaker name 1, Speaker name 2
                     </div>
-                  ) : null}
+                    <h4>{talk.node.title}</h4>
+                  </div>
                 </div>
               ))}
             </div>

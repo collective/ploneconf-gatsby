@@ -38,7 +38,6 @@
         }
 
         .user-image {
-            @include roundedImage(200px);
             margin-right: 2.5em;
         }
         .user-data {

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import PersonTrainings from '../PersonTrainings';
 import PersonTalks from '../PersonTalks';
+import PersonImage from '../PersonImage';
 import CTATickets from '../../CTATickets';
 import LabelRow from '../../LabelRow';
 
@@ -58,13 +59,7 @@ const Person = ({ data, trainings, talks, breadcrumbs, cssClass }) => {
           <div className="person-details">
             <div className="column left-block">
               <div className="user-general">
-                {image && image.childImageSharp ? (
-                  <div className="user-image">
-                    <div className="rounded-image">
-                      <Img resolutions={image.childImageSharp.fixed} />
-                    </div>
-                  </div>
-                ) : null}
+                <PersonImage person={data} viewDefaultImage={false} />
                 <div className="user-data">
                   <h2>{title}</h2>
 

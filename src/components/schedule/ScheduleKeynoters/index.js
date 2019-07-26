@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import UserSVG from '../../svg/UserSVG';
 import ConferenceSVG from '../../svg/ConferenceSVG';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
-
+import PersonImage from '../../people/PersonImage';
 import './index.scss';
 
 const ScheduleKeynoters = () => {
@@ -104,17 +105,12 @@ const ScheduleKeynoters = () => {
             <div className="people">
               {keynoters.map(({ person, talk }) => (
                 <div className="person" key={person.id}>
-                  <div className="user-image">
-                    <div className="rounded-image">
-                      {person.image && person.image.childImageSharp ? (
-                        <Img resolutions={person.image.childImageSharp.fixed} />
-                      ) : (
-                        <UserSVG />
-                      )}
-                    </div>
+                  <PersonImage person={person} viewDefaultImage={true} />
+                  <div className="name">
+                    <Link to={person._path} title="details">
+                      {person.title}
+                    </Link>
                   </div>
-
-                  <div className="name">{person.title}</div>
                   <div className="talk">
                     <h4>{talk.title}</h4>
                   </div>
