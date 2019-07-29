@@ -24,7 +24,9 @@
         flex-flow: wrap;
         width: 100%;
         padding: 1em 0;
-
+        h4 a {
+            color: #000;
+        }
         .person {
             flex: 1 1 calc(30% - 1em);
             margin: 2em 1em;
@@ -60,6 +62,12 @@
                         }
                     }
                 }
+            }
+            .talk-description {
+                font-size: 0.65em;
+                height: 75px;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
     }

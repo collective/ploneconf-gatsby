@@ -146,6 +146,7 @@ export const query = graphql`
     id
     _path
     title
+    description
     duration
     related_people {
       _id

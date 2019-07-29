@@ -1,9 +1,11 @@
 @import '../../../scss/base';
 
 .schedule-talks {
+    position: relative;
+    margin-bottom: 2em;
     padding: 2.5em 1em;
     text-align: center;
-    position: relative;
+
     @include bg-black-blue-block();
     .blue-block,
     .black-block {
@@ -53,6 +55,13 @@
         .slick-prev {
             margin-left: -30px;
         }
+        .slick-dots {
+            bottom: -40px;
+            button:before {
+                font-size: 10px;
+                color: #fff;
+            }
+        }
         .talk {
             background-color: #fff;
             max-width: 400px;
@@ -76,13 +85,18 @@
                     padding: 20px;
                 }
                 &.talk-data {
-                    padding: 1em;
+                    padding: 1em 1em 1em 0;
                     max-width: 260px;
+                    text-align: left;
+
                     .speakers {
                         color: $dark-blue;
                         font-size: 0.6em;
                         text-transform: uppercase;
                         font-weight: 700;
+                    }
+                    h4 a {
+                        color: #000;
                     }
                 }
             }

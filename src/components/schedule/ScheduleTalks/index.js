@@ -64,7 +64,7 @@ const ScheduleTalks = () => {
 
         /****** init slider ******/
         var sliderSettings = {
-          dots: false,
+          dots: true,
           infinite: true,
           speed: 300,
           slidesToShow: 3,
@@ -95,9 +95,12 @@ const ScheduleTalks = () => {
                       <div className="col talk-data">
                         <div className="data">
                           <div className="speakers">
-                            Speaker name 1, Speaker name 2
+                            <a href="#">Speaker name 1</a>,{' '}
+                            <a href="#">Speaker name 2</a>
                           </div>
-                          <h4>{talk.node.title}</h4>
+                          <h4>
+                            <a href="#">{talk.node.title}</a>
+                          </h4>
                         </div>
                       </div>
                     </div>

@@ -112,9 +112,11 @@ const ScheduleKeynoters = () => {
                     </Link>
                   </div>
                   <div className="talk">
-                    <h4>{talk.title}</h4>
+                    <h4>
+                      <Link to={talk._path}>{talk.title}</Link>
+                    </h4>
                   </div>
-                  <div className="user-link">
+                  {/*<div className="user-link">
                     {person.twitter && person.twitter.length ? (
                       <a href={`https://twitter.com/${person.twitter}`}>
                         <FontAwesomeIcon icon={faTwitter} />
@@ -129,7 +131,8 @@ const ScheduleKeynoters = () => {
                     ) : (
                       ''
                     )}
-                  </div>
+                    </div>*/}
+                  <div className="talk-description">{talk.description}</div>
                 </div>
               ))}
             </div>
