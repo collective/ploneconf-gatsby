@@ -13,9 +13,7 @@ const Schedule = ({ data }) => (
     }}
   >
     <article className="document-content schedule-page">
-      <div className="container">
-        <ScheduleContainer />
-      </div>
+      <ScheduleContainer />
     </article>
   </Layout>
 );

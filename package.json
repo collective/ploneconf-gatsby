@@ -32,7 +32,9 @@
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
     "react-select": "^2.4.3",
-    "react-serialize": "^0.2.0"
+    "react-serialize": "^0.2.0",
+    "react-slick": "^0.24.0",
+    "slick-carousel": "^1.8.1"
   },
   "keywords": [
     "gatsby",

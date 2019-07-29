@@ -1,34 +1,95 @@
-@import '../../../scss/variables';
-.schedule-talks {
-    text-align: center;
-    .talk {
-        border: 1px solid #f2f2f3;
-        min-width: 400px;
-        max-width: 500px;
-        float: left;
-        display: inline-block;
-        margin: 1em;
+@import '../../../scss/base';
 
-        .col {
-            float: left;
-            display: inline-block;
-            &.speaker {
-                padding: 1em;
-                border-right: 1px solid #f2f2f3;
-            }
-            &.talk-data {
-                padding: 1em;
-                .speakers {
-                    color: $dark-blue;
-                    font-size: 0.6em;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                }
+.schedule-talks {
+    padding: 2.5em 1em;
+    text-align: center;
+    position: relative;
+    @include bg-black-blue-block();
+    .blue-block,
+    .black-block {
+        top: 110px;
+    }
+    .blue-block {
+        background-color: $cta-yellow;
+    }
+    .blue-block:before {
+        border-color: transparent transparent transparent $cta-yellow;
+    }
+    .blue-block:after {
+        border-color: $cta-yellow;
+    }
+    //
+
+    .container {
+        margin: 0 auto;
+    }
+    h3 {
+        margin-top: 1em;
+        margin-bottom: 0;
+    }
+    .subtitle {
+        margin-bottom: 1em;
+        font-size: 0.7em;
+
+        span {
+            color: $dark-blue;
+        }
+    }
+    .talks-container {
+        .slick-slide {
+            margin: 0.5em 1em;
+        }
+        .slick-prev,
+        .slick-next {
+            width: 40px;
+            height: 40px;
+            &:before {
+                font-size: 40px;
             }
         }
-        .user-image {
-            width: 100px;
-            height: 100px;
+        .slick-next {
+            margin-right: -30px;
+        }
+        .slick-prev {
+            margin-left: -30px;
+        }
+        .talk {
+            background-color: #fff;
+            max-width: 400px;
+            height: 200px;
+            overflow: hidden;
+
+            .col {
+                float: left;
+                display: inline-block;
+                &.speaker,
+                &.talk-data {
+                    height: 100%;
+                    .user-image,
+                    .data {
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+                &.speaker {
+                    padding: 20px;
+                }
+                &.talk-data {
+                    padding: 1em;
+                    max-width: 260px;
+                    .speakers {
+                        color: $dark-blue;
+                        font-size: 0.6em;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+            }
+            .user-image {
+                width: 100px;
+                height: 100px;
+            }
         }
     }
 }
