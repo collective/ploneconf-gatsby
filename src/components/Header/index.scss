@@ -196,7 +196,7 @@ header#header-navigation {
         }
         a {
             color: #fff;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             display: inline-block;
             text-transform: uppercase;
             font-size: px2rem(18);
@@ -214,6 +214,9 @@ header#header-navigation {
             span {
                 border-bottom: 2px solid transparent;
                 padding-bottom: 0.25rem;
+            }
+            svg {
+                margin-left: 5px;
             }
 
             &.get-tickets {

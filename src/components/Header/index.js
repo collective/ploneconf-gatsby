@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { bool, string } from 'prop-types';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import LogoJoySVG from '../svg/LogoJoySVG';
 import OffcanvasMenu from '../OffcanvasMenu';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
@@ -88,6 +90,7 @@ class Header extends Component {
               <li>
                 <a href="#">
                   <span>Agenda</span>
+                  <FontAwesomeIcon icon={faCaretDown} />
                 </a>
                 <ul>
                   <li>
@@ -105,6 +108,7 @@ class Header extends Component {
               <li>
                 <a href="#">
                   <span>Location</span>
+                  <FontAwesomeIcon icon={faCaretDown} />
                 </a>
                 <ul>
                   <li>
