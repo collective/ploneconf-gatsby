@@ -2,4 +2,7 @@
 
 .user-image {
     @include roundedImage(200px);
+    &.small {
+        @include roundedImage(100px);
+    }
 }

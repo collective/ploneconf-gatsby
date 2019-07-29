@@ -1,0 +1,24 @@
+@import '../../scss/base';
+.get-ticket-castle {
+    text-align: center;
+    .img {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    h3 {
+        font-weight: normal;
+    }
+    @media (max-width: 768px) {
+        .img {
+            svg {
+                max-width: 70%;
+            }
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+}

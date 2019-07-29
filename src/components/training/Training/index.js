@@ -5,10 +5,10 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
 import { whenLabel } from '../../../helpers';
-import CastelloLogoBluSVG from '../../svg/CastelloLogoBluSVG';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LabelRow from '../../LabelRow';
-
+import GetTicketCastle from '../../GetTicketCastle';
 import {
   faTerminal,
   faGraduationCap,
@@ -180,20 +180,9 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
             </div>
           </div>
           <div className="training-footer">
-            <div className="img">
-              <CastelloLogoBluSVG />
-            </div>
-            <h3>
-              Interested in this <strong>training</strong>?
-            </h3>
-            <p>
-              <a
-                href="https://ploneconference2019.eventbrite.com/?aff=ploneconf"
-                className="btn-yellow"
-              >
-                GET YOUR TICKET NOW!
-              </a>
-            </p>
+            <GetTicketCastle
+              text={'Interested in this <strong>training</strong>?'}
+            />
           </div>
         </div>
       </article>

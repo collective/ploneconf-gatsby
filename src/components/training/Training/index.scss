@@ -20,21 +20,6 @@
     }
 }
 
-.training-footer {
-    text-align: center;
-    .img {
-        padding-top: 6rem;
-        padding-bottom: 3rem;
-        svg {
-            max-width: 100%;
-            height: auto;
-        }
-    }
-    h3 {
-        font-weight: normal;
-    }
-}
-
 @media (max-width: 768px) {
     .training-details {
         flex-direction: column-reverse;
@@ -60,15 +45,6 @@
             h4 {
                 margin-bottom: 0rem;
             }
-        }
-    }
-    .training-footer {
-        .img {
-            svg {
-                max-width: 70%;
-            }
-            padding-top: 2rem;
-            padding-bottom: 2rem;
         }
     }
 }

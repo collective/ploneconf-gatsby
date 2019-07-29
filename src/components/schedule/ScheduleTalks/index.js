@@ -37,11 +37,11 @@ const ScheduleTalks = () => {
           allPlonePerson.edges && allPlonePerson.edges.length
             ? allPlonePerson.edges
             : [];
-        //console.log(talks);
+
         const getSpeaker = function(id) {
           var ret = null;
-          //console.log('get speaker ' + id);
-          people.forEach(person => {
+          people.forEach(_person => {
+            let person = _person.node;
             if (person.id == id) {
               ret = person;
             }
@@ -72,6 +72,22 @@ const ScheduleTalks = () => {
           autoplay: false,
           variableWidth: true,
           adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 520,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
         };
         return (
           <div className="schedule-talks">
@@ -89,6 +105,7 @@ const ScheduleTalks = () => {
                       <div className="col speaker">
                         <PersonImage
                           person={talk.node.speaker}
+                          size="small"
                           viewDefaultImage={true}
                         />
                       </div>

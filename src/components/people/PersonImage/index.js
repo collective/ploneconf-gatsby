@@ -1,10 +1,10 @@
 import React from 'react';
-import { object, bool } from 'prop-types';
+import { object, bool, string } from 'prop-types';
 import Img from 'gatsby-image';
 import UserSVG from '../../svg/UserSVG';
 import './index.scss';
 
-const PersonImage = ({ person, viewDefaultImage }) => {
+const PersonImage = ({ person, viewDefaultImage, size }) => {
   /**some code */
   let hasImage = person && person.image && person.image.childImageSharp;
   let view = hasImage || viewDefaultImage;
@@ -12,7 +12,7 @@ const PersonImage = ({ person, viewDefaultImage }) => {
     return '';
   }
   return (
-    <div className="user-image">
+    <div className={(size ? size : '') + ' user-image'}>
       <div className="rounded-image">
         {hasImage ? (
           <Img resolutions={person.image.childImageSharp.fixed} />
@@ -26,6 +26,7 @@ const PersonImage = ({ person, viewDefaultImage }) => {
 
 PersonImage.propTypes = {
   person: object,
+  size: string,
   viewDefaultImage: bool,
 };
 

@@ -45,6 +45,10 @@
         .gatsby-image-wrapper {
             top: 50%;
             transform: translateY(-50%);
+            width: $size !important;
+            height: $size !important;
+            min-width: $size;
+            min-height: $size;
         }
     }
 }

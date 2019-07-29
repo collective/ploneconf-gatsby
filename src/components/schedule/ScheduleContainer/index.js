@@ -2,6 +2,7 @@ import React from 'react';
 import ScheduleKeynoters from '../ScheduleKeynoters';
 import ScheduleTalks from '../ScheduleTalks';
 import './index.scss';
+import GetTicketCastle from '../../GetTicketCastle';
 
 class ScheduleContainer extends React.Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class ScheduleContainer extends React.Component {
           <ScheduleKeynoters />
         </div>
         <ScheduleTalks />
+        <div className="container">
+          <GetTicketCastle text="Interested in this <strong>talks</strong>?" />
+        </div>
       </div>
     );
   }

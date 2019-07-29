@@ -32,6 +32,9 @@
             margin: 2em 1em;
             padding: 1em 0;
             border-bottom: 1px solid $gray-light;
+            @media (max-width: 768px) {
+                margin: 0.5em 1em;
+            }
 
             .user-image {
                 margin: 0 auto;
@@ -65,7 +68,7 @@
             }
             .talk-description {
                 font-size: 0.65em;
-                height: 75px;
+
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
