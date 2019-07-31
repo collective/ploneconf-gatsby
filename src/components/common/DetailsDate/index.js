@@ -1,10 +1,15 @@
 import React from 'react';
 import { string } from 'prop-types';
 import { format, isSameDay } from 'date-fns';
+import './index.scss';
 
-const PersonDetailsDate = ({ start, end }) => {
+const DetailsDate = ({ start, end }) => {
+  if (!(start || end)) {
+    return '';
+  }
   const startDate = new Date(start);
   const endDate = new Date(end);
+
   let dateComponent = '';
   if (isSameDay(startDate, endDate)) {
     dateComponent = (
@@ -40,9 +45,9 @@ const PersonDetailsDate = ({ start, end }) => {
   return <div className="details-date">{dateComponent}</div>;
 };
 
-PersonDetailsDate.propTypes = {
+DetailsDate.propTypes = {
   start: string,
   end: string,
 };
 
-export default PersonDetailsDate;
+export default DetailsDate;

@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
-import PersonDetailsDate from '../PersonDetailsDate';
+import DetailsDate from '../../common/DetailsDate';
 
 const TrainingDetails = ({
   UID,
@@ -17,7 +17,7 @@ const TrainingDetails = ({
   _path,
 }) => (
   <div className="training-detail">
-    <PersonDetailsDate start={start} end={end} />
+    <DetailsDate start={start} end={end} />
     <div className="training-slot">
       <h4>TRAINING</h4>
       <FontAwesomeIcon icon={faChalkboardTeacher} />{' '}

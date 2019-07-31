@@ -104,12 +104,12 @@ exports.createPages = async ({ graphql, actions }) => {
     .forEach(({ node }) => {
       const { _type } = node;
       switch (_type) {
-        case 'Talk':
+        /*case 'Talk':
           createPage({
             path: node._path,
             component: path.resolve('./src/templates/talk.js'),
           });
-          break;
+          break;*/
         default:
           createPage({
             path: node._path,

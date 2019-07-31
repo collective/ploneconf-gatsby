@@ -148,7 +148,6 @@ const HPSponsorsPartners = () => (
         redturtle,
       } = data;
 
-      console.log('sponsorship', sponsorship);
       return (
         <div className="hp-sponsors-partners">
           <div className="container">

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
-import UserSVG from '../../svg/UserSVG';
 import ConferenceSVG from '../../svg/ConferenceSVG';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import PersonImage from '../../people/PersonImage';
 import { ellipsis } from 'ellipsed';
 

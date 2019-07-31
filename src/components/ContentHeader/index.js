@@ -2,6 +2,7 @@ import React from 'react';
 import DocumentHeader from './DocumentHeader';
 import PeopleHeader from './PeopleHeader';
 import TrainingHeader from './TrainingHeader';
+import TalkHeader from './TalkHeader';
 import ContactFormHeader from './ContactFormHeader';
 import { object } from 'prop-types';
 
@@ -13,6 +14,9 @@ const ContentHeader = props => {
   switch (context['_type']) {
     case 'Training':
       return <TrainingHeader {...props} />;
+      break;
+    case 'Talk':
+      return <TalkHeader {...props} />;
       break;
     case 'Person':
       return <PeopleHeader />;

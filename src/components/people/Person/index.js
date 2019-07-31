@@ -141,16 +141,4 @@ export const query = graphql`
       _id
     }
   }
-  fragment TalkFragment on PloneTalk {
-    UID
-    id
-    _path
-    title
-    description
-    duration
-    related_people {
-      _id
-    }
-    is_keynote
-  }
 `;

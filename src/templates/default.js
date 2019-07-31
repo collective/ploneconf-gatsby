@@ -8,6 +8,7 @@ import TrainingHome from '../components/training/TrainingHome';
 import PeopleHome from '../components/people/PeopleHome';
 import Person from '../components/people/Person';
 import Training from '../components/training/Training';
+import Talk from '../components/Talk';
 import Folder from '../components/Folder';
 import Layout from '../components/Layout';
 
@@ -71,6 +72,13 @@ const getInfosFor = data => {
         <Training data={ploneTraining} people={data.allPlonePerson} />
       );
       return result;
+    } else if (data['ploneTalk']) {
+      const ploneTalk = data.ploneTalk;
+      result.context = ploneTalk;
+      result.component = (
+        <Talk data={ploneTalk} people={data.allPlonePerson} images={images} />
+      );
+      return result;
     } else {
       return null;
     }
@@ -81,6 +89,7 @@ const getInfosFor = data => {
 
 const DefaultLayout = ({ data }) => {
   const { context, component, images, files } = getInfosFor(data);
+
   return (
     <Layout
       context={context}
@@ -119,6 +128,9 @@ export const query = graphql`
     }
     ploneTraining(_path: { eq: $path }) {
       ...Training
+    }
+    ploneTalk(_path: { eq: $path }) {
+      ...TalkFragment
     }
 
     allPloneTraining {

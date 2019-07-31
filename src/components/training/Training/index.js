@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import TextBlock from '../helpers/TextBlock';
 import { whenLabel } from '../../../helpers';
-
+import DefaultBlock from '../../common/DefaultBlock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LabelRow from '../../LabelRow';
 import GetTicketCastle from '../../GetTicketCastle';
@@ -41,20 +41,6 @@ const TrainerBlock = ({ trainers }) => {
           );
         }
       })}
-    </div>
-  );
-};
-
-const DefaultBlock = props => {
-  const { strValue, cssClass, label } = props;
-  if (strValue.length === 0) {
-    return '';
-  }
-
-  return (
-    <div className={cssClass}>
-      <h4>{label}</h4>
-      {strValue}
     </div>
   );
 };

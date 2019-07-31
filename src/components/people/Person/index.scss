@@ -71,30 +71,7 @@
         border-bottom: 1px solid #dee2e6;
         padding-bottom: 1.5em;
         margin-bottom: 1.5em;
-        .details-date {
-            margin-bottom: 2.5em;
-            @media (max-width: 768px) {
-                margin-bottom: 1em;
-            }
-            .date-wrapper {
-                .month {
-                    font-size: 1.2em;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    border-bottom: 1px solid #000;
-                    width: auto;
-                    display: inline-block;
-                }
-                .day-hour {
-                    span {
-                        line-height: 1.2em;
-                        font-size: 2.4em;
-                        font-weight: 700;
-                        margin-right: 0.2em;
-                    }
-                }
-            }
-        }
+
         h4 {
             font-size: 0.8em;
         }

@@ -5,7 +5,6 @@ import PersonImage from '../PersonImage';
 import './index.scss';
 
 const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
-  console.log('PeopleHome.js', data);
   if (data.items) {
     //alpha sort of items
     data.items

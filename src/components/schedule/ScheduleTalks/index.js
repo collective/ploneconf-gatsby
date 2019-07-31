@@ -89,7 +89,7 @@ const ScheduleTalks = () => {
             },
           ],
         };
-        console.log('talks', talks);
+        //   console.log('talks', talks);
         return (
           <div className="schedule-talks">
             <div className="black-block" />
