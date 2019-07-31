@@ -108,6 +108,22 @@ const HPSponsorsPartners = () => (
             }
           }
         }
+        sponsorship: allPloneLink(
+          filter: { _path: { regex: "/sponsors-links/sponsorship/" } }
+        ) {
+          nodes {
+            id
+            title
+            remoteUrl
+            image {
+              childImageSharp {
+                fixed(height: 70) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
         redturtle: ploneImage(_id: { eq: "redturtle.png" }) {
           id
           image {
@@ -128,9 +144,11 @@ const HPSponsorsPartners = () => (
         supporting,
         individual,
         partners,
+        sponsorship,
         redturtle,
       } = data;
 
+      console.log('sponsorship', sponsorship);
       return (
         <div className="hp-sponsors-partners">
           <div className="container">
@@ -280,41 +298,81 @@ const HPSponsorsPartners = () => (
                   </div>
                 </React.Fragment>
               )}
-              {partners && partners.nodes && partners.nodes.length > 0 && (
+              {((partners && partners.nodes && partners.nodes.length > 0) ||
+                redturtle ||
+                (sponsorship &&
+                  sponsorship.nodes &&
+                  sponsorship.nodes.length > 0)) && (
                 <React.Fragment>
                   <div className="hr">
                     <HPhrSVG />
                   </div>
-                  <div className="links-row">
-                    <p className="ploneconf-sponsor-type partners">
-                      <strong>Technical</strong> Partners
-                    </p>
-                    <div className="ploneconf-sponsor-link sponsor _organizer">
-                      <p className="ploneconf-sponsor-type">Organizer</p>
-                      <a href="https://www.redturtle.it">
-                        <Img
-                          fixed={redturtle.image.childImageSharp.fixed}
-                          alt="RedTurtle"
-                        />
-                      </a>
-                    </div>
-                    {partners.nodes.map(sponsor => (
-                      <div
-                        className="ploneconf-sponsor-link partners"
-                        key={sponsor.id}
-                      >
-                        <a
-                          href={sponsor.remoteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Img
-                            fixed={sponsor.image.childImageSharp.fixed}
-                            alt={sponsor.title}
-                          />
-                        </a>
+                  <div className="block-cont">
+                    {(partners && partners.node && partners.nodes.length > 0) ||
+                    redturtle ? (
+                      <div className="block">
+                        <div className="links-row">
+                          <p className="ploneconf-sponsor-type partners">
+                            <strong>Technical</strong> Partners
+                          </p>
+                          <div className="ploneconf-sponsor-link sponsor _organizer">
+                            <p className="ploneconf-sponsor-type">Organizer</p>
+                            <a href="https://www.redturtle.it">
+                              <Img
+                                fixed={redturtle.image.childImageSharp.fixed}
+                                alt="RedTurtle"
+                              />
+                            </a>
+                          </div>
+                          {partners.nodes.map(sponsor => (
+                            <div
+                              className="ploneconf-sponsor-link partners"
+                              key={sponsor.id}
+                            >
+                              <a
+                                href={sponsor.remoteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Img
+                                  fixed={sponsor.image.childImageSharp.fixed}
+                                  alt={sponsor.title}
+                                />
+                              </a>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    ))}
+                    ) : null}
+                    {sponsorship &&
+                    sponsorship.nodes &&
+                    sponsorship.nodes.length > 0 ? (
+                      <div className="block">
+                        <div className="links-row">
+                          <p className="ploneconf-sponsor-type sponsorship">
+                            <strong>Sponsorship</strong>
+                          </p>
+
+                          {sponsorship.nodes.map(sponsor => (
+                            <div
+                              className="ploneconf-sponsor-link sponsorship"
+                              key={sponsor.id}
+                            >
+                              <a
+                                href={sponsor.remoteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Img
+                                  fixed={sponsor.image.childImageSharp.fixed}
+                                  alt={sponsor.title}
+                                />
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 </React.Fragment>
               )}

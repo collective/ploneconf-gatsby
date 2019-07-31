@@ -12,6 +12,17 @@
     }
 
     .sponsors-partners {
+        .block-cont {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .block {
+                flex: 1 1 50%;
+                &:nth-child(2) {
+                    border-left: 1px solid $gray-light;
+                }
+            }
+        }
         .links-row {
             display: flex;
             flex-wrap: wrap;
