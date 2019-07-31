@@ -151,6 +151,6 @@ export const query = graphql`
     related_people {
       _id
     }
-    #keynote
+    is_keynote
   }
 `;

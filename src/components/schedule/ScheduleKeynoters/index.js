@@ -49,12 +49,11 @@ class ScheduleKeynoters extends Component {
           if (talks.length === 0) {
             return '';
           }
-          const filteredTalks = talks;
 
-          //qui bisogna filtrare i  talk che sono di tipo 'keynote'
-          /*const filteredTalks = talks.filter(({ node }) => {
-          return node.keynote == true;
-        });*/
+          //filtro i  talk che sono di tipo 'keynote'
+          const filteredTalks = talks.filter(({ node }) => {
+            return node.is_keynote == true;
+          });
 
           if (filteredTalks.length === 0) {
             return '';
