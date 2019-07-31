@@ -21,6 +21,12 @@
                 &:nth-child(2) {
                     border-left: 1px solid $gray-light;
                 }
+                @media (max-width: 959px) {
+                    flex: 1 1 100%;
+                    &:nth-child(2) {
+                        border-left: none;
+                    }
+                }
             }
         }
         .links-row {
