@@ -1,71 +1,16 @@
 @import '../../../scss/variables';
 @import '../../../scss/base';
 
-.trainings-table {
-    margin-top: 2.5em;
-    font-size: 1rem;
-    thead {
-        th {
-            border-bottom: 5px solid $cta-yellow;
-            background-color: #000;
-            color: #fff;
-            &.nobg {
-                background-color: transparent;
-            }
-            &.noborder {
-                border: none;
-            }
-        }
-    }
-    tbody {
-        th {
-            border-right: 3px solid $cta-yellow;
-            color: #fff;
-            background-color: $light-blue;
-        }
-        td {
-            min-width: 150px;
-        }
-    }
-    &.noborder {
-        border: none;
-    }
-}
-
-.trainings {
-    margin-bottom: 5rem;
-    .training-details {
+.people-home {
+    .list-group-item {
+        display: flex;
         flex-direction: row;
-        margin-top: 1rem;
-        h3 {
-            margin-bottom: 0;
-        }
-        .block {
-            padding: 1rem 2rem;
-            flex-grow: 1;
-            &.additional-infos {
-                min-width: 30%;
-                div {
-                    span {
-                        font-size: 1rem;
-                        font-weight: bold;
-                        color: $light-blue;
-                    }
-                }
-            }
-            &.training-description {
-                flex-grow: 2;
-            }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .trainings {
-        .training-details {
-            flex-direction: column;
-            .block {
-                padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        padding: 1em 0;
+        border-bottom: 1px solid $gray-light;
+        @media (max-width: 768px) {
+            .user-image.small {
+                margin: 0;
             }
         }
     }

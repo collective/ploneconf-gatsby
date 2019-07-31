@@ -6,7 +6,11 @@ import './index.scss';
 
 const PersonImage = ({ person, viewDefaultImage, size }) => {
   /**some code */
-  let hasImage = person && person.image && person.image.childImageSharp;
+  let hasImage =
+    person &&
+    person.image &&
+    person.image.childImageSharp &&
+    person.image.childImageSharp.fixed;
   let view = hasImage || viewDefaultImage;
   if (!view) {
     return '';

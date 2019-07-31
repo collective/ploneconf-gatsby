@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import RichText from '../../RichText';
+import PersonImage from '../PersonImage';
 import './index.scss';
 
 const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
@@ -26,7 +27,7 @@ const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
   }
   return (
     <React.Fragment>
-      <article key={data._id} className="document-content">
+      <article key={data._id} className="document-content people-home">
         <div className="container">
           <h1>{title ? title : data.title}</h1>
           <p>
@@ -43,16 +44,18 @@ const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
           <nav key={data._id}>
             <ul className="list-group">
               {data.items.map((item, index) => {
-                console.log(item);
+                //                console.log(item);
                 return [
                   <li key={item._path} className="list-group-item">
+                    <PersonImage
+                      person={item.person}
+                      size="small"
+                      viewDefaultImage={true}
+                    />
                     <div className="item-content">
-                      <Img _path={item.person.Img} />
-                      <div>
-                        <Link to={item._path}>
-                          <h3> {item.title}</h3>
-                        </Link>
-                      </div>
+                      <Link to={item._path}>
+                        <h3> {item.title}</h3>
+                      </Link>
                       {item.description ? <p>{item.description}</p> : null}
                     </div>
                   </li>,
