@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery, Link } from 'gatsby';
 import Slider from 'react-slick';
 import PersonImage from '../../people/PersonImage';
 import 'slick-carousel/slick/slick.css';
@@ -89,6 +89,7 @@ const ScheduleTalks = () => {
             },
           ],
         };
+        console.log('talks', talks);
         return (
           <div className="schedule-talks">
             <div className="black-block" />
@@ -112,11 +113,21 @@ const ScheduleTalks = () => {
                       <div className="col talk-data">
                         <div className="data">
                           <div className="speakers">
-                            <a href="#">Speaker name 1</a>,{' '}
-                            <a href="#">Speaker name 2</a>
+                            {talk.node.related_people.map(function(rp) {
+                              var p = getSpeaker(rp._id);
+                              if (p) {
+                                return (
+                                  <Link to={p._path} title="details" key={p.id}>
+                                    {p.title}
+                                  </Link>
+                                );
+                              }
+                            })}
                           </div>
                           <h4>
-                            <a href="#">{talk.node.title}</a>
+                            <Link to={talk.node._path} title="details">
+                              {talk.node.title}
+                            </Link>
                           </h4>
                         </div>
                       </div>
