@@ -87,7 +87,7 @@ class Header extends Component {
                   <span>Training</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">
                   <span>Agenda</span>
                   <FontAwesomeIcon icon={faCaretDown} />
@@ -104,7 +104,7 @@ class Header extends Component {
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <a href="#">
                   <span>Location</span>

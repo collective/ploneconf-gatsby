@@ -27,12 +27,12 @@ const OffcanvasMenu = () => (
         <Link to="/call-for-speakers">Call for speakers</Link>
         <Link to="/training">Training</Link>
         {/*<div className="section">Agenda</div>*/}
-        <Link to="/schedule">Schedule</Link>
-        <Link to="/people">Speakers</Link>
-        {/*<div className="section">Location</div>*}
+        {/* <Link to="/schedule">Schedule</Link> */}
+        {/* <Link to="/people">Speakers</Link> */}
+        {/* <div className="section">Location</div> */}
         <Link to="/venue">Venue</Link>
         <Link to="/ferrara">Ferrara</Link>
-        {/*<div className="section" />*/}
+        {/* <div className="section" /> */}
         <Link to="/sponsors">Sponsors</Link>
         {/* <Link to="/code-of-conduct">Code of Conduct</Link> */}
         <Link to="/contact-form">Contacts</Link>
