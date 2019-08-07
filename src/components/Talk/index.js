@@ -9,7 +9,7 @@ import CTATickets from '../CTATickets';
 import PersonImage from '../people/PersonImage';
 import './index.scss';
 
-const Talk = ({ data, relator }) => {
+const Talk = ({ data, people }) => {
   const {
     _id,
     title,
@@ -22,7 +22,7 @@ const Talk = ({ data, relator }) => {
     end,
     related_people,
   } = data;
-  // console.log(related_people);
+  console.log(data);
 
   let labels = [
     {
@@ -30,6 +30,15 @@ const Talk = ({ data, relator }) => {
       color: 'purple',
     },
   ];
+  let relator;
+  if (related_people && related_people.length > 0) {
+    people.edges.forEach(node => {
+      let p = node.node;
+      if (p.id == related_people[0]._id) {
+        relator = p;
+      }
+    });
+  }
   return (
     <React.Fragment>
       <article key={_id} className="document-content">
@@ -42,7 +51,11 @@ const Talk = ({ data, relator }) => {
               {relator ? (
                 <div className="relator">
                   <PersonImage person={relator} viewDefaultImage={false} />
-                  <Link to={relator._path}>{relator.title}</Link>
+                  <div className="name">
+                    <strong>Speaker</strong>
+                    <br />
+                    <Link to={relator._path}>{relator.title}</Link>
+                  </div>
                 </div>
               ) : null}
               {description && description.length ? <p>{description}</p> : ''}
@@ -61,7 +74,7 @@ const Talk = ({ data, relator }) => {
               />
               <DefaultBlock
                 strValue={level}
-                label="Level"
+                label="Target Level"
                 cssClass="level blocco"
               />
               <DefaultBlock
@@ -90,14 +103,6 @@ Talk.propTypes = {
     duration: string,
     _path: string.isRequired,
   }),
-  relator: shape({
-    id: string.isRequired,
-    title: string,
-    image: shape({
-      id: string,
-    }),
-    _path: string.isRequired,
-  }),
   images: array,
   people: object,
 };
@@ -119,6 +124,7 @@ export const query = graphql`
     }
     is_keynote
     _type
+    level
     #room
     #start
     #end

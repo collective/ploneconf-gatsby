@@ -1,0 +1,21 @@
+@import '../../scss/base';
+
+.talk-details {
+    @extend .two-columns;
+    .relator {
+        display: flex;
+        align-items: center;
+        margin: 2em 0;
+        .name {
+            padding-left: 2em;
+        }
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin: 1em 0;
+            .name {
+                padding: 0;
+                text-align: center;
+            }
+        }
+    }
+}

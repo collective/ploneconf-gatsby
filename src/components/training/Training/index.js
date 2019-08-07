@@ -162,7 +162,11 @@ const Training = ({ data, people, cssClass, images = [], files = [] }) => {
                 label="Target level"
                 cssClass="target-level blocco"
               />
-              <DefaultBlock strValue={room} label="Room" cssClass="room" />
+              <DefaultBlock
+                strValue={room}
+                label="Room"
+                cssClass="room blocco"
+              />
             </div>
           </div>
           <div className="training-footer">

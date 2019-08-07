@@ -1,50 +1,5 @@
-@import '../../../scss/variables';
-@import '../../../scss/mixins';
+@import '../../../scss/base';
 
 .training-details {
-    display: flex;
-    align-items: flex-start;
-
-    .column {
-        min-width: 0;
-        flex: 60%;
-        padding: 1em 1em 0 0;
-        &.right-block {
-            border-left: 15px solid $cta-yellow;
-            padding-left: 2em;
-            flex: 40%;
-        }
-    }
-    .blocco {
-        margin-bottom: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .training-details {
-        flex-direction: column-reverse;
-        .column {
-            flex: 100%;
-            width: 100%;
-            &.right-block {
-                flex: 100%;
-                border-left: none;
-                border-bottom: 15px solid $cta-yellow;
-                padding-left: 1em;
-                padding-bottom: 1em;
-                margin-bottom: 1em;
-                h4 {
-                    border-top: 1px solid #e8eef2;
-                    padding-top: 1rem;
-                }
-            }
-        }
-        .blocco,
-        .room {
-            margin-bottom: 1rem;
-            h4 {
-                margin-bottom: 0rem;
-            }
-        }
-    }
+    @extend .two-columns;
 }
