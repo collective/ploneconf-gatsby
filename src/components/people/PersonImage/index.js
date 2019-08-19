@@ -6,6 +6,7 @@ import './index.scss';
 
 const PersonImage = ({ person, viewDefaultImage, size }) => {
   /**some code */
+  console.log(person);
   let hasImage =
     person &&
     person.image &&

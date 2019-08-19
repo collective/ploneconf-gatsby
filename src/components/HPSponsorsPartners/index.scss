@@ -21,7 +21,7 @@
                 &:nth-child(2) {
                     border-left: 1px solid $gray-light;
                 }
-                @media (max-width: 959px) {
+                @include media-breakpoint-down(lg) {
                     flex: 1 1 100%;
                     &:nth-child(2) {
                         border-left: none;
@@ -29,21 +29,42 @@
                 }
             }
         }
+        .link-rows-as-columns {
+            display: flex;
+            flex-direction: row;
+            .links-row {
+                flex: 0 0 50%;
+            }
+
+            @include media-breakpoint-down(lg) {
+                flex-direction: column;
+                .links-row {
+                    margin-bottom: 2em;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
         .links-row {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
+            justify-content: left;
+            align-content: start;
 
             > .ploneconf-sponsor-type {
                 width: 100%;
                 margin-left: 1rem;
 
-                @media (max-width: 767px) {
+                @include media-breakpoint-down(lg) {
                     margin-left: 0;
                     margin-bottom: 2rem;
                     text-align: center;
                 }
+            }
+            &.gold {
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -54,38 +75,23 @@
                 display: block;
             }
 
-            // img {
-            //     width: auto;
-            //     max-height: 35px;
-            // }
-
-            &.organizer {
-                margin-left: 0;
-                @media (min-width: 768px) {
-                    margin-right: auto;
+            &.gold {
+                margin: 2rem 2.5rem;
+            }
+            &.sponsorship {
+                display: inline-flex;
+                align-items: center;
+                .ploneconf-sponsor-type {
+                    margin-right: 2em;
+                }
+                @include media-breakpoint-down(lg) {
+                    display: flex;
+                    flex-direction: column;
+                    .ploneconf-sponsor-type {
+                        margin: 0;
+                    }
                 }
             }
-            // &.organizer,
-            // &.gold {
-            //     img {
-            //         max-height: 120px;
-            //     }
-            // }
-            // &.silver {
-            //     img {
-            //         max-height: 90px;
-            //     }
-            // }
-            // &.bronze {
-            //     img {
-            //         max-height: 60px;
-            //     }
-            // }
-            // &.partners {
-            //     img {
-            //         max-height: 80px;
-            //     }
-            // }
         }
         .ploneconf-sponsor-link:last-child {
             margin-right: 0;
@@ -98,7 +104,9 @@
 
             &.silver,
             &.bronze,
-            &.partners {
+            &.partners,
+            &.supporting,
+            &.organizer {
                 font-size: px2rem(18);
                 line-height: px2rem(21);
             }
@@ -109,17 +117,23 @@
                     color: $light-blue;
                 }
             }
+            &.gold {
+                font-size: 1.4rem;
+            }
 
             &.silver,
             &.bronze,
             &.supporting,
-            &.partners {
+            &.partners,
+            &.organizer {
                 color: #c3c3c3;
             }
 
             &.bronze,
             &.supporting,
-            &.partners {
+            &.partners,
+            &.supporting,
+            &.organizer {
                 strong {
                     color: #222;
                 }
