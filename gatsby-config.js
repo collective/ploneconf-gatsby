@@ -34,7 +34,7 @@ module.exports = {
         name: 'PloneConf 2019',
         short_name: 'PloneConf19',
         start_url: '/',
-        background_color: '#008abe',
+        background_color: '#ffffff',
         theme_color: '#008abe',
         display: 'standalone',
         icon: 'src/images/icon.png',
