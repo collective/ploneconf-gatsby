@@ -4,10 +4,14 @@
     @extend .two-columns;
     .relator {
         display: flex;
-        align-items: center;
         margin: 2em 0;
         .name {
             padding-left: 2em;
+            display: flex;
+            align-items: center;
+            .data {
+                width: 100%;
+            }
         }
         @media (max-width: 768px) {
             flex-direction: column;

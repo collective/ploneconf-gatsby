@@ -39,6 +39,10 @@ const Talk = ({ data, people }) => {
       }
     });
   }
+  let duration_minutes;
+  if (duration) {
+    duration_minutes = duration == 'Long talk' ? "40'" : "20'";
+  }
   return (
     <React.Fragment>
       <article key={_id} className="document-content">
@@ -52,9 +56,11 @@ const Talk = ({ data, people }) => {
                 <div className="relator">
                   <PersonImage person={relator} viewDefaultImage={false} />
                   <div className="name">
-                    <strong>Speaker</strong>
-                    <br />
-                    <Link to={relator._path}>{relator.title}</Link>
+                    <div className="data">
+                      <strong>Speaker</strong>
+                      <br />
+                      <Link to={relator._path}>{relator.title}</Link>
+                    </div>
                   </div>
                 </div>
               ) : null}
@@ -63,7 +69,7 @@ const Talk = ({ data, people }) => {
             <div className="column right-block">
               <DetailsDate start={start} end={end} />
               <DefaultBlock
-                strValue={duration}
+                strValue={duration_minutes}
                 label="Length"
                 cssClass="length blocco"
               />
@@ -125,8 +131,8 @@ export const query = graphql`
     is_keynote
     _type
     level
-    #room
-    #start
-    #end
+    room
+    start
+    end
   }
 `;
