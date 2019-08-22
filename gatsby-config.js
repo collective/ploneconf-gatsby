@@ -31,11 +31,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Starter Plone',
-        short_name: 'Plone',
+        name: 'PloneConf 2019',
+        short_name: 'PloneConf19',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#007eb6',
+        theme_color: '#008abe',
         display: 'standalone',
         icon: 'src/images/icon.png',
       },
