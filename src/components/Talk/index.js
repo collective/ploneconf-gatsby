@@ -67,7 +67,7 @@ const Talk = ({ data, people }) => {
               {description && description.length ? <p>{description}</p> : ''}
             </div>
             <div className="column right-block">
-              <DetailsDate start={start} end={end} />
+              {/*<DetailsDate start={start} end={end} />*/}
               <DefaultBlock
                 strValue={duration_minutes}
                 label="Length"
@@ -83,11 +83,11 @@ const Talk = ({ data, people }) => {
                 label="Target Level"
                 cssClass="level blocco"
               />
-              <DefaultBlock
+              {/*<DefaultBlock
                 strValue={room}
                 label="Room"
                 cssClass="room blocco"
-              />
+              />*/}
             </div>
           </div>
           <div className="bird-sep">
@@ -131,8 +131,8 @@ export const query = graphql`
     is_keynote
     _type
     level
-    room
-    start
-    end
+    #room
+    #start
+    #end
   }
 `;
