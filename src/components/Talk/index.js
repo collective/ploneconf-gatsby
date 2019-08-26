@@ -17,6 +17,8 @@ const Talk = ({ data, people, images = [], files = [] }) => {
     audience,
     duration,
     level,
+    text,
+    description,
     // room,
     // start,
     // end,
@@ -42,6 +44,16 @@ const Talk = ({ data, people, images = [], files = [] }) => {
   if (duration) {
     duration_minutes = duration == 'Long talk' ? "40'" : "20'";
   }
+
+  let abstract = '';
+  if (text) {
+    abstract = (
+      <RichText serialized={text.react} images={images} files={files} />
+    );
+  } else if (description && description.length) {
+    abstract = <p>{description}</p>;
+  }
+
   return (
     <React.Fragment>
       <article key={_id} className="document-content">
@@ -63,13 +75,7 @@ const Talk = ({ data, people, images = [], files = [] }) => {
                   </div>
                 </div>
               ) : null}
-              {data.text ? (
-                <RichText
-                  serialized={data.text.react}
-                  images={images}
-                  files={files}
-                />
-              ) : null}
+              {abstract}
             </div>
             <div className="column right-block">
               {/*<DetailsDate start={start} end={end} />*/}
@@ -117,6 +123,8 @@ Talk.propTypes = {
   images: array,
   files: array,
   people: object,
+  description: string,
+  text: object,
 };
 
 export default Talk;
@@ -127,6 +135,7 @@ export const query = graphql`
     id
     _path
     title
+    description
     text {
       react
     }
