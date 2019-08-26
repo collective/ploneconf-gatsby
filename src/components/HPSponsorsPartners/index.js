@@ -378,7 +378,7 @@ const HPSponsorsPartners = () => (
                           key={sponsor.id}
                         >
                           <p className="ploneconf-sponsor-type sponsorship">
-                            <strong>Con il patrocinio di </strong>
+                            <strong>Under the patronage of </strong>
                           </p>
                           <a
                             href={sponsor.remoteUrl}
