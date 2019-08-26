@@ -26,6 +26,7 @@ const OffcanvasMenu = () => (
       <div className="navs-wrapper">
         <Link to="/call-for-speakers">Call for speakers</Link>
         <Link to="/training">Training</Link>
+        <Link to="/talks">Talks</Link>
         {/*<div className="section">Agenda</div>
         <Link to="/schedule">Schedule</Link>
     <Link to="/people">Speakers</Link>*/}

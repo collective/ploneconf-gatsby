@@ -6,6 +6,7 @@ import Document from '../components/Document';
 import CallForSpeakers from '../components/CallForSpeakers';
 import TrainingHome from '../components/training/TrainingHome';
 import PeopleHome from '../components/people/PeopleHome';
+import TalksHome from '../components/talks/TalksHome';
 import Person from '../components/people/Person';
 import Training from '../components/training/Training';
 import Talk from '../components/Talk';
@@ -37,23 +38,41 @@ const getInfosFor = data => {
     } else if (data['ploneFolder']) {
       const { ploneFolder } = data;
       result.context = ploneFolder;
-      if (ploneFolder.title === 'Training') {
-        result.context = data.trainingHome;
-        result.component = <TrainingHome images={images} files={files} />;
-      } else if (ploneFolder.title === 'People') {
-        result.component = (
-          <PeopleHome
-            data={data['ploneFolder']}
-            images={images}
-            files={files}
-            people={data.allPlonePerson}
-          />
-        );
-      } else {
-        result.component = (
-          <Folder data={data['ploneFolder']} images={images} files={files} />
-        );
+      switch (ploneFolder.title) {
+        case 'Training':
+          result.context = data.trainingHome;
+          result.component = <TrainingHome images={images} files={files} />;
+          break;
+        case 'People':
+          result.component = (
+            <PeopleHome
+              data={data['ploneFolder']}
+              images={images}
+              files={files}
+              people={data.allPlonePerson}
+            />
+          );
+          break;
+        case 'Talks':
+          result.component = (
+            <TalksHome
+              data={data['ploneFolder']}
+              images={images}
+              files={files}
+              people={data.allPloneTalk}
+            />
+          );
+          break;
+        default:
+          result.component = (
+            <Folder data={data['ploneFolder']} images={images} files={files} />
+          );
+          break;
       }
+      // if (ploneFolder.title === 'Training') {
+      // } else if (ploneFolder.title === 'People') {
+      // } else {
+      // }
       return result;
     } else if (data['plonePerson']) {
       const plonePerson = data.plonePerson;

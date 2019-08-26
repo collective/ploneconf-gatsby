@@ -1,0 +1,77 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+.talks-keynoters {
+    text-align: center;
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid $gray-light;
+
+    h3 {
+        .icon svg {
+            height: 50px;
+        }
+    }
+    .subtitle {
+        font-size: 0.7em;
+        color: #6c757d;
+        span {
+            color: $dark-blue;
+        }
+    }
+    .people {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: wrap;
+        width: 100%;
+        padding: 1em 0;
+        h4 a {
+            color: #000;
+        }
+        .person {
+            flex: 1 1 calc(30% - 1em);
+            margin: 2em 1em;
+            padding: 1em 0;
+            border-bottom: 1px solid $gray-light;
+            @media (max-width: 768px) {
+                margin: 0.5em 1em;
+            }
+
+            .user-image {
+                margin: 0 auto;
+                margin-bottom: 1em;
+            }
+            .name {
+                text-transform: uppercase;
+                color: $light-blue;
+                font-weight: 700;
+                font-size: 0.8em;
+            }
+            .user-link {
+                a {
+                    display: inline-block;
+                    color: $light-blue;
+                    border: 2px solid $gray-light;
+                    border-radius: 50%;
+                    width: 28px;
+                    height: 28px;
+                    font-size: 16px;
+                    margin: 0 5px;
+                    text-align: center;
+                    &:hover {
+                        border-color: $light-blue;
+                        background-color: $light-blue;
+                        svg path {
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+            .talk-description {
+                font-size: 0.65em;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

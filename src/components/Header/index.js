@@ -87,6 +87,11 @@ class Header extends Component {
                   <span>Training</span>
                 </Link>
               </li>
+              <li>
+                <Link to="/talks" activeClassName="active">
+                  <span>Talks</span>
+                </Link>
+              </li>
               {/*<li>
                 <a href="#">
                   <span>Agenda</span>

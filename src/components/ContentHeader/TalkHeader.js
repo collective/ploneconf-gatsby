@@ -20,13 +20,12 @@ const TalkHeader = ({ context }) => (
       }
     `}
     render={data => {
-      const { ploneImage, people } = data;
-      const { title, related_people } = context;
+      const { ploneImage } = data;
+      const { title } = context;
 
-      const speakerNames = related_people
-        .map(person => person.title)
-        .join(', ');
-
+      // const speakerNames = related_people
+      //   .map(person => person.title)
+      //   .join(', ');
       return (
         <HeaderWrapper
           img={ploneImage ? ploneImage.image.childImageSharp : null}

@@ -3,26 +3,25 @@ import { graphql, Link } from 'gatsby';
 import { string, shape, arrayOf, array, object } from 'prop-types';
 import DefaultBlock from '../common/DefaultBlock';
 import LabelRow from '../LabelRow';
-import DetailsDate from '../common/DetailsDate';
+// import DetailsDate from '../common/DetailsDate';
+import RichText from '../RichText';
 import BirdSVG from '../svg/BirdSVG';
 import CTATickets from '../CTATickets';
 import PersonImage from '../people/PersonImage';
 import './index.scss';
 
-const Talk = ({ data, people }) => {
+const Talk = ({ data, people, images = [], files = [] }) => {
   const {
     _id,
     title,
-    description,
     audience,
     duration,
     level,
-    room,
-    start,
-    end,
+    // room,
+    // start,
+    // end,
     related_people,
   } = data;
-  console.log(data);
 
   let labels = [
     {
@@ -64,7 +63,13 @@ const Talk = ({ data, people }) => {
                   </div>
                 </div>
               ) : null}
-              {description && description.length ? <p>{description}</p> : ''}
+              {data.text ? (
+                <RichText
+                  serialized={data.text.react}
+                  images={images}
+                  files={files}
+                />
+              ) : null}
             </div>
             <div className="column right-block">
               {/*<DetailsDate start={start} end={end} />*/}
@@ -110,6 +115,7 @@ Talk.propTypes = {
     _path: string.isRequired,
   }),
   images: array,
+  files: array,
   people: object,
 };
 
@@ -121,7 +127,9 @@ export const query = graphql`
     id
     _path
     title
-    description
+    text {
+      react
+    }
     audience
     duration
     related_people {
