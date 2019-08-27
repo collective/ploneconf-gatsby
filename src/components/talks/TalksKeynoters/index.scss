@@ -20,7 +20,7 @@
     }
     .people {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-flow: wrap;
         width: 100%;
         padding: 1em 0;
@@ -29,6 +29,7 @@
         }
         .person {
             flex: 1 1 calc(30% - 1em);
+            max-width: 60%;
             margin: 2em 1em;
             padding: 1em 0;
             border-bottom: 1px solid $gray-light;
@@ -67,8 +68,7 @@
                 }
             }
             .talk-description {
-                font-size: 0.65em;
-
+                font-size: 0.85em;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }

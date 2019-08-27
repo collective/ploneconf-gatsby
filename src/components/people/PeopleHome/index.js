@@ -28,7 +28,6 @@ const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
     <React.Fragment>
       <article key={data._id} className="document-content people-home">
         <div className="container">
-          <h1>{title ? title : data.title}</h1>
           <p>
             <strong>{data.description}</strong>
           </p>
