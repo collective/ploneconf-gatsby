@@ -22,7 +22,7 @@ const PeopleHeader = () => (
       const { ploneImage } = data;
       const text = (
         <React.Fragment>
-          <h1>Speakers</h1>
+          <h1>People</h1>
           <p>The Plone Conference 2019 amazing team</p>
         </React.Fragment>
       );
