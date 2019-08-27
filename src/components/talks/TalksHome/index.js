@@ -14,7 +14,7 @@ const TalksHome = ({ data }) => {
                 Schedule: <b>lorem</b> ipsum
               </h2> */}
             <p>
-              We selected a list of talks and keynotes that makes Plone
+              We selected a list of talks and keynotes that make Plone
               Conference a real <span>digital experience</span>.
               <br />
               There will not only be Plone-related talks, but also talks from
