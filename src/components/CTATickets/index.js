@@ -33,13 +33,9 @@ const CTASpeakers = () => (
               <p>Join the night party</p>
               <p>Join the community sprints</p>
             </div>
-            <p className="early-bird">Early bird</p>
             <p className="price">
-              <span className="full" title="Full price">
-                420 <span className="currency">€</span>
-              </span>
-              <span className="current" title="Discounted price">
-                350 <span className="currency">€</span>
+              <span className="current">
+                380 <span className="currency">€</span>
               </span>
             </p>
             <p className="fee-vat">+ Fee &amp; VAT</p>
