@@ -89,7 +89,7 @@ const Person = ({ data, trainings, talks, breadcrumbs, cssClass }) => {
             </div>
             <div className="column right-block">
               <PersonTrainings id={id} />
-              {/*<PersonTalks id={id} />*/}
+              <PersonTalks id={id} />
             </div>
           </div>
           <div className="bird-sep">
