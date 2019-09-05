@@ -120,11 +120,11 @@ const ScheduleTalks = () => {
                         </TabList>
                         {Object.keys(talksDict[day])
                           .sort()
-                          .map(room => (
+                          .map((room, roomIndex) => (
                             <TabPanel key={day + room}>
                               <ScheduleTalksList
                                 talks={talksDict[day][room]}
-                                room={room}
+                                roomIndex={roomIndex}
                                 dayNumber={index + 1}
                               />
                             </TabPanel>

@@ -4,7 +4,6 @@ import ScheduleTalk from '../ScheduleTalk';
 import {
   faUtensils,
   faCoffee,
-  faBeer,
   faClipboardList,
   faMicrophoneAlt,
 } from '@fortawesome/free-solid-svg-icons';
@@ -34,7 +33,7 @@ const defaultScheduleBreaks = [
     node: {
       title: 'Break',
       id: 'break',
-      icon: faBeer,
+      icon: faCoffee,
     },
   },
   {
@@ -55,7 +54,11 @@ const defaultScheduleBreaks = [
   },
 ];
 
-const customDayEvents = day => {
+const customDayEvents = (day, room) => {
+  if (room != 0) {
+    return defaultScheduleBreaks;
+  }
+
   switch (day) {
     case 1:
       return [
@@ -85,7 +88,7 @@ const customDayEvents = day => {
   }
 };
 
-const ScheduleTalksList = ({ talks, room, dayNumber }) => {
+const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
   const orderedTalks = talks.concat(customDayEvents(dayNumber)).sort((a, b) => {
     return a.start > b.start;
   });
@@ -96,7 +99,7 @@ const ScheduleTalksList = ({ talks, room, dayNumber }) => {
         <ScheduleTalk
           start={talk.start}
           talk={talk.node}
-          key={talk.node.id + dayNumber + room}
+          key={talk.node.id + dayNumber + roomIndex}
         />
       ))}
     </div>
@@ -105,7 +108,7 @@ const ScheduleTalksList = ({ talks, room, dayNumber }) => {
 
 ScheduleTalksList.propTypes = {
   talks: PropTypes.array,
-  room: PropTypes.string,
+  roomIndex: PropTypes.string,
   dayNumber: PropTypes.number,
 };
 
