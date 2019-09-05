@@ -1,0 +1,67 @@
+@import '../../../scss/variables';
+
+.schedule-talk {
+    display: flex;
+    margin-bottom: 3rem;
+
+    .image-wrapper {
+        flex-shrink: 0;
+        margin-right: 3rem;
+
+        .user-image {
+            border: 2px solid $light-blue;
+        }
+    }
+
+    &:not(.break) {
+        .image-wrapper {
+            .user-image {
+                margin-top: calc(3rem - 35px);
+            }
+        }
+    }
+
+    &.break {
+        .image-wrapper {
+            .user-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .talk-data {
+        text-align: left;
+
+        .talk-timeslot {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+            height: 2rem;
+
+            svg {
+                margin-right: 0.5rem;
+            }
+        }
+
+        h4 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba($dark-color, 0.3);
+        }
+
+        p.description {
+            font-size: 0.95rem;
+            color: $dark-color;
+        }
+
+        .speakers {
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
-import Slider from 'react-slick';
-import PersonImage from '../../people/PersonImage';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import moment from 'moment';
+import ScheduleTalksList from '../ScheduleTalksList';
 
+import 'react-tabs/style/react-tabs.css';
 import './index.scss';
 
 const ScheduleTalks = () => {
@@ -55,85 +55,84 @@ const ScheduleTalks = () => {
 
         talks.forEach(node => {
           let talk = node.node;
-          let speaker = null;
+
           if (talk.related_people) {
-            speaker = getSpeaker(talk.related_people[0]._id);
+            talk.speakers = talk.related_people.map(person =>
+              getSpeaker(person._id),
+            );
+            talk.speaker = talk.speakers[0];
+          } else {
+            talk.speakers = null;
+            talk.speaker = null;
           }
-          talk.speaker = speaker;
         });
 
-        /****** init slider ******/
-        var sliderSettings = {
-          dots: true,
-          infinite: true,
-          speed: 300,
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          autoplay: false,
-          variableWidth: true,
-          adaptiveHeight: true,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-              },
-            },
-            {
-              breakpoint: 520,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-              },
-            },
-          ],
-        };
-        //   console.log('talks', talks);
+        const talksDict = talks.reduce((acc, talk, index) => {
+          // const date = talk.node.start;
+          const date = index % 3 ? moment().add(1, 'd') : moment();
+          const time = moment().subtract(index, 'h');
+          const day = date.format('DD MMM');
+          const room = index % 2 ? 'Room 1' : 'Room 2';
+
+          if (!acc[day]) {
+            acc[day] = {};
+          }
+
+          if (!acc[day][room]) {
+            acc[day][room] = [];
+          }
+
+          acc[day][room].push({
+            start: time,
+            node: talk.node,
+          });
+
+          return acc;
+        }, {});
+
         return (
           <div className="schedule-talks">
-            <div className="black-block" />
-            <div className="blue-block" />
+            <hr />
             <div className="container">
               <h3>Talks</h3>
               <div className="subtitle">
                 Lorem ipsum <span>dolor</span> sit amet.
               </div>
               <div className="talks-container">
-                <Slider {...sliderSettings}>
-                  {talks.map(talk => (
-                    <div className="talk" key={talk.node.id}>
-                      <div className="col speaker">
-                        <PersonImage
-                          person={talk.node.speaker}
-                          size="small"
-                          viewDefaultImage={true}
-                        />
-                      </div>
-                      <div className="col talk-data">
-                        <div className="data">
-                          <div className="speakers">
-                            {talk.node.related_people.map(function(rp) {
-                              var p = getSpeaker(rp._id);
-                              if (p) {
-                                return (
-                                  <Link to={p._path} title="details" key={p.id}>
-                                    {p.title}
-                                  </Link>
-                                );
-                              }
-                            })}
-                          </div>
-                          <h4>
-                            <Link to={talk.node._path} title="details">
-                              {talk.node.title}
-                            </Link>
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
+                <Tabs forceRenderTabPanel>
+                  <TabList>
+                    {Object.keys(talksDict).map((day, index) => (
+                      <Tab key={day}>
+                        <p className="day-index">Day {index + 1}</p>
+                        <p className="day-date">{day}</p>
+                      </Tab>
+                    ))}
+                  </TabList>
+                  {Object.keys(talksDict).map((day, index) => (
+                    <TabPanel key={day}>
+                      <Tabs forceRenderTabPanel>
+                        <TabList>
+                          {Object.keys(talksDict[day])
+                            .sort()
+                            .map(room => (
+                              <Tab key={day + room}>{room}</Tab>
+                            ))}
+                        </TabList>
+                        {Object.keys(talksDict[day])
+                          .sort()
+                          .map(room => (
+                            <TabPanel key={day + room}>
+                              <ScheduleTalksList
+                                talks={talksDict[day][room]}
+                                room={room}
+                                dayNumber={index + 1}
+                              />
+                            </TabPanel>
+                          ))}
+                      </Tabs>
+                    </TabPanel>
                   ))}
-                </Slider>
+                </Tabs>
               </div>
             </div>
           </div>
