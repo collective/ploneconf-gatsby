@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery, Link } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import moment from 'moment';
 import ScheduleTalksList from '../ScheduleTalksList';
@@ -70,7 +70,10 @@ const ScheduleTalks = () => {
         const talksDict = talks.reduce((acc, talk, index) => {
           // const date = talk.node.start;
           const date = index % 3 ? moment().add(1, 'd') : moment();
-          const time = moment().subtract(index, 'h');
+          const time =
+            index % 2
+              ? moment().subtract(index / 2, 'h')
+              : moment().add(index / 2, 'h');
           const day = date.format('DD MMM');
           const room = index % 2 ? 'Room 1' : 'Room 2';
 
@@ -108,7 +111,7 @@ const ScheduleTalks = () => {
                       </Tab>
                     ))}
                   </TabList>
-                  {Object.keys(talksDict).map((day, index) => (
+                  {Object.keys(talksDict).map((day, dayIndex) => (
                     <TabPanel key={day}>
                       <Tabs forceRenderTabPanel>
                         <TabList>
@@ -125,7 +128,7 @@ const ScheduleTalks = () => {
                               <ScheduleTalksList
                                 talks={talksDict[day][room]}
                                 roomIndex={roomIndex}
-                                dayNumber={index + 1}
+                                dayNumber={dayIndex + 1}
                               />
                             </TabPanel>
                           ))}

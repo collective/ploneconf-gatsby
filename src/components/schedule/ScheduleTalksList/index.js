@@ -6,6 +6,7 @@ import {
   faCoffee,
   faClipboardList,
   faMicrophoneAlt,
+  faChalkboardTeacher,
 } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 
@@ -13,7 +14,7 @@ import './index.scss';
 
 const defaultScheduleBreaks = [
   {
-    start: moment('11:10 AM', 'HH:mm A'),
+    start: moment('10:25 AM', 'HH:mm A'),
     node: {
       title: 'Breakfast',
       id: 'breakfast',
@@ -21,7 +22,7 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('01:00 PM', 'HH:mm A'),
+    start: moment('12:40 PM', 'HH:mm A'),
     node: {
       title: 'Lauch',
       id: 'launch',
@@ -29,27 +30,11 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('03:40 PM', 'HH:mm A'),
+    start: moment('04:00 PM', 'HH:mm A'),
     node: {
       title: 'Break',
       id: 'break',
       icon: faCoffee,
-    },
-  },
-  {
-    start: moment('04:00 PM', 'HH:mm A'),
-    node: {
-      title: 'Panel',
-      id: 'panel',
-      icon: faMicrophoneAlt,
-    },
-  },
-  {
-    start: moment('04:50 PM', 'HH:mm A'),
-    node: {
-      title: 'Lightning Talks',
-      id: 'lt',
-      icon: faMicrophoneAlt,
     },
   },
 ];
@@ -59,12 +44,13 @@ const customDayEvents = (day, room) => {
     return defaultScheduleBreaks;
   }
 
+  /* eslint-disable indent */
   switch (day) {
     case 1:
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('08:00 AM', 'HH:mm A'),
+          start: moment('08:30 AM', 'HH:mm A'),
           node: {
             title: 'Registration',
             id: 'registration',
@@ -79,19 +65,78 @@ const customDayEvents = (day, room) => {
             icon: faMicrophoneAlt,
           },
         },
+        {
+          start: moment('04:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Panel: Frameworks',
+            id: 'panel-frameworks',
+            icon: faChalkboardTeacher,
+          },
+        },
+        {
+          start: moment('05:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Lightning Talks',
+            id: 'lt',
+            icon: faMicrophoneAlt,
+          },
+        },
       ];
-      break;
+
+    case 2:
+      return [
+        ...defaultScheduleBreaks,
+        {
+          start: moment('04:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Panel: Ask Me Anything on Volto',
+            id: 'panel-ama-volto',
+            icon: faChalkboardTeacher,
+          },
+        },
+        {
+          start: moment('05:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Lightning Talks',
+            id: 'lt',
+            icon: faMicrophoneAlt,
+          },
+        },
+      ];
+
+    case 3:
+      return [
+        ...defaultScheduleBreaks,
+        {
+          start: moment('04:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Panel: Future of Plone',
+            id: 'panel-future-plone',
+            icon: faChalkboardTeacher,
+          },
+        },
+        {
+          start: moment('05:30 PM', 'HH:mm A'),
+          node: {
+            title: 'Lightning Talks',
+            id: 'lt',
+            icon: faMicrophoneAlt,
+          },
+        },
+      ];
 
     default:
       return defaultScheduleBreaks;
-      break;
   }
+  /* eslint-enable indent */
 };
 
 const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
-  const orderedTalks = talks.concat(customDayEvents(dayNumber)).sort((a, b) => {
-    return a.start > b.start;
-  });
+  const orderedTalks = talks
+    .concat(customDayEvents(dayNumber, roomIndex))
+    .sort((a, b) => {
+      return a.start > b.start;
+    });
 
   return (
     <div className="schedule-talk-list">
@@ -108,7 +153,7 @@ const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
 
 ScheduleTalksList.propTypes = {
   talks: PropTypes.array,
-  roomIndex: PropTypes.string,
+  roomIndex: PropTypes.number,
   dayNumber: PropTypes.number,
 };
 

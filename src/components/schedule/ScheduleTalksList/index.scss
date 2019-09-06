@@ -1,3 +1,5 @@
+@import '../../../scss/variables';
+
 .schedule-talk-list {
     padding: 3rem 0 1rem;
     position: relative;
@@ -7,7 +9,7 @@
         position: absolute;
         left: 35px;
         top: 0;
-        border-left: 1px solid #eee;
+        border-left: 1px solid rgba($light-blue, 0.4);
         height: 100%;
         z-index: -1;
     }

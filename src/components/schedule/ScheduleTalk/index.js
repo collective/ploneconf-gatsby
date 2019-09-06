@@ -41,7 +41,7 @@ const ScheduleTalk = ({ start, talk }) => (
         {talk.speakers && (
           <div className="speakers">
             {talk.speakers.map(speaker => (
-              <Link to={speaker._path} title="details" key={speaker._id}>
+              <Link to={speaker._path} title="details" key={speaker.id}>
                 {speaker.title}
               </Link>
             ))}
