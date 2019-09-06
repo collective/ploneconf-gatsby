@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import TalksKeynoters from '../TalksKeynoters';
 import TalksList from '../TalksList';
 import GetTicketCastle from '../../GetTicketCastle';
@@ -25,6 +26,11 @@ const TalksHome = ({ data }) => {
           </div>
           <TalksList />
           <div className="container">
+            <div className="link-to-schedule">
+              <Link to="/schedule" className="btn-yellow">
+                Go to Schedule
+              </Link>
+            </div>
             <GetTicketCastle text="Interested in this <strong>talks</strong>?" />
           </div>
         </div>
