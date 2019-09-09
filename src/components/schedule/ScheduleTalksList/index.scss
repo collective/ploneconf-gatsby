@@ -8,6 +8,9 @@
         content: '';
         position: absolute;
         left: 35px;
+        @media (max-width: 450px) {
+            left: 25px;
+        }
         top: 0;
         border-left: 1px solid rgba($light-blue, 0.4);
         height: 100%;

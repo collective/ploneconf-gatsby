@@ -7,6 +7,19 @@
     .image-wrapper {
         flex-shrink: 0;
         margin-right: 3rem;
+        @media (max-width: 450px) {
+            margin-right: 1rem;
+            .user-image.thumb {
+                max-width: 50px;
+                max-height: 50px;
+                min-width: 50px;
+                min-height: 50px;
+                img {
+                    width: 50px !important;
+                    height: 50px !important;
+                }
+            }
+        }
 
         .user-image {
             border: 2px solid $light-blue;

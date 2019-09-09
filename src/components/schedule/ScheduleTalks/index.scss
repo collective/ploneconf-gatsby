@@ -44,6 +44,10 @@
                     border: 1px solid $tabs-border-color;
                     border-radius: 0;
                     padding: 1rem 3rem;
+                    @media (max-width: 450px) {
+                        padding: 1rem 1.5rem;
+                    }
+
                     text-align: center;
                     transition: background-color 0.3s ease;
 
@@ -79,6 +83,9 @@
 
                     li.react-tabs__tab {
                         padding: 0.75rem 3rem;
+                        @media (max-width: 450px) {
+                            padding: 0.75rem 1.5rem;
+                        }
                         border: 0;
                         background: none;
                         margin-bottom: 0;
@@ -95,6 +102,9 @@
                     border: 1px solid $tabs-border-color;
                     border-top: 0;
                     padding: 0 2.5rem;
+                    @media (max-width: 600px) {
+                        padding: 1rem;
+                    }
                 }
             }
         }
