@@ -1,6 +1,6 @@
 import React from 'react';
 import { array, object } from 'prop-types';
-import FormContainer from '../form/FormContainer';
+// import FormContainer from '../form/FormContainer';
 import Document from '../Document';
 
 import './index.scss';
@@ -15,7 +15,7 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
         files,
       }}
     >
-      <div className="talk-submission-form" id="talk-form">
+      {/* <div className="talk-submission-form" id="talk-form">
         <hr />
         <h3>Submit your proposal</h3>
         <FormContainer
@@ -23,7 +23,7 @@ const CallForSpeakers = ({ data, images = [], files = [] }) => (
           schemaEndpoint="@talk-proposal"
           actionEndpoint="@talk-proposal"
         />
-      </div>
+      </div> */}
     </Document>
   </React.Fragment>
 );

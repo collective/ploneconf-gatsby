@@ -77,11 +77,11 @@ class Header extends Component {
           </Link>
           <div className="nav-wrapper">
             <ul id="main-nav">
-              <li>
+              {/* <li>
                 <Link to="/call-for-speakers" activeClassName="active">
                   <span>Call for speakers</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/training" activeClassName="active">
                   <span>Training</span>
