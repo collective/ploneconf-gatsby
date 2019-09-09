@@ -3,7 +3,6 @@ import ScheduleKeynoters from '../ScheduleKeynoters';
 import ScheduleTalks from '../ScheduleTalks';
 import './index.scss';
 import GetTicketCastle from '../../GetTicketCastle';
-import { Link } from 'gatsby';
 
 class ScheduleContainer extends React.Component {
   constructor(props) {

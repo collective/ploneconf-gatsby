@@ -132,10 +132,10 @@ const customDayEvents = (day, room) => {
 };
 
 const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
-  const orderedTalks = talks
+  let orderedTalks = talks
     .concat(customDayEvents(dayNumber, roomIndex))
     .sort((a, b) => {
-      return a.start > b.start;
+      return a.start > b.start ? 1 : -1;
     });
 
   return (
@@ -143,6 +143,7 @@ const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
       {orderedTalks.map(talk => (
         <ScheduleTalk
           start={talk.start}
+          end={talk.end}
           talk={talk.node}
           key={talk.node.id + dayNumber + roomIndex}
         />

@@ -84,9 +84,12 @@ const ScheduleTalks = () => {
           if (!acc[day][room]) {
             acc[day][room] = [];
           }
+          const duration = talk.node.duration === 'Long talk' ? 40 : 20;
+          const end = moment(time.toDate()).add(duration, 'm');
 
           acc[day][room].push({
             start: time,
+            end: end,
             node: talk.node,
           });
 

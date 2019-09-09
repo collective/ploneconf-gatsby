@@ -7,7 +7,7 @@ import PersonImage from '../../people/PersonImage';
 
 import './index.scss';
 
-const ScheduleTalk = ({ start, talk }) => (
+const ScheduleTalk = ({ start, end, talk }) => (
   <div className={`schedule-talk ${talk.icon ? 'break' : ''}`}>
     <div className="image-wrapper">
       {talk.speaker && (
@@ -26,7 +26,9 @@ const ScheduleTalk = ({ start, talk }) => (
     <div className="talk-data">
       <p className="talk-timeslot">
         <FontAwesomeIcon icon={faClock} />
-        <span>{start.format('HH:mm A')}</span>
+        <span>
+          {start.format('HH:mm A')} {end && ' - ' + end.format('HH:mm A')}
+        </span>
       </p>
       <div className="data">
         {!talk._path && <h4>{talk.title}</h4>}
@@ -37,7 +39,6 @@ const ScheduleTalk = ({ start, talk }) => (
             </Link>
           </h4>
         )}
-        <p className="description">{talk.description}</p>
         {talk.speakers && (
           <div className="speakers">
             {talk.speakers.map(speaker => (
@@ -47,6 +48,7 @@ const ScheduleTalk = ({ start, talk }) => (
             ))}
           </div>
         )}
+        <p className="description">{talk.description}</p>
       </div>
     </div>
   </div>
@@ -54,6 +56,7 @@ const ScheduleTalk = ({ start, talk }) => (
 
 ScheduleTalk.propTypes = {
   start: PropTypes.object,
+  end: PropTypes.object,
   talk: PropTypes.object,
 };
 
