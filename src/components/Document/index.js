@@ -4,33 +4,37 @@ import { graphql } from 'gatsby';
 import cx from 'classnames';
 
 import RichText from '../RichText';
+import HPSponsorsPartners from '../HPSponsorsPartners';
 
 import './index.scss';
 
 const Document = ({ data, cssClass, images = [], files = [], children }) => {
   return (
-    <article
-      key={data._id}
-      className={cx('document-content', cssClass)}
-      id={data._id}
-    >
-      <div className="container">
-        {data.text ? (
-          <RichText
-            serialized={data.text.react}
-            images={images}
-            files={files}
-          />
-        ) : null}
-      </div>
+    <React.Fragment key={data._id} id={data._id}>
+      <article className={cx('document-content', cssClass)}>
+        <div className="container">
+          {data.text ? (
+            <RichText
+              serialized={data.text.react}
+              images={images}
+              files={files}
+            />
+          ) : null}
+        </div>
 
-      <div className="container">{children}</div>
-      {data._id == 'sponsors' || data._id == 'call-for-speakers' ? (
-        <div className="savonarola-bg" />
-      ) : (
-        ''
+        <div className="container">{children}</div>
+        {(data._id == 'sponsors' || data._id == 'call-for-speakers') && (
+          <div className="savonarola-bg" />
+        )}
+      </article>
+
+      {data._id == 'sponsors' && (
+        <div className="container document-content">
+          <hr />
+          <HPSponsorsPartners />
+        </div>
       )}
-    </article>
+    </React.Fragment>
   );
 };
 Document.propTypes = {
