@@ -104,7 +104,7 @@ class TalksList extends Component {
                     className="btn btn-primary"
                   >
                     {this.state.showAllTalk
-                      ? 'Hide talk list'
+                      ? 'Close talk list'
                       : 'View all talks'}
                   </button>
                 </div>
