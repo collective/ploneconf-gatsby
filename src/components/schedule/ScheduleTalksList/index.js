@@ -24,7 +24,7 @@ const defaultScheduleBreaks = [
   {
     start: moment('12:40 PM', 'HH:mm A'),
     node: {
-      title: 'Lauch',
+      title: 'Launch',
       id: 'launch',
       icon: faUtensils,
     },
