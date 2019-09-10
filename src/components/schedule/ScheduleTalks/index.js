@@ -69,13 +69,14 @@ const ScheduleTalks = () => {
 
         const talksDict = talks.reduce((acc, talk, index) => {
           // const date = talk.node.start;
-          const date = index % 3 ? moment().add(1, 'd') : moment();
+
+          const date = moment().add(index % 2, 'd');
           const time =
             index % 2
               ? moment().subtract(index / 2, 'h')
               : moment().add(index / 2, 'h');
           const day = date.format('DD MMM');
-          const room = index % 2 ? 'Room 1' : 'Room 2';
+          const room = 'Room ' + (index % 3);
 
           if (!acc[day]) {
             acc[day] = {};
