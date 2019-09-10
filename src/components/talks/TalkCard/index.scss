@@ -1,0 +1,72 @@
+@import '../../../scss/base';
+.talk-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    flex: 0 1 30%;
+    margin: 1.5%;
+    padding: 2em;
+
+    -webkit-box-shadow: 3px 3px 36px 1px rgba(224, 224, 224, 1);
+    -moz-box-shadow: 3px 3px 36px 1px rgba(224, 224, 224, 1);
+    box-shadow: 3px 3px 36px 1px rgba(224, 224, 224, 1);
+
+    @media (max-width: 768px) {
+        flex: 0 1 100%;
+        margin: 1em 0.5em;
+    }
+    h4 {
+        text-transform: uppercase;
+        a {
+            color: #000;
+        }
+    }
+    .info {
+        font-size: 0.75em;
+        margin-bottom: 1em;
+        display: flex;
+        flex-wrap: wrap;
+
+        .col {
+            flex: 1 1 50%;
+        }
+        svg {
+            color: $primary;
+        }
+    }
+    .description {
+        font-size: 0.85em;
+    }
+    .speaker {
+        display: flex;
+        align-items: center;
+        font-size: 0.7em;
+        padding-top: 1em;
+        .speaker-details {
+            flex: 1;
+            padding: 0.5em 1em;
+            a {
+                color: #000;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -12px;
+
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+
+        border-bottom: 15px solid $cta-yellow;
+        transform: rotate(-45deg);
+    }
+}

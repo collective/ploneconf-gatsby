@@ -1,145 +1,132 @@
-import React from 'react';
-import { graphql, StaticQuery, Link } from 'gatsby';
-import Slider from 'react-slick';
-import PersonImage from '../../people/PersonImage';
+import React, { Component } from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './index.scss';
+import TalksSlider from '../TalksSlider';
+import TalkCard from '../TalkCard';
 
-const TalksList = () => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          allPloneTalk {
-            edges {
-              node {
-                ...TalkFragment
+class TalksList extends Component {
+  state = {
+    showAllTalk: false,
+  };
+
+  toggleShowAllTalk = () => {
+    if (this.state.showAllTalk) {
+      this.setState({
+        showAllTalk: false,
+      });
+    } else {
+      this.setState({
+        showAllTalk: true,
+      });
+    }
+  };
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            allPloneTalk {
+              edges {
+                node {
+                  ...TalkFragment
+                }
+              }
+            }
+            allPlonePerson {
+              edges {
+                node {
+                  ...Person
+                }
               }
             }
           }
-          allPlonePerson {
-            edges {
-              node {
-                ...Person
-              }
-            }
-          }
-        }
-      `}
-      render={({ allPloneTalk, allPlonePerson }) => {
-        const talks =
-          allPloneTalk.edges && allPloneTalk.edges.length
-            ? allPloneTalk.edges.filter(({ node }) => node.is_keynote !== true)
-            : [];
-        const people =
-          allPlonePerson.edges && allPlonePerson.edges.length
-            ? allPlonePerson.edges
-            : [];
+        `}
+        render={({ allPloneTalk, allPlonePerson }) => {
+          const talks =
+            allPloneTalk.edges && allPloneTalk.edges.length
+              ? allPloneTalk.edges.filter(
+                  ({ node }) => node.is_keynote !== true,
+                )
+              : [];
+          const people =
+            allPlonePerson.edges && allPlonePerson.edges.length
+              ? allPlonePerson.edges
+              : [];
 
-        const getSpeaker = function(id) {
-          var ret = null;
-          people.forEach(_person => {
-            let person = _person.node;
-            if (person.id == id) {
-              ret = person;
+          if (talks.length === 0) {
+            return '';
+          }
+
+          //gets speaker obj
+          const getSpeaker = function(id) {
+            var ret = null;
+            people.forEach(_person => {
+              let person = _person.node;
+              if (person.id == id) {
+                ret = person;
+              }
+            });
+            return ret;
+          };
+
+          //setting speakers in talks
+          talks.forEach(node => {
+            let talk = node.node;
+
+            if (talk.related_people) {
+              talk.speakers = [];
+              talk.related_people.forEach(p => {
+                let person = getSpeaker(p._id);
+                talk.speakers.push(person);
+              });
             }
           });
-          return ret;
-        };
 
-        if (talks.length === 0) {
-          return '';
-        }
+          //get main talks to display in slider
+          const sliderTalks = [];
+          sliderTalks.push(talks[0]);
+          sliderTalks.push(talks[1]);
+          sliderTalks.push(talks[2]);
+          sliderTalks.push(talks[3]);
 
-        talks.forEach(node => {
-          let talk = node.node;
-          let speaker = null;
-          if (talk.related_people) {
-            speaker = getSpeaker(talk.related_people[0]._id);
-          }
-          talk.speaker = speaker;
-        });
+          /****** init slider ******/
 
-        /****** init slider ******/
-        var sliderSettings = {
-          dots: true,
-          infinite: true,
-          speed: 300,
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          autoplay: false,
-          variableWidth: true,
-          adaptiveHeight: true,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-              },
-            },
-            {
-              breakpoint: 520,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-              },
-            },
-          ],
-        };
-        //   console.log('talks', talks);
-        return (
-          <div className="talks-list">
-            <div className="black-block" />
-            <div className="blue-block" />
-            <div className="container">
-              <h3>Talks</h3>
-              {/* <div className="subtitle" /> */}
-              <div className="talks-container">
-                <Slider {...sliderSettings}>
-                  {talks.map(talk => (
-                    <div className="talk" key={talk.node.id}>
-                      <div className="col speaker">
-                        <PersonImage
-                          person={talk.node.speaker}
-                          size="small"
-                          viewDefaultImage={true}
-                        />
-                      </div>
-                      <div className="col talk-data">
-                        <div className="data">
-                          <div className="speakers">
-                            {talk.node.related_people.map(function(rp) {
-                              var p = getSpeaker(rp._id);
-                              if (p) {
-                                return (
-                                  <Link to={p._path} title="details" key={p.id}>
-                                    {p.title}
-                                  </Link>
-                                );
-                              }
-                            })}
-                          </div>
-                          <h4>
-                            <Link to={talk.node._path} title="details">
-                              {talk.node.title}
-                            </Link>
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slider>
+          return (
+            <React.Fragment>
+              <TalksSlider talks={sliderTalks} />
+              <div className="container">
+                <div className="text-center view-all">
+                  <button
+                    onClick={this.toggleShowAllTalk}
+                    className="btn btn-primary"
+                  >
+                    {this.state.showAllTalk
+                      ? 'Hide talk list'
+                      : 'View all talks'}
+                  </button>
+                </div>
+
+                {this.state.showAllTalk && (
+                  <div className="talk-cards">
+                    {talks.map(talk => (
+                      <TalkCard
+                        talk={talk.node}
+                        key={talk.node.id + '_talkcard'}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
-        );
-      }}
-    />
-  );
-};
+            </React.Fragment>
+          );
+        }}
+      />
+    );
+  }
+}
 
 TalksList.propTypes = {};
 

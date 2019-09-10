@@ -5,4 +5,7 @@
     &.small {
         @include roundedImage(100px);
     }
+    &.mini {
+        @include roundedImage(70px);
+    }
 }
