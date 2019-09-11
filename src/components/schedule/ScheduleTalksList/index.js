@@ -66,15 +66,15 @@ const customDayEvents = (day, room) => {
           },
         },
         {
-          start: moment('04:30 PM', 'HH:mm A'),
+          start: moment('04:00 PM', 'HH:mm A'),
           node: {
-            title: 'Panel: Frameworks',
+            title: 'Panel: Frameworks battle',
             id: 'panel-frameworks',
             icon: faChalkboardTeacher,
           },
         },
         {
-          start: moment('05:30 PM', 'HH:mm A'),
+          start: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -87,7 +87,7 @@ const customDayEvents = (day, room) => {
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('04:30 PM', 'HH:mm A'),
+          start: moment('04:00 PM', 'HH:mm A'),
           node: {
             title: 'Panel: Ask Me Anything on Volto',
             id: 'panel-ama-volto',
@@ -95,7 +95,7 @@ const customDayEvents = (day, room) => {
           },
         },
         {
-          start: moment('05:30 PM', 'HH:mm A'),
+          start: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -108,7 +108,7 @@ const customDayEvents = (day, room) => {
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('04:30 PM', 'HH:mm A'),
+          start: moment('04:00 PM', 'HH:mm A'),
           node: {
             title: 'Panel: Future of Plone',
             id: 'panel-future-plone',
@@ -116,7 +116,7 @@ const customDayEvents = (day, room) => {
           },
         },
         {
-          start: moment('05:30 PM', 'HH:mm A'),
+          start: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
