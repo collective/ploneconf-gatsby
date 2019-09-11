@@ -148,8 +148,8 @@ export const query = graphql`
     is_keynote
     _type
     level
-    #room
-    #start
-    #end
+    room
+    start
+    end
   }
 `;

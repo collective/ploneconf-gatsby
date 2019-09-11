@@ -67,16 +67,14 @@ const ScheduleTalks = () => {
           }
         });
 
-        const talksDict = talks.reduce((acc, talk, index) => {
+        const talksDict = talks.reduce((acc, talk) => {
           // const date = talk.node.start;
+          //console.log(talk);
 
-          const date = moment().add(index % 2, 'd');
-          const time =
-            index % 2
-              ? moment().subtract(index / 2, 'h')
-              : moment().add(index / 2, 'h');
+          const date = moment(talk.node.start);
+          const time = moment(talk.node.start);
           const day = date.format('DD MMM');
-          const room = 'Room ' + (index % 3);
+          const room = talk.node.room ? talk.node.room : 'da definire';
 
           if (!acc[day]) {
             acc[day] = {};
@@ -85,8 +83,9 @@ const ScheduleTalks = () => {
           if (!acc[day][room]) {
             acc[day][room] = [];
           }
-          const duration = talk.node.duration === 'Long talk' ? 40 : 20;
-          const end = moment(time.toDate()).add(duration, 'm');
+          /*const duration = talk.node.duration === 'Long talk' ? 40 : 20;
+          const end = moment(time.toDate()).add(duration, 'm');*/
+          const end = moment(talk.node.end);
 
           acc[day][room].push({
             start: time,
@@ -108,37 +107,41 @@ const ScheduleTalks = () => {
               <div className="talks-container">
                 <Tabs forceRenderTabPanel>
                   <TabList>
-                    {Object.keys(talksDict).map((day, index) => (
-                      <Tab key={day}>
-                        <p className="day-index">Day {index + 1}</p>
-                        <p className="day-date">{day}</p>
-                      </Tab>
-                    ))}
+                    {Object.keys(talksDict)
+                      .sort()
+                      .map((day, index) => (
+                        <Tab key={day}>
+                          <p className="day-index">Day {index + 1}</p>
+                          <p className="day-date">{day}</p>
+                        </Tab>
+                      ))}
                   </TabList>
-                  {Object.keys(talksDict).map((day, dayIndex) => (
-                    <TabPanel key={day}>
-                      <Tabs forceRenderTabPanel>
-                        <TabList>
+                  {Object.keys(talksDict)
+                    .sort()
+                    .map((day, dayIndex) => (
+                      <TabPanel key={day}>
+                        <Tabs forceRenderTabPanel>
+                          <TabList>
+                            {Object.keys(talksDict[day])
+                              .sort()
+                              .map(room => (
+                                <Tab key={day + room}>{room}</Tab>
+                              ))}
+                          </TabList>
                           {Object.keys(talksDict[day])
                             .sort()
-                            .map(room => (
-                              <Tab key={day + room}>{room}</Tab>
+                            .map((room, roomIndex) => (
+                              <TabPanel key={day + room}>
+                                <ScheduleTalksList
+                                  talks={talksDict[day][room]}
+                                  roomIndex={roomIndex}
+                                  dayNumber={dayIndex + 1}
+                                />
+                              </TabPanel>
                             ))}
-                        </TabList>
-                        {Object.keys(talksDict[day])
-                          .sort()
-                          .map((room, roomIndex) => (
-                            <TabPanel key={day + room}>
-                              <ScheduleTalksList
-                                talks={talksDict[day][room]}
-                                roomIndex={roomIndex}
-                                dayNumber={dayIndex + 1}
-                              />
-                            </TabPanel>
-                          ))}
-                      </Tabs>
-                    </TabPanel>
-                  ))}
+                        </Tabs>
+                      </TabPanel>
+                    ))}
                 </Tabs>
               </div>
             </div>

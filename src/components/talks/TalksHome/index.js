@@ -31,7 +31,7 @@ const TalksHome = ({ data }) => {
                 Go to Schedule
               </Link>
             </div>
-            <GetTicketCastle text="Interested in this <strong>talks</strong>?" />
+            <GetTicketCastle text="Interested in these <strong>talks</strong>?" />
           </div>
         </div>
       </article>

@@ -31,7 +31,7 @@ class ScheduleContainer extends React.Component {
         </div>
         <ScheduleTalks />
         <div className="container">
-          <GetTicketCastle text="Interested in this <strong>talks</strong>?" />
+          <GetTicketCastle text="Interested in these <strong>talks</strong>?" />
         </div>
       </div>
     );

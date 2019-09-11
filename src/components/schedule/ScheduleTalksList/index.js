@@ -14,7 +14,7 @@ import './index.scss';
 
 const defaultScheduleBreaks = [
   {
-    start: moment('10:25 AM', 'HH:mm A'),
+    start: moment('10:40 AM', 'HH:mm A'),
     node: {
       title: 'Breakfast',
       id: 'breakfast',
@@ -22,7 +22,7 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('12:40 PM', 'HH:mm A'),
+    start: moment('12:50 PM', 'HH:mm A'),
     node: {
       title: 'Launch',
       id: 'launch',
@@ -30,7 +30,7 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('04:00 PM', 'HH:mm A'),
+    start: moment('03:40 PM', 'HH:mm A'),
     node: {
       title: 'Break',
       id: 'break',
@@ -135,7 +135,9 @@ const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
   let orderedTalks = talks
     .concat(customDayEvents(dayNumber, roomIndex))
     .sort((a, b) => {
-      return a.start > b.start ? 1 : -1;
+      let _a = a.start.minute() + a.start.hours() * 60;
+      let _b = b.start.minute() + b.start.hours() * 60;
+      return _a > _b ? 1 : -1;
     });
 
   return (
