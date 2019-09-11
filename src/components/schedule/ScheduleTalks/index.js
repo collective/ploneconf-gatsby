@@ -3,7 +3,8 @@ import { graphql, StaticQuery } from 'gatsby';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import moment from 'moment';
 import ScheduleTalksList from '../ScheduleTalksList';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import 'react-tabs/style/react-tabs.css';
 import './index.scss';
 
@@ -102,7 +103,21 @@ const ScheduleTalks = () => {
             <div className="container">
               <h3>Talks</h3>
               <div className="subtitle">
-                Lorem ipsum <span>dolor</span> sit amet.
+                All talks will be hosted in <span>Apollo Cinepark</span> rooms,
+                in the city center of Ferrara.
+                <div className="address">
+                  <a
+                    href="https://goo.gl/maps/nL3fnxrndAAukAew5"
+                    target="_blank"
+                  >
+                    <FontAwesomeIcon icon={faMapMarkerAlt} size="3x" />
+                    <br />
+                    <strong>Apollo Cinepark </strong>
+                    <br />
+                    Via Carbone 35 <br />
+                    44124 - Ferrara
+                  </a>
+                </div>
               </div>
               <div className="talks-container">
                 <Tabs forceRenderTabPanel>
