@@ -15,6 +15,7 @@ import './index.scss';
 const defaultScheduleBreaks = [
   {
     start: moment('10:40 AM', 'HH:mm A'),
+    end: moment('11:00 AM', 'HH:mm A'),
     node: {
       title: 'Breakfast',
       id: 'breakfast',
@@ -23,6 +24,7 @@ const defaultScheduleBreaks = [
   },
   {
     start: moment('12:50 PM', 'HH:mm A'),
+    end: moment('14:00 PM', 'HH:mm A'),
     node: {
       title: 'Launch',
       id: 'launch',
@@ -31,6 +33,7 @@ const defaultScheduleBreaks = [
   },
   {
     start: moment('03:40 PM', 'HH:mm A'),
+    end: moment('04:00 PM', 'HH:mm A'),
     node: {
       title: 'Break',
       id: 'break',
@@ -51,6 +54,7 @@ const customDayEvents = (day, room) => {
         ...defaultScheduleBreaks,
         {
           start: moment('08:30 AM', 'HH:mm A'),
+          end: moment('09:30 AM', 'HH:mm A'),
           node: {
             title: 'Registration',
             id: 'registration',
@@ -59,6 +63,7 @@ const customDayEvents = (day, room) => {
         },
         {
           start: moment('09:30 AM', 'HH:mm A'),
+          end: moment('09:50 AM', 'HH:mm A'),
           node: {
             title: 'Welcome',
             id: 'welcome',
@@ -67,6 +72,7 @@ const customDayEvents = (day, room) => {
         },
         {
           start: moment('04:00 PM', 'HH:mm A'),
+          end: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Panel: Frameworks battle',
             id: 'panel-frameworks',
@@ -75,6 +81,7 @@ const customDayEvents = (day, room) => {
         },
         {
           start: moment('05:00 PM', 'HH:mm A'),
+          end: moment('08:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -88,6 +95,7 @@ const customDayEvents = (day, room) => {
         ...defaultScheduleBreaks,
         {
           start: moment('04:00 PM', 'HH:mm A'),
+          end: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Panel: Ask Me Anything on Volto',
             id: 'panel-ama-volto',
@@ -96,6 +104,7 @@ const customDayEvents = (day, room) => {
         },
         {
           start: moment('05:00 PM', 'HH:mm A'),
+          end: moment('06:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -109,6 +118,7 @@ const customDayEvents = (day, room) => {
         ...defaultScheduleBreaks,
         {
           start: moment('04:00 PM', 'HH:mm A'),
+          end: moment('05:00 PM', 'HH:mm A'),
           node: {
             title: 'Panel: Future of Plone',
             id: 'panel-future-plone',
@@ -117,6 +127,7 @@ const customDayEvents = (day, room) => {
         },
         {
           start: moment('05:00 PM', 'HH:mm A'),
+          end: moment('06:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',

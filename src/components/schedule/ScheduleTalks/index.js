@@ -47,6 +47,9 @@ const ScheduleTalks = () => {
               ret = person;
             }
           });
+          if (ret == null) {
+            console.log('speaker with id ' + id + ' not found. Is it private?');
+          }
           return ret;
         };
 
