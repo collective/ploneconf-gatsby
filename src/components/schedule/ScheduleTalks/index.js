@@ -76,23 +76,16 @@ const ScheduleTalks = () => {
           //console.log(talk);
 
           const date = moment(talk.node.start);
-          const time = moment(talk.node.start);
+          const start = moment(talk.node.start);
+          const end = moment(talk.node.end);
           const day = date.format('DD MMM');
-          const room = talk.node.room ? talk.node.room : 'da definire';
 
           if (!acc[day]) {
-            acc[day] = {};
+            acc[day] = [];
           }
 
-          if (!acc[day][room]) {
-            acc[day][room] = [];
-          }
-          /*const duration = talk.node.duration === 'Long talk' ? 40 : 20;
-          const end = moment(time.toDate()).add(duration, 'm');*/
-          const end = moment(talk.node.end);
-
-          acc[day][room].push({
-            start: time,
+          acc[day].push({
+            start: start,
             end: end,
             node: talk.node,
           });
@@ -138,26 +131,11 @@ const ScheduleTalks = () => {
                     .sort()
                     .map((day, dayIndex) => (
                       <TabPanel key={day}>
-                        <Tabs forceRenderTabPanel>
-                          <TabList>
-                            {Object.keys(talksDict[day])
-                              .sort()
-                              .map(room => (
-                                <Tab key={day + room}>{room}</Tab>
-                              ))}
-                          </TabList>
-                          {Object.keys(talksDict[day])
-                            .sort()
-                            .map((room, roomIndex) => (
-                              <TabPanel key={day + room}>
-                                <ScheduleTalksList
-                                  talks={talksDict[day][room]}
-                                  roomIndex={roomIndex}
-                                  dayNumber={dayIndex + 1}
-                                />
-                              </TabPanel>
-                            ))}
-                        </Tabs>
+                        <ScheduleTalksList
+                          key={day + 'talklist'}
+                          talks={talksDict[day]}
+                          dayNumber={dayIndex + 1}
+                        />
                       </TabPanel>
                     ))}
                 </Tabs>

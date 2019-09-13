@@ -16,4 +16,26 @@
         height: 100%;
         z-index: -1;
     }
+
+    .row-rooms,
+    .room-names {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        .room {
+            padding: 1em;
+            border-right: 1px solid #e3e3e3;
+            flex: 0 1 33%;
+            &:last-of-type {
+                border-right: none;
+            }
+            &.all {
+                flex: 1 1 100%;
+            }
+        }
+    }
+    .room-names {
+        margin-left: 117px;
+    }
 }

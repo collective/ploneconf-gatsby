@@ -85,36 +85,32 @@
                 }
             }
 
-            .react-tabs {
-                ul.react-tabs__tab-list {
-                    $room-tabs-bg: #f1f1f1;
-                    background: $room-tabs-bg;
+            ul.react-tabs__tab-list {
+                border-bottom: 1px solid $tabs-border-color;
+                li.react-tabs__tab {
+                    padding: 0.75rem 3rem;
+                    @media (max-width: 450px) {
+                        padding: 0.75rem;
+                        font-size: 0.8em;
+                    }
+                    border: 0;
+                    background: none;
+                    margin-bottom: -1px;
+                    border-bottom: 3px solid transparent;
+                    transition: border-bottom 0.3s ease;
 
-                    li.react-tabs__tab {
-                        padding: 0.75rem 3rem;
-                        @media (max-width: 450px) {
-                            padding: 0.75rem;
-                            font-size: 0.8em;
-                        }
-                        border: 0;
-                        background: none;
-                        margin-bottom: 0;
-                        border-bottom: 3px solid transparent;
-                        transition: border-bottom 0.3s ease;
-
-                        &.react-tabs__tab--selected {
-                            border-bottom-color: $cta-yellow;
-                        }
+                    &.react-tabs__tab--selected {
+                        border-bottom-color: $cta-yellow;
                     }
                 }
+            }
 
-                .react-tabs__tab-panel {
-                    border: 1px solid $tabs-border-color;
-                    border-top: 0;
-                    padding: 0 2.5rem;
-                    @media (max-width: 600px) {
-                        padding: 0 0.8rem;
-                    }
+            .react-tabs__tab-panel {
+                border: 1px solid $tabs-border-color;
+                border-top: 0;
+                padding: 0 2.5rem;
+                @media (max-width: 600px) {
+                    padding: 0 0.8rem;
                 }
             }
         }

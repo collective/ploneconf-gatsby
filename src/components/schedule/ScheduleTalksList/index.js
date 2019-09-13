@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ScheduleTalk from '../ScheduleTalk';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUtensils,
   faCoffee,
@@ -20,6 +21,7 @@ const defaultScheduleBreaks = [
       title: 'Breakfast',
       id: 'breakfast',
       icon: faCoffee,
+      room: 'all',
     },
   },
   {
@@ -29,6 +31,7 @@ const defaultScheduleBreaks = [
       title: 'Launch',
       id: 'launch',
       icon: faUtensils,
+      room: 'all',
     },
   },
   {
@@ -38,15 +41,12 @@ const defaultScheduleBreaks = [
       title: 'Break',
       id: 'break',
       icon: faCoffee,
+      room: 'all',
     },
   },
 ];
 
-const customDayEvents = (day, room) => {
-  if (room != 0) {
-    return defaultScheduleBreaks;
-  }
-
+const customDayEvents = day => {
   /* eslint-disable indent */
   switch (day) {
     case 1:
@@ -59,6 +59,7 @@ const customDayEvents = (day, room) => {
             title: 'Registration',
             id: 'registration',
             icon: faClipboardList,
+            room: 'all',
           },
         },
         {
@@ -68,6 +69,7 @@ const customDayEvents = (day, room) => {
             title: 'Welcome',
             id: 'welcome',
             icon: faMicrophoneAlt,
+            room: 'all',
           },
         },
         {
@@ -77,6 +79,7 @@ const customDayEvents = (day, room) => {
             title: 'Panel: Frameworks battle',
             id: 'panel-frameworks',
             icon: faChalkboardTeacher,
+            room: 'Apollo 1',
           },
         },
         {
@@ -86,6 +89,7 @@ const customDayEvents = (day, room) => {
             title: 'Lightning Talks',
             id: 'lt',
             icon: faMicrophoneAlt,
+            room: 'Apollo 1',
           },
         },
       ];
@@ -100,6 +104,7 @@ const customDayEvents = (day, room) => {
             title: 'Panel: Ask Me Anything on Volto',
             id: 'panel-ama-volto',
             icon: faChalkboardTeacher,
+            room: 'Apollo 1',
           },
         },
         {
@@ -109,6 +114,7 @@ const customDayEvents = (day, room) => {
             title: 'Lightning Talks',
             id: 'lt',
             icon: faMicrophoneAlt,
+            room: 'Apollo 1',
           },
         },
       ];
@@ -123,6 +129,7 @@ const customDayEvents = (day, room) => {
             title: 'Panel: Future of Plone',
             id: 'panel-future-plone',
             icon: faChalkboardTeacher,
+            room: 'Apollo 1',
           },
         },
         {
@@ -132,6 +139,7 @@ const customDayEvents = (day, room) => {
             title: 'Lightning Talks',
             id: 'lt',
             icon: faMicrophoneAlt,
+            room: 'Apollo 1',
           },
         },
       ];
@@ -142,24 +150,86 @@ const customDayEvents = (day, room) => {
   /* eslint-enable indent */
 };
 
-const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
-  let orderedTalks = talks
-    .concat(customDayEvents(dayNumber, roomIndex))
-    .sort((a, b) => {
-      let _a = a.start.minute() + a.start.hours() * 60;
-      let _b = b.start.minute() + b.start.hours() * 60;
-      return _a > _b ? 1 : -1;
-    });
+const ScheduleTalksList = ({ talks, dayNumber }) => {
+  let orderedTalks = talks.concat(customDayEvents(dayNumber)).sort((a, b) => {
+    let _a = a.start.minute() + a.start.hours() * 60;
+    let _b = b.start.minute() + b.start.hours() * 60;
+    return _a > _b ? 1 : -1;
+  });
+  console.log('talks', orderedTalks);
+
+  var rooms = orderedTalks.reduce((acc, talk) => {
+    let room = talk.node.room;
+
+    if (!acc[room]) {
+      acc[talk.node.room] = [];
+    }
+    return acc;
+  }, {});
+
+  //Object.keys(rooms).sort(); //ritorna un array dei nomi delle room in ordine alfabetico
+
+  //console.log('rooms', rooms);
+
+  //rows = []; //{icon,rooms[talks], start};
+  let rows = orderedTalks.reduce((acc, talk) => {
+    let start = talk.start.format('HH:mm');
+
+    if (!acc[start]) {
+      acc[start] = {
+        icon: talk.node.icon ? talk.node.icon : faMicrophoneAlt,
+        rooms: {},
+      };
+    }
+    if (!acc[start].rooms[talk.node.room]) {
+      acc[start].rooms[talk.node.room] = [];
+    }
+
+    acc[start].rooms[talk.node.room].push(talk);
+    return acc;
+  }, {});
+  console.log('rows', rows);
 
   return (
     <div className="schedule-talk-list">
-      {orderedTalks.map(talk => (
-        <ScheduleTalk
-          start={talk.start}
-          end={talk.end}
-          talk={talk.node}
-          key={talk.node.id + dayNumber + roomIndex}
-        />
+      <div className="schedule-talk" key="rows">
+        <div className="room-names">
+          {Object.keys(rooms)
+            .sort()
+            .map(room => (
+              <div className="room">{room}</div>
+            ))}
+        </div>
+      </div>
+      {Object.keys(rows).map(row => (
+        <div className="schedule-talk break" key={row + 'row'}>
+          <div className="image-wrapper">
+            <div className="thumb user-image">
+              <FontAwesomeIcon icon={rows[row].icon} />
+            </div>
+          </div>
+          <div />
+          <div className="row-rooms">
+            {Object.keys(rows[row].rooms).map(room => (
+              <div className={room + ' room'}>
+                {rows[row].rooms[room].map(talk => (
+                  <ScheduleTalk
+                    start={talk.start}
+                    end={talk.end}
+                    talk={talk.node}
+                    key={talk.node.id + dayNumber}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+          {/*<ScheduleTalk
+            start={talk.start}
+            end={talk.end}
+            talk={talk.node}
+            key={talk.node.id + dayNumber}
+          />*/}
+        </div>
       ))}
     </div>
   );
@@ -167,7 +237,6 @@ const ScheduleTalksList = ({ talks, roomIndex, dayNumber }) => {
 
 ScheduleTalksList.propTypes = {
   talks: PropTypes.array,
-  roomIndex: PropTypes.number,
   dayNumber: PropTypes.number,
 };
 

@@ -66,6 +66,17 @@
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba($cta-yellow, 1);
+            .label {
+                margin: 0 1em;
+                padding: 0.1rem 0.5rem;
+                background-color: #000;
+                color: #fff;
+                font-size: 0.8rem;
+                vertical-align: middle;
+                @media (max-width: 600px) {
+                    font-size: 0.6rem;
+                }
+            }
         }
 
         p.description {

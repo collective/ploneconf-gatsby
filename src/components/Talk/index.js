@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import { string, shape, arrayOf, array, object } from 'prop-types';
 import DefaultBlock from '../common/DefaultBlock';
 import LabelRow from '../LabelRow';
-// import DetailsDate from '../common/DetailsDate';
+import DetailsDate from '../common/DetailsDate';
 import RichText from '../RichText';
 import BirdSVG from '../svg/BirdSVG';
 import CTATickets from '../CTATickets';
@@ -19,10 +19,11 @@ const Talk = ({ data, people, images = [], files = [] }) => {
     level,
     text,
     description,
-    // room,
-    // start,
-    // end,
+    room,
+    start,
+    end,
     related_people,
+    is_keynote,
   } = data;
 
   let labels = [
@@ -31,6 +32,11 @@ const Talk = ({ data, people, images = [], files = [] }) => {
       color: 'purple',
     },
   ];
+  if (is_keynote) {
+    labels.push({
+      text: 'Keynote',
+    });
+  }
   let relator;
   if (related_people && related_people.length > 0) {
     people.edges.forEach(node => {
@@ -78,7 +84,7 @@ const Talk = ({ data, people, images = [], files = [] }) => {
               {abstract}
             </div>
             <div className="column right-block">
-              {/*<DetailsDate start={start} end={end} />*/}
+              <DetailsDate start={start} end={end} />
               <DefaultBlock
                 strValue={duration_minutes}
                 label="Length"
@@ -94,11 +100,11 @@ const Talk = ({ data, people, images = [], files = [] }) => {
                 label="Target Level"
                 cssClass="level blocco"
               />
-              {/*<DefaultBlock
+              <DefaultBlock
                 strValue={room}
                 label="Room"
                 cssClass="room blocco"
-              />*/}
+              />
             </div>
           </div>
           <div className="bird-sep">
@@ -136,6 +142,7 @@ export const query = graphql`
     _path
     title
     description
+    topic
     text {
       react
     }
