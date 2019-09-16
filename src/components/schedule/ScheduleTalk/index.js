@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'gatsby';
-import PersonImage from '../../people/PersonImage';
 
 import './index.scss';
 
 const ScheduleTalk = ({ start, end, talk }) => (
-  <div className="talk-data">
+  <div className="talk">
+    {talk.room != 'all' && (
+      <p className="talk-room">
+        <FontAwesomeIcon icon={faMapMarkerAlt} />
+        {talk.room}
+      </p>
+    )}
     <p className="talk-timeslot">
       <FontAwesomeIcon icon={faClock} />
       <span>
         {start.format('HH:mm A')} {end && ' - ' + end.format('HH:mm A')}
       </span>
     </p>
-    <div className="data">
+    <div className="talk-data">
       {!talk._path && <h4>{talk.title}</h4>}
       {talk._path && (
         <h4 className="talk-title">
@@ -26,7 +32,7 @@ const ScheduleTalk = ({ start, end, talk }) => (
         </h4>
       )}
       {talk.speakers && (
-        <div className="speakers">
+        <div className="talk-speakers">
           {talk.is_keynote && 'Keynote by '}
           {talk.speakers.map(speaker => (
             <Link to={speaker._path} title="details" key={speaker.id}>
@@ -35,8 +41,7 @@ const ScheduleTalk = ({ start, end, talk }) => (
           ))}
         </div>
       )}
-      <p className="description">
-        {talk.room}
+      <div className="talk-descr">
         {talk.topic && (
           <div>
             <strong>Topic: </strong> {talk.topic.join(', ')}
@@ -52,9 +57,8 @@ const ScheduleTalk = ({ start, end, talk }) => (
             <strong>Audience: </strong> {talk.audience.join(', ')}
           </div>
         )}
-
         {/*{talk.description}*/}
-      </p>
+      </div>
     </div>
   </div>
 );

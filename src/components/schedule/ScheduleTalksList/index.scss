@@ -16,22 +16,36 @@
         height: 100%;
         z-index: -1;
     }
-
-    .row-rooms,
+    .row-time {
+        font-size: 0.75rem;
+        background-color: #fff;
+        color: $primary;
+    }
+    .rooms,
     .room-names {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+
         .room {
             padding: 1em;
             border-right: 1px solid #e3e3e3;
             flex: 0 1 33%;
-            &:last-of-type {
+            &:nth-of-type(3) {
                 border-right: none;
             }
             &.all {
                 flex: 1 1 100%;
+                border: none;
+            }
+            @media (max-width: 768px) {
+                flex: 1 1 100%;
+                border: none;
+                border-bottom: 10px solid #f3f3f3;
+                &:last-of-type {
+                    border: none;
+                }
             }
         }
     }

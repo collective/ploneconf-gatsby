@@ -1,12 +1,21 @@
 @import '../../../scss/variables';
 
-.schedule-talk {
+.schedule-row {
     display: flex;
     margin-bottom: 3rem;
 
     .image-wrapper {
         flex-shrink: 0;
         margin-right: 3rem;
+        .user-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                font-size: 1.5rem;
+            }
+        }
         @media (max-width: 450px) {
             margin-right: 0.7rem;
             .user-image.thumb {
@@ -14,10 +23,16 @@
                 max-height: 50px;
                 min-width: 50px;
                 min-height: 50px;
+                margin-bottom: 0;
                 img {
                     width: 50px !important;
                     height: 50px !important;
                 }
+            }
+        }
+        @media (max-width: 768px) {
+            .user-image.thumb {
+                margin-bottom: 0;
             }
         }
 
@@ -26,32 +41,11 @@
         }
     }
 
-    &:not(.break) {
-        .image-wrapper {
-            .user-image {
-                margin-top: calc(3rem - 35px);
-            }
-        }
-    }
-
-    &.break {
-        .image-wrapper {
-            .user-image {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                svg {
-                    font-size: 1.5rem;
-                }
-            }
-        }
-    }
-
-    .talk-data {
+    .talk {
         text-align: left;
 
-        .talk-timeslot {
+        .talk-timeslot,
+        .talk-room {
             color: #666;
             margin: 0;
             font-size: 0.9rem;
@@ -60,6 +54,11 @@
             svg {
                 margin-right: 0.5rem;
             }
+        }
+        .talk-room {
+            font-size: 0.75rem;
+            font-weight: 100;
+            text-transform: uppercase;
         }
 
         h4 {
@@ -79,14 +78,48 @@
             }
         }
 
-        p.description {
+        .talk-speakers {
+            font-size: 0.9rem;
+            margin-bottom: 1em;
+        }
+        .talk-descr {
             font-size: 0.95rem;
             color: $dark-color;
         }
+    }
+    .rooms {
+        .room.all {
+            position: relative;
 
-        .speakers {
-            font-size: 0.9rem;
-            margin-bottom: 1em;
+            padding: 0;
+            &:before {
+                content: '';
+                background-color: $cta-yellow;
+                width: 100%;
+                height: 80%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotate(-2deg);
+                @media (max-width: 768px) {
+                    transform: rotate(-4deg);
+                    height: 100%;
+                }
+            }
+            .talk {
+                position: relative;
+                background-color: $primary;
+                padding: 0.5em 1em;
+                color: #fff;
+                h4 {
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .talk-timeslot {
+                    color: #fff;
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ScheduleTalk from '../ScheduleTalk';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
   faUtensils,
   faCoffee,
@@ -98,6 +99,26 @@ const customDayEvents = day => {
       return [
         ...defaultScheduleBreaks,
         {
+          start: moment('08:30 AM', 'HH:mm A'),
+          end: moment('09:15 AM', 'HH:mm A'),
+          node: {
+            title: 'Registration',
+            id: 'registration',
+            icon: faClipboardList,
+            room: 'all',
+          },
+        },
+        {
+          start: moment('09:15 AM', 'HH:mm A'),
+          end: moment('09:30 AM', 'HH:mm A'),
+          node: {
+            title: 'Welcome',
+            id: 'welcome',
+            icon: faMicrophoneAlt,
+            room: 'all',
+          },
+        },
+        {
           start: moment('04:00 PM', 'HH:mm A'),
           end: moment('05:00 PM', 'HH:mm A'),
           node: {
@@ -123,6 +144,26 @@ const customDayEvents = day => {
       return [
         ...defaultScheduleBreaks,
         {
+          start: moment('08:30 AM', 'HH:mm A'),
+          end: moment('09:15 AM', 'HH:mm A'),
+          node: {
+            title: 'Registration',
+            id: 'registration',
+            icon: faClipboardList,
+            room: 'all',
+          },
+        },
+        {
+          start: moment('09:15 AM', 'HH:mm A'),
+          end: moment('09:30 AM', 'HH:mm A'),
+          node: {
+            title: 'Welcome',
+            id: 'welcome',
+            icon: faMicrophoneAlt,
+            room: 'all',
+          },
+        },
+        {
           start: moment('04:00 PM', 'HH:mm A'),
           end: moment('05:00 PM', 'HH:mm A'),
           node: {
@@ -142,6 +183,16 @@ const customDayEvents = day => {
             room: 'Apollo 1',
           },
         },
+        {
+          start: moment('06:00 PM', 'HH:mm A'),
+          end: moment('06:15 PM', 'HH:mm A'),
+          node: {
+            title: 'Greetings and announcement of the Plone Conference 2021.',
+            id: 'gr',
+            icon: faMicrophoneAlt,
+            room: 'all',
+          },
+        },
       ];
 
     default:
@@ -156,7 +207,7 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
     let _b = b.start.minute() + b.start.hours() * 60;
     return _a > _b ? 1 : -1;
   });
-  console.log('talks', orderedTalks);
+  // console.log('talks', orderedTalks);
 
   var rooms = orderedTalks.reduce((acc, talk) => {
     let room = talk.node.room;
@@ -171,7 +222,6 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
 
   //console.log('rooms', rooms);
 
-  //rows = []; //{icon,rooms[talks], start};
   let rows = orderedTalks.reduce((acc, talk) => {
     let start = talk.start.format('HH:mm');
 
@@ -188,40 +238,48 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
     acc[start].rooms[talk.node.room].push(talk);
     return acc;
   }, {});
-  console.log('rows', rows);
+  // console.log('rows', rows);
 
   return (
     <div className="schedule-talk-list">
-      <div className="schedule-talk" key="rows">
+      {/*<div className="schedule-row row-room-names" key="rows">
         <div className="room-names">
           {Object.keys(rooms)
             .sort()
-            .map(room => (
-              <div className="room">{room}</div>
-            ))}
+            .map(
+              room =>
+                room != 'all' && (
+                  <div className="room" key={room + 'cols'}>
+                    {room}
+                  </div>
+                ),
+            )}
         </div>
-      </div>
+                </div>*/}
       {Object.keys(rows).map(row => (
-        <div className="schedule-talk break" key={row + 'row'}>
+        <div className="schedule-row" key={row + 'row'}>
           <div className="image-wrapper">
             <div className="thumb user-image">
               <FontAwesomeIcon icon={rows[row].icon} />
             </div>
+            <span className="row-time">{row}</span>
           </div>
-          <div />
-          <div className="row-rooms">
-            {Object.keys(rows[row].rooms).map(room => (
-              <div className={room + ' room'}>
-                {rows[row].rooms[room].map(talk => (
-                  <ScheduleTalk
-                    start={talk.start}
-                    end={talk.end}
-                    talk={talk.node}
-                    key={talk.node.id + dayNumber}
-                  />
-                ))}
-              </div>
-            ))}
+
+          <div className="rooms">
+            {Object.keys(rows[row].rooms)
+              .sort()
+              .map(room => (
+                <div className={'room ' + room} key={row + 'row' + room}>
+                  {rows[row].rooms[room].map(talk => (
+                    <ScheduleTalk
+                      start={talk.start}
+                      end={talk.end}
+                      talk={talk.node}
+                      key={talk.node.id + dayNumber}
+                    />
+                  ))}
+                </div>
+              ))}
           </div>
           {/*<ScheduleTalk
             start={talk.start}
