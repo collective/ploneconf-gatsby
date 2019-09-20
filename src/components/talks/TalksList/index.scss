@@ -100,20 +100,6 @@
                 flex: 1 1 auto;
                 height: 100%;
 
-                &.speaker,
-                &.talk-data {
-                    .user-image,
-                    .data {
-                        position: relative;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        @media (max-width: 520px) {
-                            position: unset;
-                            top: unset;
-                            transform: unset;
-                        }
-                    }
-                }
                 &.speaker {
                     padding: 20px;
                     @media (max-width: 520px) {

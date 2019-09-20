@@ -29,8 +29,8 @@ const defaultScheduleBreaks = [
     start: moment('12:50 PM', 'HH:mm A'),
     end: moment('14:00 PM', 'HH:mm A'),
     node: {
-      title: 'Launch',
-      id: 'launch',
+      title: 'Lunch',
+      id: 'lunch',
       icon: faUtensils,
       room: 'all',
     },
@@ -85,7 +85,7 @@ const customDayEvents = day => {
         },
         {
           start: moment('05:00 PM', 'HH:mm A'),
-          end: moment('08:00 PM', 'HH:mm A'),
+          end: moment('06:00 PM', 'HH:mm A'),
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -185,9 +185,9 @@ const customDayEvents = day => {
         },
         {
           start: moment('06:00 PM', 'HH:mm A'),
-          end: moment('06:15 PM', 'HH:mm A'),
+          end: moment('06:30 PM', 'HH:mm A'),
           node: {
-            title: 'Greetings and announcement of the Plone Conference 2021.',
+            title: 'Greetings and announcement of the Plone Conference 2020',
             id: 'gr',
             icon: faMicrophoneAlt,
             room: 'all',

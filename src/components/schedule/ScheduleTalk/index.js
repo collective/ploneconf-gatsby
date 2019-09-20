@@ -18,7 +18,7 @@ const ScheduleTalk = ({ start, end, talk }) => (
     <p className="talk-timeslot">
       <FontAwesomeIcon icon={faClock} />
       <span>
-        {start.format('HH:mm A')} {end && ' - ' + end.format('HH:mm A')}
+        {start.format('HH:mm')} {end && ' - ' + end.format('HH:mm')}
       </span>
     </p>
     <div className="talk-data">
@@ -34,10 +34,13 @@ const ScheduleTalk = ({ start, end, talk }) => (
       {talk.speakers && (
         <div className="talk-speakers">
           {talk.is_keynote && 'Keynote by '}
-          {talk.speakers.map(speaker => (
-            <Link to={speaker._path} title="details" key={speaker.id}>
-              {speaker.title}
-            </Link>
+          {talk.speakers.map((speaker, idx) => (
+            <React.Fragment key={speaker.id}>
+              {idx > 0 && <span>, </span>}
+              <Link to={speaker._path} title="details">
+                {speaker.title}
+              </Link>
+            </React.Fragment>
           ))}
         </div>
       )}

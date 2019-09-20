@@ -109,8 +109,10 @@
                 border: 1px solid $tabs-border-color;
                 border-top: 0;
                 padding: 0 2.5rem;
+
                 @media (max-width: 600px) {
-                    padding: 0 0.8rem;
+                    padding: 0 0 0 0.8rem;
+                    border: 0;
                 }
             }
         }
