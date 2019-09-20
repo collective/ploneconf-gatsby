@@ -9,7 +9,7 @@ const Schedule = ({ data }) => (
       _type: 'Schedule',
       image: data.ploneImage.image,
       title: 'Schedule',
-      description: 'description of schedule',
+      description: 'Talks, keynotes and lighting talks plan',
     }}
   >
     <article className="document-content schedule-page">

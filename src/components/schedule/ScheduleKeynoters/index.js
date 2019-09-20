@@ -82,9 +82,7 @@ class ScheduleKeynoters extends Component {
                 </div>
                 Keynoters
               </h3>
-              <div className="subtitle">
-                Lorem ipsum <span>dolor</span> sit amet.
-              </div>
+              {/*<div className="subtitle"> Lorem ipsum <span>dolor</span> sit amet. </div>*/}
               <div className="people">
                 {keynoters.map(({ person, talk }) => (
                   <div className="person" key={person.id}>

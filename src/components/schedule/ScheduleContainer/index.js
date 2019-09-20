@@ -16,16 +16,18 @@ class ScheduleContainer extends React.Component {
       <div className="schedule-container">
         <div className="container">
           <h2>
-            Schedule: <b>lorem</b> ipsum
+            Schedule: plan of <b>talks</b> and <b>keynotes</b>
           </h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+            This is the plan of talks and keynotes that we have selected to make
+            the Plone Conference a real digital experience. There's not only
+            Plone-related talks, but also talks from different web-related topic
+            like Volto, Guillotina, Pyramid, Javascript, databases and agile.
+          </p>
+
+          <p>
+            All talks and keynotes will take place between 23 and 25 October
+            2019 at the Apollo Cinepark rooms in the city center of Ferrara.
           </p>
           <ScheduleKeynoters />
         </div>

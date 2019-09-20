@@ -29,7 +29,7 @@
         }
         .person {
             flex: 1 1 calc(30% - 1em);
-            margin: 2em 1em;
+            margin: 1em;
             padding: 1em 0;
             border-bottom: 1px solid $gray-light;
             @media (max-width: 768px) {

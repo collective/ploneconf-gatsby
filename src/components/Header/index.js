@@ -88,9 +88,22 @@ class Header extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/talks" activeClassName="active">
+                <a href="#">
                   <span>Talks</span>
-                </Link>
+                  <FontAwesomeIcon icon={faCaretDown} />
+                </a>
+                <ul>
+                  <li>
+                    <Link to="/talks" activeClassName="active">
+                      <span>Talks</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/schedule" activeClassName="active">
+                      <span>Schedule</span>
+                    </Link>
+                  </li>
+                </ul>
               </li>
               {/*<li>
                 <a href="#">
