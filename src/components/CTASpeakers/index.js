@@ -16,16 +16,17 @@ const CTASpeakers = ({ img }) => (
         </figure>
       </div>
       <div className="text-block">
-        <p className="label">Call for speakers</p>
+        <p className="label">All the amazing talks</p>
         <h2>
-          Interested in <b>speaking?</b>
+          Curious about the <b>talks?</b>
         </h2>
         <p>
-          We are an open community and we love <b>inspiring stories</b>. Plone
-          of course, but also about other python frameworks, frontend
-          development, new trends and hypes, everything you are passionate
-          about.
+          We are an open community and people sent us the{' '}
+          <b>inspiring stories</b> we wanted. We&apos;ll have speaches about
+          Plone, of course, but also about Guillotina, Pyramid, Volto, about
+          frontend development, new trends and hypes are also in.
         </p>
+        <p>Don&apos;t miss the three terrific keynotes.</p>
         <Link to="/call-for-speakers" className="btn btn-primary btn-lg">
           Send us your speech proposal!
         </Link>
