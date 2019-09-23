@@ -11,6 +11,12 @@ import './index.scss';
 const Document = ({ data, cssClass, images = [], files = [], children }) => {
   return (
     <React.Fragment key={data._id} id={data._id}>
+      {data._id == 'sponsors' && (
+        <div className="container">
+          <HPSponsorsPartners />
+          <hr />
+        </div>
+      )}
       <article className={cx('document-content', cssClass)}>
         <div className="container">
           {data.text ? (
@@ -27,13 +33,6 @@ const Document = ({ data, cssClass, images = [], files = [], children }) => {
           <div className="savonarola-bg" />
         )}
       </article>
-
-      {data._id == 'sponsors' && (
-        <div className="container document-content">
-          <hr />
-          <HPSponsorsPartners />
-        </div>
-      )}
     </React.Fragment>
   );
 };
