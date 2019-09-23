@@ -1,7 +1,7 @@
 import { format, isSameDay } from 'date-fns';
 import { formatToTimeZone } from 'date-fns-timezone';
 
-export const whenLabel = ({ start, end }) => {
+export const whenLabel = ({ start, end, showDay = true }) => {
   if (start.length === 0 && end.length === 0) {
     return '';
   }
@@ -10,6 +10,10 @@ export const whenLabel = ({ start, end }) => {
   const timeZone = 'Europe/Berlin';
   const startTime = formatToTimeZone(startDate, 'HH:mm', { timeZone });
   const endTime = formatToTimeZone(endDate, 'HH:mm', { timeZone });
+
+  if (!showDay) {
+    return `${startTime} - ${endTime}`;
+  }
 
   if (isSameDay(startDate, endDate)) {
     return `${format(startDate, 'dddd')}, ${startTime} - ${endTime}`;

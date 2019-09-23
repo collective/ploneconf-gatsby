@@ -5,6 +5,8 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'gatsby';
 
+import { whenLabel } from '../../../helpers';
+
 import './index.scss';
 
 const ScheduleTalk = ({ start, end, talk }) => (
@@ -17,9 +19,7 @@ const ScheduleTalk = ({ start, end, talk }) => (
     )}
     <p className="talk-timeslot">
       <FontAwesomeIcon icon={faClock} />
-      <span>
-        {start.format('HH:mm')} {end && ' - ' + end.format('HH:mm')}
-      </span>
+      <span>{whenLabel({ start, end, showDay: false })}</span>
     </p>
     <div className="talk-data">
       {!talk._path && <h4>{talk.title}</h4>}

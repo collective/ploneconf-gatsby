@@ -10,14 +10,14 @@ import {
   faMicrophoneAlt,
   faChalkboardTeacher,
 } from '@fortawesome/free-solid-svg-icons';
-import moment from 'moment';
+import { format, getMinutes, getHours } from 'date-fns';
 
 import './index.scss';
 
 const defaultScheduleBreaks = [
   {
-    start: moment('10:40 AM', 'HH:mm A'),
-    end: moment('11:00 AM', 'HH:mm A'),
+    start: '2019-10-23T10:40:00+02:00',
+    end: '2019-10-23T11:00:00+02:00',
     node: {
       title: 'Breakfast',
       id: 'breakfast',
@@ -26,8 +26,8 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('12:50 PM', 'HH:mm A'),
-    end: moment('14:00 PM', 'HH:mm A'),
+    start: '2019-10-23T12:50:00+02:00',
+    end: '2019-10-23T14:00:00+02:00',
     node: {
       title: 'Lunch',
       id: 'lunch',
@@ -36,8 +36,8 @@ const defaultScheduleBreaks = [
     },
   },
   {
-    start: moment('03:40 PM', 'HH:mm A'),
-    end: moment('04:00 PM', 'HH:mm A'),
+    start: '2019-10-23T15:40:00+02:00',
+    end: '2019-10-23T16:00:00+02:00',
     node: {
       title: 'Break',
       id: 'break',
@@ -54,8 +54,8 @@ const customDayEvents = day => {
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('08:30 AM', 'HH:mm A'),
-          end: moment('09:30 AM', 'HH:mm A'),
+          start: '2019-10-23T08:30:00+02:00',
+          end: '2019-10-23T09:30:00+02:00',
           node: {
             title: 'Registration',
             id: 'registration',
@@ -64,8 +64,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('09:30 AM', 'HH:mm A'),
-          end: moment('09:50 AM', 'HH:mm A'),
+          start: '2019-10-23T09:30:00+02:00',
+          end: '2019-10-23T09:50:00+02:00',
           node: {
             title: 'Welcome',
             id: 'welcome',
@@ -74,8 +74,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('04:00 PM', 'HH:mm A'),
-          end: moment('05:00 PM', 'HH:mm A'),
+          start: '2019-10-23T16:00:00+02:00',
+          end: '2019-10-23T17:00:00+02:00',
           node: {
             title: 'Panel: Frameworks comparison',
             id: 'panel-frameworks',
@@ -84,8 +84,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('05:00 PM', 'HH:mm A'),
-          end: moment('06:00 PM', 'HH:mm A'),
+          start: '2019-10-23T17:00:00+02:00',
+          end: '2019-10-23T18:00:00+02:00',
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -99,8 +99,8 @@ const customDayEvents = day => {
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('08:30 AM', 'HH:mm A'),
-          end: moment('09:15 AM', 'HH:mm A'),
+          start: '2019-10-24T08:30:00+02:00',
+          end: '2019-10-24T09:15:00+02:00',
           node: {
             title: 'Registration',
             id: 'registration',
@@ -109,8 +109,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('09:15 AM', 'HH:mm A'),
-          end: moment('09:30 AM', 'HH:mm A'),
+          start: '2019-10-24T09:15:00+02:00',
+          end: '2019-10-24T09:30:00+02:00',
           node: {
             title: 'Welcome',
             id: 'welcome',
@@ -119,8 +119,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('04:00 PM', 'HH:mm A'),
-          end: moment('05:00 PM', 'HH:mm A'),
+          start: '2019-10-24T16:00:00+02:00',
+          end: '2019-10-24T17:00:00+02:00',
           node: {
             title: 'Panel: Ask Me Anything on Volto',
             id: 'panel-ama-volto',
@@ -129,8 +129,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('05:00 PM', 'HH:mm A'),
-          end: moment('06:00 PM', 'HH:mm A'),
+          start: '2019-10-24T17:00:00+02:00',
+          end: '2019-10-24T18:00:00+02:00',
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -144,8 +144,8 @@ const customDayEvents = day => {
       return [
         ...defaultScheduleBreaks,
         {
-          start: moment('08:30 AM', 'HH:mm A'),
-          end: moment('09:15 AM', 'HH:mm A'),
+          start: '2019-10-25T08:30:00+02:00',
+          end: '2019-10-25T09:15:00+02:00',
           node: {
             title: 'Registration',
             id: 'registration',
@@ -154,8 +154,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('09:15 AM', 'HH:mm A'),
-          end: moment('09:30 AM', 'HH:mm A'),
+          start: '2019-10-25T09:15:00+02:00',
+          end: '2019-10-25T09:30:00+02:00',
           node: {
             title: 'Welcome',
             id: 'welcome',
@@ -164,8 +164,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('04:00 PM', 'HH:mm A'),
-          end: moment('05:00 PM', 'HH:mm A'),
+          start: '2019-10-25T16:00:00+02:00',
+          end: '2019-10-25T17:00:00+02:00',
           node: {
             title: 'Panel: Future of Plone',
             id: 'panel-future-plone',
@@ -174,8 +174,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('05:00 PM', 'HH:mm A'),
-          end: moment('06:00 PM', 'HH:mm A'),
+          start: '2019-10-25T17:00:00+02:00',
+          end: '2019-10-25T18:00:00+02:00',
           node: {
             title: 'Lightning Talks',
             id: 'lt',
@@ -184,8 +184,8 @@ const customDayEvents = day => {
           },
         },
         {
-          start: moment('06:00 PM', 'HH:mm A'),
-          end: moment('06:30 PM', 'HH:mm A'),
+          start: '2019-10-25T18:00:00+02:00',
+          end: '2019-10-25T18:30:00+02:00',
           node: {
             title: 'Greetings and announcement of the Plone Conference 2020',
             id: 'gr',
@@ -203,8 +203,10 @@ const customDayEvents = day => {
 
 const ScheduleTalksList = ({ talks, dayNumber }) => {
   let orderedTalks = talks.concat(customDayEvents(dayNumber)).sort((a, b) => {
-    let _a = a.start.minute() + a.start.hours() * 60;
-    let _b = b.start.minute() + b.start.hours() * 60;
+    const aStart = new Date(a.start);
+    const bStart = new Date(b.start);
+    let _a = getMinutes(aStart) + getHours(aStart) * 60;
+    let _b = getMinutes(bStart) + getHours(bStart) * 60;
     return _a > _b ? 1 : -1;
   });
   // console.log('talks', orderedTalks);
@@ -223,7 +225,8 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
   //console.log('rooms', rooms);
 
   let rows = orderedTalks.reduce((acc, talk) => {
-    let start = talk.start.format('HH:mm');
+    const talkStart = new Date(talk.start);
+    let start = format(talkStart, 'HH:mm');
 
     if (!acc[start]) {
       acc[start] = {
@@ -242,20 +245,6 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
 
   return (
     <div className="schedule-talk-list">
-      {/*<div className="schedule-row row-room-names" key="rows">
-        <div className="room-names">
-          {Object.keys(rooms)
-            .sort()
-            .map(
-              room =>
-                room != 'all' && (
-                  <div className="room" key={room + 'cols'}>
-                    {room}
-                  </div>
-                ),
-            )}
-        </div>
-                </div>*/}
       {Object.keys(rows).map(row => (
         <div className="schedule-row" key={row + 'row'}>
           <div className="image-wrapper">
@@ -281,12 +270,6 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
                 </div>
               ))}
           </div>
-          {/*<ScheduleTalk
-            start={talk.start}
-            end={talk.end}
-            talk={talk.node}
-            key={talk.node.id + dayNumber}
-          />*/}
         </div>
       ))}
     </div>

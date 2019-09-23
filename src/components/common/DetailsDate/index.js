@@ -1,6 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import { format, isSameDay } from 'date-fns';
+import { formatToTimeZone } from 'date-fns-timezone';
 import './index.scss';
 
 const DetailsDate = ({ start, end }) => {
@@ -9,6 +10,9 @@ const DetailsDate = ({ start, end }) => {
   }
   const startDate = new Date(start);
   const endDate = new Date(end);
+  const timeZone = 'Europe/Berlin';
+  const startTime = formatToTimeZone(startDate, 'HH:mm', { timeZone });
+  const endTime = formatToTimeZone(endDate, 'HH:mm', { timeZone });
 
   let dateComponent = '';
   if (isSameDay(startDate, endDate)) {
@@ -16,8 +20,7 @@ const DetailsDate = ({ start, end }) => {
       <div className="date-wrapper">
         <div className="month">{format(startDate, 'MMM')}</div>
         <div className="day-hour">
-          <span>{format(startDate, 'DD')}</span> {format(startDate, 'HH:mm')} -{' '}
-          {format(endDate, 'HH:mm')}
+          <span>{format(startDate, 'DD')}</span> {startTime} - {endTime}
         </div>
       </div>
     );
@@ -27,15 +30,13 @@ const DetailsDate = ({ start, end }) => {
         <div className="date-wrapper">
           <div className="month">{format(startDate, 'MMM')}</div>
           <div className="day-hour">
-            <span>{format(startDate, 'DD')}</span> {format(startDate, 'HH:mm')}{' '}
-            - {format(endDate, 'HH:mm')}
+            <span>{format(startDate, 'DD')}</span> {startTime} - {endTime}
           </div>
         </div>
         <div className="date-wrapper">
           <div className="month">{format(endDate, 'MMM')}</div>
           <div className="day-hour">
-            <span>{format(endDate, 'DD')}</span> {format(startDate, 'HH:mm')} -
-            {format(endDate, 'HH:mm')}
+            <span>{format(endDate, 'DD')}</span> {startTime} -{endTime}
           </div>
         </div>
       </React.Fragment>
