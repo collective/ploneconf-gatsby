@@ -16,7 +16,10 @@ class TalksKeynoters extends Component {
       <StaticQuery
         query={graphql`
           query {
-            allPloneTalk {
+            allPloneTalk(
+              filter: { is_keynote: { eq: true } }
+              sort: { fields: modified }
+            ) {
               edges {
                 node {
                   ...TalkFragment
@@ -46,20 +49,11 @@ class TalksKeynoters extends Component {
             return '';
           }
 
-          //filtro i  talk che sono di tipo 'keynote'
-          const filteredTalks = talks.filter(({ node }) => {
-            return node.is_keynote == true;
-          });
-
-          if (filteredTalks.length === 0) {
-            return '';
-          }
-
           //qui deve estrarre i keynoters dai talk filtrati
           const keynoters = [];
 
           const keynotersId = [];
-          filteredTalks.forEach(_node => {
+          talks.forEach(_node => {
             const talk = _node.node;
             talk.related_people.forEach(personId => {
               people.forEach(pnode => {
