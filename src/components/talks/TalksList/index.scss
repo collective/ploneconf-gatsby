@@ -6,6 +6,10 @@
     padding: 2.5em 1em;
     text-align: center;
 
+    .document-content & ul li::before {
+        display: none;
+    }
+
     @include bg-black-blue-block();
     .blue-block,
     .black-block {
