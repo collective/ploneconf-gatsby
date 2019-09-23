@@ -64,6 +64,7 @@ const HPSponsorsPartners = () => (
           filter: { _path: { regex: "/sponsors-links/supporting/" } }
         ) {
           nodes {
+            _id
             id
             title
             remoteUrl
@@ -72,6 +73,20 @@ const HPSponsorsPartners = () => (
                 fixed(height: 30) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
+              }
+            }
+          }
+        }
+        interaktiv: ploneLink(
+          _path: { regex: "/sponsors-links/supporting/interaktive/" }
+        ) {
+          id
+          title
+          remoteUrl
+          image {
+            childImageSharp {
+              fixed(height: 40) {
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }
@@ -142,6 +157,7 @@ const HPSponsorsPartners = () => (
         silver,
         bronze,
         supporting,
+        interaktiv,
         individual,
         partners,
         sponsorship,
@@ -263,10 +279,21 @@ const HPSponsorsPartners = () => (
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <Img
-                                    fixed={sponsor.image.childImageSharp.fixed}
-                                    alt={sponsor.title}
-                                  />
+                                  {sponsor._id === 'interaktive' ? (
+                                    <Img
+                                      fixed={
+                                        interaktiv.image.childImageSharp.fixed
+                                      }
+                                      alt={interaktiv.title}
+                                    />
+                                  ) : (
+                                    <Img
+                                      fixed={
+                                        sponsor.image.childImageSharp.fixed
+                                      }
+                                      alt={sponsor.title}
+                                    />
+                                  )}
                                 </a>
                               </div>
                             ))}

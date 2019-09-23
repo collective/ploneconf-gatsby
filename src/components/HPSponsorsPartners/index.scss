@@ -92,6 +92,9 @@
                     }
                 }
             }
+            &.supporting {
+                align-self: center;
+            }
         }
         .ploneconf-sponsor-link:last-child {
             margin-right: 0;
