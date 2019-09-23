@@ -27,8 +27,8 @@ const CTASpeakers = ({ img }) => (
           frontend development, new trends and hypes are also in.
         </p>
         <p>Don&apos;t miss the three terrific keynotes.</p>
-        <Link to="/call-for-speakers" className="btn btn-primary btn-lg">
-          Send us your speech proposal!
+        <Link to="/schedule" className="btn btn-primary btn-lg">
+          Choose your favorite track!
         </Link>
       </div>
     </div>
