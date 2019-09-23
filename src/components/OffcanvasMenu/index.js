@@ -32,6 +32,7 @@ const OffcanvasMenu = () => (
         <Link to="/venue">Venue</Link>
         <Link to="/ferrara">Ferrara</Link>
         <Link to="/sponsors">Sponsors</Link>
+        <Link to="/sprints">Sprints</Link>
         <Link to="/contact-form">Contacts</Link>
         <div className="get-tickets-wrapper">
           <a
