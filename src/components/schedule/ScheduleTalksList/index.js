@@ -77,7 +77,7 @@ const customDayEvents = day => {
           start: moment('04:00 PM', 'HH:mm A'),
           end: moment('05:00 PM', 'HH:mm A'),
           node: {
-            title: 'Panel: Frameworks battle',
+            title: 'Panel: Frameworks comparison',
             id: 'panel-frameworks',
             icon: faChalkboardTeacher,
             room: 'Apollo 1',
