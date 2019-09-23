@@ -14,7 +14,6 @@ const Document = ({ data, cssClass, images = [], files = [], children }) => {
       {data._id == 'sponsors' && (
         <div className="container">
           <HPSponsorsPartners />
-          <hr />
         </div>
       )}
       <article className={cx('document-content', cssClass)}>

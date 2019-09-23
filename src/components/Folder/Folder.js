@@ -36,7 +36,7 @@ const Folder = ({ data, title, images = [], files = [] }) => {
   }
   return (
     <React.Fragment>
-      <article key={data._id} className="document-content">
+      <article key={data._id} className="document-content folder">
         <div className="container">
           <h1>{title ? title : data.title}</h1>
           <p>
