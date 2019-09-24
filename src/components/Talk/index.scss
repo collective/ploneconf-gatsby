@@ -22,4 +22,20 @@
             }
         }
     }
+    .column.multiple {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .relator {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .name {
+                padding-left: 0;
+                margin-top: 30px;
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { string, shape, arrayOf, array, object } from 'prop-types';
+import cx from 'classnames';
 import DefaultBlock from '../common/DefaultBlock';
 import LabelRow from '../LabelRow';
 import DetailsDate from '../common/DetailsDate';
@@ -10,7 +11,7 @@ import CTATickets from '../CTATickets';
 import PersonImage from '../people/PersonImage';
 import './index.scss';
 
-const Talk = ({ data, people, images = [], files = [] }) => {
+const Talk = ({ data, people = [], images = [], files = [] }) => {
   const {
     _id,
     title,
@@ -22,7 +23,7 @@ const Talk = ({ data, people, images = [], files = [] }) => {
     room,
     start,
     end,
-    related_people,
+    related_people = [],
     is_keynote,
   } = data;
 
@@ -37,15 +38,11 @@ const Talk = ({ data, people, images = [], files = [] }) => {
       text: 'Keynote',
     });
   }
-  let relator;
-  if (related_people && related_people.length > 0) {
-    people.edges.forEach(node => {
-      let p = node.node;
-      if (p.id == related_people[0]._id) {
-        relator = p;
-      }
-    });
-  }
+  const relators = people.edges
+    .filter(({ node }) => {
+      return related_people.filter(({ _id }) => _id === node.id).length > 0;
+    })
+    .map(({ node }) => node);
   let duration_minutes;
   if (duration) {
     // eslint-disable-next-line quotes
@@ -69,9 +66,17 @@ const Talk = ({ data, people, images = [], files = [] }) => {
           <h3>{title}</h3>
 
           <div className="talk-details">
-            <div className="column left-block">
-              {relator ? (
-                <div className="relator">
+            <div
+              className={cx([
+                'column',
+                'left-block',
+                {
+                  multiple: relators.length > 1,
+                },
+              ])}
+            >
+              {relators.map(relator => (
+                <div className="relator" key={relator.id}>
                   <PersonImage person={relator} viewDefaultImage={false} />
                   <div className="name">
                     <div className="data">
@@ -81,7 +86,7 @@ const Talk = ({ data, people, images = [], files = [] }) => {
                     </div>
                   </div>
                 </div>
-              ) : null}
+              ))}
               {abstract}
             </div>
             <div className="column right-block">
