@@ -48,6 +48,7 @@ const Talk = ({ data, people, images = [], files = [] }) => {
   }
   let duration_minutes;
   if (duration) {
+    // eslint-disable-next-line quotes
     duration_minutes = duration == 'Long talk' ? "40'" : "20'";
   }
 

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ScheduleTalk from '../ScheduleTalk';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getMinutes, getHours } from 'date-fns';
+import { formatToTimeZone } from 'date-fns-timezone';
+import cx from 'classnames';
 
 import {
   faUtensils,
@@ -10,7 +13,6 @@ import {
   faMicrophoneAlt,
   faChalkboardTeacher,
 } from '@fortawesome/free-solid-svg-icons';
-import { format, getMinutes, getHours } from 'date-fns';
 
 import './index.scss';
 
@@ -209,24 +211,12 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
     let _b = getMinutes(bStart) + getHours(bStart) * 60;
     return _a > _b ? 1 : -1;
   });
-  // console.log('talks', orderedTalks);
-
-  var rooms = orderedTalks.reduce((acc, talk) => {
-    let room = talk.node.room;
-
-    if (!acc[room]) {
-      acc[talk.node.room] = [];
-    }
-    return acc;
-  }, {});
-
-  //Object.keys(rooms).sort(); //ritorna un array dei nomi delle room in ordine alfabetico
-
-  //console.log('rooms', rooms);
 
   let rows = orderedTalks.reduce((acc, talk) => {
     const talkStart = new Date(talk.start);
-    let start = format(talkStart, 'HH:mm');
+    let start = formatToTimeZone(talkStart, 'HH:mm', {
+      timeZone: 'Europe/Berlin',
+    });
 
     if (!acc[start]) {
       acc[start] = {
@@ -241,7 +231,6 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
     acc[start].rooms[talk.node.room].push(talk);
     return acc;
   }, {});
-  // console.log('rows', rows);
 
   return (
     <div className="schedule-talk-list">
@@ -258,7 +247,10 @@ const ScheduleTalksList = ({ talks, dayNumber }) => {
             {Object.keys(rows[row].rooms)
               .sort()
               .map(room => (
-                <div className={'room ' + room} key={row + 'row' + room}>
+                <div
+                  className={cx(['room', room.replace(/\s/, '-')])}
+                  key={row + 'row' + room.replace(/\s/, '-')}
+                >
                   {rows[row].rooms[room].map(talk => (
                     <ScheduleTalk
                       start={talk.start}

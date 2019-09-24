@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import moment from 'moment';
+import { formatToTimeZone } from 'date-fns-timezone';
 import ScheduleTalksList from '../ScheduleTalksList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 import 'react-tabs/style/react-tabs.css';
 import './index.scss';
 
@@ -48,7 +49,8 @@ const ScheduleTalks = () => {
             }
           });
           if (ret == null) {
-            console.log('speaker with id ' + id + ' not found. Is it private?');
+            // eslint-disable-next-line no-console
+            console.warn(`speaker with id ${id} not found. Is it private?`);
           }
           return ret;
         };
@@ -72,13 +74,12 @@ const ScheduleTalks = () => {
         });
 
         const talksDict = talks.reduce((acc, talk) => {
-          // const date = talk.node.start;
-          //console.log(talk);
-
-          const date = moment(talk.node.start);
-          const start = moment(talk.node.start);
-          const end = moment(talk.node.end);
-          const day = date.format('DD MMM');
+          const date = talk.node.start;
+          const start = talk.node.start;
+          const end = talk.node.end;
+          const day = formatToTimeZone(new Date(date), 'DD MMM', {
+            timeZone: 'Europe/Berlin',
+          });
 
           if (!acc[day]) {
             acc[day] = [];
@@ -105,6 +106,7 @@ const ScheduleTalks = () => {
                   <a
                     href="https://goo.gl/maps/nL3fnxrndAAukAew5"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <FontAwesomeIcon icon={faMapMarkerAlt} size="3x" />
                     <br />

@@ -11,7 +11,7 @@ import './index.scss';
 
 const ScheduleTalk = ({ start, end, talk }) => (
   <div className="talk">
-    {talk.room != 'all' && (
+    {talk.room !== 'all' && (
       <p className="talk-room">
         <FontAwesomeIcon icon={faMapMarkerAlt} />
         {talk.room}
@@ -67,8 +67,8 @@ const ScheduleTalk = ({ start, end, talk }) => (
 );
 
 ScheduleTalk.propTypes = {
-  start: PropTypes.object,
-  end: PropTypes.object,
+  start: PropTypes.string,
+  end: PropTypes.string,
   talk: PropTypes.object,
 };
 
