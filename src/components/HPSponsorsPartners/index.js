@@ -132,7 +132,7 @@ const HPSponsorsPartners = () => (
             remoteUrl
             image {
               childImageSharp {
-                fixed(height: 70) {
+                fixed(height: 100) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -399,14 +399,14 @@ const HPSponsorsPartners = () => (
                     </div>
 
                     <div className="links-row">
+                      <p className="ploneconf-sponsor-type sponsorship">
+                        <strong>Under the patronage of </strong>
+                      </p>
                       {sponsorship.nodes.map(sponsor => (
                         <div
                           className="ploneconf-sponsor-link sponsorship"
                           key={sponsor.id}
                         >
-                          <p className="ploneconf-sponsor-type sponsorship">
-                            <strong>Under the patronage of </strong>
-                          </p>
                           <a
                             href={sponsor.remoteUrl}
                             target="_blank"
