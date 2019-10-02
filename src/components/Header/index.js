@@ -88,6 +88,11 @@ class Header extends Component {
                 </Link>
               </li>
               <li>
+                <Link to="/schedule" activeClassName="active">
+                  <span>Schedule</span>
+                </Link>
+              </li>
+              {/*<li>
                 <a href="#">
                   <span>Talks</span>
                   <FontAwesomeIcon icon={faCaretDown} />
@@ -104,7 +109,7 @@ class Header extends Component {
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </li>*/}
               {/*<li>
                 <a href="#">
                   <span>Agenda</span>
