@@ -21,7 +21,7 @@ const defaultScheduleBreaks = [
     start: '2019-10-23T10:40:00+02:00',
     end: '2019-10-23T11:00:00+02:00',
     node: {
-      title: 'Breakfast',
+      title: 'Coffee break',
       id: 'breakfast',
       icon: faCoffee,
       room: 'all',
