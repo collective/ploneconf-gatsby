@@ -12,6 +12,7 @@ import {
   faClipboardList,
   faMicrophoneAlt,
   faChalkboardTeacher,
+  faGlassCheers,
 } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
@@ -192,6 +193,16 @@ const customDayEvents = day => {
             title: 'Greetings and announcement of the Plone Conference 2020',
             id: 'gr',
             icon: faMicrophoneAlt,
+            room: 'all',
+          },
+        },
+        {
+          start: '2019-10-25T19:00:00+02:00',
+          end: null,
+          node: {
+            title: 'Medieval dinner party inside Este Castle',
+            id: 'gr',
+            icon: faGlassCheers,
             room: 'all',
           },
         },

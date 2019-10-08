@@ -5,6 +5,7 @@ export const whenLabel = ({ start, end, showDay = true }) => {
   if (start.length === 0 && end.length === 0) {
     return '';
   }
+
   const startDate = new Date(start);
   const endDate = new Date(end);
   const timeZone = 'Europe/Berlin';
@@ -12,7 +13,11 @@ export const whenLabel = ({ start, end, showDay = true }) => {
   const endTime = formatToTimeZone(endDate, 'HH:mm', { timeZone });
 
   if (!showDay) {
-    return `${startTime} - ${endTime}`;
+    if (end) {
+      return `${startTime} - ${endTime}`;
+    } else {
+      return `from ${startTime}`;
+    }
   }
 
   if (isSameDay(startDate, endDate)) {
