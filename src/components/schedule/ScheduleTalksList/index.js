@@ -80,8 +80,8 @@ const customDayEvents = day => {
           start: '2019-10-23T16:00:00+02:00',
           end: '2019-10-23T17:00:00+02:00',
           node: {
-            title: 'Panel: Frameworks comparison',
-            id: 'panel-frameworks',
+            title: 'Panel: Future of Plone',
+            id: 'panel-future-plone',
             icon: faChalkboardTeacher,
             room: 'Apollo 1',
           },
@@ -170,8 +170,8 @@ const customDayEvents = day => {
           start: '2019-10-25T16:00:00+02:00',
           end: '2019-10-25T17:00:00+02:00',
           node: {
-            title: 'Panel: Future of Plone',
-            id: 'panel-future-plone',
+            title: 'Panel: Frameworks comparison',
+            id: 'panel-frameworks',
             icon: faChalkboardTeacher,
             room: 'Apollo 1',
           },
@@ -200,7 +200,7 @@ const customDayEvents = day => {
           start: '2019-10-25T19:00:00+02:00',
           end: null,
           node: {
-            title: 'Medieval dinner party inside Este Castle',
+            title: 'Party at the Castle',
             id: 'gr',
             icon: faGlassCheers,
             room: 'all',
