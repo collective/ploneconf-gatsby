@@ -71,6 +71,9 @@ const Footer = () => (
               <li>
                 <Link to="/credits">credits</Link>
               </li>
+              <li>
+                <Link to="/attributions">attributions</Link>
+              </li>
             </ul>
           </div>
         </div>
