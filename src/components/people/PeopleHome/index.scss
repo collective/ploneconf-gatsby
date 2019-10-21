@@ -13,5 +13,9 @@
                 margin: 0;
             }
         }
+
+        &::before {
+            display: none;
+        }
     }
 }
