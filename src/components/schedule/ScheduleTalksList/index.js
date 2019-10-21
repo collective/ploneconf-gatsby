@@ -77,6 +77,15 @@ const customDayEvents = day => {
           },
         },
         {
+          start: '2019-10-23T11:50:00+02:00',
+          end: '2019-10-23T12:20:00+02:00',
+          node: {
+            title: 'Open space',
+            id: 'open-space-1',
+            room: 'Apollo 3',
+          },
+        },
+        {
           start: '2019-10-23T16:00:00+02:00',
           end: '2019-10-23T17:00:00+02:00',
           node: {
@@ -164,6 +173,15 @@ const customDayEvents = day => {
             id: 'welcome',
             icon: faMicrophoneAlt,
             room: 'all',
+          },
+        },
+        {
+          start: '2019-10-25T10:15:00+02:00',
+          end: '2019-10-25T10:40:00+02:00',
+          node: {
+            title: 'Open space',
+            id: 'open-space-3',
+            room: 'Apollo 2',
           },
         },
         {
