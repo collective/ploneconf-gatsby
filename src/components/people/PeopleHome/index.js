@@ -42,7 +42,6 @@ const PeopleHome = ({ data, title, images = [], files = [], people = [] }) => {
           <nav key={data._id}>
             <ul className="list-group">
               {data.items.map((item, index) => {
-                //                console.log(item);
                 return [
                   <li key={item._path} className="list-group-item">
                     <PersonImage
